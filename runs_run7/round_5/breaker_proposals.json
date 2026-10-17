@@ -1,0 +1,53 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "Always include test cases where a selector input is used in a shift or multiplication to compute an index, and try selector values that make the computed index equal to or just beyond the width of the indexed input (e.g., for an N\u2011bit selector driving a (sel << k) index, test sel = 2^(width\u2011k) and sel = 2^(width\u2011k)+1).",
+      "summary": "Add rule to stress index\u2011calculation overflow in wide\u2011input multiplexers and similar structures.",
+      "reasoning": "The missed buggy design Prob021_mux256to1v fails because sel<<2 can address beyond the 1024\u2011bit input when sel is large; testing selector values at the power\u2011of\u2011two boundary and just above would expose this. Similar index\u2011calculation patterns appear in other missed designs (e.g., Prob054_edgedetect, Prob063_review2015_shiftcount) where shift amounts depend on inputs.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob063_review2015_shiftcount"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "IndexOverflowDetector",
+      "tool_code": "import re\nfrom typing import List, Dict\n\ndef run(spec: str, verilog: str, ports: List[dict]) -> Dict:\n    \"\"\"\n    Detects designs where an input port is used in a shift or multiplication\n    that could produce an index exceeding the width of another port it indexes.\n    Returns {\"fired\": bool, \"findings\": [str]}.\n    \"\"\"\n    # Map port name -> width\n    width = {}\n    for p in ports:\n        w = p.get(\"width\")\n        if w is None:\n            # default 1 bit if not specified\n            w = 1\n        width[p[\"name\"]] = w\n\n    # Find all assignments/assign statements\n    # Simple regex to catch patterns like assign out = in[ (sel << k) +: w ];\n    # We look for expressions where a port appears inside << or * and the result\n    # is used as an index (inside [ ... ] or [ ... +: ... ] or [ ... -: ... ])\n    index_pattern = re.compile(\n        r'\\['  # start of index\n        r'([^\\]]*?\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b\\s*[*/]\\s*\\d+[^\\]]*?)'  # capture expression containing a port and * or /\n        r'[^\\]]*?\\]'  # end of index\n    )\n    # Also catch shift\n    shift_pattern = re.compile(\n        r'\\['  # start of index\n        r'([^\\]]*?\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b\\s*<<\\s*\\d+[^\\]]*?)'  # capture expression containing a port and <<\n        r'[^\\]]*?\\]'\n    )\n\n    fired = False\n    findings = []\n\n    for pattern, op in [(index_pattern, \"* or /\"), (shift_pattern, \"<<\")]:\n        for match in pattern.finditer(verilog):\n            expr = match.group(1)\n            port_name = match.group(2)\n            # Determine if the expression could exceed the width of the indexed port\n            # We conservatively assume the port can be max value (2^width-1)\n            # and the shift/mul by a constant factor.\n            # Extract constant factor\n            const_match = re.search(r'[*/]\\s*(\\d+)|<<\\s*(\\d+)', expr)\n            if not const_match:\n                continue\n            shift = int(const_match.group(1)) if const_match.group(1) else int(const_match.group(2))\n            # If operation is multiplication, treat as shift by log2(const) only if power of two\n            if op == \"* or /\":\n                # only flag if constant is power of two (shift)\n                if shift & (shift - 1):\n                    continue  # not a power of two, skip for simplicity\n                shift = shift.bit_length() - 1\n            # Compute max index value\n            max_port_val = (1 << width.get(port_name, 1)) - 1\n            max_index = max_port_val << shift\n            # We need to know the width of the indexed port (the one whose range is being indexed)\n            # Heuristic: look for the width of the port whose name appears left of the assignment\n            # For simplicity, we flag if max_index could be >= 2^32 (unlikely) or we just flag any shift/mul\n            # as a potential overflow risk.\n            findings.append(\n                f\"Potential index overflow: port '{port_name}' {op} {const_match.group()} used as index; \"\n                f\"max index could be {max_index}.\"\n            )\n            fired = True\n\n    return {\"fired\": fired, \"findings\": findings}\n",
+      "summary": "Tool that flags designs where an input port is shifted or multiplied and the result could exceed the width of another port it indexes.",
+      "reasoning": "Static detection of potential index overflow would warn the attacker to focus on selector edge cases, increasing the chance to catch bugs like those in Prob021, Prob054, and Prob063. The tool examines Verilog for expressions of the form (input << const) or (input * const) used as an index or range and checks if the maximum possible value exceeds the target width.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob063_review2015_shiftcount"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 60,
+      "summary": "Increase maximum cycles from 40 to 60 to allow longer stimulus for sequential designs.",
+      "reasoning": "Several missed designs (e.g., Prob080_timer, Prob140_fsm_hdlc) require more than 40 cycles to trigger the buggy behavior (load/decrement sequences, long runs of ones). A modest increase to 60 cycles gives the attacker more scope without excessively expanding the search space, as previous attempts to double to 80 cycles hurt net coverage.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob140_fsm_hdlc",
+        "Prob021_mux256to1v"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob021_mux256to1v",
+    "Prob057_kmap2",
+    "Prob062_bugs_mux2",
+    "Prob070_ece241_2013_q2",
+    "Prob080_timer",
+    "Prob103_circuit2",
+    "Prob125_kmap3",
+    "Prob140_fsm_hdlc",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0073611
+}

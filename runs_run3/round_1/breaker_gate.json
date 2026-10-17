@@ -1,0 +1,100 @@
+{
+  "round": 1,
+  "team": "breaker",
+  "from_version": 0,
+  "score_before": 0.6829268292682927,
+  "entries": [
+    {
+      "id": "r1-breaker-c0",
+      "round": 1,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add reset pulse rule to improve FSM and reset-sensitive designs.",
+      "reasoning": "Several missed buggy designs (Prob129_ece241_2013_q8, Prob148_2013_q2afsm) involve asynchronous or synchronous resets that were not exercised, causing the attacker to miss state mismatches. Adding a rule that forces an early reset pulse ensures the FSM starts from a known state and can reveal reset-related bugs.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": "Always include a reset pulse (assert then deassert) within the first 5 cycles for any design that has an active-low reset input (e.g., resetn, aresetn).",
+      "tool_name": null,
+      "score_before": 0.6829,
+      "score_after": 0.7561,
+      "gained": [
+        "Prob096_review2015_fsmseq#c7ceb468576e",
+        "Prob102_circuit3#936d5ce4f95e",
+        "Prob139_2013_q2bfsm#e399f8a74d9e",
+        "Prob149_ece241_2013_q4#01dd467d4afa",
+        "Prob150_review2015_fsmonehot#5f6b97ec7dbd"
+      ],
+      "lost": [
+        "Prob041_dff8r#7f3bfdd2018f",
+        "Prob117_circuit9#a178c2076f2a"
+      ],
+      "net_flips": 3,
+      "errors": 0,
+      "accepted": true,
+      "from_version": 0,
+      "new_version": 1,
+      "invalid_reason": null,
+      "cost_usd": 0.0059,
+      "ts": "2026-10-17T18:53:32Z"
+    },
+    {
+      "id": "r1-breaker-c1",
+      "round": 1,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "tool_add",
+      "reasoning": "",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": "fsm_hint",
+      "score_before": 0.6829,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 0 valid)",
+      "cost_usd": 0.0011,
+      "ts": "2026-10-17T18:53:32Z"
+    },
+    {
+      "id": "r1-breaker-c2",
+      "round": 1,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "param",
+      "reasoning": "",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.6829,
+      "score_after": 0.5854,
+      "gained": [
+        "Prob102_circuit3#936d5ce4f95e"
+      ],
+      "lost": [
+        "Prob041_dff8r#7f3bfdd2018f",
+        "Prob132_always_if2#840ae888e862",
+        "Prob154_fsm_ps2data#cc974d5a7c5a",
+        "Prob154_fsm_ps2data#d1208853dbd8",
+        "Prob155_lemmings4#0c8951c12d36"
+      ],
+      "net_flips": -4,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0065,
+      "ts": "2026-10-17T18:53:32Z"
+    }
+  ],
+  "accepted_id": "r1-breaker-c0",
+  "new_version": 1,
+  "complete": true
+}

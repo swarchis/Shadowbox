@@ -1,0 +1,47 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "For any design that has a load input, assert load=1 with a non\u2011zero data value for exactly one cycle within the first 10 cycles.",
+      "summary": "Add a load\u2011pulse rule to trigger timer and load\u2011controlled bugs.",
+      "reasoning": "The missed buggy design Prob080_timer is a load\u2011controlled down\u2011counter that only shows errors when the load signal is exercised with a non\u2011zero value. Adding a rule that forces a load pulse early in the stimulus will expose this and similar load\u2011controlled designs. Other training problems with load inputs (e.g., Prob016_m2014_q4j, Prob057_kmap2) also benefited from early load activity in the attacks that found bugs.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob016_m2014_q4j",
+        "Prob057_kmap2"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "CombOutputChecker",
+      "tool_code": "def run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Returns {'fired': True, 'findings': [msg]} if the design has any output\n    that is driven only by a continuous assignment (assign) and never appears\n    in the left-hand side of an always block (including always_ff, always @(posedge clk),\n    always @*, etc.). Otherwise returns {'fired': False, 'findings': []}.\n    \"\"\"\n    import re\n\n    # Find output port names\n    output_ports = {p['name'] for p in ports if p.get('direction') == 'output'}\n\n    # Normalize whitespace and remove comments for easier parsing\n    def strip_comments(text):\n        # remove // comments\n        text = re.sub(r'//.*', '', text)\n        # remove /* */ comments\n        return re.sub(r'/\\\\*.*?\\\\*/', '', text, flags=re.DOTALL)\n\n    v = strip_comments(verilog)\n\n    # Find all always blocks (including always_ff, always @(...), always @*)\n    always_blocks = re.findall(r'always\\s*@*\\s*\\([^)]*\\)\\s*begin[\\s\\S]*?end', v, re.IGNORECASE)\n    # Also capture always @* without explicit begin/end? We'll approximate with a simpler pattern:\n    always_any = re.findall(r'always\\s*@*\\s*[^;]*;', v, re.IGNORECASE)\n    always_blocks.extend(always_any)\n\n    # Collect LHS signals inside always blocks\n    lhs_in_always = set()\n    for block in always_blocks:\n        # Find assignments like signal <= expr or signal = expr inside the block\n        # Look for patterns: <identifier> (<=|=) \n        assignments = re.findall(r'([a-zA-Z_][a-zA-Z0-9_]*)\\s*(<=|=)', block)\n        for lhs, _ in assignments:\n            lhs_in_always.add(lhs)\n\n    # Find continuous assignments: assign <lhs> = <expr>;\n    assign_matches = re.findall(r'assign\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*=', v, re.IGNORECASE)\n    assigned_in_assign = set(assign_matches)\n\n    # Determine outputs that are only assigned via assign and never in always\n    problematic = []\n    for out in output_ports:\n        if out in assigned_in_assign and out not in lhs_in_always:\n            problematic.append(out)\n\n    if problematic:\n        findings = [f\"Output(s) {', '.join(problematic)} driven only by combinational assign with no clocked always block.\"]\n        return {\"fired\": True, \"findings\": findings}\n    else:\n        return {\"fired\": False, \"findings\": []}\n}\n",
+      "summary": "Tool that flags designs where an output is driven purely by combinational assign with no clocked always block affecting it.",
+      "reasoning": "Several missed designs (Prob125_kmap3, Prob143_fsm_onehot, Prob148_2013_q2afsm) have outputs assigned only with continuous assignments and no registered behavior, making them vulnerable to combinational logic bugs that the current stimulus missed. This tool will highlight such designs so the attacker can focus on exercising input combinations that reveal functional errors.",
+      "evidence_problems": [
+        "Prob125_kmap3",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 60,
+      "summary": "Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers.",
+      "reasoning": "The missed buggy designs include deep FSMs (Prob143_fsm_onehot, Prob148_2013_q2afsm) and a timer (Prob080_timer) that require more than 40 cycles to manifest errors. Extending the cycle budget gives the attacker more opportunity to drive reset, load, and state transitions that expose these bugs, as evidenced by the longer attacks that succeeded on other problems (e.g., Prob070_ece241_2013_q2 used 37 cycles).",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob080_timer",
+    "Prob125_kmap3",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.006191100000000001
+}

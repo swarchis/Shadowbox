@@ -1,0 +1,22 @@
+{
+  "status": "finished",
+  "phase": "done",
+  "round": 7,
+  "step": "done",
+  "message": "Final exam complete",
+  "started_at": "2026-10-17T18:48:44Z",
+  "deadline_at": "2026-10-17T19:18:44Z",
+  "spend_usd": 0.9572,
+  "llm_calls": 3466,
+  "human_interventions": 0,
+  "builder_version": 1,
+  "breaker_version": 2,
+  "splits": {
+    "train": 30,
+    "val": 30,
+    "test": 92
+  },
+  "mode": "real",
+  "spend_cap_usd": 45.0,
+  "updated_at": "2026-10-17T19:14:22Z"
+}

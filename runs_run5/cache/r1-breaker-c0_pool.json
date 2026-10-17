@@ -1,0 +1,673 @@
+{
+  "fingerprint": "8eb2b0fd88",
+  "settings": "model=nvidia/Nemotron-3.5-Lightning-30B-A3B|t=0.0|think=off|mock=False",
+  "results": {
+    "Prob041_dff8r#7f3bfdd2018f": {
+      "id": "Prob041_dff8r#7f3bfdd2018f",
+      "problem_id": "Prob041_dff8r",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "pre",
+        "inputs": {
+          "d": 0,
+          "reset": 1
+        },
+        "signal": "q",
+        "expected": "01010101",
+        "got": "00000000"
+      }
+    },
+    "Prob009_popcount3#9210c7318a28": {
+      "id": "Prob009_popcount3#9210c7318a28",
+      "problem_id": "Prob009_popcount3",
+      "caught": true,
+      "cycles": 1,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 3
+        },
+        "signal": "out",
+        "expected": "10",
+        "got": "00"
+      }
+    },
+    "Prob094_gatesv#dee9ccd77ec4": {
+      "id": "Prob094_gatesv#dee9ccd77ec4",
+      "problem_id": "Prob094_gatesv",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "signal": "out_different",
+        "expected": "1001",
+        "got": "1010"
+      }
+    },
+    "Prob116_m2014_q3#f0ece47ef025": {
+      "id": "Prob116_m2014_q3#f0ece47ef025",
+      "problem_id": "Prob116_m2014_q3",
+      "caught": true,
+      "cycles": 16,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 6,
+        "phase": "comb",
+        "inputs": {
+          "x": 6
+        },
+        "signal": "f",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob060_m2014_q4k#21ece173d7b4": {
+      "id": "Prob060_m2014_q4k#21ece173d7b4",
+      "problem_id": "Prob060_m2014_q4k",
+      "caught": false,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob074_ece241_2014_q4#6996122ebfe9": {
+      "id": "Prob074_ece241_2014_q4#6996122ebfe9",
+      "problem_id": "Prob074_ece241_2014_q4",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "x": 0
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "x"
+      }
+    },
+    "Prob009_popcount3#0e246ef58926": {
+      "id": "Prob009_popcount3#0e246ef58926",
+      "problem_id": "Prob009_popcount3",
+      "caught": true,
+      "cycles": 2,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 3
+        },
+        "signal": "out",
+        "expected": "10",
+        "got": "00"
+      }
+    },
+    "Prob036_ringer#0e4fc2a2b29b": {
+      "id": "Prob036_ringer#0e4fc2a2b29b",
+      "problem_id": "Prob036_ringer",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "ring": 0,
+          "vibrate_mode": 0
+        },
+        "signal": "ringer",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob104_mt2015_muxdff#4210cc9cedbe": {
+      "id": "Prob104_mt2015_muxdff#4210cc9cedbe",
+      "problem_id": "Prob104_mt2015_muxdff",
+      "caught": true,
+      "cycles": 3,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "L": 1,
+          "q_in": 0,
+          "r_in": 1
+        },
+        "signal": "Q",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob096_review2015_fsmseq#c5e43b6a4e9c": {
+      "id": "Prob096_review2015_fsmseq#c5e43b6a4e9c",
+      "problem_id": "Prob096_review2015_fsmseq",
+      "caught": false,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob074_ece241_2014_q4#8fd6861a9e8f": {
+      "id": "Prob074_ece241_2014_q4#8fd6861a9e8f",
+      "problem_id": "Prob074_ece241_2014_q4",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "x"
+      }
+    },
+    "Prob096_review2015_fsmseq#6216ac11f194": {
+      "id": "Prob096_review2015_fsmseq#6216ac11f194",
+      "problem_id": "Prob096_review2015_fsmseq",
+      "caught": false,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob121_2014_q3bfsm#88401e42c953": {
+      "id": "Prob121_2014_q3bfsm#88401e42c953",
+      "problem_id": "Prob121_2014_q3bfsm",
+      "caught": true,
+      "cycles": 8,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "reset": 0,
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob155_lemmings4#8909c52cccf5": {
+      "id": "Prob155_lemmings4#8909c52cccf5",
+      "problem_id": "Prob155_lemmings4",
+      "caught": true,
+      "cycles": 2,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "post",
+        "inputs": {
+          "areset": 0,
+          "bump_left": 1,
+          "bump_right": 0,
+          "ground": 1,
+          "dig": 0
+        },
+        "signal": "walk_left",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob094_gatesv#644bdf90f0c5": {
+      "id": "Prob094_gatesv#644bdf90f0c5",
+      "problem_id": "Prob094_gatesv",
+      "caught": false,
+      "cycles": 0,
+      "error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'type': 'rate_limit_error', 'param': None, 'code': None}}",
+      "attack_error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'type': 'rate_limit_error', 'param': None, 'code': None}}",
+      "first_mismatch": null
+    },
+    "Prob155_lemmings4#5767b3bf0926": {
+      "id": "Prob155_lemmings4#5767b3bf0926",
+      "problem_id": "Prob155_lemmings4",
+      "caught": true,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "post",
+        "inputs": {
+          "areset": 0,
+          "bump_left": 0,
+          "bump_right": 0,
+          "ground": 0,
+          "dig": 0
+        },
+        "signal": "walk_left",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob121_2014_q3bfsm#5cea10d1101b": {
+      "id": "Prob121_2014_q3bfsm#5cea10d1101b",
+      "problem_id": "Prob121_2014_q3bfsm",
+      "caught": true,
+      "cycles": 3,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "reset": 0,
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob139_2013_q2bfsm#7528c0ff99ca": {
+      "id": "Prob139_2013_q2bfsm#7528c0ff99ca",
+      "problem_id": "Prob139_2013_q2bfsm",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "post",
+        "inputs": {
+          "resetn": 1,
+          "x": 0,
+          "y": 0
+        },
+        "signal": "g",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob116_m2014_q3#9f2a4f350770": {
+      "id": "Prob116_m2014_q3#9f2a4f350770",
+      "problem_id": "Prob116_m2014_q3",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "comb",
+        "inputs": {
+          "x": 12
+        },
+        "signal": "f",
+        "expected": "1",
+        "got": "x"
+      }
+    },
+    "Prob083_mt2015_q4b#12575755a205": {
+      "id": "Prob083_mt2015_q4b#12575755a205",
+      "problem_id": "Prob083_mt2015_q4b",
+      "caught": true,
+      "cycles": 9,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "x"
+      }
+    },
+    "Prob104_mt2015_muxdff#520b092b3804": {
+      "id": "Prob104_mt2015_muxdff#520b092b3804",
+      "problem_id": "Prob104_mt2015_muxdff",
+      "caught": true,
+      "cycles": 3,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "L": 1,
+          "q_in": 0,
+          "r_in": 1
+        },
+        "signal": "Q",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob104_mt2015_muxdff#7921c1438a90": {
+      "id": "Prob104_mt2015_muxdff#7921c1438a90",
+      "problem_id": "Prob104_mt2015_muxdff",
+      "caught": true,
+      "cycles": 3,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "L": 1,
+          "q_in": 1,
+          "r_in": 0
+        },
+        "signal": "Q",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob117_circuit9#9e277e9809d0": {
+      "id": "Prob117_circuit9#9e277e9809d0",
+      "problem_id": "Prob117_circuit9",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "post",
+        "inputs": {
+          "a": 1
+        },
+        "signal": "q",
+        "expected": "100",
+        "got": "000"
+      }
+    },
+    "Prob102_circuit3#5b6272cf15f0": {
+      "id": "Prob102_circuit3#5b6272cf15f0",
+      "problem_id": "Prob102_circuit3",
+      "caught": true,
+      "cycles": 19,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0
+        },
+        "signal": "q",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob074_ece241_2014_q4#a98f2e9fcaab": {
+      "id": "Prob074_ece241_2014_q4#a98f2e9fcaab",
+      "problem_id": "Prob074_ece241_2014_q4",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "x"
+      }
+    },
+    "Prob102_circuit3#936d5ce4f95e": {
+      "id": "Prob102_circuit3#936d5ce4f95e",
+      "problem_id": "Prob102_circuit3",
+      "caught": false,
+      "cycles": 2,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob102_circuit3#b5e2788926a7": {
+      "id": "Prob102_circuit3#b5e2788926a7",
+      "problem_id": "Prob102_circuit3",
+      "caught": true,
+      "cycles": 15,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 1,
+          "d": 1
+        },
+        "signal": "q",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob116_m2014_q3#ace3c7077298": {
+      "id": "Prob116_m2014_q3#ace3c7077298",
+      "problem_id": "Prob116_m2014_q3",
+      "caught": false,
+      "cycles": 0,
+      "error": null,
+      "attack_error": "invalid stimulus: no JSON found in model output",
+      "first_mismatch": null
+    },
+    "Prob149_ece241_2013_q4#550232858c75": {
+      "id": "Prob149_ece241_2013_q4#550232858c75",
+      "problem_id": "Prob149_ece241_2013_q4",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "reset": 0,
+          "s": 1
+        },
+        "signal": "fr1",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob149_ece241_2013_q4#e8dc8073168b": {
+      "id": "Prob149_ece241_2013_q4#e8dc8073168b",
+      "problem_id": "Prob149_ece241_2013_q4",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "pre",
+        "inputs": {
+          "reset": 0,
+          "s": 1
+        },
+        "signal": "dfr",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob132_always_if2#840ae888e862": {
+      "id": "Prob132_always_if2#840ae888e862",
+      "problem_id": "Prob132_always_if2",
+      "caught": true,
+      "cycles": 2,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "cpu_overheated": 1,
+          "arrived": 1,
+          "gas_tank_empty": 1
+        },
+        "signal": "keep_driving",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob121_2014_q3bfsm#030e6e6df342": {
+      "id": "Prob121_2014_q3bfsm#030e6e6df342",
+      "problem_id": "Prob121_2014_q3bfsm",
+      "caught": true,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "reset": 0,
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob009_popcount3#fa1bfcc3852a": {
+      "id": "Prob009_popcount3#fa1bfcc3852a",
+      "problem_id": "Prob009_popcount3",
+      "caught": false,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob155_lemmings4#c31497f7b962": {
+      "id": "Prob155_lemmings4#c31497f7b962",
+      "problem_id": "Prob155_lemmings4",
+      "caught": false,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob117_circuit9#16f870ea5436": {
+      "id": "Prob117_circuit9#16f870ea5436",
+      "problem_id": "Prob117_circuit9",
+      "caught": true,
+      "cycles": 9,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "post",
+        "inputs": {
+          "a": 1
+        },
+        "signal": "q",
+        "expected": "100",
+        "got": "001"
+      }
+    },
+    "Prob117_circuit9#49706a7ca47a": {
+      "id": "Prob117_circuit9#49706a7ca47a",
+      "problem_id": "Prob117_circuit9",
+      "caught": false,
+      "cycles": 0,
+      "error": null,
+      "attack_error": "invalid stimulus: no JSON found in model output",
+      "first_mismatch": null
+    },
+    "Prob139_2013_q2bfsm#3b36c8ec408b": {
+      "id": "Prob139_2013_q2bfsm#3b36c8ec408b",
+      "problem_id": "Prob139_2013_q2bfsm",
+      "caught": true,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "resetn": 1,
+          "x": 0,
+          "y": 0
+        },
+        "signal": "f",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob154_fsm_ps2data#c8c3b20e2253": {
+      "id": "Prob154_fsm_ps2data#c8c3b20e2253",
+      "problem_id": "Prob154_fsm_ps2data",
+      "caught": false,
+      "cycles": 0,
+      "error": null,
+      "attack_error": "invalid stimulus: no JSON found in model output",
+      "first_mismatch": null
+    },
+    "Prob154_fsm_ps2data#5de7710a68b8": {
+      "id": "Prob154_fsm_ps2data#5de7710a68b8",
+      "problem_id": "Prob154_fsm_ps2data",
+      "caught": false,
+      "cycles": 0,
+      "error": null,
+      "attack_error": "invalid stimulus: no JSON found in model output",
+      "first_mismatch": null
+    },
+    "Prob154_fsm_ps2data#42dcb5ab45e2": {
+      "id": "Prob154_fsm_ps2data#42dcb5ab45e2",
+      "problem_id": "Prob154_fsm_ps2data",
+      "caught": false,
+      "cycles": 0,
+      "error": null,
+      "attack_error": "invalid stimulus: no JSON found in model output",
+      "first_mismatch": null
+    },
+    "Prob139_2013_q2bfsm#ab6ce1493ca3": {
+      "id": "Prob139_2013_q2bfsm#ab6ce1493ca3",
+      "problem_id": "Prob139_2013_q2bfsm",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "post",
+        "inputs": {
+          "resetn": 1,
+          "x": 1,
+          "y": 0
+        },
+        "signal": "g",
+        "expected": "0",
+        "got": "1"
+      }
+    }
+  },
+  "complete": true
+}

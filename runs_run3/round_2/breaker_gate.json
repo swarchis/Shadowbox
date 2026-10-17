@@ -1,0 +1,104 @@
+{
+  "round": 2,
+  "team": "breaker",
+  "from_version": 1,
+  "score_before": 0.7560975609756098,
+  "entries": [
+    {
+      "id": "r2-breaker-c0",
+      "round": 2,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add a second reset toggle to catch designs that mishandle asynchronous reset deassertion.",
+      "reasoning": "The missed designs Prob129_ece241_2013_q8 and Prob148_2013_q2afsm both have asynchronous or synchronous reset logic that was not sufficiently exercised by a single reset pulse. Adding a second reset pulse later in the sequence increases the chance to trigger reset-related bugs. Evidence from these two missed bugs shows reset-related mismatches.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": "After the initial reset pulse, optionally toggle the reset line (assert then deassert) once more between cycles 10 and 20 to test asynchronous reset behavior.",
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.6829,
+      "gained": [
+        "Prob117_circuit9#a178c2076f2a"
+      ],
+      "lost": [
+        "Prob139_2013_q2bfsm#e399f8a74d9e",
+        "Prob150_review2015_fsmonehot#5f6b97ec7dbd",
+        "Prob154_fsm_ps2data#b4e925f512c3",
+        "Prob154_fsm_ps2data#cc974d5a7c5a"
+      ],
+      "net_flips": -3,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.006,
+      "ts": "2026-10-17T18:55:51Z"
+    },
+    {
+      "id": "r2-breaker-c1",
+      "round": 2,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Tool that flags designs with missing or incorrect reset sensitivity in always_ff blocks.",
+      "reasoning": "Several missed bugs involve reset handling (Prob129, Prob148). A static analysis tool can detect when reset signals are absent from sensitivity lists or when reset polarity is mismatched, giving the attacker a hint to focus on reset stimuli. This addresses the class of bugs missed due to insufficient reset testing.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": null,
+      "tool_name": "reset_sensitivity_checker",
+      "score_before": 0.7561,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 2 valid)",
+      "cost_usd": 0.0014,
+      "ts": "2026-10-17T18:55:51Z"
+    },
+    {
+      "id": "r2-breaker-c2",
+      "round": 2,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs.",
+      "reasoning": "The missed designs include FSMs that may require longer sequences to reach buggy states (e.g., Prob143_fsm_onehot needs a specific one-hot state vector). Doubling the cycle budget gives the attacker more opportunity to explore state space without overburdening the simulation.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.7317,
+      "gained": [
+        "Prob155_lemmings4#29b753d50ab2",
+        "Prob155_lemmings4#667c41b64a1b"
+      ],
+      "lost": [
+        "Prob117_circuit9#bdbe1b4cdb73",
+        "Prob139_2013_q2bfsm#e399f8a74d9e",
+        "Prob150_review2015_fsmonehot#5f6b97ec7dbd"
+      ],
+      "net_flips": -1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0097,
+      "ts": "2026-10-17T18:55:51Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 1,
+  "complete": true
+}

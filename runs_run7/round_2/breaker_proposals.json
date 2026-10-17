@@ -1,0 +1,54 @@
+{
+  "from_version": 0,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "When an input port is wider than 32 bits, explicitly test values that exercise the full range of its index bits (e.g., all zeros, all ones, and a pattern that increments/decrements across the width).",
+      "summary": "Add a rule to stimulate wide inputs with edge\u2011case index patterns.",
+      "reasoning": "The missed designs (Prob021_mux256to1v, Prob054_edgedetect, Prob080_timer) all involve wide inputs where the bug manifests only when selection/index values exercise the extreme or wrap\u2011around cases. Adding a rule that forces the attacker to consider full\u2011range index values will increase the chance of hitting those corner cases.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob080_timer",
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "width_overflow_checker",
+      "tool_code": "import re\nfrom typing import List, Dict, Any\n\ndef run(spec: str, verilog: str, ports: List[Dict[str, Any]]) -> Dict[str, Any]:\n    \"\"\"\n    Detect shift or index expressions that could exceed the width of an input port.\n    Returns {\"fired\": bool, \"findings\": [str]}.\n    \"\"\"\n    findings = []\n    # Map port name -> width\n    width_map = {}\n    for p in ports:\n        name = p.get(\"name\")\n        w = p.get(\"width\")\n        if isinstance(w, int) and w > 0:\n            width_map[name] = w\n\n    # Simple regex to find expressions like <signal> << <const> or <signal> + <const>\n    # We look for patterns where a port is shifted left or added with a constant.\n    # This is a lightweight check; false positives are acceptable.\n    shift_pattern = re.compile(r'(\\b\\w+\\b)\\s*<<\\s*(\\d+)')\n    add_pattern   = re.compile(r'(\\b\\w+\\b)\\s*\\+\\s*(\\d+)')\n\n    for match in shift_pattern.finditer(verilog):\n        signal, shift_str = match.groups()\n        shift = int(shift_str)\n        if signal in width_map:\n            w = width_map[signal]\n            # If shift >= width, the shifted value could exceed the port width\n            if shift >= w:\n                findings.append(\n                    f\"Potential width overflow: '{signal}' shifted left by {shift} bits \"\n                    f\"while its width is {w} bits.\"\n                )\n\n    for match in add_pattern.finditer(verilog):\n        signal, const_str = match.groups()\n        const = int(const_str)\n        if signal in width_map:\n            w = width_map[signal]\n            # If constant added could push index beyond width-1\n            if const >= w:\n                findings.append(\n                    f\"Potential width overflow: '{signal}' added with {const} \"\n                    f\"while its width is {w} bits.\"\n                )\n\n    return {\"fired\": bool(findings), \"findings\": findings}\n",
+      "summary": "Add a static analysis tool that flags designs where shift or index expressions could exceed the width of an input port.",
+      "reasoning": "Several missed bugs stem from index calculations (e.g., sel << 2) that can overflow the input width when the selector reaches its maximum. A tool that statically detects such potential overflows will give the attacker hints to generate stimuli targeting those conditions.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob080_timer",
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 80,
+      "summary": "Double the maximum allowed cycles for stimulus generation.",
+      "reasoning": "Many missed designs required longer sequences to reveal the bug (e.g., Prob080_timer needed 36 cycles, Prob140_fsm_hdlc needed 16 cycles). Increasing max_cycles gives the attacker more time to explore state spaces and reach the problematic conditions.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob080_timer",
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob021_mux256to1v",
+    "Prob054_edgedetect",
+    "Prob080_timer",
+    "Prob140_fsm_hdlc",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0043455
+}

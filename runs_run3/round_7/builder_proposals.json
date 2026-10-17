@@ -1,0 +1,46 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "If an output port is assigned inside an always block, declare it as logic or reg.",
+      "summary": "Ensure outputs driven by always blocks have a proper reg/logic type to avoid implicit wire errors.",
+      "reasoning": "Several failing designs (Prob026_alwaysblock1, Prob054_edgedetect, Prob078_dualedge) assign outputs within always blocks but leave them as implicit wires, causing compilation errors or mismatches. This rule targets exactly that situation without affecting designs that already declare such outputs correctly.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob078_dualedge"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "output_alwaysblock_undeclared",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Detect output ports that are assigned inside an always block but are not declared\n    as logic or reg (i.e., they remain implicit wires).\n    \"\"\"\n    # Extract output port names\n    output_names = {p[\"name\"] for p in ports if p[\"direction\"] == \"output\"}\n\n    # Find all always blocks (including @* , @(posedge ...), etc.)\n    # Simple regex: always followed by optional sensitivity and then a block\n    always_blocks = re.findall(r'always\\s*@?\\s*[^;]*?\\bbegin\\b(.*?)\\bend\\b', verilog, re.DOTALL | re.IGNORECASE)\n\n    # Also capture always blocks that use procedural continuous assignment (assign inside always?)\n    # For simplicity, we look for any assignment to an output inside the always block text.\n    problematic = []\n    for block in always_blocks:\n        # Find assignments like out_alwaysblock = ... ; or out_alwaysblock <= ... ;\n        assignments = re.findall(r'(\\w+)\\s*(<=|=)\\s*[^;]+;', block)\n        for lhs, _ in assignments:\n            if lhs in output_names:\n                # Check if this output is declared as logic or reg anywhere in the module\n                # Look for patterns: output ... logic ... or output reg ...\n                decl_pattern = rf'output\\s+(?:logic\\s+|reg\\s+)?{re.escape(lhs)}\\b'\n                if not re.search(decl_pattern, verilog, re.IGNORECASE):\n                    problematic.append(lhs)\n                    break  # one hit per output is enough\n\n    if problematic:\n        return {\n            \"fired\": True,\n            \"findings\": [f\"Output(s) {', '.join(sorted(set(problematic)))} assigned in always block but not declared as logic or reg\"]\n        }\n    return {\"fired\": False, \"findings\": []}\n"
+    },
+    {
+      "change_type": "param",
+      "param": "use_planner",
+      "value": true
+    }
+  ],
+  "evidence": [
+    "Prob016_m2014_q4j",
+    "Prob026_alwaysblock1",
+    "Prob054_edgedetect",
+    "Prob057_kmap2",
+    "Prob062_bugs_mux2",
+    "Prob063_review2015_shiftcount",
+    "Prob070_ece241_2013_q2",
+    "Prob078_dualedge",
+    "Prob080_timer",
+    "Prob103_circuit2",
+    "Prob105_rotate100",
+    "Prob118_history_shift",
+    "Prob125_kmap3",
+    "Prob129_ece241_2013_q8",
+    "Prob140_fsm_hdlc",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0101427
+}

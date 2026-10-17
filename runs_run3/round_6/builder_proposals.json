@@ -1,0 +1,46 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "If an output port is assigned inside an always block, declare it as logic or reg.",
+      "summary": "Require outputs driven by always blocks to be declared as logic/reg to avoid implicit wire errors.",
+      "reasoning": "Several failing designs (Prob026_alwaysblock1, Prob054_edgedetect, Prob078_dualedge) assigned outputs within always blocks but left them as implicit wires, causing compilation or functional mismatches. This rule targets exactly that pattern without affecting already\u2011correct designs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob078_dualedge"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "output_always_block_check",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Detects output ports that are assigned inside an always block but are not declared as logic/reg.\n    Returns findings if any such port is found.\n    \"\"\"\n    # Extract output port names\n    output_names = {p[\"name\"] for p in ports if p[\"direction\"] == \"output\"}\n\n    # Find all always block bodies (simplistic: from always @* or always @(...) to next 'end' at same indent)\n    # We'll just look for assignments to outputs inside any always block.\n    # Remove comments and strings to avoid false positives.\n    lines = verilog.splitlines()\n    in_always = False\n    brace_depth = 0\n    assigned_in_always = set()\n    declared_type = {}  # net type for each output (wire, logic, reg, etc.)\n\n    # First pass: collect declarations\n    decl_re = re.compile(r'^\\s*(?:(?:logic|reg|wire)\\s+)\\[?[^\\]]*\\]?\\s+([a-zA-Z_][a-zA-Z0-9_]*)')\n    for line in lines:\n        stripped = line.strip('{}; ')\n        if stripped.startswith('//'):\n            continue\n        m = decl_re.search(line)\n        if m:\n            name = m.group(1)\n            if name in output_names:\n                # Determine type keyword\n                if 'logic' in line:\n                    declared_type[name] = 'logic'\n                elif 'reg' in line:\n                    declared_type[name] = 'reg'\n                else:\n                    declared_type[name] = 'wire'\n\n    # Second pass: detect assignments inside always blocks\n    for line in lines:\n        if 'always' in line and ('@' in line):\n            in_always = True\n            brace_depth = line.count('(') - line.count(')')\n            continue\n        if in_always:\n            brace_depth += line.count('(') - line.count(')')\n            brace_depth += line.count('{') - line.count('}')\n            # Look for blocking or nonblocking assignment to an output\n            assign_matches = re.findall(r'([a-zA-Z_][a-zA-Z0-9_]*)\\s*[<=]=', line)\n            for name in assign_matches:\n                if name in output_names:\n                    assigned_in_always.add(name)\n            if brace_depth == 0 and '}' in line:\n                in_always = False\n\n    findings = []\n    for name in assigned_in_always:\n        if declared_type.get(name) not in ('logic', 'reg'):\n            findings.append(f\"Output '{name}' assigned in always block but declared as {declared_type.get(name, 'wire')}; should be logic or reg.\")\n    return {\"fired\": bool(findings), \"findings\": findings}\n"
+    },
+    {
+      "change_type": "param",
+      "param": "max_debug_attempts",
+      "value": 3
+    }
+  ],
+  "evidence": [
+    "Prob016_m2014_q4j",
+    "Prob026_alwaysblock1",
+    "Prob054_edgedetect",
+    "Prob057_kmap2",
+    "Prob062_bugs_mux2",
+    "Prob063_review2015_shiftcount",
+    "Prob070_ece241_2013_q2",
+    "Prob078_dualedge",
+    "Prob080_timer",
+    "Prob103_circuit2",
+    "Prob105_rotate100",
+    "Prob118_history_shift",
+    "Prob125_kmap3",
+    "Prob129_ece241_2013_q8",
+    "Prob140_fsm_hdlc",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.005277899999999999
+}

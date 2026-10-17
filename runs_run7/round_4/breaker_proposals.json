@@ -1,0 +1,42 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "Always include at least one cycle where every input port is explicitly driven (no omitted inputs) to guarantee a valid JSON stimulus.",
+      "summary": "Ensure the attacker always produces a JSON block with at least one fully\u2011specified cycle.",
+      "reasoning": "Several missed designs (Prob021_mux256to1v, Prob143_fsm_onehot) resulted in attacks that produced zero cycles or invalid JSON because the model omitted all inputs. By requiring at least one cycle with all inputs driven, we force the model to output a valid stimulus, increasing the chance to trigger bugs such as selector\u2011offset errors or state\u2011encoding mismatches.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob143_fsm_onehot"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "reset_sync_checker",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Detect asynchronous reset usage (negedge resetn) in always blocks.\n    Returns {'fired': True, 'findings': [msg]} if found.\n    \"\"\"\n    # Look for always blocks with sensitivity list containing negedge resetn\n    # Simple regex: always @\\\\(.*?negedge\\\\s+resetn.*?\\\\)\n    pattern = r'always\\\\s*@\\\\s*\\\\([^)]*?negedge\\\\s+resetn[^)]*\\\\)'\n    matches = re.findall(pattern, verilog, re.IGNORECASE | re.DOTALL)\n    if matches:\n        return {\"fired\": True, \"findings\": [\"Design uses asynchronous reset (negedge resetn) in an always block; spec expects synchronous reset.\"]}\n    return {\"fired\": False, \"findings\": []}\n",
+      "summary": "Detect designs that use asynchronous reset (negedge resetn) when the spec expects a synchronous reset.",
+      "reasoning": "Prob148_2013_q2afsm was missed because the resetn was treated as asynchronous (negedge) while the spec requires a synchronous reset. A static analysis tool that flags any always block containing `negedge resetn` (or `posedge resetn` with async behavior) will give the attacker a hint to generate reset\u2011deassertion sequences that expose the mismatch.",
+      "evidence_problems": [
+        "Prob148_2013_q2afsm"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 80,
+      "summary": "Double the maximum allowed cycles for stimulus generation from 40 to 80.",
+      "reasoning": "The missed timer design (Prob080_timer) required more than 40 cycles to observe the terminal\u2011count mismatch after a load deassertion. Increasing max_cycles gives the attacker more time to exercise long\u2011running counters and delayed\u2011effect bugs, thereby catching additional designs that need longer stimulus sequences.",
+      "evidence_problems": [
+        "Prob080_timer"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob021_mux256to1v",
+    "Prob080_timer",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0044283000000000005
+}

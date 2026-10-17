@@ -1,0 +1,100 @@
+{
+  "round": 7,
+  "team": "builder",
+  "from_version": 1,
+  "score_before": 0.5,
+  "entries": [
+    {
+      "id": "r7-builder-c0",
+      "round": 7,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Ensure outputs driven by always blocks have a proper reg/logic type to avoid implicit wire errors.",
+      "reasoning": "Several failing designs (Prob026_alwaysblock1, Prob054_edgedetect, Prob078_dualedge) assign outputs within always blocks but leave them as implicit wires, causing compilation errors or mismatches. This rule targets exactly that situation without affecting designs that already declare such outputs correctly.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob078_dualedge"
+      ],
+      "rule_text": "If an output port is assigned inside an always block, declare it as logic or reg.",
+      "tool_name": null,
+      "score_before": 0.5,
+      "score_after": 0.2667,
+      "gained": [],
+      "lost": [
+        "Prob036_ringer",
+        "Prob041_dff8r",
+        "Prob060_m2014_q4k",
+        "Prob083_mt2015_q4b",
+        "Prob094_gatesv",
+        "Prob117_circuit9",
+        "Prob131_mt2015_q4"
+      ],
+      "net_flips": -7,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.011,
+      "ts": "2026-10-17T19:06:23Z"
+    },
+    {
+      "id": "r7-builder-c1",
+      "round": 7,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "tool_add",
+      "reasoning": "",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": "output_alwaysblock_undeclared",
+      "score_before": 0.5,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 0 valid)",
+      "cost_usd": 0.0034,
+      "ts": "2026-10-17T19:06:23Z"
+    },
+    {
+      "id": "r7-builder-c2",
+      "round": 7,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "param",
+      "reasoning": "",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.5,
+      "score_after": 0.5,
+      "gained": [
+        "Prob009_popcount3",
+        "Prob096_review2015_fsmseq",
+        "Prob120_fsm3s"
+      ],
+      "lost": [
+        "Prob036_ringer",
+        "Prob060_m2014_q4k",
+        "Prob117_circuit9"
+      ],
+      "net_flips": 0,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0151,
+      "ts": "2026-10-17T19:06:23Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 1,
+  "complete": true
+}

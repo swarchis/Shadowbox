@@ -1,0 +1,58 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "If the specification mentions an 'always block' (combinational or clocked) and assigns a value to an output inside that block, declare the output as logic or reg.",
+      "summary": "Declare outputs driven by always blocks as logic/reg when the spec explicitly references an always block.",
+      "reasoning": "Failures in Prob026_alwaysblock1, Prob054_edgedetect, and Prob078_dualedge all stem from outputs assigned in always blocks being left as implicit wires, causing compilation or mismatch errors. The rule is conditional on the spec mentioning an always block, so it only affects designs where this pattern is relevant, avoiding over\u2011application to combinational assign\u2011only modules.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob078_dualedge"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "undriven_wire_check",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Detects wires (including output ports) that are never assigned a value.\n    Returns {\"fired\": True, \"findings\": [...]} if any undriven wire is found.\n    \"\"\"\n    # Remove comments and string literals to avoid false positives\n    def remove_comments(text):\n        # Remove /* ... */ comments\n        text = re.sub(r'/\\*.*?\\*/', '', text, flags=re.DOTALL)\n        # Remove // comments\n        text = re.sub(r'//.*', '', text)\n        return text\n\n    code = remove_comments(verilog)\n\n    # Extract module port directions\n    output_ports = {p[\"name\"] for p in ports if p[\"direction\"] == \"output\"}\n\n    # Find all wire/net declarations (wire, tri, wand, etc., but we keep simple)\n    wire_decls = re.findall(r'\\bwire\\s+(?:\\[[^\\]]+\\]\\s*)?([a-zA-Z_][a-zA-Z0-9_]*(?:\\s*,\\s*[a-zA-Z_][a-zA-Z0-9_]*)*)', code)\n    # Also consider output ports as wires if not explicitly declared reg/logic\n    # We'll treat all identifiers that appear as lvalues in assignments\n\n    # Find all left-hand side assignments (blocking, nonblocking, continuous assign)\n    # Patterns: assign lval = ; lval <= ; lval = ;\n    assign_lhs = re.findall(r'\\bassign\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:\\[[^\\]]*\\])?)\\s*=', code)\n    blocking_lhs = re.findall(r'([a-zA-Z_][a-zA-Z0-9_]*(?:\\[[^\\]]*\\])?)\\s*=', code)\n    nonblocking_lhs = re.findall(r'([a-zA-Z_][a-zA-Z0-9_]*(?:\\[[^\\]]*\\])?)\\s*<=', code)\n\n    # Combine all LHS identifiers\n    assigned = set()\n    for lst in (assign_lhs, blocking_lhs, nonblocking_lhs):\n        for token in lst:\n            # Split by commas for multiple declarations in one line\n            for name in re.split(r'\\s*,\\s*', token):\n                # Strip array indices for base name\n                base = re.split(r'\\[', name)[0]\n                assigned.add(base)\n\n    # Also consider outputs that are declared as reg/logic as driven\n    reg_decls = re.findall(r'\\b(?:reg|logic)\\s+(?:\\[[^\\]]+\\]\\s*)?([a-zA-Z_][a-zA-Z0-9_]*(?:\\s*,\\s*[a-zA-Z_][a-zA-Z0-9_]*)*)', code)\n    for decl in reg_decls:\n        for name in re.split(r'\\s*,\\s*', decl):\n            base = re.split(r'\\[', name)[0]\n            assigned.add(base)\n\n    # Determine undriven wires: wires declared but never assigned, and output ports not assigned\n    undriven = []\n    for decl in wire_decls:\n        for name in re.split(r'\\s*,\\s*', decl):\n            base = re.split(r'\\[', name)[0]\n            if base not in assigned:\n                undriven.append(f\"wire '{base}' never assigned\")\n    # Check output ports\n    for port in output_ports:\n        if port not in assigned:\n            undriven.append(f\"output port '{port}' never assigned\")\n\n    if undriven:\n        return {\"fired\": True, \"findings\": undriven[:5]}  # limit findings\n    return {\"fired\": False, \"findings\": []}\n",
+      "summary": "Flags any wire (including internal wires and output ports) that is never assigned a value.",
+      "reasoning": "Prob016_m2014_q4j failed because carry[0] was undriven, causing unknown bits in the sum. Similar undriven wire issues likely appear in other failing designs (e.g., missing default cases in combinational logic). A tool that statically detects undriven wires will catch these errors without affecting already\u2011correct designs.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_debug_attempts",
+      "value": 3,
+      "summary": "Increase the number of debugging iterations allowed per problem from 2 to 3.",
+      "reasoning": "Several failing designs (e.g., Prob063_review2015_shiftcount, Prob103_circuit2) required multiple fix attempts to resolve subtle logic mismatches. Allowing one extra debugging round gives the team additional opportunities to correct mistakes without changing the core architecture.",
+      "evidence_problems": [
+        "Prob063_review2015_shiftcount",
+        "Prob103_circuit2",
+        "Prob057_kmap2"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob016_m2014_q4j",
+    "Prob026_alwaysblock1",
+    "Prob054_edgedetect",
+    "Prob057_kmap2",
+    "Prob062_bugs_mux2",
+    "Prob063_review2015_shiftcount",
+    "Prob070_ece241_2013_q2",
+    "Prob078_dualedge",
+    "Prob080_timer",
+    "Prob103_circuit2",
+    "Prob105_rotate100",
+    "Prob118_history_shift",
+    "Prob125_kmap3",
+    "Prob129_ece241_2013_q8",
+    "Prob140_fsm_hdlc",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0078318
+}

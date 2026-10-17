@@ -1,0 +1,47 @@
+{
+  "from_version": 0,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "If an output port is assigned inside an always block (including @(*) or edge\u2011sensitive), declare it as reg or logic.",
+      "summary": "Ensure outputs driven by always blocks are declared as reg/logic to avoid latch inference and compilation errors.",
+      "reasoning": "Several failing designs (e.g., Prob026_alwaysblock1, Prob097_mux9to1v) assigned outputs within always blocks but left them as implicit wires, causing compilation or latch issues. This rule targets exactly that pattern without affecting designs that already declare outputs correctly.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob097_mux9to1v",
+        "Prob075_counter_2bc"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "latch_check",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Detect always @(*) blocks that may infer latches because not all output bits are assigned\n    in every branch (missing else or incomplete case/default).\n    Returns findings if any such pattern is found.\n    \"\"\"\n    # Extract output port names\n    output_names = {p[\"name\"] for p in ports if p[\"direction\"] == \"output\"}\n    if not output_names:\n        return {\"fired\": False, \"findings\": []}\n\n    # Find all always @(*) ... end blocks (non\u2011greedy across line breaks)\n    always_blocks = re.findall(r'always\\s*@\\s*\\(\\s*\\*\\s*\\)\\s*begin(.*?)end', verilog, re.DOTALL | re.IGNORECASE)\n    findings = []\n\n    for block in always_blocks:\n        # For each output, see if there is a path where it might not be assigned.\n        # Simple heuristic: if the block contains an 'if' without a matching 'else'\n        # or a 'case' without a 'default', flag it.\n        # We look for if-then(-else) patterns.\n        if_re = re.compile(r'if\\s*\\(', re.IGNORECASE)\n        else_re = re.compile(r'\\belse\\b', re.IGNORECASE)\n        case_re = re.compile(r'case\\s*\\(', re.IGNORECASE)\n        default_re = re.compile(r'\\bdefault\\b', re.IGNORECASE)\n\n        # Count ifs and elses in the block\n        if_count = len(if_re.findall(block))\n        else_count = len(else_re.findall(block))\n        if if_count > else_count:\n            findings.append(\"always @(*) block has if\u2011statement(s) without matching else \u2013 may infer latch\")\n            break\n\n        # Count case and default\n        if case_re.search(block) and not default_re.search(block):\n            findings.append(\"always @(*) block has case statement without default \u2013 may infer latch\")\n            break\n\n    return {\"fired\": bool(findings), \"findings\": findings}\n"
+    },
+    {
+      "change_type": "param",
+      "param": "max_debug_attempts",
+      "value": 3
+    }
+  ],
+  "evidence": [
+    "Prob016_m2014_q4j",
+    "Prob026_alwaysblock1",
+    "Prob054_edgedetect",
+    "Prob057_kmap2",
+    "Prob062_bugs_mux2",
+    "Prob063_review2015_shiftcount",
+    "Prob070_ece241_2013_q2",
+    "Prob075_counter_2bc",
+    "Prob080_timer",
+    "Prob097_mux9to1v",
+    "Prob103_circuit2",
+    "Prob105_rotate100",
+    "Prob118_history_shift",
+    "Prob125_kmap3",
+    "Prob129_ece241_2013_q8",
+    "Prob140_fsm_hdlc",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0061137
+}

@@ -1,0 +1,72 @@
+{
+  "from_version": 0,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "If an output port is assigned inside an always block, declare it as logic (or reg) rather than leaving it as an implicit wire.",
+      "summary": "Declare outputs driven by always blocks as logic to avoid implicit wire errors.",
+      "reasoning": "Several failing designs (Prob026_alwaysblock1, Prob054_edgedetect, Prob075_counter_2bc, Prob097_mux9to1v) assign outputs within always @(*) or always @(posedge clk) blocks but leave the outputs as implicit wires, causing compilation errors. Adding a conditional rule that forces logic declaration for such outputs fixes this pattern without affecting combinational assign-only designs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob075_counter_2bc",
+        "Prob097_mux9to1v"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "always_output_logic_check",
+      "summary": "Tool flags outputs assigned in always blocks that are not declared as logic/reg.",
+      "reasoning": "The tool will detect the specific failure pattern seen in multiple problems: an output appears in the left-hand side of an assignment inside an always block but is not declared with logic or reg type. By flagging this, the debugger can correct the declaration before compilation, preventing the compile/interface mismatch errors.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob075_counter_2bc",
+        "Prob097_mux9to1v"
+      ],
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Detects outputs that are assigned inside an always block but are not declared as logic or reg.\n    Returns a dict with fired=True and a list of findings if such a mismatch is found.\n    \"\"\"\n    # Parse port directions and types from the module header\n    # Simple regex to capture port list (assuming well-formed header)\n    header_match = re.search(r'module\\s+TopModule\\s*\\(([^)]*)\\)', verilog, re.DOTALL | re.IGNORECASE)\n    if not header_match:\n        return {\"fired\": False, \"findings\": []}\n    port_list = header_match.group(1)\n    # Extract port names (ignore direction and type for simplicity)\n    # This regex captures identifiers that appear as port names (ignoring vectors)\n    port_names = re.findall(r'\\b(input|output|inout)\\s*(?:[^,]*)\\b(\\w+)', port_list)\n    output_ports = {name for dir_, name in port_names if dir_.lower() == 'output'}\n\n    # Find all always blocks (including always @(*), always @(posedge ...), etc.)\n    always_blocks = re.findall(r'always\\s*@\\s*\\([^)]*\\)\\s*[^{]*\\{[^}]*\\}', verilog, re.DOTALL | re.IGNORECASE)\n    # Also capture always @(*) without braces? We'll assume braces present as in samples.\n    # For each always block, look for assignments to output ports\n    problematic_outputs = set()\n    for block in always_blocks:\n        # Find all blocking/nonblocking assignments inside the block\n        assignments = re.findall(r'(\\w+(?:\\[[^\\]]+\\])?)\\s*[<=]=', block)\n        for lhs in assignments:\n            # Strip possible array index to get base name\n            base = lhs.split('[')[0]\n            if base in output_ports:\n                problematic_outputs.add(base)\n\n    # Determine which outputs are declared as logic or reg\n    # Look for declarations like: output logic [..] name; or output reg name;\n    logic_decls = re.findall(r'output\\s+(?:logic|reg)\\s*[^;]*;', verilog, re.IGNORECASE)\n    logic_outputs = set()\n    for decl in logic_decls:\n        # Extract the last identifier before semicolon (ignore dimensions)\n        names = re.findall(r'\\b(\\w+)\\s*(?:\\[|;)', decl)\n        if names:\n            logic_outputs.add(names[-1])\n\n    # Outputs that are assigned in always blocks but not declared as logic/reg\n    to_fix = problematic_outputs - logic_outputs\n    if to_fix:\n        findings = [f\"Output '{out}' assigned in always block but not declared as logic or reg.\" for out in to_fix]\n        return {\"fired\": True, \"findings\": findings}\n    return {\"fired\": False, \"findings\": []}\n"
+    },
+    {
+      "change_type": "param",
+      "param": "max_debug_attempts",
+      "value": 3,
+      "summary": "Increase max debug attempts from 2 to 3 to allow more fixing iterations.",
+      "reasoning": "Increasing the number of debug attempts gives the team additional chances to apply the new rule and tool feedback, which has been shown to resolve persistent issues in several failing designs. This is a low\u2011risk parameter change that does not alter the existing prompts or rules.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob057_kmap2",
+        "Prob062_bugs_mux2",
+        "Prob063_review2015_shiftcount",
+        "Prob070_ece241_2013_q2",
+        "Prob075_counter_2bc",
+        "Prob080_timer",
+        "Prob097_mux9to1v",
+        "Prob103_circuit2",
+        "Prob105_rotate100"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob016_m2014_q4j",
+    "Prob026_alwaysblock1",
+    "Prob054_edgedetect",
+    "Prob057_kmap2",
+    "Prob062_bugs_mux2",
+    "Prob063_review2015_shiftcount",
+    "Prob070_ece241_2013_q2",
+    "Prob075_counter_2bc",
+    "Prob080_timer",
+    "Prob097_mux9to1v",
+    "Prob103_circuit2",
+    "Prob105_rotate100",
+    "Prob118_history_shift",
+    "Prob125_kmap3",
+    "Prob129_ece241_2013_q8",
+    "Prob140_fsm_hdlc",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.006442799999999999
+}

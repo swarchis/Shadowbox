@@ -1,0 +1,93 @@
+{
+  "round": 1,
+  "team": "builder",
+  "from_version": 0,
+  "score_before": 0.43333333333333335,
+  "entries": [
+    {
+      "id": "r1-builder-c0",
+      "round": 1,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Ensure outputs driven by always blocks are declared as reg/logic to avoid latch inference and compilation errors.",
+      "reasoning": "Several failing designs (e.g., Prob026_alwaysblock1, Prob097_mux9to1v) assigned outputs within always blocks but left them as implicit wires, causing compilation or latch issues. This rule targets exactly that pattern without affecting designs that already declare outputs correctly.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob097_mux9to1v",
+        "Prob075_counter_2bc"
+      ],
+      "rule_text": "If an output port is assigned inside an always block (including @(*) or edge\u2011sensitive), declare it as reg or logic.",
+      "tool_name": null,
+      "score_before": 0.4333,
+      "score_after": 0.2667,
+      "gained": [
+        "Prob009_popcount3"
+      ],
+      "lost": [
+        "Prob005_notgate",
+        "Prob036_ringer",
+        "Prob041_dff8r",
+        "Prob060_m2014_q4k",
+        "Prob067_countslow",
+        "Prob090_circuit1"
+      ],
+      "net_flips": -5,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0087,
+      "ts": "2026-10-17T18:51:33Z"
+    },
+    {
+      "id": "r1-builder-c1",
+      "round": 1,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "tool_add",
+      "reasoning": "",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": "latch_check",
+      "score_before": 0.4333,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 0 valid)",
+      "cost_usd": 0.002,
+      "ts": "2026-10-17T18:51:33Z"
+    },
+    {
+      "id": "r1-builder-c2",
+      "round": 1,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "param",
+      "reasoning": "",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.4333,
+      "score_after": 0.4333,
+      "gained": [],
+      "lost": [],
+      "net_flips": 0,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0129,
+      "ts": "2026-10-17T18:51:33Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 0,
+  "complete": true
+}

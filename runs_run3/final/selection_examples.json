@@ -1,0 +1,681 @@
+{
+  "examples": [
+    {
+      "problem_id": "Prob019_m2014_q4f",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  in1\n - input  in2\n - output out\n\nThe module should implement the following circuit in Verilog. Two inputs\n(in1 and in2) go to an AND gate, but the in2 input to the AND gate has a\nbubble. The output of the AND gate is connected to 'out'.",
+      "drafts": [
+        {
+          "label": "d0",
+          "code": "module TopModule (\n    input  in1,\n    input  in2,\n    output out\n);\n\n    // The AND gate with a bubble on in2 implements a NAND operation.\n    // out = in1 NAND in2 = ~(in1 & in2)\n    assign out = ~(in1 & in2);\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        },
+        {
+          "label": "d1",
+          "code": "module TopModule (\n    input  in1,\n    input  in2,\n    output out\n);\n\n    // AND gate with a bubble on in2 (logical NOT applied to in2)\n    assign out = in1 & ~in2;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d2",
+          "code": "module TopModule (\n    input  in1,\n    input  in2,\n    output out\n);\n\n    // The AND gate has a bubble on the in2 input, which implements a NAND function.\n    // out = in1 & ~in2\n    assign out = in1 & ~in2;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d3",
+          "code": "module TopModule (\n    input  in1,\n    input  in2,\n    output out\n);\n\n    // AND gate with inverted in2 (bubble on in2)\n    assign out = in1 & ~in2;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d4",
+          "code": "module TopModule(\n    input  in1,\n    input  in2,\n    output out\n);\n\n    // The AND gate has a bubble on the in2 input, which is equivalent\n    // to a NAND gate. The output 'out' is the NAND of in1 and in2.\n    assign out = ~(in1 & in2);\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        }
+      ],
+      "groups": [
+        [
+          "d1",
+          "d2",
+          "d3"
+        ],
+        [
+          "d0",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "chosen_correct": true,
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 2,
+        "phase": "comb",
+        "inputs": {
+          "in1": 0,
+          "in2": 1
+        },
+        "outputs": {
+          "d0": {
+            "out": "1"
+          },
+          "d1": {
+            "out": "0"
+          },
+          "d2": {
+            "out": "0"
+          },
+          "d3": {
+            "out": "0"
+          },
+          "d4": {
+            "out": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 4
+    },
+    {
+      "problem_id": "Prob029_m2014_q4g",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  in1\n - input  in2\n - input  in3\n - output out\n\nThe module should impement the following circuit: A two-input XNOR\n(connected to 'in1' and 'in2) has an output connected to the input of a\ntwo-input XOR. The second input of the XOR is 'in3.' The output of the\nXOR is 'out'.",
+      "drafts": [
+        {
+          "label": "d0",
+          "code": "module TopModule (\n    input  in1,\n    input  in2,\n    input  in3,\n    output out\n);\n\n  // Internal wire to connect XNOR output to XOR input\n  wire xnor_out;\n\n  // Two-input XNOR gate connected to in1 and in2\n  // Using the built-in Verilog logic operator for XNOR\n  assign xnor_out = ~(in1 ^ in2);\n\n  // Two-input XOR gate. First input from XNOR output, second input from in3.\n  // Output is 'out'.\n  assign out = xnor_out ^ in3;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d1",
+          "code": "module TopModule (\n    input  in1,\n    input  in2,\n    input  in3,\n    output out\n);\n\n    // Internal wire to connect the XNOR output to the XOR input\n    wire xnor_out;\n\n    // Two-input XNOR gate: in1 XNOR in2\n    assign xnor_out = ~(in1 ^ in2);\n\n    // Two-input XOR gate: xnor_out XOR in3\n    assign out = xnor_out ^ in3;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d2",
+          "code": "module TopModule(\n    input  in1,\n    input  in2,\n    input  in3,\n    output out\n);\n\nassign out = (in1 ~^ in2) ^ in3;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d3",
+          "code": "module TopModule (\n    input  in1,\n    input in2,\n    input in3,\n    output out\n);\n\nassign out = (in1 ^ in2) ^ in3;  // XOR of (in1 XNOR in2) and in3\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        },
+        {
+          "label": "d4",
+          "code": "module TopModule (\n    input  in1,\n    input  in2,\n    input  in3,\n    output out\n);\n\n    // Internal wire to connect XNOR output to XOR input\n    wire xnor_out;\n\n    // Two-input XNOR gate: outputs 1 when in1 and in2 are equal\n    assign xnor_out = ~(in1 ^ in2);\n\n    // Two-input XOR gate: second input is in3, first input is the XNOR output\n    assign out = xnor_out ^ in3;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        }
+      ],
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d4"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "chosen_correct": true,
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in1": 0,
+          "in2": 0,
+          "in3": 0
+        },
+        "outputs": {
+          "d0": {
+            "out": "1"
+          },
+          "d1": {
+            "out": "1"
+          },
+          "d2": {
+            "out": "1"
+          },
+          "d3": {
+            "out": "0"
+          },
+          "d4": {
+            "out": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 8
+    },
+    {
+      "problem_id": "Prob030_popcount255",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  in  (255 bits)\n - output out (  8 bits)\n\nA \"population count\" circuit counts the number of '1's in an input\nvector. The module should implement a population count circuit for a\n255-bit input vector.",
+      "drafts": [
+        {
+          "label": "d0",
+          "code": "module TopModule (\n    input  [254:0] in,\n    output [7:0]   out\n);\n\n    // Function to count the number of 1s in a binary vector\n    function [7:0] popcount;\n        input [254:0] data;\n        integer i;\n        reg [7:0] count;\n        begin\n            count = 8'b0;\n            for (i = 0; i < 255; i = i + 1) begin\n                if (data[i])\n                    count = count + 1'b1;\n            end\n            popcount = count;\n        end\n    endfunction\n\n    assign out = popcount(in);\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d1",
+          "code": "module TopModule (\n    input  wire [254:0] in,\n    output wire [7:0]   out\n);\n\n    // Combinational population count using built-in $countones.\n    // $countones counts the number of 1 bits in the concatenation of its arguments.\n    // Here we count the bits in the 255-bit input vector.\n    assign out = $countones(in);\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d2",
+          "code": "module TopModule (\n    input  logic [254:0] in,\n    output logic [7:0]   out\n);\n\n    // Internal signals for each 8-bit group popcount result\n    logic [7:0] group_count;\n\n    // Instantiate 32 popcount units for groups of 8 bits (32 * 8 = 256 bits)\n    // The topmost bit (bit 254) is tied to 0; the circuit counts bits 254 down to 1,\n    // effectively counting only the 255 input bits.\n    genvar i;\n    generate\n        for (i = 0; i < 32; i = i + 1) begin: popcount_group\n            // Assign the 8-bit slice. For the last group (i=31), bit 254 is 0.\n            // For all other groups, we take in[8*i +: 8].\n            assign group_count[i] = (i == 31) \n                ? |in[8*i -: 7]  // Count ones in bits 254 down to 247 (7 bits) plus the implicit 0\n                : |in[8*i +: 8]; // Count ones in the 8-bit slice\n        end\n    endgenerate\n\n    // Sum the 32 group counts (each 0-8) into an 8-bit result.\n    always_comb begin\n        out = group_count[0] + group_count[1] + group_count[2] + group_count[3] +\n              group_count[4] + group_count[5] + group_count[6] + group_count[7] +\n              group_count[8] + group_count[9] + group_count[10] + group_count[11] +\n              group_count[12] + group_count[13] + group_count[14] + group_count[15] +\n              group_count[16] + group_count[17] + group_count[18] + group_count[19] +\n              group_count[20] + group_count[21] + group_count[22] + group_count[23] +\n              group_count[24] + group_count[25] + group_count[26] + group_count[27] +\n              group_count[28] + group_count[29] + group_count[30] + group_count[31];\n    end\n\nendmodule\n",
+          "compiled": false,
+          "official_pass": false,
+          "error": null
+        },
+        {
+          "label": "d3",
+          "code": "module TopModule (\n    input  [254:0] in,\n    output [7:0]   out\n);\n\n    // Sum accumulator for population count\n    reg [8:0] sum;\n\n    integer i;\n\n    always @(*) begin\n        sum = 9'd0;\n        for (i = 0; i < 255; i = i + 1) begin\n            if (in[i])\n                sum = sum + 1;\n        end\n    end\n\n    // Assign the lower 8 bits of the internal sum to the output\n    assign out = sum[7:0];\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d4",
+          "code": "module TopModule (\n    input [254:0] in,\n    output [7:0] out\n);\n\n    assign out = &in ? 8'b1 : 8'b0; // Placeholder logic\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        }
+      ],
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "chosen_correct": true,
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "outputs": {
+          "d0": {
+            "out": "00000001"
+          },
+          "d1": {
+            "out": "00000001"
+          },
+          "d3": {
+            "out": "00000001"
+          },
+          "d4": {
+            "out": "00000000"
+          }
+        }
+      },
+      "stimulus_cycles": 5
+    },
+    {
+      "problem_id": "Prob033_ece241_2014_q1c",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  a (8 bits)\n - input  b (8 bits)\n - output s (8 bits)\n - output overflow\n\nAssume that you have two 8-bit 2's complement numbers, a[7:0] and b[7:0].\nThe module should add these numbers to produce s[7:0]. Also compute\nwhether a (signed) overflow has occurred.",
+      "drafts": [
+        {
+          "label": "d0",
+          "code": "module TopModule (\n    input  [7:0] a,\n    input  [7:0] b,\n    output [7:0] s,\n    output       overflow\n);\n\n    // Perform the 8-bit signed addition\n    assign s = a + b;\n\n    // Detect signed overflow in 2's complement addition.\n    // Overflow occurs when:\n    //   - Both operands are positive (MSB=0) and the result is negative (MSB=1)\n    //   - Both operands are negative (MSB=1) and the result is positive (MSB=0)\n    // This is XOR of the carry into the MSB and the carry out of the MSB.\n    assign overflow = (a[7] & b[7] & ~s[7]) | (~a[7] & ~b[7] & s[7]);\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d1",
+          "code": "module TopModule (\n    input  [7:0] a,\n    input  [7:0] b,\n    output [7:0] s,\n    output       overflow\n);\n\n    // Internal signal for the 9-bit sum (includes carry out of MSB)\n    wire [8:0] sum;\n\n    // Perform the addition.  The concatenation {1'b0, a} promotes 'a' to 9 bits\n    // before adding, allowing the carry out to be captured in sum[8].\n    assign sum = {1'b0, a} + {1'b0, b};\n\n    // The 8-bit result is the lower 8 bits of the sum.\n    assign s = sum[7:0];\n\n    // Overflow detection for signed 2's complement addition:\n    // Overflow occurs if the carry into the MSB (sum[8]) differs from\n    // the carry out of the MSB (sum[8] as the outgoing carry).\n    // In hardware, this is simply the XOR of the two carry bits.\n    // Since sum[8] represents both the incoming and outgoing carry,\n    // we can detect overflow by XORing the MSB of 'a' and 'b' with\n    // the MSB of the result, or more directly:\n    //   overflow = (a[7] & b[7] & ~s[7]) | (~a[7] & ~b[7] & s[7]);\n    // However, the simplest and most common synthesis-friendly method\n    // is checking if the carry into the sign bit differs from the carry out.\n    // Using the internal sum signal:\n    assign overflow = sum[8] ^ sum[8]; \n    // The line above always evaluates to 0. To correctly implement overflow\n    // detection, we must compare the carry-in and carry-out of the MSB.\n    // The carry-in to the MSB is sum[8] (from the lower bits) and the\n    // carry-out is also sum[8] but conceptual. The standard formula is:\n    //   overflow = (a[7] & b[7] & ~s[7]) | (~a[7] & ~b[7] & s[7])\n    // We will use that explicit formula for synthesis.\n\n    // Re-assigning overflow using the explicit logic:\n    assign overflow = (a[7] & b[7] & ~s[7]) | (~a[7] & ~b[7] & s[7]);\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        },
+        {
+          "label": "d2",
+          "code": "module TopModule (\n    input  [7:0] a,\n    input  [7:0] b,\n    output [7:0] s,\n    output       overflow\n);\n\n    // Internal 9-bit sum to capture the carry out of the MSB\n    wire [8:0] sum;\n\n    // Perform the addition.  The extra MSB prevents immediate overflow\n    // of the wire vector when assigning to the 8-bit output.\n    assign sum = {1'b0, a} + {1'b0, b};\n\n    // The 8-bit result is the lower 8 bits of the sum.\n    assign s = sum[7:0];\n\n    // Overflow detection for two's complement addition:\n    // Overflow occurs when the carry into the MSB differs from the carry out of the MSB.\n    // Carry into MSB  = a[7] ^ b[7] ^ sum[7]   (but we can use the internal XOR of the incoming carries)\n    // Alternatively, using the full 9-bit sum:\n    //   carry into MSB  = a[7] ^ b[7] ^ sum[7]   (actually sum[7] is the result bit, so carry_in = a[7] ^ b[7] ^ sum[7] is not directly available)\n    //   carry out of MSB = sum[8]\n    // A more robust method:  overflow = (a[7] & b[7] & ~sum[7]) | (~a[7] & ~b[7] & sum[7])\n    // This checks if both operands are positive and result is negative, or both are negative and result is positive.\n\n    // Using the carry method:\n    // carry into MSB  = a[7] ^ b[7] ^ sum[7]   // This is actually the XOR of the two operands and the result bit, which gives the carry-in to the MSA.\n    // However, the simplest and most common synthesis-friendly expression is:\n    assign overflow = (a[7] & b[7] & ~sum[7]) | (~a[7] & ~b[7] & sum[7]);\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d3",
+          "code": "module TopModule (\n    input  [7:0] a,\n    input  [7:0] b,\n    output [7:0] s,\n    output       overflow\n);\n\n    // Internal signal for the raw 9-bit sum (to capture possible carry out)\n    wire [8:0] sum_raw;\n\n    // Perform the addition. The extra MSB allows us to detect overflow.\n    assign sum_raw = {1'b0, a} + {1'b0, b};\n\n    // The 8-bit result is the lower 8 bits of the raw sum.\n    assign s = sum_raw[7:0];\n\n    // Overflow detection for signed 2's complement addition:\n    // Overflow occurs if the carry into the MSB (bit 8) differs from\n    // the carry out of the MSB (bit 9). This is equivalent to XOR-ing\n    // the two carry bits.\n    assign overflow = sum_raw[8] ^ sum_raw[7];\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        },
+        {
+          "label": "d4",
+          "code": "module TopModule (\n    input  logic [7:0] a,\n    input  logic [7:0] b,\n    output logic [7:0] s,\n    output logic       overflow\n);\n\n    // Perform the 8-bit addition\n    assign s = a + b;\n\n    // Overflow detection for signed 2's complement addition:\n    // Overflow occurs if the carry into the most significant bit (bit 7)\n    // differs from the carry out of the most significant bit.\n    // In SystemVerilog, the '+' operator sets the carry flag in the\n    // carry bit, but for portable overflow detection we XOR the\n    // carry into and out of the MSB.\n    // Here we compute it using the internal carry bits.\n    // Note: Icarus Verilog simulation may not directly expose the\n    // carry prefix operator, so we use a behavioral approach:\n    //   - carry_in to MSB:   (a[7] & b[7]) | (a[7] & s[7]) | (b[7] & s[7]) is NOT correct for overflow.\n    //   - Correct logic:    overflow = (a[7] == b[7]) && (a[7] != s[7])\n    // This captures the case where two positives sum to a negative,\n    // or two negatives sum to a positive.\n\n    always_comb begin\n        // Default assignment\n        overflow = 1'b0;\n\n        // Overflow in signed addition:\n        // If both operands are positive (MSB=0) and result is negative (MSB=1)\n        // OR both operands are negative (MSB=1) and result is positive (MSB=0)\n        if (a[7] == b[7] && a[7] != s[7]) begin\n            overflow = 1'b1;\n        end\n    end\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        }
+      ],
+      "groups": [
+        [
+          "d0",
+          "d2",
+          "d4"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "chosen_correct": true,
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 3,
+        "phase": "comb",
+        "inputs": {
+          "a": 128,
+          "b": 128
+        },
+        "outputs": {
+          "d0": {
+            "s": "00000000",
+            "overflow": "1"
+          },
+          "d1": {
+            "s": "00000000",
+            "overflow": "x"
+          },
+          "d2": {
+            "s": "00000000",
+            "overflow": "1"
+          },
+          "d3": {
+            "s": "00000000",
+            "overflow": "1"
+          },
+          "d4": {
+            "s": "00000000",
+            "overflow": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 6
+    },
+    {
+      "problem_id": "Prob035_count1to10",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  clk\n - input  reset\n - output q (4 bits)\n\nThe module should implement a decade counter that counts 1 through 10,\ninclusive. Assume all sequential logic is triggered on the positive edge\nof the clock. The reset input is active high synchronous, and should\nreset the counter to 1.",
+      "drafts": [
+        {
+          "label": "d0",
+          "code": "module TopModule (\n    input  clk,\n    input  reset,\n    output [3:0] q\n);\n\n    // Internal register for the counter\n    reg [3:0] count;\n\n    // Synchronous reset and counting logic\n    always @(posedge clk) begin\n        if (reset) begin\n            // Active high synchronous reset: set count to 1\n            count <= 4'd1;\n        end else begin\n            // Count from 1 to 10, then wrap around to 1\n            if (count == 4'd10) begin\n                count <= 4'd1;\n            end else begin\n                count <= count + 1;\n            end\n        end\n    end\n\n    // Continuous assignment to output port\n    assign q = count;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d1",
+          "code": "module TopModule (\n    input  clk,\n    input  reset,\n    output [3:0] q\n);\n\n    // Internal register to hold the counter value\n    reg [3:0] count;\n\n    // Synchronous always block triggered on the positive edge of clk\n    always @(posedge clk) begin\n        if (reset) begin\n            // Active high synchronous reset: set count to 1\n            count <= 4'b0001;\n        end else begin\n            // Increment the counter\n            count <= count + 1;\n        end\n    end\n\n    // Assign the internal register to the output port\n    assign q = count;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        },
+        {
+          "label": "d2",
+          "code": "module TopModule (\n    input  clk,\n    input  reset,\n    output [3:0] q\n);\n\n    // Internal counter register\n    reg [3:0] count;\n\n    // Synchronous reset and count logic\n    always @(posedge clk) begin\n        if (reset)\n            count <= 4'd1;  // Reset to 1\n        else begin\n            // Count from 1 to 10, then wrap around to 1\n            if (count == 4'd10)\n                count <= 4'd1;\n            else\n                count <= count + 1;\n        end\n    end\n\n    // Assign the registered value to the output\n    assign q = count;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d3",
+          "code": "module TopModule (\n    input  logic clk,\n    input  logic reset,\n    output logic [3:0] q\n);\n\n    // Internal counter register\n    logic [3:0] count;\n\n    // Synchronous reset and count logic\n    always_ff @(posedge clk) begin\n        if (reset) begin\n            count <= 4'b0001;  // Reset to 1\n        end else begin\n            if (count == 4'd10) begin\n                count <= 4'b0001;  // Wrap around to 1 after 10\n            end else begin\n                count <= count + 1;\n            end\n        end\n    end\n\n    // Assign the output\n    assign q = count;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d4",
+          "code": "module TopModule (\n    input  clk,\n    input  reset,\n    output [3:0] q\n);\n\n    // Internal register to hold the counter value\n    reg [3:0] count;\n\n    // Synchronous reset and count logic\n    always @(posedge clk) begin\n        if (reset) begin\n            count <= 4'd1;  // Reset to 1\n        end else begin\n            // Count from 1 to 10, then wrap around to 1\n            if (count == 4'd10)\n                count <= 4'd1;\n            else\n                count <= count + 1;\n        end\n    end\n\n    // Continuous assignment to output the counter value\n    assign q = count;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        }
+      ],
+      "groups": [
+        [
+          "d0",
+          "d2",
+          "d3",
+          "d4"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "chosen_correct": true,
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 10,
+        "phase": "post",
+        "inputs": {
+          "reset": 0
+        },
+        "outputs": {
+          "d0": {
+            "q": "0001"
+          },
+          "d1": {
+            "q": "1011"
+          },
+          "d2": {
+            "q": "0001"
+          },
+          "d3": {
+            "q": "0001"
+          },
+          "d4": {
+            "q": "0001"
+          }
+        }
+      },
+      "stimulus_cycles": 11
+    },
+    {
+      "problem_id": "Prob052_gates100",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  in (100 bits)\n - output out_and\n - output out_or\n - output out_xor\n\nThe module should implement a combinational circuit with 100 inputs,\nin[99:0]. There are 3 outputs:\n\n  (1) out_and : output of a 100-input AND gate\n  (2) out_or  : output of a 100-input OR  gate\n  (3) out_xor : output of a 100-input XOR gate",
+      "drafts": [
+        {
+          "label": "d0",
+          "code": "module TopModule (\n    input  [99:0] in,\n    output        out_and,\n    output        out_or,\n    output        out_xor\n);\n\n    // 100-input AND gate: output is 1 only if all inputs are 1\n    assign out_and = &in;\n\n    // 100-input OR gate: output is 1 if at least one input is 1\n    assign out_or  = |in;\n\n    // 100-input XOR gate: output toggles for each 1 in the input vector\n    assign out_xor = ^in;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d1",
+          "code": "module TopModule (\n    input  [99:0] in,\n    output        out_and,\n    output        out_or,\n    output        out_xor\n);\n\n    // 100-input AND gate\n    assign out_and = &in;\n\n    // 100-input OR gate\n    assign out_or  = |in;\n\n    // 100-input XOR gate\n    assign out_xor = ^in;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d2",
+          "code": "module TopModule (\n    input  [99:0] in,\n    output        out_and,\n    output        out_or,\n    output        out_xor\n);\n\n    // 100-input AND gate: all bits must be 1 for output to be 1\n    assign out_and = &in;\n\n    // 100-input OR gate: at least one bit must be 1 for output to be 1\n    assign out_or  = |in;\n\n    // 100-input XOR gate: output is 1 if an odd number of bits are 1\n    assign out_xor = ^in;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d3",
+          "code": "module TopModule (\n    input  [99:0] in,\n    output        out_and,\n    output        out_or,\n    output        out_xor\n);\n\n    // 100-input AND gate: result is 1 only if all 100 bits are 1\n    assign out_and = &in;\n\n    // 100-input OR gate: result is 1 if any bit is 1\n    assign out_or  = |in;\n\n    // 100-input XOR gate: result is parity of all bits\n    assign out_xor = ^in;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d4",
+          "code": "module TopModule (\n    input  [99:0] in,\n    output        out_and,\n    output        out_or,\n    output        out_xor\n);\n\n    // 100-input AND gate\n    assign out_and = |in;           // Reduction OR of all bits (equivalent to AND when all are 1)\n\n    // 100-input OR  gate\n    assign out_or  = ~(&in);        // Reduction NAND of all bits (equivalent to OR when not all are 0)\n\n    // 100-input XOR gate\n    assign out_xor = ^in;           // Reduction XOR of all bits\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        }
+      ],
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "chosen_correct": true,
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 0
+        },
+        "outputs": {
+          "d0": {
+            "out_and": "0",
+            "out_or": "0",
+            "out_xor": "0"
+          },
+          "d1": {
+            "out_and": "0",
+            "out_or": "0",
+            "out_xor": "0"
+          },
+          "d2": {
+            "out_and": "0",
+            "out_or": "0",
+            "out_xor": "0"
+          },
+          "d3": {
+            "out_and": "0",
+            "out_or": "0",
+            "out_xor": "0"
+          },
+          "d4": {
+            "out_and": "0",
+            "out_or": "1",
+            "out_xor": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 4
+    },
+    {
+      "problem_id": "Prob056_ece241_2013_q7",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  clk\n - input  j\n - input  k\n - output Q\n\nThe module should implement a JK flip-flop with the following truth\ntable. Note: Qold is the output of the flip-flop before the positive\nclock edge.\n\n  J | K | Q\n  0 | 0 | Qold\n  0 | 1 | 0\n  1 | 0 | 1\n  1 | 1 | ~Qold",
+      "drafts": [
+        {
+          "label": "d0",
+          "code": "module TopModule (\n    input  logic clk,\n    input  logic j,\n    input  logic k,\n    output logic Q\n);\n\n    // Internal storage for the flip-flop output\n    logic Q_internal;\n\n    // Synchronous reset is not specified, so Q_internal initializes to 0\n    // by default in simulation, but synthesis tools may vary.\n    // We explicitly initialize to 0 for synthesis compatibility.\n    initial begin\n        Q_internal = 1'b0;\n    end\n\n    always_ff @(posedge clk) begin\n        case ({j, k})\n            2'b00: Q_internal <= Q_internal;  // Hold state (Qold)\n            2'b01: Q_internal <= 1'b0;          // Reset\n            2'b10: Q_internal <= 1'b1;          // Set\n            2'b11: Q_internal <= ~Q_internal;   // Toggle (~Qold)\n            default: Q_internal <= 1'b0;        // Fallback (should not occur)\n        endcase\n    end\n\n    // Assign the output port\n    assign Q = Q_internal;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d1",
+          "code": "module TopModule (\n    input  clk,\n    input  j,\n    input  k,\n    output Q\n);\n\n    // Internal signal to hold the previous state\n    reg Q_reg;\n\n    // Synchronous always block triggered on the positive clock edge\n    always @(posedge clk) begin\n        case ({j, k})\n            2'b00: Q_reg <= Q_reg;       // Hold state (Qold)\n            2'b01: Q_reg <= 1'b0;        // Reset\n            2'b10: Q_reg <= 1'b1;        // Set\n            2'b11: Q_reg <= ~Q_reg;      // Toggle\n            default: Q_reg <= Q_reg;     // Default to hold (should not occur)\n        endcase\n    end\n\n    // Continuous assignment to output the registered value\n    assign Q = Q_reg;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d2",
+          "code": "module TopModule (\n    input  logic clk,\n    input  logic j,\n    input  logic k,\n    output logic Q\n);\n\n    always_ff @(posedge clk) begin\n        case ({j, k})\n            2'b00: Q <= Q;       // Hold state (Qold)\n            2'b01: Q <= 1'b0;    // Reset\n            2'b10: Q <= 1'b1;    // Set\n            2'b11: Q <= ~Q;      // Toggle\n        endcase\n    end\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d3",
+          "code": "module TopModule (\n    input  logic clk,\n    input  logic j,\n    input  logic k,\n    output logic Q\n);\n\n    // Sequential logic: positive-edge triggered JK flip-flop\n    always_ff @(posedge clk) begin\n        case ({j, k})\n            2'b00: Q <= Q;       // Hold state (Q unchanged)\n            2'b01: Q <= 1'b0;    // Reset\n            2'b10: Q <= 1'b1;    // Set\n            2'b11: Q <= ~Q;      // Toggle\n        endcase\n    end\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d4",
+          "code": "module TopModule (\n    input  logic clk,\n    input  logic j,\n    input  logic k,\n    output logic Q\n);\n\n    // Internal flip-flop state\n    logic Q_reg;\n\n    // Combinational logic for next state\n    always_comb begin\n        case ({j, k})\n            2'b00: Q_reg = Q_reg;   // Hold state (Q_old)\n            2'b01: Q_reg = 1'b0;    // Reset\n            2'b10: Q_reg = 1'b1;    // Set\n            2'b11: Q_reg = ~Q_reg;  // Toggle\n            default: Q_reg = Q_reg;\n        endcase\n    end\n\n    // Sequential logic (positive edge-triggered)\n    always_ff @(posedge clk) begin\n        Q_reg <= Q_reg;  // The actual assignment is handled by the combinational block above\n    end\n\n    // Assign output\n    assign Q = Q_reg;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        }
+      ],
+      "groups": [
+        [
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ],
+        [
+          "d0"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "chosen_correct": true,
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "j": 1,
+          "k": 1
+        },
+        "outputs": {
+          "d0": {
+            "Q": "0"
+          },
+          "d1": {
+            "Q": "x"
+          },
+          "d2": {
+            "Q": "x"
+          },
+          "d3": {
+            "Q": "x"
+          },
+          "d4": {
+            "Q": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 1
+    },
+    {
+      "problem_id": "Prob061_2014_q4a",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  clk\n - input  w\n - input  R\n - input  E\n - input  L\n - output Q\n\nThe module will be one stage in a larger n-bit shift register circuit.\nInput E is for enabling shift, R for value to load, L is asserted when it\nshould load, and w is the input from the prevous stage of the shift\nregister. Assume all sequential logic is triggered on the positive edge\nof the clock.",
+      "drafts": [
+        {
+          "label": "d0",
+          "code": "module TopModule (\n    input  logic clk,\n    input  logic w,\n    input  logic R,\n    input  logic E,\n    input  logic L,\n    output logic Q\n);\n\n    always_ff @(posedge clk) begin\n        if (L)\n            Q <= R;\n        else if (E)\n            Q <= w;\n    end\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d1",
+          "code": "module TopModule (\n    input  logic clk,\n    input  logic w,\n    input  logic R,\n    input  logic E,\n    input  logic L,\n    output logic Q\n);\n\n    // Internal register to hold the state\n    logic q_reg;\n\n    // Next-state logic\n    always_comb begin\n        // Default assignment: shift in 'w' if not loading\n        // Priority: L (load) > E (shift) > Hold\n        if (L)\n            q_reg = R;          // Load R into Q\n        else if (E)\n            q_reg = w;          // Shift in w\n        else\n            q_reg = q_reg;      // Hold current value\n    end\n\n    // Sequential logic: positive edge triggered\n    always_ff @(posedge clk) begin\n        q_reg <= q_reg;       // Update register on clock edge\n    end\n\n    // Output assignment\n    assign Q = q_reg;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": false,
+          "error": null
+        },
+        {
+          "label": "d2",
+          "code": "module TopModule (\n    input  clk,\n    input  w,\n    input  R,\n    input  E,\n    input  L,\n    output Q\n);\n\n    // Internal flip-flop to store the state\n    reg Q_reg;\n\n    // Synchronous logic triggered on the positive edge of clk\n    always @(posedge clk) begin\n        // Priority: Load (L) first, then Enable (E), then shift in w\n        if (L) begin\n            // Load the value from R\n            Q_reg <= R;\n        end else if (E) begin\n            // Shift in the input from the previous stage\n            Q_reg <= w;\n        end else begin\n            // Hold current value\n            Q_reg <= Q_reg;\n        end\n    end\n\n    // Continuous assignment for the output port\n    assign Q = Q_reg;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d3",
+          "code": "module TopModule (\n    input  clk,\n    input  w,\n    input  R,\n    input  E,\n    input  L,\n    output Q\n);\n\n    // Internal register to hold the state\n    reg Q_reg;\n\n    // Synchronous logic: executed on the positive edge of clk\n    always @(posedge clk) begin\n        // Priority: Load (L) first, then Enable (E), then Shift (w)\n        if (L) begin\n            // Load the value from R into Q\n            Q_reg <= R;\n        end else if (E) begin\n            // Enable shift: shift in the input w\n            Q_reg <= w;\n        end else begin\n            // Hold current value\n            Q_reg <= Q_reg;\n        end\n    end\n\n    // Continuous assignment for the output port\n    assign Q = Q_reg;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        },
+        {
+          "label": "d4",
+          "code": "module TopModule (\n    input  clk,\n    input  w,\n    input  R,\n    input  E,\n    input  L,\n    output Q\n);\n\n    // Internal register to hold the state\n    reg Q_reg;\n\n    // Synchronous logic triggered on the positive edge of clk\n    always @(posedge clk) begin\n        if (L) begin\n            // Load mode: load the value R into Q\n            Q_reg <= R;\n        end else if (E) begin\n            // Shift mode: shift in the input w\n            Q_reg <= w;\n        end else begin\n            // Hold mode: maintain the current value\n            Q_reg <= Q_reg;\n        end\n    end\n\n    // Continuous assignment for the output port\n    assign Q = Q_reg;\n\nendmodule\n",
+          "compiled": true,
+          "official_pass": true,
+          "error": null
+        }
+      ],
+      "groups": [
+        [
+          "d0",
+          "d2",
+          "d3",
+          "d4"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "chosen_correct": true,
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "w": 0,
+          "R": 1,
+          "E": 0,
+          "L": 1
+        },
+        "outputs": {
+          "d0": {
+            "Q": "x"
+          },
+          "d1": {
+            "Q": "1"
+          },
+          "d2": {
+            "Q": "x"
+          },
+          "d3": {
+            "Q": "x"
+          },
+          "d4": {
+            "Q": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 2
+    }
+  ]
+}

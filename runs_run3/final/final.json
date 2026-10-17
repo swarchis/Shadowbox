@@ -1,0 +1,109 @@
+{
+  "complete": true,
+  "test_problems": 92,
+  "metrics": {
+    "v0": {
+      "label": "Version 0",
+      "pass": 0.4239,
+      "ci": [
+        0.3261,
+        0.5217
+      ],
+      "n": 92,
+      "errors": 0
+    },
+    "vbest": {
+      "label": "Latest version",
+      "pass": 0.4457,
+      "ci": [
+        0.3478,
+        0.5435
+      ],
+      "n": 92,
+      "errors": 0
+    },
+    "vbest_selection": {
+      "label": "Latest + Breaker",
+      "pass": 0.5326,
+      "ci": [
+        0.4348,
+        0.6304
+      ],
+      "n": 92,
+      "errors": 0
+    },
+    "random_pick": {
+      "label": "Random draft",
+      "pass": 0.4478,
+      "ci": null,
+      "n": 92
+    },
+    "random_input_sel": {
+      "label": "Random-input selection",
+      "pass": 0.5435,
+      "ci": null,
+      "n": 92,
+      "errors": 0
+    },
+    "breaker_v0_sel": {
+      "label": "Selection with Breaker v0",
+      "pass": 0.5435,
+      "ci": null,
+      "n": 92,
+      "errors": 0
+    },
+    "ceiling": {
+      "label": "Best possible pick",
+      "pass": 0.6413,
+      "ci": null,
+      "n": 92,
+      "errors": 0
+    },
+    "ultra": {
+      "label": "NVIDIA-Nemotron-3-Super-120B-A12B (v0 playbook)",
+      "pass": 0.6848,
+      "ci": [
+        0.587,
+        0.7826
+      ],
+      "n": 92,
+      "errors": 0
+    },
+    "transfer_v0": {
+      "label": "gemma-4-31b-it + v0 playbook",
+      "pass": 0.8152,
+      "ci": [
+        0.7391,
+        0.8913
+      ],
+      "n": 92,
+      "errors": 0
+    },
+    "transfer_vbest": {
+      "label": "gemma-4-31b-it + learned playbook",
+      "pass": 0.837,
+      "ci": [
+        0.75,
+        0.9022
+      ],
+      "n": 92,
+      "errors": 0
+    },
+    "ablation_nano_coach": null
+  },
+  "n_drafts": 5,
+  "builder_versions": {
+    "v0": 0,
+    "vbest": 1
+  },
+  "breaker_versions": {
+    "v0": 0,
+    "vbest": 2
+  },
+  "cost_usd": 0.6031,
+  "notes": [
+    "CIs are 95% bootstrap over held-out problems.",
+    "Selection uses 5 drafts per problem at temperature 0.7; other rows use temperature 0.0.",
+    "Random draft = expected pass rate of picking one draft uniformly at random."
+  ]
+}

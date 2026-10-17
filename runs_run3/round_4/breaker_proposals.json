@@ -1,0 +1,46 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "For designs that have a load input and a multi-bit data input, include at least one cycle where load is held high for two consecutive cycles with different data values (e.g., load=1, data=non-zero then load=1, data=zero).",
+      "summary": "Add load\u2011pulse rule to expose timer and similar load\u2011controlled designs.",
+      "reasoning": "The missed buggy design Prob080_timer fails because the attack never asserted load long enough to observe the incorrect handling of terminal count when loading zero. A rule that forces a load pulse with varied data values will trigger the faulty path and reveal the bug. Similar load\u2011controlled FSMs (e.g., Prob143_fsm_onehot) also benefit from explicit load toggling.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob143_fsm_onehot",
+        "Prob125_kmap3"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "ResetSensitivityChecker",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Detects designs that have a reset-like input (reset, resetn, aresetn, rst_n, etc.)\n    but do NOT include that signal in the sensitivity list of any always_ff or\n    always @(posedge clk) block.\n    Returns {\"fired\": bool, \"findings\": [str]}.\n    \"\"\"\n    # Find all reset-like signal names (case-insensitive)\n    reset_pattern = re.compile(r'\\b(reset|resetn|aresetn|rst_n?)\\b', re.IGNORECASE)\n    reset_signals = set(m.group(0).lower() for m in reset_pattern.finditer(verilog))\n\n    if not reset_signals:\n        return {\"fired\": False, \"findings\": []}\n\n    # Find always blocks that are edge-sensitive (posedge clk) and capture their sensitivity list\n    # Simple regex: always @( ... ) or always @(posedge clk ... )\n    always_pattern = re.compile(\n        r'always\\s*@\\s*\\(([^)]*)\\)\\s*', re.IGNORECASE | re.DOTALL\n    )\n    missing = []\n    for sens in always_pattern.findall(verilog):\n        # Normalize sensitivity list: split by commas, ignore whitespace, comments\n        sens_clean = re.sub(r'//.*', '', sens)\n        sens_clean = re.sub(r'/\\\\*.*?\\\\*/', '', sens_clean, flags=re.DOTALL)\n        tokens = [tok.strip().lower() for tok in sens_clean.split(',') if tok.strip()]\n        # Check if any reset signal appears in this sensitivity list\n        if not any(reset in tokens for reset in reset_signals):\n            missing.append(sens.strip())\n\n    if missing:\n        findings = [\n            f\"Reset signal(s) {', '.join(sorted(reset_signals))} missing from sensitivity list in always block(s): {', '.join(missing)}\"\n        ]\n        return {\"fired\": True, \"findings\": findings}\n    else:\n        return {\"fired\": False, \"findings\": []}\n}\n",
+      "summary": "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.",
+      "reasoning": "Prob148_2013_q2afsm exhibits a reset-related bug where the reset is synchronous but the design incorrectly treats it as asynchronous. Detecting missing reset sensitivity helps the attacker focus on reset behavior. The three missed designs (Prob080_timer, Prob143_fsm_onehot, Prob148_2013_q2afsm) all involve reset or load handling, making this tool broadly useful.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 80,
+      "summary": "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs.",
+      "reasoning": "Designs like Prob143_fsm_onehot require longer sequences to traverse the one\u2011hot state encoding and expose incorrect next\u2011state logic. The current limit of 40 cycles truncates useful test sequences, causing missed bugs. Raising the limit to 80 gives the attacker enough cycles to explore deep state spaces without overly bloating the search space.",
+      "evidence_problems": [
+        "Prob143_fsm_onehot",
+        "Prob063_review2015_shiftcount",
+        "Prob118_history_shift"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob080_timer",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0048765
+}

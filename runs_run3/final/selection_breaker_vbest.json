@@ -1,0 +1,3821 @@
+{
+  "fingerprint": "04733b6b74",
+  "n_drafts": 5,
+  "drafts_key": "fb5c356483e8af2a",
+  "records": {
+    "Prob003_step_one": {
+      "problem_id": "Prob003_step_one",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob006_vectorr": {
+      "problem_id": "Prob006_vectorr",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 6,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob007_wire": {
+      "problem_id": "Prob007_wire",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 2,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob008_m2014_q4h": {
+      "problem_id": "Prob008_m2014_q4h",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 2,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob011_norgate": {
+      "problem_id": "Prob011_norgate",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 1,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob012_xnorgate": {
+      "problem_id": "Prob012_xnorgate",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob013_m2014_q4e": {
+      "problem_id": "Prob013_m2014_q4e",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob015_vector1": {
+      "problem_id": "Prob015_vector1",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 2,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob017_mux2to1v": {
+      "problem_id": "Prob017_mux2to1v",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "fallback",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": "invalid stimulus: value '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF' does not fit in 100-bit input b",
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "api_error": false,
+      "chosen_correct": true
+    },
+    "Prob018_mux256to1": {
+      "problem_id": "Prob018_mux256to1",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 3,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob019_m2014_q4f": {
+      "problem_id": "Prob019_m2014_q4f",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d2",
+          "d3"
+        ],
+        [
+          "d0",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 2,
+        "phase": "comb",
+        "inputs": {
+          "in1": 0,
+          "in2": 1
+        },
+        "outputs": {
+          "d0": {
+            "out": "1"
+          },
+          "d1": {
+            "out": "0"
+          },
+          "d2": {
+            "out": "0"
+          },
+          "d3": {
+            "out": "0"
+          },
+          "d4": {
+            "out": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob020_mt2015_eq2": {
+      "problem_id": "Prob020_mt2015_eq2",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 3,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob022_mux2to1": {
+      "problem_id": "Prob022_mux2to1",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 3,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob023_vector100r": {
+      "problem_id": "Prob023_vector100r",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob025_reduction": {
+      "problem_id": "Prob025_reduction",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob027_fadd": {
+      "problem_id": "Prob027_fadd",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob028_m2014_q4a": {
+      "problem_id": "Prob028_m2014_q4a",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d3"
+      ],
+      "chosen_correct": true
+    },
+    "Prob029_m2014_q4g": {
+      "problem_id": "Prob029_m2014_q4g",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d4"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in1": 0,
+          "in2": 0,
+          "in3": 0
+        },
+        "outputs": {
+          "d0": {
+            "out": "1"
+          },
+          "d1": {
+            "out": "1"
+          },
+          "d2": {
+            "out": "1"
+          },
+          "d3": {
+            "out": "0"
+          },
+          "d4": {
+            "out": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 8,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob030_popcount255": {
+      "problem_id": "Prob030_popcount255",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "outputs": {
+          "d0": {
+            "out": "00000001"
+          },
+          "d1": {
+            "out": "00000001"
+          },
+          "d3": {
+            "out": "00000001"
+          },
+          "d4": {
+            "out": "00000000"
+          }
+        }
+      },
+      "stimulus_cycles": 5,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob031_dff": {
+      "problem_id": "Prob031_dff",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 2,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": true
+    },
+    "Prob032_vector0": {
+      "problem_id": "Prob032_vector0",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 7,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob033_ece241_2014_q1c": {
+      "problem_id": "Prob033_ece241_2014_q1c",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d2",
+          "d4"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 3,
+        "phase": "comb",
+        "inputs": {
+          "a": 128,
+          "b": 128
+        },
+        "outputs": {
+          "d0": {
+            "s": "00000000",
+            "overflow": "1"
+          },
+          "d1": {
+            "s": "00000000",
+            "overflow": "x"
+          },
+          "d2": {
+            "s": "00000000",
+            "overflow": "1"
+          },
+          "d3": {
+            "s": "00000000",
+            "overflow": "1"
+          },
+          "d4": {
+            "s": "00000000",
+            "overflow": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 6,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob034_dff8": {
+      "problem_id": "Prob034_dff8",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 5,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob035_count1to10": {
+      "problem_id": "Prob035_count1to10",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d2",
+          "d3",
+          "d4"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 10,
+        "phase": "post",
+        "inputs": {
+          "reset": 0
+        },
+        "outputs": {
+          "d0": {
+            "q": "0001"
+          },
+          "d1": {
+            "q": "1011"
+          },
+          "d2": {
+            "q": "0001"
+          },
+          "d3": {
+            "q": "0001"
+          },
+          "d4": {
+            "q": "0001"
+          }
+        }
+      },
+      "stimulus_cycles": 11,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob038_count15": {
+      "problem_id": "Prob038_count15",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 10,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": true
+    },
+    "Prob039_always_if": {
+      "problem_id": "Prob039_always_if",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d2",
+          "d3",
+          "d4"
+        ],
+        [
+          "d0",
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d2",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "sel_b1": 0,
+          "sel_b2": 0
+        },
+        "outputs": {
+          "d0": {
+            "out_assign": "0",
+            "out_always": "x"
+          },
+          "d1": {
+            "out_assign": "0",
+            "out_always": "x"
+          },
+          "d2": {
+            "out_assign": "0",
+            "out_always": "0"
+          },
+          "d3": {
+            "out_assign": "0",
+            "out_always": "0"
+          },
+          "d4": {
+            "out_assign": "0",
+            "out_always": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob040_count10": {
+      "problem_id": "Prob040_count10",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 11,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob042_vector4": {
+      "problem_id": "Prob042_vector4",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d1"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires sign-extending the 8-bit input by replicating the sign bit (bit 7) 24 times before the input bits; for input 1 (binary 00000001), the sign bit is 0, so the output must be 24 zeros followed by 00000001, i.e., 0x00000001, which matches group 0's output.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "outputs": {
+          "d0": {
+            "out": "11111111111111111111111100000001"
+          },
+          "d1": {
+            "out": "00000000000000000000000000000001"
+          },
+          "d2": {
+            "out": "00000000000000000000000000000011"
+          },
+          "d3": {
+            "out": "00000000000000000000000000000001"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": false
+    },
+    "Prob043_vector5": {
+      "problem_id": "Prob043_vector5",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 1,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob045_edgedetect2": {
+      "problem_id": "Prob045_edgedetect2",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 10,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob046_dff8p": {
+      "problem_id": "Prob046_dff8p",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "d": 0,
+          "reset": 1
+        },
+        "outputs": {
+          "d0": {
+            "q": "00110100"
+          },
+          "d1": {
+            "q": "00110100"
+          },
+          "d2": {
+            "q": "00110100"
+          },
+          "d3": {
+            "q": "00110100"
+          },
+          "d4": {
+            "q": "xxxxxxxx"
+          }
+        }
+      },
+      "stimulus_cycles": 6,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob047_dff8ar": {
+      "problem_id": "Prob047_dff8ar",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob048_m2014_q4c": {
+      "problem_id": "Prob048_m2014_q4c",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d2",
+          "d4"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "d": 1,
+          "r": 1
+        },
+        "outputs": {
+          "d0": {
+            "q": "0"
+          },
+          "d2": {
+            "q": "0"
+          },
+          "d3": {
+            "q": "x"
+          },
+          "d4": {
+            "q": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 2,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob049_m2014_q4b": {
+      "problem_id": "Prob049_m2014_q4b",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d2",
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 3,
+      "error": null,
+      "compiled_labels": [
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": true
+    },
+    "Prob050_kmap1": {
+      "problem_id": "Prob050_kmap1",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d2"
+        ],
+        [
+          "d0"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 0
+        },
+        "outputs": {
+          "d0": {
+            "out": "1"
+          },
+          "d1": {
+            "out": "0"
+          },
+          "d2": {
+            "out": "0"
+          },
+          "d3": {
+            "out": "0"
+          },
+          "d4": {
+            "out": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 8,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob051_gates4": {
+      "problem_id": "Prob051_gates4",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 16,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob052_gates100": {
+      "problem_id": "Prob052_gates100",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 0
+        },
+        "outputs": {
+          "d0": {
+            "out_and": "0",
+            "out_or": "0",
+            "out_xor": "0"
+          },
+          "d1": {
+            "out_and": "0",
+            "out_or": "0",
+            "out_xor": "0"
+          },
+          "d2": {
+            "out_and": "0",
+            "out_or": "0",
+            "out_xor": "0"
+          },
+          "d3": {
+            "out_and": "0",
+            "out_or": "0",
+            "out_xor": "0"
+          },
+          "d4": {
+            "out_and": "0",
+            "out_or": "1",
+            "out_xor": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob053_m2014_q4d": {
+      "problem_id": "Prob053_m2014_q4d",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob056_ece241_2013_q7": {
+      "problem_id": "Prob056_ece241_2013_q7",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ],
+        [
+          "d0"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "j": 1,
+          "k": 1
+        },
+        "outputs": {
+          "d0": {
+            "Q": "0"
+          },
+          "d1": {
+            "Q": "x"
+          },
+          "d2": {
+            "Q": "x"
+          },
+          "d3": {
+            "Q": "x"
+          },
+          "d4": {
+            "Q": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 1,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob058_alwaysblock2": {
+      "problem_id": "Prob058_alwaysblock2",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d3",
+      "decided_by": "single",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": null,
+      "compiled_labels": [
+        "d3"
+      ],
+      "chosen_correct": true
+    },
+    "Prob061_2014_q4a": {
+      "problem_id": "Prob061_2014_q4a",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d2",
+          "d3",
+          "d4"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "w": 0,
+          "R": 1,
+          "E": 0,
+          "L": 1
+        },
+        "outputs": {
+          "d0": {
+            "Q": "x"
+          },
+          "d1": {
+            "Q": "1"
+          },
+          "d2": {
+            "Q": "x"
+          },
+          "d3": {
+            "Q": "x"
+          },
+          "d4": {
+            "Q": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 2,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob064_vector3": {
+      "problem_id": "Prob064_vector3",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d2",
+          "d3",
+          "d4"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0
+        },
+        "outputs": {
+          "d0": {
+            "w": "00000000",
+            "x": "00000000",
+            "y": "00000000",
+            "z": "00000011"
+          },
+          "d1": {
+            "w": "00000011",
+            "x": "00000000",
+            "y": "00000000",
+            "z": "00000000"
+          },
+          "d2": {
+            "w": "00000000",
+            "x": "00000000",
+            "y": "00000000",
+            "z": "00000011"
+          },
+          "d3": {
+            "w": "00000000",
+            "x": "00000000",
+            "y": "00000000",
+            "z": "00000011"
+          },
+          "d4": {
+            "w": "00000000",
+            "x": "00000000",
+            "y": "00000000",
+            "z": "00000011"
+          }
+        }
+      },
+      "stimulus_cycles": 3,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob066_edgecapture": {
+      "problem_id": "Prob066_edgecapture",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d4"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d0"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "reset": 1,
+          "in": 0
+        },
+        "outputs": {
+          "d0": {
+            "out": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          },
+          "d1": {
+            "out": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          },
+          "d2": {
+            "out": "00000000000000000000000000000000"
+          },
+          "d3": {
+            "out": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          },
+          "d4": {
+            "out": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          }
+        }
+      },
+      "stimulus_cycles": 3,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob069_truthtable1": {
+      "problem_id": "Prob069_truthtable1",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d1"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 2,
+      "chosen_label": "d2",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires f=0 for inputs x3=0,x2=0,x1=0 and f=1 for inputs x3=0,x2=0,x1=1; only group 2 matches both required outputs.",
+      "disputed": {
+        "cycle": 1,
+        "phase": "comb",
+        "inputs": {
+          "x3": 0,
+          "x2": 0,
+          "x1": 1
+        },
+        "outputs": {
+          "d0": {
+            "f": "1"
+          },
+          "d1": {
+            "f": "0"
+          },
+          "d2": {
+            "f": "1"
+          },
+          "d3": {
+            "f": "0"
+          },
+          "d4": {
+            "f": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 8,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob071_always_casez": {
+      "problem_id": "Prob071_always_casez",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "judge",
+      "judge_reasoning": "The input 1 (binary 00000001) has its least significant set bit at position 0, so the priority encoder should output 3'd0 (000); only group 0 produces this correct output.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "outputs": {
+          "d0": {
+            "pos": "000"
+          },
+          "d2": {
+            "pos": "010"
+          },
+          "d3": {
+            "pos": "000"
+          }
+        }
+      },
+      "stimulus_cycles": 10,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": true
+    },
+    "Prob072_thermostat": {
+      "problem_id": "Prob072_thermostat",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "mode": 0,
+          "too_cold": 1,
+          "too_hot": 0,
+          "fan_on": 0
+        },
+        "outputs": {
+          "d0": {
+            "heater": "0",
+            "aircon": "0",
+            "fan": "0"
+          },
+          "d1": {
+            "heater": "0",
+            "aircon": "0",
+            "fan": "0"
+          },
+          "d2": {
+            "heater": "0",
+            "aircon": "0",
+            "fan": "0"
+          },
+          "d3": {
+            "heater": "0",
+            "aircon": "0",
+            "fan": "0"
+          },
+          "d4": {
+            "heater": "0",
+            "aircon": "x",
+            "fan": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 2,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob073_dff16e": {
+      "problem_id": "Prob073_dff16e",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob076_always_case": {
+      "problem_id": "Prob076_always_case",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d2",
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d2",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 5,
+      "error": null,
+      "compiled_labels": [
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": true
+    },
+    "Prob079_fsm3onehot": {
+      "problem_id": "Prob079_fsm3onehot",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "fallback",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": "invalid stimulus: value '0100' does not fit in 4-bit input state",
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "api_error": false,
+      "chosen_correct": false
+    },
+    "Prob081_7458": {
+      "problem_id": "Prob081_7458",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 1,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob084_ece241_2013_q12": {
+      "problem_id": "Prob084_ece241_2013_q12",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d2",
+          "d4"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d2",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "post",
+        "inputs": {
+          "enable": 1,
+          "S": 1,
+          "A": 0,
+          "B": 0,
+          "C": 0
+        },
+        "outputs": {
+          "d1": {
+            "Z": "1"
+          },
+          "d2": {
+            "Z": "x"
+          },
+          "d4": {
+            "Z": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 38,
+      "error": null,
+      "compiled_labels": [
+        "d1",
+        "d2",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob086_lfsr5": {
+      "problem_id": "Prob086_lfsr5",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d4"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 3,
+      "chosen_label": "d1",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires that a synchronous active-high reset sets the LFSR output to 1 (binary 10000 for 5 bits), but group 3 outputs 'xxxxx' in the pre-reset cycle, which does not match the expected value of 10000.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "reset": 1
+        },
+        "outputs": {
+          "d0": {
+            "q": "00001"
+          },
+          "d1": {
+            "q": "xxxxx"
+          },
+          "d2": {
+            "q": "00001"
+          },
+          "d4": {
+            "q": "00001"
+          }
+        }
+      },
+      "stimulus_cycles": 6,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob087_gates": {
+      "problem_id": "Prob087_gates",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob088_ece241_2014_q5b": {
+      "problem_id": "Prob088_ece241_2014_q5b",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d4"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 2,
+        "phase": "pre",
+        "inputs": {
+          "areset": 0,
+          "x": 1
+        },
+        "outputs": {
+          "d0": {
+            "z": "1"
+          },
+          "d1": {
+            "z": "1"
+          },
+          "d2": {
+            "z": "1"
+          },
+          "d3": {
+            "z": "0"
+          },
+          "d4": {
+            "z": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 5,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob089_ece241_2014_q5a": {
+      "problem_id": "Prob089_ece241_2014_q5a",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d3",
+          "d4"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d0"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "areset": 1,
+          "x": 0
+        },
+        "outputs": {
+          "d0": {
+            "z": "x"
+          },
+          "d1": {
+            "z": "0"
+          },
+          "d2": {
+            "z": "0"
+          },
+          "d3": {
+            "z": "0"
+          },
+          "d4": {
+            "z": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 7,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob091_2012_q2b": {
+      "problem_id": "Prob091_2012_q2b",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "fallback",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": "invalid stimulus: value '000100' does not fit in 6-bit input y",
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "api_error": false,
+      "chosen_correct": false
+    },
+    "Prob092_gatesv100": {
+      "problem_id": "Prob092_gatesv100",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d3"
+        ],
+        [
+          "d0"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "outputs": {
+          "d0": {
+            "out_both": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "out_any": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+            "out_different": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+          },
+          "d1": {
+            "out_both": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "out_any": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+            "out_different": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+          },
+          "d2": {
+            "out_both": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "out_any": "0100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "out_different": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+          },
+          "d3": {
+            "out_both": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "out_any": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+            "out_different": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+          },
+          "d4": {
+            "out_both": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "out_any": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010",
+            "out_different": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob093_ece241_2014_q3": {
+      "problem_id": "Prob093_ece241_2014_q3",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d1"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "judge",
+      "judge_reasoning": "The K-map shows that when c=0 and d=0, the output mux_in must be 1110 to match the specified minterms (01, 11, 10), which corresponds to the binary value 1110.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "c": 0,
+          "d": 0
+        },
+        "outputs": {
+          "d0": {
+            "mux_in": "1110"
+          },
+          "d1": {
+            "mux_in": "1100"
+          },
+          "d2": {
+            "mux_in": "1001"
+          },
+          "d3": {
+            "mux_in": "0000"
+          },
+          "d4": {
+            "mux_in": "1000"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob095_review2015_fsmshift": {
+      "problem_id": "Prob095_review2015_fsmshift",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d1"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 1,
+      "chosen_label": "d1",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires that on reset assertion (cycle 0 post), shift_ena must be asserted for exactly 4 clock cycles, starting with 1 in cycle 0 post; only group 1 outputs 1 in cycle 0 post, matching this requirement.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "post",
+        "inputs": {
+          "reset": 1
+        },
+        "outputs": {
+          "d0": {
+            "shift_ena": "0"
+          },
+          "d1": {
+            "shift_ena": "1"
+          },
+          "d2": {
+            "shift_ena": "0"
+          },
+          "d3": {
+            "shift_ena": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 5,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": false
+    },
+    "Prob098_circuit7": {
+      "problem_id": "Prob098_circuit7",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d2"
+        ],
+        [
+          "d0",
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 1,
+      "chosen_label": "d0",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification shows that on the positive clock edge when a=0, q becomes 1 (as seen at 15ns), and when a=1, q becomes 0 (as seen at 45ns), matching group 1's behavior at cycle 1 post.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "post",
+        "inputs": {
+          "a": 1
+        },
+        "outputs": {
+          "d0": {
+            "q": "x"
+          },
+          "d1": {
+            "q": "x"
+          },
+          "d2": {
+            "q": "x"
+          },
+          "d3": {
+            "q": "x"
+          },
+          "d4": {
+            "q": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob100_fsm3comb": {
+      "problem_id": "Prob100_fsm3comb",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "single",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": null,
+      "compiled_labels": [
+        "d1"
+      ],
+      "chosen_correct": false
+    },
+    "Prob101_circuit4": {
+      "problem_id": "Prob101_circuit4",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d4"
+        ],
+        [
+          "d1",
+          "d2"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification shows that when a=0, b=1, c=0, d=0, the output q must be 1 (as seen at 35ns), so group 0's output of 1 matches the expected behavior, while group 1's output of 0 does not.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 1,
+          "d": 0
+        },
+        "outputs": {
+          "d0": {
+            "q": "1"
+          },
+          "d1": {
+            "q": "1"
+          },
+          "d2": {
+            "q": "1"
+          },
+          "d3": {
+            "q": "0"
+          },
+          "d4": {
+            "q": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 3,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob106_always_nolatches": {
+      "problem_id": "Prob106_always_nolatches",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d3",
+          "d4"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "scancode": 0
+        },
+        "outputs": {
+          "d0": {
+            "left": "0",
+            "down": "0",
+            "right": "0",
+            "up": "0"
+          },
+          "d1": {
+            "left": "x",
+            "down": "x",
+            "right": "x",
+            "up": "x"
+          },
+          "d3": {
+            "left": "0",
+            "down": "0",
+            "right": "0",
+            "up": "0"
+          },
+          "d4": {
+            "left": "0",
+            "down": "0",
+            "right": "0",
+            "up": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 7,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob108_rule90": {
+      "problem_id": "Prob108_rule90",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d1",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob109_fsm1": {
+      "problem_id": "Prob109_fsm1",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d2"
+        ],
+        [
+          "d1",
+          "d4"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires an asynchronous reset that forces the Moore machine into state B when areset is high, and the initial output must be 0 (state B's output). Both groups show out=0 for the reset condition, but group 0's output matches the expected reset behavior while group 1 incorrectly outputs 1.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "in": 0,
+          "areset": 1
+        },
+        "outputs": {
+          "d0": {
+            "out": "0"
+          },
+          "d1": {
+            "out": "1"
+          },
+          "d2": {
+            "out": "0"
+          },
+          "d3": {
+            "out": "0"
+          },
+          "d4": {
+            "out": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 6,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob111_fsm2s": {
+      "problem_id": "Prob111_fsm2s",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1"
+        ],
+        [
+          "d4"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "j": 0,
+          "k": 0,
+          "reset": 1
+        },
+        "outputs": {
+          "d0": {
+            "out": "0"
+          },
+          "d1": {
+            "out": "0"
+          },
+          "d3": {
+            "out": "x"
+          },
+          "d4": {
+            "out": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob112_always_case2": {
+      "problem_id": "Prob112_always_case2",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 2,
+      "chosen_label": "d3",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires that for input 3 (binary 0011), the first set bit is at position 0, so pos should be 00; only group 2 outputs 00 for this case, matching the spec.",
+      "disputed": {
+        "cycle": 3,
+        "phase": "comb",
+        "inputs": {
+          "in": 3
+        },
+        "outputs": {
+          "d0": {
+            "pos": "00"
+          },
+          "d2": {
+            "pos": "01"
+          },
+          "d3": {
+            "pos": "01"
+          }
+        }
+      },
+      "stimulus_cycles": 16,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": false
+    },
+    "Prob113_2012_q1g": {
+      "problem_id": "Prob113_2012_q1g",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d4"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 1,
+      "chosen_label": "d2",
+      "decided_by": "judge",
+      "judge_reasoning": "The Karnaugh map shows f=1 for input x=0000 (minterm 0); only group 1 outputs 1 for this input, matching the required behavior, while the others output 0 or an undefined value.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "x": 0
+        },
+        "outputs": {
+          "d0": {
+            "f": "0"
+          },
+          "d1": {
+            "f": "x"
+          },
+          "d2": {
+            "f": "1"
+          },
+          "d3": {
+            "f": "1"
+          },
+          "d4": {
+            "f": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 16,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob114_bugs_case": {
+      "problem_id": "Prob114_bugs_case",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d4"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "code": 0
+        },
+        "outputs": {
+          "d1": {
+            "out": "xxxx",
+            "valid": "x"
+          },
+          "d3": {
+            "out": "0000",
+            "valid": "0"
+          },
+          "d4": {
+            "out": "xxxx",
+            "valid": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 12,
+      "error": null,
+      "compiled_labels": [
+        "d1",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob115_shift18": {
+      "problem_id": "Prob115_shift18",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d2",
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "fallback",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": "invalid stimulus: cycle 2: unknown input 'q'; valid inputs: ['amount', 'data', 'ena', 'load']",
+      "compiled_labels": [
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "api_error": false,
+      "chosen_correct": true
+    },
+    "Prob119_fsm3": {
+      "problem_id": "Prob119_fsm3",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d2"
+        ]
+      ],
+      "chosen_group": 1,
+      "chosen_label": "d2",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires output 1 when entering state D, which occurs after four cycles of input=1 with areset=0; only group 1 produces out=1 at cycle 4 post, matching the state transition to D and output 1.",
+      "disputed": {
+        "cycle": 4,
+        "phase": "post",
+        "inputs": {
+          "in": 1,
+          "areset": 0
+        },
+        "outputs": {
+          "d0": {
+            "out": "1"
+          },
+          "d2": {
+            "out": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 6,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d2"
+      ],
+      "chosen_correct": true
+    },
+    "Prob122_kmap4": {
+      "problem_id": "Prob122_kmap4",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d2"
+        ],
+        [
+          "d0"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0
+        },
+        "outputs": {
+          "d0": {
+            "out": "0"
+          },
+          "d1": {
+            "out": "0"
+          },
+          "d2": {
+            "out": "0"
+          },
+          "d3": {
+            "out": "1"
+          },
+          "d4": {
+            "out": "1"
+          }
+        }
+      },
+      "stimulus_cycles": 16,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob123_bugs_addsubz": {
+      "problem_id": "Prob123_bugs_addsubz",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob124_rule110": {
+      "problem_id": "Prob124_rule110",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d2"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d2",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires that when load=1, the output q should be loaded with the input data. Since data is all 1s, q must be all 1s after the load, but group 0 outputs all 0s, which violates the load behavior. Group 1 correctly outputs all 1s, matching the expected loaded state.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "load": 1,
+          "data": 1
+        },
+        "outputs": {
+          "d1": {
+            "q": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          },
+          "d2": {
+            "q": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+          }
+        }
+      },
+      "stimulus_cycles": 11,
+      "error": null,
+      "compiled_labels": [
+        "d1",
+        "d2"
+      ],
+      "chosen_correct": false
+    },
+    "Prob126_circuit6": {
+      "problem_id": "Prob126_circuit6",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "a": 0
+        },
+        "outputs": {
+          "d0": {
+            "q": "0001001000110010"
+          },
+          "d1": {
+            "q": "0001001000110010"
+          },
+          "d2": {
+            "q": "1010101010101010"
+          },
+          "d3": {
+            "q": "0001001000110010"
+          },
+          "d4": {
+            "q": "0000000000000000"
+          }
+        }
+      },
+      "stimulus_cycles": 8,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": true
+    },
+    "Prob127_lemmings1": {
+      "problem_id": "Prob127_lemmings1",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "areset": 0,
+          "bump_left": 1,
+          "bump_right": 1
+        },
+        "outputs": {
+          "d0": {
+            "walk_left": "1",
+            "walk_right": "0"
+          },
+          "d1": {
+            "walk_left": "1",
+            "walk_right": "0"
+          },
+          "d2": {
+            "walk_left": "1",
+            "walk_right": "0"
+          },
+          "d3": {
+            "walk_left": "x",
+            "walk_right": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": false
+    },
+    "Prob128_fsm_ps2": {
+      "problem_id": "Prob128_fsm_ps2",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d2",
+          "d3",
+          "d4"
+        ],
+        [
+          "d0"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d2",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 4,
+        "phase": "post",
+        "inputs": {
+          "in": 0,
+          "reset": 0
+        },
+        "outputs": {
+          "d0": {
+            "done": "0"
+          },
+          "d1": {
+            "done": "1"
+          },
+          "d2": {
+            "done": "0"
+          },
+          "d3": {
+            "done": "0"
+          },
+          "d4": {
+            "done": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 10,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob130_circuit5": {
+      "problem_id": "Prob130_circuit5",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d4"
+        ],
+        [
+          "d0"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0
+        },
+        "outputs": {
+          "d0": {
+            "q": "0000"
+          },
+          "d1": {
+            "q": "0000"
+          },
+          "d2": {
+            "q": "0000"
+          },
+          "d3": {
+            "q": "1111"
+          },
+          "d4": {
+            "q": "0000"
+          }
+        }
+      },
+      "stimulus_cycles": 6,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob133_2014_q3fsm": {
+      "problem_id": "Prob133_2014_q3fsm",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "fallback",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": "invalid stimulus: no JSON found in model output",
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "api_error": false,
+      "chosen_correct": false
+    },
+    "Prob134_2014_q3c": {
+      "problem_id": "Prob134_2014_q3c",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d2"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 1,
+      "chosen_label": "d4",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification defines Y0 as the next state's Y[0] bit, which depends on the current state and input y, not directly on x. Group 1 correctly uses the state transition table to compute Y0 and z based on y and x, while Group 0 incorrectly sets Y0 and z to x, violating the FSM behavior.",
+      "disputed": {
+        "cycle": 1,
+        "phase": "pre",
+        "inputs": {
+          "x": 1,
+          "y": 3
+        },
+        "outputs": {
+          "d2": {
+            "Y0": "0",
+            "z": "x"
+          },
+          "d4": {
+            "Y0": "x",
+            "z": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d2",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob135_m2014_q6b": {
+      "problem_id": "Prob135_m2014_q6b",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "fallback",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": "invalid stimulus: value '010' does not fit in 3-bit input y",
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "api_error": false,
+      "chosen_correct": false
+    },
+    "Prob136_m2014_q6": {
+      "problem_id": "Prob136_m2014_q6",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 10,
+      "error": null,
+      "compiled_labels": [
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob137_fsm_serial": {
+      "problem_id": "Prob137_fsm_serial",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "fallback",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": "invalid stimulus: no JSON found in model output",
+      "compiled_labels": [
+        "d0",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "api_error": false,
+      "chosen_correct": false
+    },
+    "Prob138_2012_q2fsm": {
+      "problem_id": "Prob138_2012_q2fsm",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1"
+        ],
+        [
+          "d0"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires that on the first cycle with reset=1 and w=0, the output z must be 0 (as reset synchronously initializes the FSM to state A, and the output behavior for state A with w=0 is defined to produce z=0). Group 0 correctly outputs z=0 in both pre and post reset cycles, while other groups output 'x' or incorrect values, violating the specification.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "reset": 1,
+          "w": 0
+        },
+        "outputs": {
+          "d0": {
+            "z": "x"
+          },
+          "d1": {
+            "z": "0"
+          },
+          "d2": {
+            "z": "x"
+          },
+          "d3": {
+            "z": "x"
+          },
+          "d4": {
+            "z": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 10,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob142_lemmings2": {
+      "problem_id": "Prob142_lemmings2",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d4"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "areset": 0,
+          "bump_left": 1,
+          "bump_right": 0,
+          "ground": 1
+        },
+        "outputs": {
+          "d1": {
+            "walk_left": "x",
+            "walk_right": "x",
+            "aaah": "0"
+          },
+          "d2": {
+            "walk_left": "x",
+            "walk_right": "x",
+            "aaah": "0"
+          },
+          "d3": {
+            "walk_left": "x",
+            "walk_right": "x",
+            "aaah": "x"
+          },
+          "d4": {
+            "walk_left": "x",
+            "walk_right": "x",
+            "aaah": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob144_conwaylife": {
+      "problem_id": "Prob144_conwaylife",
+      "mode": "breaker",
+      "groups": [],
+      "chosen_group": null,
+      "chosen_label": null,
+      "decided_by": "none",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": null,
+      "compiled_labels": [],
+      "chosen_correct": false
+    },
+    "Prob145_circuit8": {
+      "problem_id": "Prob145_circuit8",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d2"
+        ],
+        [
+          "d0"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d2",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification shows that on the first rising clock edge (55ns) with a=0, p becomes 0 and q remains 0, and later when a=1 and clock=1 at 90ns, p=1 and q=0, matching group 0's outputs; group 1 incorrectly outputs p=1 at 55ns and group 2 leaves p and q undefined (x), so group 0's behavior aligns with the sequential circuit requirements.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "a": 1
+        },
+        "outputs": {
+          "d0": {
+            "p": "x",
+            "q": "x"
+          },
+          "d2": {
+            "p": "0",
+            "q": "0"
+          },
+          "d3": {
+            "p": "x",
+            "q": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 10,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": false
+    },
+    "Prob146_fsm_serialdata": {
+      "problem_id": "Prob146_fsm_serialdata",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "fallback",
+      "judge_reasoning": null,
+      "disputed": null,
+      "stimulus_cycles": 0,
+      "error": "invalid stimulus: no JSON found in model output",
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "api_error": false,
+      "chosen_correct": false
+    },
+    "Prob147_circuit10": {
+      "problem_id": "Prob147_circuit10",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d1"
+        ],
+        [
+          "d3"
+        ],
+        [
+          "d2"
+        ],
+        [
+          "d4"
+        ]
+      ],
+      "chosen_group": 1,
+      "chosen_label": "d1",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires a sequential circuit with a flip-flop updating on the positive clock edge; group 1 correctly updates state to 0 at 15ns and maintains q=0 thereafter, matching the expected behavior.",
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "a": 0,
+          "b": 0
+        },
+        "outputs": {
+          "d0": {
+            "q": "x",
+            "state": "x"
+          },
+          "d1": {
+            "q": "x",
+            "state": "x"
+          },
+          "d2": {
+            "q": "x",
+            "state": "x"
+          },
+          "d3": {
+            "q": "0",
+            "state": "x"
+          },
+          "d4": {
+            "q": "x",
+            "state": "x"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "chosen_correct": false
+    },
+    "Prob151_review2015_fsm": {
+      "problem_id": "Prob151_review2015_fsm",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1"
+        ],
+        [
+          "d3"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires shift_ena to be asserted for exactly 4 cycles after detecting the 1101 pattern, but group 1 incorrectly asserts shift_ena at cycle 6 without having seen the full 1101 sequence or completed the 4-cycle shift, violating the timing requirement.",
+      "disputed": {
+        "cycle": 6,
+        "phase": "post",
+        "inputs": {
+          "reset": 0,
+          "data": 0,
+          "done_counting": 0,
+          "ack": 0
+        },
+        "outputs": {
+          "d1": {
+            "shift_ena": "0",
+            "counting": "0",
+            "done": "0"
+          },
+          "d3": {
+            "shift_ena": "1",
+            "counting": "0",
+            "done": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 12,
+      "error": null,
+      "compiled_labels": [
+        "d1",
+        "d3"
+      ],
+      "chosen_correct": false
+    },
+    "Prob152_lemmings3": {
+      "problem_id": "Prob152_lemmings3",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d1",
+          "d2",
+          "d3"
+        ],
+        [
+          "d0"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d1",
+      "decided_by": "majority",
+      "judge_reasoning": null,
+      "disputed": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "areset": 0,
+          "bump_left": 1,
+          "bump_right": 0,
+          "ground": 1,
+          "dig": 0
+        },
+        "outputs": {
+          "d0": {
+            "walk_left": "0",
+            "walk_right": "0",
+            "aaah": "0",
+            "digging": "0"
+          },
+          "d1": {
+            "walk_left": "0",
+            "walk_right": "1",
+            "aaah": "0",
+            "digging": "0"
+          },
+          "d2": {
+            "walk_left": "0",
+            "walk_right": "1",
+            "aaah": "0",
+            "digging": "0"
+          },
+          "d3": {
+            "walk_left": "0",
+            "walk_right": "1",
+            "aaah": "0",
+            "digging": "0"
+          }
+        }
+      },
+      "stimulus_cycles": 5,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "chosen_correct": false
+    },
+    "Prob153_gshare": {
+      "problem_id": "Prob153_gshare",
+      "mode": "breaker",
+      "groups": [
+        [
+          "d0"
+        ],
+        [
+          "d1"
+        ]
+      ],
+      "chosen_group": 0,
+      "chosen_label": "d0",
+      "decided_by": "judge",
+      "judge_reasoning": "The specification requires that when predict_valid is 0, the output predict_history must be 0 regardless of other inputs, and predict_taken can be arbitrary. Group 0 outputs predict_history=0000000, which matches this requirement, while Group 1 incorrectly outputs a non-zero value (x000000).",
+      "disputed": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "areset": 1,
+          "predict_valid": 0,
+          "predict_pc": 0,
+          "train_valid": 0,
+          "train_taken": 0,
+          "train_mispredicted": 0,
+          "train_history": 0,
+          "train_pc": 0
+        },
+        "outputs": {
+          "d0": {
+            "predict_taken": "x",
+            "predict_history": "0000000"
+          },
+          "d1": {
+            "predict_taken": "x",
+            "predict_history": "x000000"
+          }
+        }
+      },
+      "stimulus_cycles": 4,
+      "error": null,
+      "compiled_labels": [
+        "d0",
+        "d1"
+      ],
+      "chosen_correct": false
+    }
+  }
+}

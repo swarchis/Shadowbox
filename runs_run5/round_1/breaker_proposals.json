@@ -1,0 +1,34 @@
+{
+  "from_version": 0,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "Always output a valid JSON block; if you intend to apply zero cycles, explicitly write {\"cycles\": []}.",
+      "summary": "Ensure the attacker never returns an invalid stimulus by requiring a JSON block even for zero cycles.",
+      "reasoning": "In Prob057_kmap2, Prob125_kmap3, and Prob140_fsm_hdlc the attack produced 0 cycles and the model output contained no JSON, causing the harness to see an invalid stimulus and miss the bug. Requiring an explicit empty\u2011cycles JSON block will prevent this failure mode.",
+      "evidence_problems": [
+        "Prob057_kmap2",
+        "Prob125_kmap3",
+        "Prob140_fsm_hdlc"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "reset_sync_check",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Simple check: if the design uses a reset signal in an always_ff block,\n    verify that the reset appears in the sensitivity list (posedge or negedge).\n    If reset is used but not in the sensitivity list, flag a potential\n    asynchronous reset issue.\n    \"\"\"\n    fired = False\n    findings = []\n\n    # Find all always_ff blocks\n    # Pattern matches always_ff @(...) begin ... end (non\u2011greedy)\n    pattern = r'always_ff\\s*@\\s*\\(([^)]*)\\)\\s*begin(.*?)end'\n    matches = re.findall(pattern, verilog, re.DOTALL | re.IGNORECASE)\n\n    # Identify reset-like signals (common names)\n    reset_pattern = r'\\\\b(reset|resetn)\\\\b'\n\n    for sens, body in matches:\n        # Check if reset appears in the block body\n        if re.search(reset_pattern, body, re.IGNORECASE):\n            # Reset used somewhere; now see if it's in sensitivity list\n            if not re.search(reset_pattern, sens, re.IGNORECASE):\n                fired = True\n                findings.append(\n                    \"Reset signal used in always_ff block but not present in sensitivity list; \"\n                    \"may be asynchronous.\"\n                )\n                break  # one finding is enough\n\n    return {\"fired\": fired, \"findings\": findings}\n"
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 200
+    }
+  ],
+  "evidence": [
+    "Prob057_kmap2",
+    "Prob107_fsm1s",
+    "Prob125_kmap3",
+    "Prob140_fsm_hdlc",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0036542999999999996
+}

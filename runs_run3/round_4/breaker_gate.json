@@ -1,0 +1,105 @@
+{
+  "round": 4,
+  "team": "breaker",
+  "from_version": 1,
+  "score_before": 0.7560975609756098,
+  "entries": [
+    {
+      "id": "r4-breaker-c0",
+      "round": 4,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add load\u2011pulse rule to expose timer and similar load\u2011controlled designs.",
+      "reasoning": "The missed buggy design Prob080_timer fails because the attack never asserted load long enough to observe the incorrect handling of terminal count when loading zero. A rule that forces a load pulse with varied data values will trigger the faulty path and reveal the bug. Similar load\u2011controlled FSMs (e.g., Prob143_fsm_onehot) also benefit from explicit load toggling.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob143_fsm_onehot",
+        "Prob125_kmap3"
+      ],
+      "rule_text": "For designs that have a load input and a multi-bit data input, include at least one cycle where load is held high for two consecutive cycles with different data values (e.g., load=1, data=non-zero then load=1, data=zero).",
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.7805,
+      "gained": [
+        "Prob117_circuit9#a178c2076f2a",
+        "Prob155_lemmings4#29b753d50ab2",
+        "Prob155_lemmings4#667c41b64a1b"
+      ],
+      "lost": [
+        "Prob117_circuit9#458021347d61",
+        "Prob139_2013_q2bfsm#e399f8a74d9e"
+      ],
+      "net_flips": 1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0061,
+      "ts": "2026-10-17T19:00:57Z"
+    },
+    {
+      "id": "r4-breaker-c1",
+      "round": 4,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.",
+      "reasoning": "Prob148_2013_q2afsm exhibits a reset-related bug where the reset is synchronous but the design incorrectly treats it as asynchronous. Detecting missing reset sensitivity helps the attacker focus on reset behavior. The three missed designs (Prob080_timer, Prob143_fsm_onehot, Prob148_2013_q2afsm) all involve reset or load handling, making this tool broadly useful.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": null,
+      "tool_name": "ResetSensitivityChecker",
+      "score_before": 0.7561,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": "tool rejected by static screen: syntax error: unmatched '}' (<unknown>, line 39)",
+      "cost_usd": 0.0016,
+      "ts": "2026-10-17T19:00:57Z"
+    },
+    {
+      "id": "r4-breaker-c2",
+      "round": 4,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs.",
+      "reasoning": "Designs like Prob143_fsm_onehot require longer sequences to traverse the one\u2011hot state encoding and expose incorrect next\u2011state logic. The current limit of 40 cycles truncates useful test sequences, causing missed bugs. Raising the limit to 80 gives the attacker enough cycles to explore deep state spaces without overly bloating the search space.",
+      "evidence_problems": [
+        "Prob143_fsm_onehot",
+        "Prob063_review2015_shiftcount",
+        "Prob118_history_shift"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.7073,
+      "gained": [
+        "Prob155_lemmings4#29b753d50ab2"
+      ],
+      "lost": [
+        "Prob132_always_if2#840ae888e862",
+        "Prob139_2013_q2bfsm#e399f8a74d9e",
+        "Prob150_review2015_fsmonehot#5f6b97ec7dbd"
+      ],
+      "net_flips": -2,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0086,
+      "ts": "2026-10-17T19:00:57Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 1,
+  "complete": true
+}

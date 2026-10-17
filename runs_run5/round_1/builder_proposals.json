@@ -1,0 +1,70 @@
+{
+  "from_version": 0,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "If an always block is combinational (using @(*) or always_comb), every output signal driven inside the block must be assigned in all possible branches (including else/default).",
+      "summary": "Add rule to prevent missing assignments in combinational always blocks.",
+      "reasoning": "Several failures (Prob026_alwaysblock1, Prob070_ece241_2013_q2, Prob103_circuit2) stemmed from combinational always blocks that did not assign outputs for all input combinations, leading to X/Z values and mismatches. This rule forces the writer to cover all cases, eliminating latch inference and undefined outputs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob070_ece241_2013_q2",
+        "Prob103_circuit2"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "check_combinational_defaults",
+      "tool_code": "import re\nfrom typing import List, Dict\n\ndef run(spec: str, verilog: str, ports: List[Dict]) -> Dict:\n    \"\"\"\n    Detect combinational always blocks (@(*) or always_comb) that do not assign\n    every output signal in all branches.\n    Returns {\"fired\": True, \"findings\": [msg]} if a problem is found.\n    \"\"\"\n    # Normalize: remove comments and string literals to avoid false matches\n    def remove_comments_and_strings(text: str) -> str:\n        # Remove /* ... */ comments\n        text = re.sub(r'/\\\\*.*?\\\\*/', '', text, flags=re.S)\n        # Remove // comments\n        text = re.sub(r'//.*', '', text)\n        # Remove string literals\n        text = re.sub(r'\\\"[^\\\"]*\\\"', '', text)\n        return text\n\n    code = remove_comments_and_strings(verilog)\n\n    # Find all always blocks that are combinational\n    # Pattern: always @(*) ... or always_comb ...\n    comb_block_pattern = r'always\\s*@\\s*\\(\\s*\\*\\s*\\)|always_comb'\n    # We'll split the code by 'always' and examine each block\n    # Simple approach: find each occurrence and capture until next 'always' or end of module\n    matches = list(re.finditer(r'always\\s*', code, flags=re.I))\n    fired = False\n    findings = []\n\n    for idx, match in enumerate(matches):\n        start = match.end()\n        # Determine if this always is combinational\n        preceding = code[max(0, start-20):start]\n        if not (re.search(r'always\\s*@\\s*\\(\\s*\\*\\s*\\)', preceding, re.I) or\n                re.search(r'always_comb', preceding, re.I)):\n            continue  # not combinational\n\n        # Find the end of this block: look for the next 'always' or 'endmodule'\n        next_always = code.find('always', start)\n        next_endmodule = code.find('endmodule', start)\n        end = len(code)\n        if next_always != -1:\n            end = min(end, next_always)\n        if next_endmodule != -1:\n            end = min(end, next_endmodule)\n        block = code[start:end]\n\n        # Extract all assignments (blocking or non-blocking) to outputs\n        # Output ports are those with direction output or inout\n        output_names = {p['name'] for p in ports if p.get('direction') in ('output', 'inout')}\n        if not output_names:\n            continue\n\n        # Find assignments: variable = ... ; or variable <= ... ;\n        assign_pattern = r'([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=|<=)'\n        assigned_vars = set()\n        for m in re.finditer(assign_pattern, block):\n            var = m.group(1)\n            if var in output_names:\n                assigned_vars.add(var)\n\n        # If any output not assigned, flag\n        missing = output_names - assigned_vars\n        if missing:\n            fired = True\n            findings.append(f\"Combinational always block missing assignments for outputs: {', '.join(sorted(missing))}\")\n\n    return {\"fired\": fired, \"findings\": findings}\n",
+      "summary": "Tool that flags combinational always blocks lacking a default assignment for any output.",
+      "reasoning": "The tool will catch the same class of errors targeted by the new rule, providing immediate feedback to the debugger before simulation. It is mechanical, based on parsing the Verilog for always_comb/@(*) blocks and verifying each output variable appears in every branch.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob070_ece241_2013_q2",
+        "Prob103_circuit2"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_debug_attempts",
+      "value": 3,
+      "summary": "Increase allowed debug attempts from 2 to 3.",
+      "reasoning": "Many designs failed after the first or second debug iteration because the initial fix was incomplete (e.g., Prob016_m2014_q4j, Prob054_edgedetect). Giving the team one extra attempt increases the chance to converge on a correct solution without overburdening the runtime.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob054_edgedetect",
+        "Prob080_timer"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "think",
+      "value": "low",
+      "source": "sweep",
+      "summary": "Settings sweep: try think = \"low\"",
+      "reasoning": "Systematic sweep of the team's own settings (not proposed by the coach): each untried setting is tested once on validation and kept only if it measurably helps.",
+      "evidence_problems": []
+    }
+  ],
+  "evidence": [
+    "Prob016_m2014_q4j",
+    "Prob026_alwaysblock1",
+    "Prob054_edgedetect",
+    "Prob057_kmap2",
+    "Prob062_bugs_mux2",
+    "Prob063_review2015_shiftcount",
+    "Prob070_ece241_2013_q2",
+    "Prob078_dualedge",
+    "Prob080_timer",
+    "Prob103_circuit2",
+    "Prob105_rotate100",
+    "Prob107_fsm1s",
+    "Prob118_history_shift",
+    "Prob125_kmap3",
+    "Prob129_ece241_2013_q8",
+    "Prob140_fsm_hdlc",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.005783399999999999
+}

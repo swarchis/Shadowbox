@@ -1,0 +1,651 @@
+{
+  "fingerprint": "e6236dd9ff",
+  "settings": "model=nvidia/Nemotron-3.5-Lightning-30B-A3B|t=0.7|think=off|mock=False",
+  "results": {
+    "Prob003_step_one": {
+      "label": "d0",
+      "code": "module TopModule (\n    output one\n);\n    assign one = 1'b1;\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob007_wire": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  in,\n    output out\n);\n    assign out = in;\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob006_vectorr": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [7:0] in,\n    output [7:0] out\n);\n\n    // Reverse the bit order: out[7] = in[0], out[6] = in[1], ..., out[0] = in[7]\n    assign out = {in[7], in[6], in[5], in[4], in[3], in[2], in[1], in[0]};\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob008_m2014_q4h": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  in,\n    output out\n);\n    assign out = in;\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob011_norgate": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  a,\n    input  b,\n    output out\n);\n    assign out = ~(a | b);\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob012_xnorgate": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  a,\n    input  b,\n    output out\n);\n\nassign out = ~(a ^ b);\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob013_m2014_q4e": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  in1,\n    input  in2,\n    output out\n);\n\n    // 2-input NOR gate: out = NOT (in1 OR in2)\n    assign out = ~(in1 | in2);\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob017_mux2to1v": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [99:0] a,\n    input  [99:0] b,\n    input         sel,\n    output [99:0] out\n);\n    assign out = sel ? b : a;\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob018_mux256to1": {
+      "label": "d0",
+      "code": "module TopModule(\n    input  logic [255:0] in,\n    input  logic [7:0]   sel,\n    output logic         out\n);\n\n    // 1-bit wide 256-to-1 multiplexer\n    assign out = in[sel];\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob020_mt2015_eq2": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic [1:0] A,\n    input  logic [1:0] B,\n    output logic z\n);\n\n    // z is 1 when A equals B, otherwise 0\n    assign z = (A == B);\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob025_reduction": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [7:0] in,\n    output parity\n);\n\nassign parity = ^in;   // XOR reduction of all 8 data bits (even parity)\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob022_mux2to1": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  wire a,\n    input  wire b,\n    input  wire sel,\n    output wire out\n);\n\n    // 2-to-1 multiplexer: when sel=0 output a, when sel=1 output b\n    assign out = sel ? b : a;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob015_vector1": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [15:0] in,\n    output [7:0] out_hi,\n    output [7:0] out_lo\n);\n\n    // Combinational assignment: lower 8 bits to out_lo, upper 8 bits to out_hi\n    assign out_lo = in[7:0];\n    assign out_hi = in[15:8];\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob029_m2014_q4g": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic in1,\n    input  logic in2,\n    input  logic in3,\n    output logic out\n);\n\n    // out = (in1 XNOR in2) XOR in3\n    assign out = (in1 ~^ in2) ^ in3;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob028_m2014_q4a": {
+      "label": "d0",
+      "code": "module TopModule (\n  input  d,\n  input  ena,\n  output reg q\n);\n\n  always @(d or ena) begin\n    if (ena)\n      q <= d;\n  end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob032_vector0": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [2:0] vec,\n    output [2:0] outv,\n    output       o2,\n    output       o1,\n    output       o0\n);\n\n    // Output the same 3-bit vector\n    assign outv = vec;\n\n    // Split the vector into individual bits\n    // o0 corresponds to position 0 (LSB), o1 to position 1, o2 to position 2\n    assign o0 = vec[0];\n    assign o1 = vec[1];\n    assign o2 = vec[2];\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob040_count10": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic reset,\n    output logic [3:0] q\n);\n\n    // Synchronous active-high reset, decade counter (0-9)\n    always_ff @(posedge clk) begin\n        if (reset)\n            q <= 4'b0;\n        else if (q == 4'b1001)   // when count reaches 9\n            q <= 4'b0;\n        else\n            q <= q + 1'b1;\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob034_dff8": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic [7:0] d,\n    output logic [7:0] q,\n    input              clk\n);\n\nalways @(posedge clk) begin\n    q <= d;\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob039_always_if": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic a,\n    input  logic b,\n    input  logic sel_b1,\n    input  logic sel_b2,\n    output logic out_assign,\n    output logic out_always\n);\n\n// Continuous assignment for out_assign: choose b if both sel_b1 and sel_b2 are true, else choose a\nassign out_assign = (sel_b1 & sel_b2) ? b : a;\n\n// Procedural assignment for out_always using an always_comb block\nalways_comb begin\n    if (sel_b1 & sel_b2)\n        out_always = b;\n    else\n        out_always = a;\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob030_popcount255": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic [254:0] in,\n    output logic [7:0] out\n);\n    logic [7:0] count;\n    integer i;\n\n    always_comb begin\n        count = 0;\n        for (i = 0; i < 255; i = i + 1) begin\n            if (in[i])\n                count = count + 1;\n        end\n        out = count;\n    end\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob046_dff8p": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic reset,\n    input  logic [7:0] d,\n    output logic [7:0] q\n);\n\n    // 8 negative-edge-triggered D flip-flops with active-high synchronous reset\n    always_ff @(negedge clk) begin\n        if (reset)\n            q <= 8'h34;   // reset to 0x34\n        else\n            q <= d;       // load data on negedge\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob033_ece241_2014_q1c": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic [7:0] a,\n    input  logic [7:0] b,\n    output logic [7:0] s,\n    output logic overflow\n);\n\n    // Perform 8-bit two's complement addition\n    assign s = a + b;\n\n    // Signed overflow detection:\n    // Overflow occurs when both operands are positive (MSB=0) and result is negative (MSB=1),\n    // or both operands are negative (MSB=1) and result is positive (MSB=0).\n    assign overflow = (a[7] & b[7] & ~s[7]) | (~a[7] & ~b[7] & s[7]);\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob048_m2014_q4c": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic d,\n    input  logic r,\n    output logic q\n);\n\n    // Synchronous D flip-flop with active-high reset\n    always_ff @(posedge clk) begin\n        if (r)\n            q <= 1'b0;   // asynchronous reset to 0 on clock edge\n        else\n            q <= d;      // normal data transfer\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob047_dff8ar": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic areset,\n    input  logic [7:0] d,\n    output logic [7:0] q\n);\n\n    // 8 D flip-flops with active high asynchronous reset\n    always_ff @(posedge clk or posedge areset) begin\n        if (areset)\n            q <= 8'b0;      // asynchronous reset sets q to 0\n        else\n            q <= d;        // on positive edge of clk, capture d\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob049_m2014_q4b": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic ar,\n    input  logic d,\n    output logic q\n);\n\nalways_ff @(posedge clk or posedge ar) begin\n    if (ar)\n        q <= 1'b0;\n    else\n        q <= d;\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob038_count15": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic reset,\n    output logic [3:0] q\n);\n\nalways_ff @(posedge clk) begin\n    if (reset)\n        q <= 4'b0;\n    else\n        q <= q + 1;\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob052_gates100": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [99:0] in,\n    output       out_and,\n    output       out_or,\n    output       out_xor\n);\n\n    // 100\u2011input AND gate (reduction AND)\n    assign out_and = &in;\n\n    // 100\u2011input OR  gate (reduction OR)\n    assign out_or  = |in;\n\n    // 100\u2011input XOR gate (reduction XOR / parity)\n    assign out_xor = ^in;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob053_m2014_q4d": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic in,\n    output logic out\n);\n\nalways_ff @(posedge clk) begin\n    out <= in ^ out;\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob056_ece241_2013_q7": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic j,\n    input  logic k,\n    output logic Q\n);\n\n    always_ff @(posedge clk) begin\n        case ({j, k})\n            2'b00: Q <= Q;       // no change\n            2'b01: Q <= 1'b0;    // reset\n            2'b10: Q <= 1'b1;    // set\n            2'b11: Q <= ~Q;      // toggle\n        endcase\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob051_gates4": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [3:0] in,\n    output out_and,\n    output out_or,\n    output out_xor\n);\n\n    assign out_and = &in;\n    assign out_or  = |in;\n    assign out_xor = ^in;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob061_2014_q4a": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic w,\n    input  logic R,\n    input  logic E,\n    input  logic L,\n    output logic Q\n);\n\nalways_ff @(posedge clk) begin\n    if (L)\n        Q <= R;\n    else if (E)\n        Q <= w;\n    else\n        Q <= Q;\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob072_thermostat": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic mode,\n    input  logic too_cold,\n    input  logic too_hot,\n    input  logic fan_on,\n    output logic heater,\n    output logic aircon,\n    output logic fan\n);\n\n    // Heater turns on in heating mode (mode=1) when too_cold\n    assign heater = mode & too_cold;\n\n    // Air conditioner turns on in cooling mode (mode=0) when too_hot\n    assign aircon = ~mode & too_hot;\n\n    // Fan is on when heater or aircon is active, or when the user forces it on\n    assign fan = heater | aircon | fan_on;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob050_kmap1": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic a,\n    input  logic b,\n    input  logic c,\n    output logic out\n);\n\n    assign out = a | b | c;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob073_dff16e": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic resetn,\n    input  logic [1:0] byteena,\n    input  logic [15:0] d,\n    output logic [15:0] q\n);\n\n    always_ff @(posedge clk) begin\n        if (!resetn) begin\n            q <= 16'b0;\n        end else begin\n            if (byteena[0]) q[7:0] <= d[7:0];\n            if (byteena[1]) q[15:8] <= d[15:8];\n        end\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob087_gates": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  a,\n    input  b,\n    output out_and,\n    output out_or,\n    output out_xor,\n    output out_nand,\n    output out_nor,\n    output out_xnor,\n    output out_anotb\n);\n\n    // out_and: a AND b\n    assign out_and = a & b;\n\n    // out_or: a OR b\n    assign out_or = a | b;\n\n    // out_xor: a XOR b\n    assign out_xor = a ^ b;\n\n    // out_nand: a NAND b\n    assign out_nand = ~(a & b);\n\n    // out_nor: a NOR b\n    assign out_nor = ~(a | b);\n\n    // out_xnor: a XNOR b (equivalence)\n    assign out_xnor = ~(a ^ b);\n\n    // out_anotb: a AND NOT b\n    assign out_anotb = a & ~b;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob081_7458": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  p1a,\n    input  p1b,\n    input  p1c,\n    input  p1d,\n    input  p1e,\n    input  p1f,\n    input  p2a,\n    input  p2b,\n    input  p2c,\n    input  p2d,\n    output p1y,\n    output p2y\n);\n\n    // Intermediate wires for the four AND gates\n    wire w1, w2, w3, w4;\n\n    // Four AND gates\n    assign w1 = p1a & p1b & p1c;\n    assign w2 = p1d & p1e & p1f;\n    assign w3 = p2a & p2b;\n    assign w4 = p2c & p2d;\n\n    // Two OR gates driving the primary outputs\n    assign p1y = w1 | w2;\n    assign p2y = w3 | w4;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob043_vector5": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic a,\n    input  logic b,\n    input  logic c,\n    input  logic d,\n    input  logic e,\n    output logic [24:0] out\n);\n\nassign out = { (~a ^ a), (~a ^ b), (~a ^ c), (~a ^ d), (~a ^ e),\n               (~b ^ a), (~b ^ b), (~b ^ c), (~b ^ d), (~b ^ e),\n               (~c ^ a), (~c ^ b), (~c ^ c), (~c ^ d), (~c ^ e),\n               (~d ^ a), (~d ^ b), (~d ^ c), (~d ^ d), (~d ^ e),\n               (~e ^ a), (~e ^ b), (~e ^ c), (~e ^ d), (~e ^ e) };\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob076_always_case": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic [2:0] sel,\n    input  logic [3:0] data0,\n    input  logic [3:0] data1,\n    input  logic [3:0] data2,\n    input  logic [3:0] data3,\n    input  logic [3:0] data4,\n    input  logic [3:0] data5,\n    output logic [3:0] out\n);\n\n    always_comb begin\n        case (sel)\n            3'd0: out = data0;\n            3'd1: out = data1;\n            3'd2: out = data2;\n            3'd3: out = data3;\n            3'd4: out = data4;\n            3'd5: out = data5;\n            default: out = 4'b0;\n        endcase\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob071_always_casez": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [7:0] in,\n    output reg [2:0] pos\n);\n\nalways @(*) begin\n    if (in[0])\n        pos = 3'd0;\n    else if (in[1])\n        pos = 3'd1;\n    else if (in[2])\n        pos = 3'd2;\n    else if (in[3])\n        pos = 3'd3;\n    else if (in[4])\n        pos = 3'd4;\n    else if (in[5])\n        pos = 3'd5;\n    else if (in[6])\n        pos = 3'd6;\n    else if (in[7])\n        pos = 3'd7;\n    else\n        pos = 3'd0;\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob058_alwaysblock2": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic a,\n    input  logic b,\n    output logic out_assign,\n    output logic out_always_comb,\n    output logic out_always_ff\n);\n\n    // Continuous assignment (XOR gate level 1)\n    assign out_assign = a ^ b;\n\n    // Combinational always block (XOR gate level 2)\n    always_comb begin\n        out_always_comb = a ^ b;\n    end\n\n    // Clocked always block with positive edge trigger (XOR gate level 3 with flip-flop)\n    always_ff @(posedge clk) begin\n        out_always_ff <= a ^ b;\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob023_vector100r": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'code': None, 'param': None, 'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'type': 'rate_limit_error'}}"
+    },
+    "Prob088_ece241_2014_q5b": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic areset,\n    input  logic x,\n    output logic z\n);\n\n// One-hot encoded state register: State A = 2'b01, State B = 2'b10\nlogic [1:0] state, next_state;\n\n// Next-state logic (Mealy FSM transitions)\nalways_comb begin\n    case(state)\n        2'b01: // State A\n            next_state = x ? 2'b10 : 2'b01; // If x=1 go to B, else stay in A\n        2'b10: // State B\n            next_state = 2'b10;              // Stay in B (absorbing state)\n        default: next_state = 2'b01;       // Fallback (should not occur)\n    endcase\nend\n\n// State update logic (positive edge triggered, asynchronous active-high reset)\nalways_ff @(posedge clk or posedge areset) begin\n    if (areset)\n        state <= 2'b01; // Reset to state A\n    else\n        state <= next_state;\nend\n\n// Output logic (Mealy output depends on current state and input x)\nassign z = x ^ state[1]; // state[1] is 0 for A, 1 for B -> implements z = x in A, z = ~x in B\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob019_m2014_q4f": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'param': None, 'type': 'rate_limit_error', 'code': None}}"
+    },
+    "Prob045_edgedetect2": {
+      "label": "d0",
+      "code": "module TopModule (\n    input clk,\n    input [7:0] in,\n    output [7:0] anyedge\n);\n\n    reg [7:0] prev_in = 0;\n    reg [7:0] edge_detect = 0;\n\n    always @(posedge clk) begin\n        edge_detect <= in ^ prev_in;\n        prev_in     <= in;\n    end\n\n    assign anyedge = edge_detect;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob069_truthtable1": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  x3,\n    input  x2,\n    input  x1,\n    output f\n);\n\nassign f = (~x3 & x2) | (x3 & x1);\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob101_circuit4": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic a,\n    input  logic b,\n    input  logic c,\n    input  logic d,\n    output logic q\n);\n\n    // Combinational logic: q is the OR of b and c\n    // Truth table verification:\n    // q = 0 only when b=0 and c=0 (rows 0,1,8,9)\n    // q = 1 otherwise, regardless of a and d\n    assign q = b | c;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob084_ece241_2013_q12": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic enable,\n    input  logic S,\n    input  logic A,\n    input  logic B,\n    input  logic C,\n    output logic Z\n);\n\n    // 8-bit shift register (8 D-type flip-flops)\n    logic [7:0] Q;\n\n    // Synchronous active-high enable: shift S into Q[0] on positive edge\n    always @(posedge clk) begin\n        if (enable)\n            Q <= {Q[6:0], S};   // S shifts into Q[0]; Q[1..7] shift right\n        else\n            Q <= Q;             // hold state when enable is low\n    end\n\n    // 8-to-1 multiplexer: A, B, C select which Q output drives Z\n    // ABC=000 -> Q[0], 001 -> Q[1], \u2026, 111 -> Q[7]\n    assign Z = Q[{A, B, C}];\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob100_fsm3comb": {
+      "label": "d0",
+      "code": "module TopModule(\n    input  logic in,\n    input  logic [1:0] state,\n    output logic [1:0] next_state,\n    output logic out\n);\n\n    always_comb\n    begin\n        case (state)\n            2'b00: begin // State A\n                next_state = in ? 2'b01 : 2'b00; // A -> B (in=1), A -> A (in=0)\n                out        = 1'b0;\n            end\n            2'b01: begin // State B\n                next_state = in ? 2'b01 : 2'b10; // B -> B (in=1), B -> C (in=0)\n                out        = 1'b0;\n            end\n            2'b10: begin // State C\n                next_state = in ? 2'b11 : 2'b00; // C -> D (in=1), C -> A (in=0)\n                out        = 1'b0;\n            end\n            2'b11: begin // State D\n                next_state = in ? 2'b01 : 2'b10; // D -> B (in=1), D -> C (in=0)\n                out        = 1'b1;\n            end\n            default: begin\n                next_state = 2'b00;\n                out        = 1'b0;\n            end\n        endcase\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob108_rule90": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic load,\n    input  logic [511:0] data,\n    output logic [511:0] q\n);\n\n    // Internal flip-flop register holding the current CA state\n    logic [511:0] q_reg;\n\n    // Combinational next-state logic for Rule 90\n    always_comb begin\n        // Boundaries q[-1] and q[512] are tied to 0\n        q_reg[0]     = q_reg[1];            // left neighbor = 0, so 0 XOR q[1] = q[1]\n        q_reg[511]   = q_reg[510];          // right neighbor = 0, so q[510] XOR 0 = q[510]\n        for (int i = 1; i <= 510; i = i + 1) begin\n            q_reg[i] = q_reg[i-1] ^ q_reg[i+1];  // Rule 90: next = left XOR right\n        end\n    end\n\n    // Sequential update on positive edge of clock\n    always_ff @(posedge clk) begin\n        if (load)\n            q_reg <= data;   // Load the provided 512-bit pattern\n        else\n            q_reg <= q_reg;  // (Note: q_reg already holds the new next-state value from always_comb in simulation; \n                               // in synthesis this is typically optimized to q_next. To be strictly correct for synthesis, \n                               // a separate next-state wire is used. The pattern below is the standard robust approach.)\n    end\n\n    // Standard output assignment\n    assign q = q_reg;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob109_fsm1": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  clk,\n    input  areset,\n    input  in,\n    output out\n);\n\n    reg state; // 1'b0 = state A, 1'b1 = state B\n\n    always @(posedge clk or posedge areset) begin\n        if (areset)\n            state <= 1'b1; // asynchronous reset to state B\n        else\n            state <= (state & in) | (~state & ~in); // next-state logic\n    end\n\n    assign out = state; // Moore output: 1 in state B, 0 in state A\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob027_fadd": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic a,\n    input  logic b,\n    input  logic cin,\n    output logic cout,\n    output logic sum\n);\n\n    // Full-adder logic\n    assign sum = a ^ b ^ cin;\n    assign cout = (a & b) | (cin & (a ^ b));\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob091_2012_q2b": {
+      "label": "d0",
+      "code": "module TopModule (\n    input [5:0] y,\n    input w,\n    output Y1,\n    output Y3\n);\n\n// Y1 is the D-input of the flip-flop for state bit y[1]\n// Next state of B (y[1]=1) occurs only when current state is A (y[0]=1) and w=1\nassign Y1 = y[0] & w;\n\n// Y3 is the D-input of the flip-flop for state bit y[3]\n// Next state of D (y[3]=1) occurs when current state is B, C, E, or F and w=0\n// B -> y[1], C -> y[2], E -> y[4], F -> y[5]\nassign Y3 = (~w) & (y[1] | y[2] | y[4] | y[5]);\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob112_always_case2": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [3:0] in,\n    output [1:0] pos\n);\n\n    // Priority encoder: outputs the position of the first (least significant) 1 bit.\n    // If input is zero, output is zero.\n    // Positions: 00 -> bit[0], 01 -> bit[1], 10 -> bit[2], 11 -> bit[3]\n    assign pos = (in == 4'b0000) ? 2'b00 :\n                 (in[0])     ? 2'b00 :\n                 (in[1])     ? 2'b01 :\n                 (in[2])     ? 2'b10 :\n                 (in[3])     ? 2'b11 :\n                 2'b00;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob079_fsm3onehot": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic in,\n    input  logic [3:0] state,\n    output logic [3:0] next_state,\n    output logic out\n);\n\n    always_comb begin\n        // next_state[0] corresponds to state A (4'b0001)\n        next_state[0] = (~in) & (state[0] | state[2]);\n        // next_state[1] corresponds to state B (4'b0010)\n        next_state[1] = in & (state[0] | state[1] | state[3]);\n        // next_state[2] corresponds to state C (4'b0100)\n        next_state[2] = (~in) & (state[1] | state[3]);\n        // next_state[3] corresponds to state D (4'b1000)\n        next_state[3] = in & state[2];\n        // Moore output: 1 only when current state is D\n        out = state[3];\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob123_bugs_addsubz": {
+      "label": "d0",
+      "code": "module TopModule (\n    input do_sub,\n    input [7:0] a,\n    input [7:0] b,\n    output reg [7:0] out,\n    output reg result_is_zero\n);\n\n    always @(*) begin\n        case (do_sub)\n            0: out = a + b;\n            1: out = a - b;\n            default: out = 8'd0;\n        endcase\n        result_is_zero = (out == 8'd0);\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob066_edgecapture": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'type': 'rate_limit_error', 'code': None, 'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'param': None}}"
+    },
+    "Prob064_vector3": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'code': None, 'param': None, 'type': 'rate_limit_error', 'message': 'Too many requests. Reason: max_requests_limit (orchestrator)'}}"
+    },
+    "Prob138_2012_q2fsm": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  clk,\n    input  reset,\n    input  w,\n    output z\n);\n\n// State encoding (3 bits for 6 states)\nparameter A = 3'b000;\nparameter B = 3'b001;\nparameter C = 3'b010;\nparameter D = 3'b011;\nparameter E = 3'b100;\nparameter F = 3'b101;\n\n// State register and next-state register\nreg [2:0] state, next_state;\n\n// -------------------------------------------------------\n// Next-state logic (state table)\n// -------------------------------------------------------\nalways @(*) begin\n    case (state)\n        A: next_state = (w) ? B : A;\n        B: next_state = (w) ? C : D;\n        C: next_state = (w) ? E : D;\n        D: next_state = (w) ? F : A;\n        E: next_state = (w) ? E : D;\n        F: next_state = (w) ? C : D;\n        default: next_state = A;  // unused states reset to A\n    endcase\nend\n\n// -------------------------------------------------------\n// State flip-flops (sequential logic)\n// -------------------------------------------------------\nalways @(posedge clk) begin\n    if (reset)\n        state <= A;          // synchronous active-high reset\n    else\n        state <= next_state;\nend\n\n// -------------------------------------------------------\n// Output logic (Moore machine: z = 1 in states E and F)\n// -------------------------------------------------------\nassign z = (state == E) | (state == F);\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob119_fsm3": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic areset,\n    input  logic in,\n    output logic out\n);\n\n    // State encoding: 2 bits sufficient for four states\n    logic [1:0] state, next_state;\n\n    // State encoding constants\n    parameter A = 2'b00;\n    parameter B = 2'b01;\n    parameter C = 2'b10;\n    parameter D = 2'b11;\n\n    // Combinational next-state logic\n    always @(*) begin\n        case (state)\n            A: next_state = in ? B : A;\n            B: next_state = in ? B : C;\n            C: next_state = in ? D : A;\n            D: next_state = in ? B : C;\n            default: next_state = A;\n        endcase\n    end\n\n    // Combinational output logic (Moore machine: output depends only on current state)\n    always @(*) begin\n        case (state)\n            A, B, C: out = 1'b0;\n            D:       out = 1'b1;\n            default: out = 1'b0;\n        endcase\n    end\n\n    // State register with positive-edge-triggered clock and\n    // asynchronous reset (active high) to state A\n    always @(posedge clk or posedge areset) begin\n        if (areset)\n            state <= A;\n        else\n            state <= next_state;\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob093_ece241_2014_q3": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  wire c,\n    input  wire d,\n    output wire [3:0] mux_in\n);\n\n// Derived from the K-map columns for each ab selector:\n// ab=00 (mux_in[0]): column values 0,1,1,1  -> F = c | d\n// ab=01 (mux_in[1]): column values 0,0,0,0  -> F = 0\n// ab=11 (mux_in[2]): column values 0,0,1,0  -> F = c & d\n// ab=10 (mux_in[3]): column values 1,0,1,1  -> F = c | ~d\n\nassign mux_in[0] = c | d;\nassign mux_in[1] = 1'b0;\nassign mux_in[2] = c & d;\nassign mux_in[3] = c | ~d;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob115_shift18": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  clk,\n    input  load,\n    input  ena,\n    input  [1:0] amount,\n    input  [63:0] data,\n    output reg [63:0] q\n);\n\n    always @(posedge clk) begin\n        if (load) begin\n            // Synchronous load: transfer data to q\n            q <= data;\n        end else if (ena) begin\n            // Shift operations selected by 'amount'\n            case (amount)\n                2'b00: q <= q << 1;           // Shift left by 1 bit (logical zero-fill)\n                2'b01: q <= q << 8;           // Shift left by 8 bits (logical zero-fill)\n                2'b10: q <= {q[63], q[63:1]}; // Arithmetic right shift by 1 bit (sign-extend MSB)\n                2'b11: q <= { {8{q[63]}}, q[63:8] }; // Arithmetic right shift by 8 bits (sign-extend top 8 bits)\n                default: q <= q;              // Default case (hold)\n            endcase\n        end\n        // If ~load and ~ena, q retains its previous value (hold state)\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob122_kmap4": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  wire a,\n    input  wire b,\n    input  wire c,\n    input  wire d,\n    output wire out\n);\n    assign out = a ^ b ^ c ^ d;\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob127_lemmings1": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic areset,\n    input  logic bump_left,\n    input  logic bump_right,\n    output logic walk_left,\n    output logic walk_right\n);\n\n// Internal state register\n// 1'b0 = Walking Left\n// 1'b1 = Walking Right\nlogic state;\n\nalways @(posedge clk or posedge areset) begin\n    // Asynchronous positive-edge-triggered reset to walk left\n    if (areset) begin\n        state <= 1'b0;\n    end else begin\n        // Next-state logic\n        // If bumped on left only -> walk right\n        if (bump_left & ~bump_right) begin\n            state <= 1'b1;\n        // If bumped on right only -> walk left\n        end else if (~bump_left & bump_right) begin\n            state <= 1'b0;\n        // If bumped on both sides -> switch directions\n        end else if (bump_left & bump_right) begin\n            state <= ~state;\n        // If no bumps -> hold current state\n        end else begin\n            state <= state;\n        end\n    end\nend\n\n// Moore output logic: outputs are purely a function of the current state\nassign walk_left = ~state;  // 1 when state is 0 (Left)\nassign walk_right = state;  // 1 when state is 1 (Right)\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob092_gatesv100": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic [99:0] in,\n    output logic [99:0] out_both,\n    output logic [99:0] out_any,\n    output logic [99:0] out_different\n);\n\n// out_both: Each bit indicates if the corresponding input bit and its neighbour to the left are '1'.\n// For out_both[99], in[99] has no neighbour to the left, so it is set to 0.\n// For bits 98 down to 0: out_both[i] = in[i] & in[i+1]\nassign out_both[99] = 1'b0;\nfor (genvar i = 0; i < 99; i = i + 1) begin: both_gen\n    assign out_both[i] = in[i] & in[i+1];\nend\n\n// out_any: Each bit indicates if any of the corresponding input bit and its neighbour to the right are '1'.\n// For out_any[0], in[0] has no neighbour to the right, so it is set to 0.\n// For bits 99 down to 1: out_any[i] = in[i] | in[i-1]\nassign out_any[0] = 1'b0;\nfor (genvar i = 1; i < 100; i = i + 1) begin: any_gen\n    assign out_any[i] = in[i] | in[i-1];\nend\n\n// out_different: Each bit indicates if the corresponding input bit is different from its neighbour to the left.\n// The vector wraps around, so in[99]'s neighbour to the left is in[0].\n// For out_different[99]: in[99] ^ in[0].\n// For bits 98 down to 0: out_different[i] = in[i] ^ in[i+1]\nassign out_different[99] = in[99] ^ in[0];\nfor (genvar i = 0; i < 99; i = i + 1) begin: diff_gen\n    assign out_different[i] = in[i] ^ in[i+1];\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob128_fsm_ps2": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  clk,\n    input  reset,\n    input  [7:0] in,\n    output reg done\n);\n\n// State encoding for the 3-byte message parser\nparameter S_IDLE   = 2'b00;  // waiting for a byte with in[3]=1\nparameter S_RECV1  = 2'b01;  // received byte 1 (in[3]=1), expecting byte 2\nparameter S_RECV2  = 2'b10;  // received byte 2, expecting byte 3\nparameter S_RECV3  = 2'b11;  // received byte 3, done will pulse next cycle\n\nreg [1:0] state;\n\nalways @(posedge clk) begin\n    if (reset) begin\n        state <= S_IDLE;\n        done  <= 1'b0;\n    end else begin\n        case (state)\n            S_IDLE: begin\n                // Discard bytes until we see in[3]=1, then assume byte 1\n                if (in[3])\n                    state <= S_RECV1;\n                else\n                    state <= S_IDLE;\n                done <= 1'b0;\n            end\n            S_RECV1: begin\n                // Accept next byte as byte 2 (no in[3] check)\n                state <= S_RECV2;\n                done <= 1'b0;\n            end\n            S_RECV2: begin\n                // Accept next byte as byte 3 (no in[3] check)\n                state <= S_RECV3;\n                done <= 1'b0;\n            end\n            S_RECV3: begin\n                // Third byte successfully received;\n                // assert done in the very next cycle, then return to IDLE\n                state <= S_IDLE;\n                done <= 1'b1;\n            end\n            default: begin\n                state <= S_IDLE;\n                done <= 1'b0;\n            end\n        endcase\n    end\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob130_circuit5": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic [3:0] a,\n    input  logic [3:0] b,\n    input  logic [3:0] c,\n    input  logic [3:0] d,\n    input  logic [3:0] e,\n    output logic [3:0] q\n);\n\nalways_comb\nbegin\n    case (c)\n        4'b0000: q = b;   // c = 0  -> q = b\n        4'b0001: q = e;   // c = 1  -> q = e\n        4'b0010: q = a;   // c = 2  -> q = a\n        4'b0011: q = d;   // c = 3  -> q = d\n        default: q = 4'b1111; // c >= 4 -> q = f (all 1's)\n    endcase\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob124_rule110": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic load,\n    input  logic [511:0] data,\n    output logic [511:0] q\n);\n\n// Internal signals for the left and right neighbors of each cell.\n// Boundaries q[-1] and q[512] are assumed to be 0 (off).\n\n// Left neighbor vector: q << 1\n// q[0] becomes 0, q[i] gets q[i-1] for i >= 1.\nlogic [511:0] left_neigh;\nassign left_neigh = q << 1;\n\n// Right neighbor vector: q >> 1\n// q[511] becomes 0, q[i] gets q[i+1] for i <= 510.\nlogic [511:0] right_neigh;\nassign right_neigh = q >> 1;\n\n// Next state calculation for Rule 110.\n// The truth table from the specification (mapped to Left, Center, Right):\n//  111 -> 0\n//  110 -> 1 (L C ~R)\n//  101 -> 1 (L ~C R)\n//  100 -> 0\n//  011 -> 1 (~L C R)\n//  010 -> 1 (~L C ~R)\n//  001 -> 1 (~L ~C R)\n//  000 -> 0\nlogic [511:0] next_q;\n\nalways_comb begin\n    next_q <= (left_neigh & q & ~right_neigh) |\n              (left_neigh & ~q & right_neigh) |\n              (~left_neigh & q & right_neigh) |\n              (~left_neigh & q & ~right_neigh) |\n              (~left_neigh & ~q & right_neigh);\nend\n\n// Synchronous update triggered on the positive edge of the clock.\n// Active high 'load' inputs the 'data' vector; otherwise the CA advances one step.\nalways @(posedge clk) begin\n    if (load)\n        q <= data;\n    else\n        q <= next_q;\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob151_review2015_fsm": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  clk,\n    input  reset,\n    input  data,\n    input  done_counting,\n    input  ack,\n    output shift_ena,\n    output counting,\n    output done\n);\n\n    // State machine parameter definitions\n    parameter S_IDLE   = 3'b000;\n    parameter S_SHIFT1 = 3'b001;\n    parameter S_SHIFT2 = 3'b010;\n    parameter S_SHIFT3 = 3'b011;\n    parameter S_SHIFT4 = 3'b100;\n    parameter S_COUNT  = 3'b101;\n    parameter S_DONE   = 3'b110;\n\n    // Pattern detection shift register (4 bits)\n    reg [3:0] pshift;\n\n    // State flip-flop\n    reg [2:0] state;\n\n    // Sequential logic (positive edge-triggered, synchronous reset)\n    always @(posedge clk) begin\n        if (reset) begin\n            state <= S_IDLE;\n            pshift <= 4'b0000;\n        end else begin\n            case (state)\n                S_IDLE: begin\n                    // Shift in serial data for pattern detection\n                    pshift <= {pshift[2:0], data};\n                    \n                    // If the pattern 1101 is detected, move to shift state\n                    if (pshift == 4'b1101)\n                        state <= S_SHIFT1;\n                    else\n                        state <= S_IDLE;\n                end\n\n                S_SHIFT1: begin\n                    state <= S_SHIFT2;\n                end\n\n                S_SHIFT2: begin\n                    state <= S_SHIFT3;\n                end\n\n                S_SHIFT3: begin\n                    state <= S_SHIFT4;\n                end\n\n                S_SHIFT4: begin\n                    // After 4 cycles of shift_ena, proceed to counting state\n                    state <= S_COUNT;\n                end\n\n                S_COUNT: begin\n                    // Wait until done_counting input is high\n                    if (done_counting)\n                        state <= S_DONE;\n                    else\n                        state <= S_COUNT;\n                end\n\n                S_DONE: begin\n                    // Wait until user acknowledges (ack is high)\n                    if (ack)\n                        state <= S_IDLE;\n                    else\n                        state <= S_DONE;\n                end\n\n                default: begin\n                    state <= S_IDLE;\n                end\n            endcase\n        end\n    end\n\n    // Combinational output assignments\n    assign shift_ena = (state == S_SHIFT1) || \n                       (state == S_SHIFT2) || \n                       (state == S_SHIFT3) || \n                       (state == S_SHIFT4);\n\n    assign counting = (state == S_COUNT);\n\n    assign done     = (state == S_DONE);\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob095_review2015_fsmshift": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic reset,\n    output logic shift_ena\n);\n\n    // 2-bit counter (counts 0 to 3)\n    logic [1:0] cnt;\n    // Synchronized reset flip-flop for edge detection\n    logic reset_d;\n\n    always @(posedge clk) begin\n        reset_d <= reset;                     // capture reset synchronously\n        if (reset & ~reset_d) begin           // rising edge of reset detected\n            cnt   <= 0;\n            shift_ena <= 1;                    // start the 4-cycle pulse\n        end else if (cnt < 3) begin          // count cycles 1..4\n            cnt   <= cnt + 1;\n            shift_ena <= 1;\n        end else begin                        // after 4 cycles, keep 0\n            shift_ena <= 0;\n            cnt     <= cnt;                   // hold counter value\n        end\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob035_count1to10": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  clk,\n    input  reset,\n    output reg [3:0] q\n);\n\n    always @(posedge clk) begin\n        if (reset)\n            q <= 4'b0001;          // synchronous reset to 1\n        else if (q == 4'b1010)    // when count reaches 10 (binary 1010)\n            q <= 4'b0001;         // wrap around to 1\n        else\n            q <= q + 1'b1;        // normal increment\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob042_vector4": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [7:0] in,\n    output [31:0] out\n);\n\nassign out = {{24{in[7]}}, in};\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob126_circuit6": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [2:0] a,\n    output reg [15:0] q\n);\n    always @(*) begin\n        case (a)\n            3'd0: q = 16'h1232;\n            3'd1: q = 16'hAEE0;\n            3'd2: q = 16'h27D4;\n            3'd3: q = 16'h5A0E;\n            3'd4: q = 16'h2066;\n            3'd5: q = 16'h64CE;\n            3'd6: q = 16'hC526;\n            3'd7: q = 16'h2F19;\n        endcase\n    end\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob031_dff": {
+      "label": "d0",
+      "code": "module TopModule (\n    input clk,\n    input d,\n    output reg q\n);\n    // D flip-flop with positive-edge-triggered clock\n    always @(posedge clk) begin\n        q <= d;\n    end\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob111_fsm2s": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic reset,\n    input  logic j,\n    input  logic k,\n    output logic out\n);\n\n// Two-state Moore machine state encoding\ntypedef enum logic [1:0] {\n    OFF = 2'b00,\n    ON  = 2'b01\n} state_t;\n\nstate_t state, next_state;\n\n// Next-state combinational logic\nalways_comb begin\n    if (state == OFF) begin\n        if (j == 1'b1)\n            next_state = ON;\n        else\n            next_state = OFF;\n    end\n    else begin\n        if (k == 1'b1)\n            next_state = OFF;\n        else\n            next_state = ON;\n    end\nend\n\n// Moore output: out is 1 only in ON state\nassign out = (state == ON) ? 1'b1 : 1'b0;\n\n// Synchronous state flip-flops with active-high reset\nalways_ff @(posedge clk) begin\n    if (reset)\n        state <= OFF;\n    else\n        state <= next_state;\nend\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob106_always_nolatches": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  [15:0] scancode,\n    output        left,\n    output        down,\n    output        right,\n    output        up\n);\n\n    always_comb begin\n        case (scancode)\n            16'hE06B: begin\n                left   <= 1'b1;\n                down   <= 1'b0;\n                right  <= 1'b0;\n                up     <= 1'b0;\n            end\n            16'hE072: begin\n                left   <= 1'b0;\n                down   <= 1'b1;\n                right  <= 1'b0;\n                up     <= 1'b0;\n            end\n            16'hE074: begin\n                left   <= 1'b0;\n                down   <= 1'b0;\n                right  <= 1'b1;\n                up     <= 1'b0;\n            end\n            16'hE075: begin\n                left   <= 1'b0;\n                down   <= 1'b0;\n                right  <= 1'b0;\n                up     <= 1'b1;\n            end\n            default: begin\n                left   <= 1'b0;\n                down   <= 1'b0;\n                right  <= 1'b0;\n                up     <= 1'b0;\n            end\n        endcase\n    end\n\nendmodule\n",
+      "compiled": false,
+      "official_pass": false,
+      "error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'code': None, 'param': None, 'type': 'rate_limit_error'}}"
+    },
+    "Prob089_ece241_2014_q5a": {
+      "label": "d0",
+      "code": "module TopModule (\n    input clk,\n    input areset,\n    input x,\n    output z\n);\n\nreg carry;\nreg z_reg;\n\nalways @(posedge clk or posedge areset) begin\n    if (areset) begin\n        carry <= 1'b1;\n        z_reg <= 1'b0;\n    end else begin\n        z_reg <= (~x) ^ carry;\n        carry <= (~x) & carry;\n    end\nend\n\nassign z = z_reg;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob142_lemmings2": {
+      "label": "d0",
+      "code": "module TopModule (\n    input clk,\n    input areset,\n    input bump_left,\n    input bump_right,\n    input ground,\n    output walk_left,\n    output walk_right,\n    output aaah\n);\n\nreg dir;\nreg falling;\n\nalways @(posedge clk or posedge areset) begin\n    if (areset) begin\n        dir <= 0;\n        falling <= 0;\n    end else begin\n        if (falling) begin\n            if (ground) begin\n                falling <= 0;\n            end else begin\n                falling <= 1;\n            end\n        end else begin\n            if (ground == 0) begin\n                falling <= 1;\n            end else begin\n                if (bump_left & bump_right) begin\n                    dir <= ~dir;\n                end else if (bump_left) begin\n                    dir <= 1;\n                end else if (bump_right) begin\n                    dir <= 0;\n                end\n            end\n        end\n    end\nend\n\nassign walk_left = (~dir) & (~falling);\nassign walk_right = dir & (~falling);\nassign aaah = falling;\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob144_conwaylife": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  clk,\n    input  load,\n    input  [255:0] data,\n    output reg [255:0] q\n);\n\n    reg [255:0] next_q;\n\n    always @(*) begin\n        integer i, r, c, dr, dc, n;\n        for (i = 0; i < 256; i = i + 1) begin\n            r = i >> 4;\n            c = i & 15;\n            n = 0;\n            for (dr = -1; dr <= 1; dr = dr + 1)\n                for (dc = -1; dc <= 1; dc = dc + 1)\n                    if (!(dr == 0 && dc == 0))\n                        n = n + q[((r + dr + 16) % 16) * 16 + ((c + dc + 16) % 16)];\n            if (n == 3)\n                next_q[i] = 1'b1;\n            else if (n == 2)\n                next_q[i] = q[i];\n            else\n                next_q[i] = 1'b0;\n        end\n    end\n\n    always @(posedge clk) begin\n        if (load)\n            q <= data;\n        else\n            q <= next_q;\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob134_2014_q3c": {
+      "label": "d0",
+      "code": "module TopModule(\n    input clk,\n    input x,\n    input [2:0] y,\n    output Y0,\n    output z\n);\n    reg [2:0] Y_next;\n    always @(*) begin\n        case(y)\n            3'b000: Y_next = x ? 3'b001 : 3'b000;\n            3'b001: Y_next = x ? 3'b100 : 3'b001;\n            3'b010: Y_next = x ? 3'b001 : 3'b010;\n            3'b011: Y_next = x ? 3'b010 : 3'b001;\n            3'b100: Y_next = x ? 3'b100 : 3'b011;\n            default: Y_next = 3'b000;\n        endcase\n    end\n    assign z = (y == 3'b011) | (y == 3'b100);\n    assign Y0 = Y_next[0];\nendmodule\n",
+      "compiled": true,
+      "official_pass": true,
+      "error": null
+    },
+    "Prob114_bugs_case": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic [7:0] code,\n    output logic [3:0] out,\n    output logic       valid\n);\n\nalways @(*) begin\n    valid = 1'b0;\n    out   = 4'b0;\n    case (code)\n        8'h45: begin out = 4'b0; valid = 1'b1; end\n        8'h16: begin out = 4'b1; valid = 1'b1; end\n        8'h1e: begin out = 4'b2; valid = 1'b1; end\n        8'h26: begin out = 4'b3; valid = 1'b1; end\n        8'h25: begin out = 4'b4; valid = 1'b1; end\n        8'h2e: begin out = 4'b5; valid = 1'b1; end\n        8'h36: begin out = 4'b6; valid = 1'b1; end\n        8'h3d: begin out = 4'b7; valid = 1'b1; end\n        8'h3e: begin out = 4'b8; valid = 1'b1; end\n        8'h46: begin out = 4'b9; valid = 1'b1; end\n        default: begin out = 4'b0; valid = 1'b0; end\n    endcase\nend\n\nendmodule\n",
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob136_m2014_q6": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  logic clk,\n    input  logic reset,\n    input  logic w,\n    output logic z\n);\n\n    // State encoding (3 bits for 6 states)\n    typedef enum logic [2:0] {\n        A = 3'b000,\n        B = 3'b001,\n        C = 3'b010,\n        D = 3'b011,\n        E = 3'b100,\n        F = 3'b101\n    } state_t;\n\n    state_t state, next_state;\n\n    // Next-state combinational logic\n    always_comb begin\n        case (state)\n            A: next_state = (w == 1'b0) ? B : A;\n            B: next_state = (w == 1'b0) ? C : D;\n            C: next_state = (w == 1'b0) ? E : D;\n            D: next_state = (w == 1'b0) ? F : A;\n            E: next_state = (w == 1'b0) ? E : D;\n            F: next_state = (w == 1'b0) ? C : D;\n            default: next_state = A;  // Should never happen\n        endcase\n    end\n\n    // Output logic: z=1 for states E and F, z=0 otherwise\n    assign z = (state == E) | (state == F);\n\n    // Sequential logic (positive-edge-triggered)\n    always @(posedge clk) begin\n        if (reset)\n            state <= A;   // Reset initializes to state A\n        else\n            state <= next_state;\n    end\n\nendmodule\n",
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob146_fsm_serialdata": {
+      "label": "d0",
+      "code": "module TopModule (\n    input clk,\n    input in,\n    input reset,\n    output reg [7:0] out_byte,\n    output reg done\n);\n\n    // State encoding\n    parameter IDLE = 2'b00;\n    parameter RECEIVE = 2'b01;\n    parameter STOP = 2'b10;\n\n    reg [1:0] state, next_state;\n    reg [3:0] bit_cnt;\n    reg [3:0] next_bit_cnt;      // added missing declaration\n    reg [7:0] next_out_byte;\n    reg next_done;               // added missing declaration\n\n    always @* begin\n        next_state = state;\n        next_bit_cnt = bit_cnt;\n        next_done = 1'b0;\n        next_out_byte = out_byte;\n\n        case (state)\n            IDLE: begin\n                if (in == 1'b0) begin\n                    next_state = RECEIVE;\n                    next_bit_cnt = 4'd0;\n                end\n            end\n            RECEIVE: begin\n                next_out_byte[bit_cnt] = in;\n                if (bit_cnt == 4'd7) begin\n                    next_state = STOP;\n                end else begin\n                    next_bit_cnt = bit_cnt + 1;\n                end\n            end\n            STOP: begin\n                if (in == 1'b1) begin\n                    next_done = 1'b1;\n                    next_state = IDLE;\n                end else begin\n                    next_state = STOP;\n                    next_done = 1'b0;\n                end\n            end\n        endcase\n    end\n\n    always @(posedge clk) begin\n        if (reset) begin\n            state <= IDLE;\n            bit_cnt <= 0;\n            done <= 0;\n            out_byte <= 0;\n        end else begin\n            state <= next_state;\n            bit_cnt <= next_bit_cnt;\n            done <= next_done;\n            out_byte <= next_out_byte;\n        end\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob152_lemmings3": {
+      "label": "d0",
+      "code": "module TopModule(\n    input clk,\n    input areset,\n    input bump_left,\n    input bump_right,\n    input ground,\n    input dig,\n    output walk_left,\n    output walk_right,\n    output aaah,\n    output digging\n);\n\n    // State encoding (Moore machine)\n    parameter [2:0] WL = 3'b000, WR = 3'b001, FL = 3'b010, FR = 3'b011, DL = 3'b100, DR = 3'b101;\n\n    reg [2:0] state;\n    reg [2:0] next_state;   // fixed: changed from wire to reg\n\n    // Outputs depend only on current state (Moore)\n    assign walk_left   = (state == WL);\n    assign walk_right  = (state == WR);\n    assign aaah        = (state == FL) | (state == FR);\n    assign digging     = (state == DL) | (state == DR);\n\n    // Next-state combinational logic\n    always @(*) begin\n        case (state)\n            WL: begin\n                if (!ground)       next_state = FL;\n                else if (dig)      next_state = DL;\n                else if (bump_left & bump_right) next_state = WR; // toggle\n                else if (bump_left) next_state = WR;\n                else if (bump_right) next_state = WL;\n                else               next_state = WL;\n            end\n            WR: begin\n                if (!ground)       next_state = FR;\n                else if (dig)      next_state = DR;\n                else if (bump_left & bump_right) next_state = WL; // toggle\n                else if (bump_left) next_state = WR;\n                else if (bump_right) next_state = WL;\n                else               next_state = WR;\n            end\n            FL: begin\n                if (ground) next_state = WL;\n                else        next_state = FL;\n            end\n            FR: begin\n                if (ground) next_state = WR;\n                else        next_state = FR;\n            end\n            DL: begin\n                if (ground) next_state = DL;\n                else        next_state = FL;\n            end\n            DR: begin\n                if (ground) next_state = DR;\n                else        next_state = FL;\n            end\n            default: next_state = WL;\n        endcase\n    end\n\n    // Sequential logic (positive-edge-triggered clock, synchronous active-high reset)\n    always @(posedge clk) begin\n        if (areset) state <= WL;\n        else        state <= next_state;\n    end\n\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob086_lfsr5": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob137_fsm_serial": {
+      "label": "d0",
+      "code": "module TopModule (\n    input clk,\n    input reset,\n    input in,\n    output done\n);\n    reg [1:0] state;\n    reg [3:0] bit_cnt;\n    reg done_pulse;\n\n    parameter S_IDLE = 2'd0,\n              S_DATA = 2'd1,\n              S_STOP = 2'd2,\n              S_WAIT_STOP = 2'd3;\n\n    always @(posedge clk) begin\n        if (reset) begin\n            state <= S_IDLE;\n            bit_cnt <= 0;\n            done_pulse <= 1'b0;\n        end else begin\n            done_pulse <= 1'b0;\n\n            case (state)\n                S_IDLE: begin\n                    if (in == 1'b0) state <= S_DATA;\n                    else state <= S_IDLE;\n                    bit_cnt <= 0;\n                end\n\n                S_DATA: begin\n                    bit_cnt <= bit_cnt + 1;\n                    if (bit_cnt == 4'd8) state <= S_STOP;\n                    else state <= S_DATA;\n                end\n\n                S_STOP: begin\n                    if (in == 1'b1) begin\n                        done_pulse <= 1'b1;\n                        state <= S_IDLE;\n                    end else begin\n                        state <= S_WAIT_STOP;\n                    end\n                end\n\n                S_WAIT_STOP: begin\n                    if (in == 1'b1) state <= S_IDLE;\n                    else state <= S_WAIT_STOP;\n                end\n\n                default: state <= S_IDLE;\n            endcase\n        end\n    end\n\n    assign done = done_pulse;\nendmodule\n",
+      "compiled": true,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob098_circuit7": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob153_gshare": {
+      "label": "d0",
+      "code": "module TopModule (\n    input  clk,\n    input  areset,\n    input  predict_valid,\n    input  [6:0] predict_pc,\n    output predict_taken,\n    output [6:0] predict_history,\n    input  train_valid,\n    input  train_taken,\n    input  train_mispredicted,\n    input  [6:0] train_history,\n    input  [6:0] train_pc\n);\n\n// Pattern History Table: 128 entries of 2-bit saturating counters\nreg [1:0] pht [0:127];\n// Global History Register: 7-bit\nreg [6:0] ghr;\n\n// Index computation for prediction: PC XOR global history\nwire [6:0] pred_idx = predict_pc ^ ghr;\n// Index computation for training: PC XOR branch history\nwire [6:0] train_idx = train_pc ^ train_history;\n\n// Combinational assignment for prediction outputs\n// predict_history is the current value of the GHR\nassign predict_history = ghr;\n// predict_taken is the MSB of the 2-bit counter (1 = taken, 0 = not taken)\nassign predict_taken = pht[pred_idx][1];\n\n// Sequential logic: updates on positive clock edge, asynchronous active-high reset\nalways @(posedge clk or posedge areset) begin\n    if (areset) begin\n        // Asynchronous reset: zero GHR and initialize PHT to strongly not-taken (2'b00)\n        ghr <= 7'b0;\n        integer i;\n        for (i = 0; i < 128; i = i + 1)\n            pht[i] <= 2'b00;\n    end else begin\n        // Training takes precedence over prediction when both are asserted in the same cycle\n        if (train_valid) begin\n            // Update PHT 2-bit counter based on actual branch outcome\n            if (train_taken)\n                pht[train_idx] <= (pht[train_idx] == 2'b11) ? 2'b11 : pht[train_idx] + 1'b1;\n            else\n                pht[train_idx] <= (pht[train_idx] == 2'b00) ? 2'b00 : pht[train_idx] - 1'b1;\n            // Update GHR with the actual taken outcome (recover history to post-branch state;\n            // if mispredicted, this recovers GHR to the state immediately after the branch completes)\n            ghr <= {ghr[5:0], train_taken};\n        end else if (predict_valid) begin\n            // Prediction: update GHR with the predicted taken outcome for the predicted branch\n            ghr <= {ghr[5:0], pht[pred_idx][1]};\n            // PHT is not modified during prediction (training modifies PHT only at the next positive clock edge)\n        end\n        // If neither valid, sequential state holds (no explicit else needed)\n    end\nend\n\nendmodule\n",
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob133_2014_q3fsm": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob135_m2014_q6b": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob145_circuit8": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob113_2012_q1g": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    },
+    "Prob147_circuit10": {
+      "label": "d0",
+      "code": null,
+      "compiled": false,
+      "official_pass": false,
+      "error": null
+    }
+  },
+  "complete": true
+}

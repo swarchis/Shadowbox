@@ -1,0 +1,405 @@
+{
+  "Prob016_m2014_q4j": [
+    [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "y": 2
+      },
+      {
+        "x": 7,
+        "y": 8
+      },
+      {
+        "x": 15,
+        "y": 1
+      }
+    ]
+  ],
+  "Prob054_edgedetect": [
+    [
+      {
+        "in": 1
+      },
+      {
+        "in": 0
+      },
+      {
+        "in": 2
+      }
+    ]
+  ],
+  "Prob062_bugs_mux2": [
+    [
+      {
+        "sel": 0,
+        "a": 170,
+        "b": 0
+      },
+      {
+        "sel": 1,
+        "a": 170,
+        "b": 85
+      },
+      {
+        "sel": 0,
+        "a": 0,
+        "b": 255
+      }
+    ]
+  ],
+  "Prob063_review2015_shiftcount": [
+    [
+      {
+        "shift_ena": 1,
+        "count_ena": 0,
+        "data": 1
+      },
+      {
+        "shift_ena": 1,
+        "count_ena": 0,
+        "data": 0
+      },
+      {
+        "shift_ena": 1,
+        "count_ena": 0,
+        "data": 1
+      },
+      {
+        "shift_ena": 0,
+        "count_ena": 1,
+        "data": 0
+      },
+      {
+        "shift_ena": 0,
+        "count_ena": 0,
+        "data": 0
+      }
+    ]
+  ],
+  "Prob070_ece241_2013_q2": [
+    [
+      {
+        "a": 0,
+        "b": 0,
+        "c": 0,
+        "d": 0
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "c": 1,
+        "d": 0
+      },
+      {
+        "a": 0,
+        "b": 1,
+        "c": 1,
+        "d": 1
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "c": 1,
+        "d": 1
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "c": 0,
+        "d": 1
+      }
+    ]
+  ],
+  "Prob080_timer": [
+    [
+      {
+        "load": 1,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 0,
+        "data": 10
+      },
+      {
+        "load": 1,
+        "data": 1
+      },
+      {
+        "load": 0,
+        "data": 1
+      },
+      {
+        "load": 0,
+        "data": 1
+      }
+    ]
+  ],
+  "Prob103_circuit2": [
+    [
+      {
+        "a": 0,
+        "b": 0,
+        "c": 0,
+        "d": 0
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "c": 0,
+        "d": 1
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "c": 1,
+        "d": 0
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "c": 1,
+        "d": 1
+      },
+      {
+        "a": 0,
+        "b": 1,
+        "c": 0,
+        "d": 0
+      },
+      {
+        "a": 0,
+        "b": 1,
+        "c": 0,
+        "d": 1
+      },
+      {
+        "a": 0,
+        "b": 1,
+        "c": 1,
+        "d": 0
+      },
+      {
+        "a": 0,
+        "b": 1,
+        "c": 1,
+        "d": 1
+      },
+      {
+        "a": 1,
+        "b": 0,
+        "c": 0,
+        "d": 0
+      },
+      {
+        "a": 1,
+        "b": 0,
+        "c": 0,
+        "d": 1
+      },
+      {
+        "a": 1,
+        "b": 0,
+        "c": 1,
+        "d": 0
+      },
+      {
+        "a": 1,
+        "b": 0,
+        "c": 1,
+        "d": 1
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "c": 0,
+        "d": 0
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "c": 0,
+        "d": 1
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "c": 1,
+        "d": 0
+      },
+      {
+        "a": 1,
+        "b": 1,
+        "c": 1,
+        "d": 1
+      }
+    ]
+  ],
+  "Prob118_history_shift": [
+    [
+      {
+        "areset": 1,
+        "predict_valid": 0,
+        "predict_taken": 0,
+        "train_mispredicted": 0,
+        "train_taken": 0,
+        "train_history": 0
+      },
+      {
+        "areset": 1,
+        "predict_valid": 1,
+        "predict_taken": 1,
+        "train_mispredicted": 0,
+        "train_taken": 0,
+        "train_history": 0
+      },
+      {
+        "areset": 1,
+        "predict_valid": 1,
+        "predict_taken": 0,
+        "train_mispredicted": 0,
+        "train_taken": 0,
+        "train_history": 0
+      },
+      {
+        "areset": 1,
+        "predict_valid": 1,
+        "predict_taken": 0,
+        "train_mispredicted": 1,
+        "train_taken": 1,
+        "train_history": 4294967295
+      },
+      {
+        "areset": 1,
+        "predict_valid": 1,
+        "predict_taken": 0,
+        "train_mispredicted": 1,
+        "train_taken": 0,
+        "train_history": 2863311530
+      }
+    ]
+  ],
+  "Prob143_fsm_onehot": [
+    [
+      {
+        "in": 0,
+        "state": 1
+      },
+      {
+        "in": 1,
+        "state": 1
+      },
+      {
+        "in": 0,
+        "state": 2
+      },
+      {
+        "in": 1,
+        "state": 2
+      },
+      {
+        "in": 0,
+        "state": 4
+      },
+      {
+        "in": 1,
+        "state": 4
+      },
+      {
+        "in": 0,
+        "state": 8
+      },
+      {
+        "in": 1,
+        "state": 8
+      },
+      {
+        "in": 0,
+        "state": 16
+      },
+      {
+        "in": 1,
+        "state": 16
+      },
+      {
+        "in": 0,
+        "state": 32
+      },
+      {
+        "in": 1,
+        "state": 32
+      },
+      {
+        "in": 0,
+        "state": 64
+      },
+      {
+        "in": 1,
+        "state": 64
+      },
+      {
+        "in": 0,
+        "state": 128
+      },
+      {
+        "in": 1,
+        "state": 128
+      },
+      {
+        "in": 0,
+        "state": 256
+      },
+      {
+        "in": 1,
+        "state": 256
+      },
+      {
+        "in": 0,
+        "state": 512
+      },
+      {
+        "in": 1,
+        "state": 512
+      }
+    ]
+  ]
+}

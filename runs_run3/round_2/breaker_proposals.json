@@ -1,0 +1,47 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "After the initial reset pulse, optionally toggle the reset line (assert then deassert) once more between cycles 10 and 20 to test asynchronous reset behavior.",
+      "summary": "Add a second reset toggle to catch designs that mishandle asynchronous reset deassertion.",
+      "reasoning": "The missed designs Prob129_ece241_2013_q8 and Prob148_2013_q2afsm both have asynchronous or synchronous reset logic that was not sufficiently exercised by a single reset pulse. Adding a second reset pulse later in the sequence increases the chance to trigger reset-related bugs. Evidence from these two missed bugs shows reset-related mismatches.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob148_2013_q2afsm"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "reset_sensitivity_checker",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Simple check for reset sensitivity in always_ff/@(posedge ... or negedge ...) blocks.\n    Returns fired=True if a potential missing or mismatched reset is found.\n    \"\"\"\n    findings = []\n    # Find all always_ff blocks\n    pattern = r'always_ff\\s*@\\s*\\(([^)]*)\\)\\s*begin'\n    for match in re.finditer(pattern, verilog, re.IGNORECASE | re.DOTALL):\n        sens = match.group(1)\n        # Look for reset signals in sensitivity list\n        # Common reset names: resetn, aresetn, reset, rst_n\n        reset_pat = r'\\b(resetn|aresetn|reset|rst_n)\\b'\n        if not re.search(reset_pat, sens, re.IGNORECASE):\n            # No reset in sensitivity list -> potential issue\n            findings.append(\n                f\"always_ff block at line {verilog[:match.start()].count(chr(10))+1} \"\n                f\"lacks reset signal in sensitivity list: {sens}\"\n            )\n        else:\n            # Check for polarity mismatch: if resetn used but posedge only\n            if re.search(r'\\bposedge\\b', sens, re.IGNORECASE) and \\\n               re.search(r'\\bresetn\\b|\\baresetn\\b|\\brst_n\\b', sens, re.IGNORECASE):\n                findings.append(\n                    f\"always_ff block uses posedge with active-low reset {sens}; \"\n                    \"might need negedge.\"\n                )\n    fired = bool(findings)\n    return {\"fired\": fired, \"findings\": findings}\n",
+      "summary": "Tool that flags designs with missing or incorrect reset sensitivity in always_ff blocks.",
+      "reasoning": "Several missed bugs involve reset handling (Prob129, Prob148). A static analysis tool can detect when reset signals are absent from sensitivity lists or when reset polarity is mismatched, giving the attacker a hint to focus on reset stimuli. This addresses the class of bugs missed due to insufficient reset testing.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob148_2013_q2afsm"
+      ],
+      "evidence_problems_extra": [
+        "Prob143_fsm_onehot"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 80,
+      "summary": "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs.",
+      "reasoning": "The missed designs include FSMs that may require longer sequences to reach buggy states (e.g., Prob143_fsm_onehot needs a specific one-hot state vector). Doubling the cycle budget gives the attacker more opportunity to explore state space without overburdening the simulation.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob129_ece241_2013_q8",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.004170599999999999
+}

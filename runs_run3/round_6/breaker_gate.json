@@ -1,0 +1,102 @@
+{
+  "round": 6,
+  "team": "breaker",
+  "from_version": 1,
+  "score_before": 0.7560975609756098,
+  "entries": [
+    {
+      "id": "r6-breaker-c0",
+      "round": 6,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add a load\u2011pulse rule to trigger timer and load\u2011controlled bugs.",
+      "reasoning": "The missed buggy design Prob080_timer is a load\u2011controlled down\u2011counter that only shows errors when the load signal is exercised with a non\u2011zero value. Adding a rule that forces a load pulse early in the stimulus will expose this and similar load\u2011controlled designs. Other training problems with load inputs (e.g., Prob016_m2014_q4j, Prob057_kmap2) also benefited from early load activity in the attacks that found bugs.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob016_m2014_q4j",
+        "Prob057_kmap2"
+      ],
+      "rule_text": "For any design that has a load input, assert load=1 with a non\u2011zero data value for exactly one cycle within the first 10 cycles.",
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.7073,
+      "gained": [
+        "Prob117_circuit9#a178c2076f2a"
+      ],
+      "lost": [
+        "Prob150_review2015_fsmonehot#5f6b97ec7dbd",
+        "Prob154_fsm_ps2data#cc974d5a7c5a",
+        "Prob155_lemmings4#0c8951c12d36"
+      ],
+      "net_flips": -2,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0068,
+      "ts": "2026-10-17T19:05:13Z"
+    },
+    {
+      "id": "r6-breaker-c1",
+      "round": 6,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Tool that flags designs where an output is driven purely by combinational assign with no clocked always block affecting it.",
+      "reasoning": "Several missed designs (Prob125_kmap3, Prob143_fsm_onehot, Prob148_2013_q2afsm) have outputs assigned only with continuous assignments and no registered behavior, making them vulnerable to combinational logic bugs that the current stimulus missed. This tool will highlight such designs so the attacker can focus on exercising input combinations that reveal functional errors.",
+      "evidence_problems": [
+        "Prob125_kmap3",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": null,
+      "tool_name": "CombOutputChecker",
+      "score_before": 0.7561,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": "tool rejected by static screen: syntax error: unmatched '}' (<unknown>, line 52)",
+      "cost_usd": 0.0021,
+      "ts": "2026-10-17T19:05:13Z"
+    },
+    {
+      "id": "r6-breaker-c2",
+      "round": 6,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers.",
+      "reasoning": "The missed buggy designs include deep FSMs (Prob143_fsm_onehot, Prob148_2013_q2afsm) and a timer (Prob080_timer) that require more than 40 cycles to manifest errors. Extending the cycle budget gives the attacker more opportunity to drive reset, load, and state transitions that expose these bugs, as evidenced by the longer attacks that succeeded on other problems (e.g., Prob070_ece241_2013_q2 used 37 cycles).",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.6829,
+      "gained": [],
+      "lost": [
+        "Prob117_circuit9#bdbe1b4cdb73",
+        "Prob139_2013_q2bfsm#e399f8a74d9e",
+        "Prob155_lemmings4#0c8951c12d36"
+      ],
+      "net_flips": -3,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0091,
+      "ts": "2026-10-17T19:05:13Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 1,
+  "complete": true
+}

@@ -1,0 +1,47 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "For designs with a load signal and a multi\u2011bit data input, apply a load pulse (set load=1 for one cycle with arbitrary data, then load=0) within the first 10 cycles to exercise loading while counting.",
+      "summary": "Add load\u2011pulse rule to expose timer and load\u2011controlled bugs.",
+      "reasoning": "The missed designs Prob080_timer and Prob118_history_shift both involve a load or reload mechanism that was never triggered by the current stimulus. Adding a load\u2011pulse rule will force the attacker to test the load path, which has been shown to reveal bugs in similar designs (e.g., Prob080_timer had 232 mismatches).",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob118_history_shift"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "reset_sensitivity_checker",
+      "summary": "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.",
+      "reasoning": "Several missed designs (Prob118_history_shift, Prob148_2013_q2afsm) have asynchronous or synchronous resets that are not properly sensed, causing the attacker's stimulus to miss reset\u2011related bugs. This tool will highlight such designs so the attacker can focus on reset behavior.",
+      "evidence_problems": [
+        "Prob118_history_shift",
+        "Prob148_2013_q2afsm",
+        "Prob143_fsm_onehot"
+      ],
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Detects whether each reset-like input appears in the sensitivity list\n    of any always_ff or always @(posedge clk) block.\n    Returns {\"fired\": bool, \"findings\": [str]}.\n    \"\"\"\n    # Identify reset-like ports (case-insensitive match on reset, rst, areset, resetn)\n    reset_ports = {p[\"name\"].lower() for p in ports if re.search(r'reset|rst', p[\"name\"], re.I)}\n    if not reset_ports:\n        return {\"fired\": False, \"findings\": []}\n\n    # Find all always blocks that are edge-sensitive to clk\n    # Pattern matches always @(posedge clk) ... or always @(posedge clk or ...)\n    always_blocks = re.findall(\n        r'always\\s*@\\s*\\(\\s*([^)]*?posedge\\s+clk[^)]*?\\)\\s*(.*?)(?=always|\\Z)',\n        verilog,\n        flags=re.DOTALL | re.IGNORECASE,\n    )\n    # Also capture always_ff @(posedge clk)\n    always_ff_blocks = re.findall(\n        r'always_ff\\s*@\\s*\\(\\s*([^)]*?posedge\\s+clk[^)]*?\\)\\s*(.*?)(?=always|\\Z)',\n        verilog,\n        flags=re.DOTALL | re.IGNORECASE,\n    )\n    blocks = always_blocks + always_ff_blocks\n\n    missing = []\n    for sens, body in blocks:\n        sens_lower = sens.lower()\n        # Determine which reset signals are present in sensitivity list\n        present = {rp for rp in reset_ports if rp in sens_lower}\n        # For each reset not present, check if it is used asynchronously in the body\n        for rp in reset_ports - present:\n            # Simple heuristic: if reset appears in body as an if condition without being in sens list\n            if re.search(rf'\\b{rp}\\b', body, re.I):\n                missing.append(f\"Reset '{rp}' used in always block but missing from sensitivity list\")\n    fired = bool(missing)\n    return {\"fired\": fired, \"findings\": missing}\n"
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 80,
+      "summary": "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs and timers.",
+      "reasoning": "Designs like Prob143_fsm_onehot and Prob148_2013_q2afsm require longer sequences to reach erroneous states; the current limit of 40 cycles truncates useful stimulus. Raising the limit has previously shown net positive impact on similar FSM bugs.",
+      "evidence_problems": [
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm",
+        "Prob080_timer"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob080_timer",
+    "Prob118_history_shift",
+    "Prob125_kmap3",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0047556000000000005
+}

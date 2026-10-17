@@ -1,0 +1,22 @@
+{
+  "status": "finished",
+  "phase": "done",
+  "round": 1,
+  "step": "done",
+  "message": "Stopped at the time limit; partial final results shown",
+  "started_at": "2026-10-17T19:38:43Z",
+  "deadline_at": "2026-10-17T20:23:43Z",
+  "spend_usd": 2.0882,
+  "llm_calls": 1774,
+  "human_interventions": 0,
+  "builder_version": 1,
+  "breaker_version": 0,
+  "splits": {
+    "train": 30,
+    "val": 30,
+    "test": 92
+  },
+  "mode": "real",
+  "spend_cap_usd": 45.0,
+  "updated_at": "2026-10-17T20:27:43Z"
+}

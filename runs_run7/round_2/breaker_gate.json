@@ -1,0 +1,127 @@
+{
+  "round": 2,
+  "team": "breaker",
+  "from_version": 0,
+  "score_before": 0.631578947368421,
+  "entries": [
+    {
+      "id": "r2-breaker-c0",
+      "round": 2,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add a rule to stimulate wide inputs with edge\u2011case index patterns.",
+      "reasoning": "The missed designs (Prob021_mux256to1v, Prob054_edgedetect, Prob080_timer) all involve wide inputs where the bug manifests only when selection/index values exercise the extreme or wrap\u2011around cases. Adding a rule that forces the attacker to consider full\u2011range index values will increase the chance of hitting those corner cases.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob080_timer",
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": "When an input port is wider than 32 bits, explicitly test values that exercise the full range of its index bits (e.g., all zeros, all ones, and a pattern that increments/decrements across the width).",
+      "tool_name": null,
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.6316,
+      "score_after": 0.6897,
+      "gained": [
+        "Prob096_review2015_fsmseq#5f66f05d4449",
+        "Prob117_circuit9#37431016d1ae",
+        "Prob149_ece241_2013_q4#623e8222dceb",
+        "Prob150_review2015_fsmonehot#37bf7274ca05"
+      ],
+      "lost": [
+        "Prob149_ece241_2013_q4#7db9f8ccddd4",
+        "Prob154_fsm_ps2data#e0920bf7e8f9"
+      ],
+      "net_flips": 2,
+      "errors": 9,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0072,
+      "ts": "2026-10-17T20:54:37Z"
+    },
+    {
+      "id": "r2-breaker-c1",
+      "round": 2,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Add a static analysis tool that flags designs where shift or index expressions could exceed the width of an input port.",
+      "reasoning": "Several missed bugs stem from index calculations (e.g., sel << 2) that can overflow the input width when the selector reaches its maximum. A tool that statically detects such potential overflows will give the attacker hints to generate stimuli targeting those conditions.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob080_timer",
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": null,
+      "tool_name": "width_overflow_checker",
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.6316,
+      "score_after": 0.6667,
+      "gained": [
+        "Prob117_circuit9#37431016d1ae",
+        "Prob155_lemmings4#5816a5fb12df"
+      ],
+      "lost": [
+        "Prob068_countbcd#af1e5e7e0d42"
+      ],
+      "net_flips": 1,
+      "errors": 8,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0057,
+      "ts": "2026-10-17T20:54:37Z"
+    },
+    {
+      "id": "r2-breaker-c2",
+      "round": 2,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Double the maximum allowed cycles for stimulus generation.",
+      "reasoning": "Many missed designs required longer sequences to reveal the bug (e.g., Prob080_timer needed 36 cycles, Prob140_fsm_hdlc needed 16 cycles). Increasing max_cycles gives the attacker more time to explore state spaces and reach the problematic conditions.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob080_timer",
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "param": "max_cycles",
+      "value": 80,
+      "source": "coach",
+      "score_before": 0.6316,
+      "score_after": 0.6667,
+      "gained": [
+        "Prob102_circuit3#38548e0ff090",
+        "Prob117_circuit9#37431016d1ae",
+        "Prob155_lemmings4#5816a5fb12df"
+      ],
+      "lost": [
+        "Prob068_countbcd#af1e5e7e0d42",
+        "Prob154_fsm_ps2data#e0920bf7e8f9"
+      ],
+      "net_flips": 1,
+      "errors": 2,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0055,
+      "ts": "2026-10-17T20:54:37Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 0,
+  "complete": true
+}

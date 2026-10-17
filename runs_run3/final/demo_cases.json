@@ -1,0 +1,619 @@
+{
+  "key": "1be58490b1d0799c",
+  "cases": [
+    {
+      "problem_id": "Prob064_vector3",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  a (5 bits)\n - input  b (5 bits)\n - input  c (5 bits)\n - input  d (5 bits)\n - input  e (5 bits)\n - input  f (5 bits)\n - output w (8 bits)\n - output x (8 bits)\n - output y (8 bits)\n - output z (8 bits)\n\nThe module should concatenate the input vectors together then split them\nup into several output vectors. There are six 5-bit input vectors: a, b,\nc, d, e, and f, for a total of 30 bits of input. There are four 8-bit\noutput vectors: w, x, y, and z, for 32 bits of output. The output should\nbe a concatenation of the input vectors followed by two 1 bits (the two 1\nbits should be in the LSB positions).",
+      "v0": {
+        "version": 0,
+        "code": "module TopModule (\n    input  [4:0] a,\n    input  [4:0] b,\n    input  [4:0] c,\n    input  [4:0] d,\n    input  [4:0] e,\n    input  [4:0] f,\n    output [7:0] w,\n    output [7:0] x,\n    output [7:0] y,\n    output [7:0] z\n);\n\n    // Internal wire to hold the 30-bit concatenated input followed by two 1s\n    wire [31:0] concat_data;\n\n    // Concatenate the six 5-bit inputs (30 bits) and append two 1s in the LSB positions\n    assign concat_data = {a, b, c, d, e, f, 2'b11};\n\n    // Split the 32-bit concatenated data into four 8-bit outputs\n    assign w = concat_data[7:0];\n    assign x = concat_data[15:8];\n    assign y = concat_data[23:16];\n    assign z = concat_data[31:24];\n\nendmodule\n",
+        "official_pass": false
+      },
+      "vbest": {
+        "version": 1,
+        "code": "module TopModule (\n    input  [4:0] a,\n    input  [4:0] b,\n    input  [4:0] c,\n    input  [4:0] d,\n    input  [4:0] e,\n    input  [4:0] f,\n    output [7:0] w,\n    output [7:0] x,\n    output [7:0] y,\n    output [7:0] z\n);\n\n    // Internal wire to hold the 30-bit concatenated input followed by two 1s\n    wire [31:0] concat_data;\n\n    // Concatenate the six 5-bit inputs (a through f) into 30 bits,\n    // then append two logic 1 bits in the LSB positions.\n    assign concat_data = {a, b, c, d, e, f, 1'b1, 1'b1};\n\n    // Split the 32-bit concatenated data into four 8-bit outputs.\n    assign w = concat_data[31:24];\n    assign x = concat_data[23:16];\n    assign y = concat_data[15:8];\n    assign z = concat_data[7:0];\n\nendmodule\n",
+        "official_pass": true
+      },
+      "explanation": {
+        "kind": "builder",
+        "round": 3,
+        "summary": "1 playbook change kept between version 0 and the latest",
+        "reasoning": "The run does not trace which change fixed this particular problem; these are every change the gatekeeper kept on the way from version 0 to the latest.",
+        "changes": [
+          {
+            "round": 3,
+            "summary": "Tool flags outputs assigned in always blocks that are not declared as logic/reg."
+          }
+        ],
+        "other_changes": 0
+      },
+      "trace": {
+        "signals": [
+          {
+            "name": "a",
+            "kind": "input",
+            "width": 5
+          },
+          {
+            "name": "b",
+            "kind": "input",
+            "width": 5
+          },
+          {
+            "name": "c",
+            "kind": "input",
+            "width": 5
+          },
+          {
+            "name": "d",
+            "kind": "input",
+            "width": 5
+          },
+          {
+            "name": "e",
+            "kind": "input",
+            "width": 5
+          },
+          {
+            "name": "f",
+            "kind": "input",
+            "width": 5
+          },
+          {
+            "name": "w",
+            "kind": "output",
+            "width": 8
+          },
+          {
+            "name": "x",
+            "kind": "output",
+            "width": 8
+          },
+          {
+            "name": "y",
+            "kind": "output",
+            "width": 8
+          },
+          {
+            "name": "z",
+            "kind": "output",
+            "width": 8
+          }
+        ],
+        "rows": [
+          {
+            "t": 0,
+            "inputs": {
+              "a": "00101",
+              "b": "00100",
+              "c": "00011",
+              "d": "00010",
+              "e": "00001",
+              "f": "00000"
+            },
+            "expected": {
+              "w": "00101001",
+              "x": "00000110",
+              "y": "00100000",
+              "z": "10000011"
+            },
+            "v0": {
+              "w": "10000011",
+              "x": "00100000",
+              "y": "00000110",
+              "z": "00101001"
+            },
+            "vbest": {
+              "w": "00101001",
+              "x": "00000110",
+              "y": "00100000",
+              "z": "10000011"
+            }
+          }
+        ],
+        "source": "breaker",
+        "first_mismatch_row": 0
+      }
+    },
+    {
+      "problem_id": "Prob088_ece241_2014_q5b",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  clk\n - input  areset\n - input  x\n - output z\n\nThe module should implement the following Mealy finite-state machine\nwhich is an implementation of the 2's complementer. Implement using a\none-hot encoding. Resets into state A and reset is asynchronous\nactive-high.\n\n  A --x=0 (z=0)--> A\n  A --x=1 (z=1)--> B\n  B --x=0 (z=1)--> B\n  B --x=1 (z=0)--> B\n\nAssume all sequential logic is triggered on the positive edge of the\nclock.",
+      "v0": {
+        "version": 0,
+        "code": "module TopModule (\n    input  clk,\n    input  areset,\n    input  x,\n    output z\n);\n\n    // One-hot encoded state register: 2 bits for states A and B\n    // State A: 2'b01\n    // State B: 2'b10\n    reg [1:0] state;\n    reg [1:0] next_state;\n\n    // Output assignment: z is high when in state B (regardless of x)\n    // According to the Mealy table:\n    //   A --x=0 (z=0)--> A\n    //   A --x=1 (z=1)--> B\n    //   B --x=0 (z=1)--> B\n    //   B --x=1 (z=0)--> B\n    // Note: The specification lists z=0 for the transition A->B with x=1,\n    // but the subsequent rows (B--x=0 (z=1) and B--x=1 (z=0)--> B) indicate\n    // that z should be 1 while in state B. We follow the consistent\n    // interpretation that z = 1 in state B and z = 0 in state A.\n    assign z = (state == 2'b10) ? 1'b1 : 1'b0;\n\n    // Next-state logic (Mealy machine)\n    always @(*) begin\n        case (state)\n            2'b01: // State A\n                if (x == 1'b1)\n                    next_state = 2'b10; // Go to B, z=1\n                else\n                    next_state = 2'b01; // Stay in A, z=0\n            2'b10: // State B\n                if (x == 1'b1)\n                    next_state = 2'b10; // Stay in B, z=0\n                else\n                    next_state = 2'b10; // Stay in B, z=1\n            default: next_state = 2'b01;\n        endcase\n    end\n\n    // State register with asynchronous active-high reset\n    always @(posedge clk or posedge areset) begin\n        if (areset)\n            state <= 2'b01; // Reset to state A\n        else\n            state <= next_state;\n    end\n\nendmodule\n",
+        "official_pass": false
+      },
+      "vbest": {
+        "version": 1,
+        "code": "module TopModule (\n    input  clk,\n    input  areset,\n    input  x,\n    output z\n);\n\n    // One-hot encoded state register\n    // State A: 2'b01 (bit 0 set)\n    // State B: 2'b10 (bit 1 set)\n    reg [1:0] state;\n    reg [1:0] next_state;\n\n    // Output assignment (Mealy output depends on current state and input x)\n    assign z = (state == 2'b10) ? ~x : x; // z = 1 when in B and x=0; z = 1 when in A and x=1; z = 0 when in A and x=0\n\n    // Next-state logic (combinational)\n    always @(*) begin\n        case (state)\n            2'b01: // State A\n                if (x)\n                    next_state = 2'b10; // B\n                else\n                    next_state = 2'b01; // A\n            2'b10: // State B\n                if (x)\n                    next_state = 2'b10; // B (stay)\n                else\n                    next_state = 2'b10; // B (stay)\n            default: next_state = 2'b01; // Fallback to A\n        endcase\n    end\n\n    // State register (positive edge-triggered, asynchronous active-high reset)\n    always @(posedge clk or posedge areset) begin\n        if (areset)\n            state <= 2'b01; // Reset to state A\n        else\n            state <= next_state;\n    end\n\nendmodule\n",
+        "official_pass": true
+      },
+      "explanation": {
+        "kind": "builder",
+        "round": 3,
+        "summary": "1 playbook change kept between version 0 and the latest",
+        "reasoning": "The run does not trace which change fixed this particular problem; these are every change the gatekeeper kept on the way from version 0 to the latest.",
+        "changes": [
+          {
+            "round": 3,
+            "summary": "Tool flags outputs assigned in always blocks that are not declared as logic/reg."
+          }
+        ],
+        "other_changes": 0
+      },
+      "trace": {
+        "signals": [
+          {
+            "name": "clk",
+            "kind": "clock"
+          },
+          {
+            "name": "areset",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "x",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "z",
+            "kind": "output",
+            "width": 1
+          }
+        ],
+        "rows": [
+          {
+            "t": 0,
+            "inputs": {
+              "areset": "1",
+              "x": "0"
+            },
+            "expected": {
+              "z": "0"
+            },
+            "v0": {
+              "z": "0"
+            },
+            "vbest": {
+              "z": "0"
+            }
+          },
+          {
+            "t": 1,
+            "inputs": {
+              "areset": "0",
+              "x": "0"
+            },
+            "expected": {
+              "z": "0"
+            },
+            "v0": {
+              "z": "0"
+            },
+            "vbest": {
+              "z": "0"
+            }
+          },
+          {
+            "t": 2,
+            "inputs": {
+              "areset": "0",
+              "x": "1"
+            },
+            "expected": {
+              "z": "0"
+            },
+            "v0": {
+              "z": "1"
+            },
+            "vbest": {
+              "z": "0"
+            }
+          },
+          {
+            "t": 3,
+            "inputs": {
+              "areset": "0",
+              "x": "0"
+            },
+            "expected": {
+              "z": "1"
+            },
+            "v0": {
+              "z": "1"
+            },
+            "vbest": {
+              "z": "1"
+            }
+          },
+          {
+            "t": 4,
+            "inputs": {
+              "areset": "0",
+              "x": "1"
+            },
+            "expected": {
+              "z": "0"
+            },
+            "v0": {
+              "z": "1"
+            },
+            "vbest": {
+              "z": "0"
+            }
+          }
+        ],
+        "source": "breaker",
+        "first_mismatch_row": 2
+      }
+    },
+    {
+      "problem_id": "Prob115_shift18",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  clk\n - input  load\n - input  ena\n - input  amount (2 bits)\n - input  data (64 bits)\n - output q (64 bits)\n\nThe module should implement a 64-bit arithmetic shift register, with\nsynchronous load. The shifter can shift both left and right, and by 1 or\n8 bit positions, selected by \"amount.\" Assume the right shit is an\narithmetic right shift.\n\nSignals are defined as below:\n\n  (1) load: Loads shift register with data[63:0] instead of shifting.\n       Active high.\n  (2) ena: Chooses whether to shift. Active high.\n  (3) amount: Chooses which direction and how much to shift.\n      (a) 2'b00: shift left by 1 bit.\n      (b) 2'b01: shift left by 8 bits.\n      (c) 2'b10: shift right by 1 bit.\n      (d) 2'b11: shift right by 8 bits.\n  (4) q: The contents of the shifter.",
+      "v0": {
+        "version": 0,
+        "code": "module TopModule (\n    input  clk,\n    input  load,\n    input  ena,\n    input  [1:0] amount,\n    input  [63:0] data,\n    output reg [63:0] q\n);\n\n    always @(posedge clk) begin\n        if (load) begin\n            // Load the data directly when load is active\n            q <= data;\n        end else if (ena) begin\n            // Perform shift based on amount\n            case (amount)\n                2'b00: begin // Shift left by 1 bit\n                    q <= q << 1;\n                end\n                2'b01: begin // Shift left by 8 bits\n                    q <= q << 8;\n                end\n                2'b10: begin // Arithmetic right shift by 1 bit\n                    // MSB is replicated to preserve sign\n                    q <= {q[63], q[63:1]};\n                end\n                2'b11: begin // Arithmetic right shift by 8 bits\n                    // MSB is replicated 8 times\n                    q <= {8'd0, q[63:8]}; // This is incorrect for arithmetic shift\n                    // Correct arithmetic shift replication:\n                    // q <= {8{q[63]}, q[63:8]};\n                end\n                default: q <= q;\n            endcase\n        end\n        // If neither load nor ena, q retains previous value (implicitly)\n    end\n\nendmodule\n",
+        "official_pass": false
+      },
+      "vbest": {
+        "version": 1,
+        "code": "module TopModule (\n    input  clk,\n    input  load,\n    input  ena,\n    input  [1:0] amount,\n    input  [63:0] data,\n    output reg [63:0] q\n);\n\n    always @(posedge clk) begin\n        if (load) begin\n            // Load the parallel data directly\n            q <= data;\n        end else if (ena) begin\n            // Perform shift based on amount\n            case (amount)\n                2'b00: begin // Shift left by 1 bit\n                    q <= {q[62:0], 1'b0};\n                end\n                2'b01: begin // Shift left by 8 bits\n                    q <= {q[55:0], 8'b0};\n                end\n                2'b10: begin // Arithmetic right shift by 1 bit\n                    // MSB (sign bit) is replicated to preserve sign\n                    q <= {q[63], q[63:1]};\n                end\n                2'b11: begin // Arithmetic right shift by 8 bits\n                    // Replicate the top 8 bits down to fill 8 positions\n                    q <= { {8{q[63]}}, q[63:8] };\n                end\n                default: q <= q; // Hold state\n            endcase\n        end\n        // If !load and !ena, q holds its previous value (implicitly)\n    end\n\nendmodule\n",
+        "official_pass": true
+      },
+      "explanation": {
+        "kind": "builder",
+        "round": 3,
+        "summary": "1 playbook change kept between version 0 and the latest",
+        "reasoning": "The run does not trace which change fixed this particular problem; these are every change the gatekeeper kept on the way from version 0 to the latest.",
+        "changes": [
+          {
+            "round": 3,
+            "summary": "Tool flags outputs assigned in always blocks that are not declared as logic/reg."
+          }
+        ],
+        "other_changes": 0
+      },
+      "trace": {
+        "signals": [
+          {
+            "name": "clk",
+            "kind": "clock"
+          },
+          {
+            "name": "load",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "ena",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "amount",
+            "kind": "input",
+            "width": 2
+          },
+          {
+            "name": "data",
+            "kind": "input",
+            "width": 64
+          },
+          {
+            "name": "q",
+            "kind": "output",
+            "width": 64
+          }
+        ],
+        "rows": [
+          {
+            "t": 0,
+            "inputs": {
+              "load": "1",
+              "ena": "0",
+              "amount": "00",
+              "data": "1010101010101010101010101010101010101010101010101010101010101010"
+            },
+            "expected": {
+              "q": "1010101010101010101010101010101010101010101010101010101010101010"
+            },
+            "v0": {
+              "q": "1010101010101010101010101010101010101010101010101010101010101010"
+            },
+            "vbest": {
+              "q": "1010101010101010101010101010101010101010101010101010101010101010"
+            }
+          },
+          {
+            "t": 1,
+            "inputs": {
+              "load": "0",
+              "ena": "1",
+              "amount": "11",
+              "data": "0000000000000000000000000000000000000000000000000000000000000000"
+            },
+            "expected": {
+              "q": "1111111110101010101010101010101010101010101010101010101010101010"
+            },
+            "v0": {
+              "q": "0000000010101010101010101010101010101010101010101010101010101010"
+            },
+            "vbest": {
+              "q": "1111111110101010101010101010101010101010101010101010101010101010"
+            }
+          }
+        ],
+        "source": "breaker",
+        "first_mismatch_row": 1
+      }
+    },
+    {
+      "problem_id": "Prob142_lemmings2",
+      "spec": "I would like you to implement a module named TopModule with the following\ninterface. All input and output ports are one bit unless otherwise\nspecified.\n\n - input  clk\n - input  areset\n - input  bump_left\n - input  bump_right\n - input  ground\n - output walk_left\n - output walk_right\n - output aaah\n\nThe game Lemmings involves critters with fairly simple brains. So simple\nthat we are going to model it using a finite state machine. In the\nLemmings' 2D world, Lemmings can be in one of two states: walking left\n(walk_left is 1) or walking right (walk_right is 1). It will switch\ndirections if it hits an obstacle. In particular, if a Lemming is bumped\non the left (by receiving a 1 on bump_left), it will walk right. If it's\nbumped on the right (by receiving a 1 on bump_right), it will walk left.\nIf it's bumped on both sides at the same time, it will still switch\ndirections.\n\nIn addition to walking left and right and changing direction when bumped,\nwhen ground=0, the Lemming will fall and say \"aaah!\". When the ground\nreappears (ground=1), the Lemming will resume walking in the same\ndirection as before the fall. Being bumped while falling does not affect\nthe walking direction, and being bumped in the same cycle as ground\ndisappears (but not yet falling), or when the ground reappears while\nstill falling, also does not affect the walking direction.\n\nImplement a Moore state machine that models this behaviour. areset is\npositive edge triggered asynchronous reseting the Lemming machine to walk\nleft. Assume all sequential logic is triggered on the positive edge of\nthe clock.",
+      "v0": {
+        "version": 0,
+        "code": "module TopModule (\n    input  clk,\n    input  areset,\n    input  bump_left,\n    input  bump_right,\n    input  ground,\n    output walk_left,\n    output walk_right,\n    output aaah\n);\n\n    // State encoding: 2 bits\n    // 2'b00: WALK_LEFT\n    // 2'b01: WALK_RIGHT\n    // 2'b10: FALLING\n    // 2'b11: RESERVED (unused)\n    typedef enum logic [1:0] {\n        WALK_LEFT  = 2'b00,\n        WALK_RIGHT = 2'b01,\n        FALLING    = 2'b10\n    } state_t;\n\n    state_t state, next_state;\n\n    // State register (positive edge triggered, asynchronous active-high reset)\n    always_ff @(posedge clk or posedge areset) begin\n        if (areset)\n            state <= WALK_LEFT;\n        else\n            state <= next_state;\n    end\n\n    // Next-state logic (combinational)\n    always_comb begin\n        // Default assignments: stay in current state unless transition conditions met\n        next_state = state;\n\n        case (state)\n            WALK_LEFT: begin\n                if (!ground) begin\n                    // Fall when ground disappears\n                    next_state = FALLING;\n                end else if (bump_right) begin\n                    // Bumped on right while on ground -> walk right\n                    next_state = WALK_RIGHT;\n                end else if (bump_left) begin\n                    // Bumped on left while on ground -> walk left (spec: \"still switch directions\" when both)\n                    // Since bump_left alone makes it walk left (already facing left), we keep walking left.\n                    // The spec says if bumped on both, it will still switch directions.\n                    // We interpret \"switch directions\" as changing from current heading.\n                    // If currently walking left and bump_left alone, it continues left.\n                    // If currently walking left and bump_right also, it switches to right.\n                    // However, the spec also says: \"If it's bumped on the left (by receiving a 1 on bump_left), it will walk right.\"\n                    // This implies bump_left always forces walk_right.\n                    // Let's re-read carefully:\n                    // \"if a Lemming is bumped on the left (by receiving a 1 on bump_left), it will walk right.\"\n                    // \"If it's bumped on the right (by receiving a 1 on bump_right), it will walk left.\"\n                    // \"If it's bumped on both sides at the same time, it will still switch directions.\"\n                    // This is contradictory if taken literally: bump_left -> walk right, bump_right -> walk left.\n                    // But bump both -> switch directions (implies it was going one way, now goes the other).\n                    // Given it's a Moore FSM for a game, the most logical interpretation:\n                    // Bump_left forces direction RIGHT.\n                    // Bump_right forces direction LEFT.\n                    // Bump both -> switch (if was left -> right; if was right -> left).\n                    // However, the spec says: \"Being bumped while falling does not affect the walking direction\".\n                    // And we are in WALK_LEFT here.\n                    // Let's look at the \"both sides\" clause again.\n                    // \"If it's bumped on both sides at the same time, it will still switch directions.\"\n                    // If we are walking left, and both bump, it switches -> walk right.\n                    // If we are walking right, and both bump, it switches -> walk left.\n                    // This matches: bump_left -> walk right, bump_right -> walk left, bump both -> switch.\n                    // So in WALK_LEFT:\n                    // bump_left alone -> walk right (forced by bump_left rule).\n                    // bump_right alone -> walk left (already in WALK_LEFT, so maybe stay? or switch to left? already left).\n                    // bump both -> walk right (switch from left).\n                    // Let's simplify based on the primary directives:\n                    // bump_left -> walk right.\n                    // bump_right -> walk left.\n                    // bump both -> switch.\n                    // If in WALK_LEFT:\n                    // - bump_left: -> WALK_RIGHT.\n                    // - bump_right: -> already walking left, directive says bump_right -> walk left. So stay WALK_LEFT.\n                    // - both: -> switch -> WALK_RIGHT.\n                    // This seems consistent.\n                    if (bump_left & bump_right) begin\n                        // Both bumped while walking left -> switch to right\n                        next_state = WALK_RIGHT;\n                    end else if (bump_left) begin\n                        // Bumped left only -> walk right\n                        next_state = WALK_RIGHT;\n                    end else if (bump_right) begin\n                        // Bumped right only -> walk left (already walking left)\n                        // next_state remains WALK_LEFT (default)\n                    end\n                end\n            end\n\n            WALK_RIGHT: begin\n                if (!ground) begin\n                    next_state = FALLING;\n                end else if (bump_left) begin\n                    // Bumped left -> walk right (already walking right, or switch?)\n                    // Spec: bump_left -> walk right.\n                    // If already walking right, stay right.\n                    // If bump both, switch -> walk left.\n                    if (bump_left & bump_right) begin\n                        // Both bumped while walking right -> switch to left\n                        next_state = WALK_LEFT;\n                    end else if (bump_left) begin\n                        // Bumped left only -> walk right\n                        next_state = WALK_RIGHT;\n                    end else if (bump_right) begin\n                        // Bumped right only -> walk left\n                        next_state = WALK_LEFT;\n                    end\n                end\n            end\n\n            FALLING: begin\n                // While falling, bumps do not affect walking direction.\n                // Ground reappears -> resume walking in same direction as before fall.\n                if (ground) begin\n                    // Ground reappears. Resume walking in same direction as before fall.\n                    // We need to remember the direction before the fall.\n                    // The spec says: \"When the ground reappears (ground=1), the Lemming will resume walking in the same direction as before the fall.\"\n                    // This implies we need a state or a flip-flop to store the last walking direction.\n                    // Let's check if we can infer it from the state or if we need a signal.\n                    // The specification does not provide a \"last_dir\" port.\n                    // We must implement internal storage.\n                    // However, looking at the states: WALK_LEFT, WALK_RIGHT, FALLING.\n                    // If we just go to WALK_LEFT or WALK_RIGHT on ground=1, how do we know which one?\n                    // We need a register to hold the direction.\n                    // Let's re-read the spec carefully.\n                    // \"When ground=0, the Lemming will fall and say 'aaah'.\"\n                    // \"When the ground reappears (ground=1), the Lemming will resume walking in the same direction as before the fall.\"\n                    // \"Being bumped while falling does not affect the walking direction\"\n                    // \"being bumped in the same cycle as ground disappears (but not yet falling), or when the ground reappears while still falling, also does not affect the walking direction.\"\n                    // This strongly implies a memory of the last walking direction.\n                    // I will add a register `last_dir` (or similar) to track the direction before falling.\n                    // Wait, the ports are only: clk, areset, bump_left, bump_right, ground, walk_left, walk_right, aaah.\n                    // I can add internal registers.\n                    // Let's define a register `walk_dir_reg` that stores the walking direction before falling.\n                    // Actually, I can just use the state machine transitions carefully.\n                    // But FSM states are limited.\n                    // Let's add a `direction` register.\n                end\n            end\n        endcase\n    end\n\n    // Output logic (Moore machine: outputs depend only on state)\n    // walk_left, walk_right, aaah assignments based on state.\n    // I need to handle the \"last direction\" logic for the FALLING state recovery.\n\n    // Let's restructure.\n    // States: WALK_LEFT, WALK_RIGHT, FALLING.\n    // Need a register `dir_before_fall` to remember direction when entering FALLING.\n\n    // Let's redefine the approach.\n    // Registers:\n    // state: current state (WALK_LEFT, WALK_RIGHT, FALLING)\n    // dir_reg: holds the walking direction (0 for LEFT, 1 for RIGHT) from the last time it was walking.\n    // This dir_reg is updated when walking, and used when recovering from fall.\n\n    // Actually, I can simplify `dir_reg` logic.\n    // When in WALK_LEFT: dir_reg = 0 (or we just know state is WALK_LEFT implies LEFT).\n    // When in WALK_RIGHT: dir_reg = 1.\n    // When transitioning to FALLING: dir_reg <= state direction.\n    // When in FALLING and ground=1: next_state <= (dir_reg == 0) ? WALK_LEFT : WALK_RIGHT.\n\n    // Let's implement this.\n\n    // Internal register for direction before fall\n    logic [1:0] dir_reg; // 0 = LEFT, 1 = RIGHT\n\n    // Update dir_reg when state changes to/from walking/falling\n    // Actually, dir_reg should reflect the direction the Lemming was walking before it fell.\n    // So when transitioning FROM WALK_LEFT or WALK_RIGHT TO FALLING, we capture the direction.\n    // When in WALK_LEFT or WALK_RIGHT, dir_reg is implicitly known by the state.\n    // Let's just make dir_reg update on the transition to FALLING.\n\n    // Revised State Machine Logic:\n\n    always_ff @(posedge clk or posedge areset) begin\n        if (areset) begin\n            state <= WALK_LEFT;\n            dir_reg <= 0; // Assume LEFT initially\n        end else begin\n            // Update dir_reg when falling starts or resumes?\n            // Spec: \"Being bumped while falling does not affect the walking direction\".\n            // \"When the ground reappears (ground=1), the Lemming will resume walking in the same direction as before the fall.\"\n            // So dir_reg must be preserved during FALLING state.\n            // And updated when transitioning from walking to falling.\n\n            // Case: Current state is WALK_LEFT or WALK_RIGHT.\n            // We need to update dir_reg if we are about to fall?\n            // Or we can just set dir_reg based on the state we are leaving.\n            // Let's set dir_reg when in walking states, and capture it on fall.\n            // Actually, simpler: dir_reg stores the intent.\n            // When in WALK_LEFT, dir_reg = 0.\n            // When in WALK_RIGHT, dir_reg = 1.\n            // When transitioning to FALLING, we must ensure dir_reg holds that value.\n            // Since we transition in one clock cycle, we can do:\n            // if (state == WALK_LEFT && !ground) next_state = FALLING; else ...\n            // But next_state is combinational. The register update happens in always_ff.\n            // So:\n            // if (state == WALK_LEFT && !ground) dir_reg <= 0;\n            // if (state == WALK_RIGHT && !ground) dir_reg <= 1;\n            // This works.\n\n            // Let's write the full always_ff block.\n        end\n    end\n\n    // Actually, let's just write the complete module carefully.\n\n    // Port declarations\n    // ...\n\n    // State type\n    // ...\n\n    // State register\n    // ...\n\n    // Next state logic\n    // ...\n\n    // Output logic\n    // ...\n\n    // I will write the code now.\n\nendmodule\n",
+        "official_pass": false
+      },
+      "vbest": {
+        "version": 1,
+        "code": "module TopModule (\n    input  clk,\n    input  areset,\n    input  bump_left,\n    input  bump_right,\n    input  ground,\n    output walk_left,\n    output walk_right,\n    output aaah\n);\n\n    // State encoding: 2 bits\n    // 2'b00: WALK_LEFT\n    // 2'b01: WALK_RIGHT\n    // 2'b10: FALLING\n    // 2'b11: RESERVED (unused)\n    typedef enum logic [1:0] {\n        WALK_LEFT  = 2'b00,\n        WALK_RIGHT = 2'b01,\n        FALLING    = 2'b10\n    } state_t;\n\n    state_t state, next_state;\n    logic dir_mem; // 1'b0 = LEFT, 1'b1 = RIGHT\n\n    // Next-state logic (combinational)\n    always_comb begin\n        next_state = state; // default: stay in current state\n\n        if (state == FALLING) begin\n            if (ground == 1) begin\n                // Ground reappears: resume walking in same direction as before the fall\n                if (dir_mem == 1'b0)\n                    next_state = WALK_LEFT;\n                else\n                    next_state = WALK_RIGHT;\n            end else begin\n                // Ground still 0: stay falling\n                next_state = FALLING;\n            end\n        end else begin // state is WALK_LEFT or WALK_RIGHT\n            if (ground == 0) begin\n                // Fall detection\n                next_state = FALLING;\n            end else begin\n                // Ground is high, check bumps\n                if (bump_left && bump_right) begin\n                    // Bumped both sides: switch direction\n                    if (state == WALK_LEFT)\n                        next_state = WALK_RIGHT;\n                    else\n                        next_state = WALK_LEFT;\n                end else if (bump_left) begin\n                    // Bumped left: walk right\n                    next_state = WALK_RIGHT;\n                end else if (bump_right) begin\n                    // Bumped right: walk left\n                    next_state = WALK_LEFT;\n                end else begin\n                    // No bump, stay in current walking state\n                    next_state = state;\n                end\n            end\n        end\n    end\n\n    // Sequential logic (positive edge triggered, asynchronous active-high reset)\n    always_ff @(posedge clk or posedge areset) begin\n        if (areset) begin\n            state <= WALK_LEFT;\n            dir_mem <= 1'b0; // Initialize to LEFT\n        end else begin\n            state <= next_state;\n\n            // Update dir_mem based on current state (before clock edge) and next_state\n            // Rules for dir_mem:\n            // - If current state is WALK_LEFT -> dir_mem = 0\n            // - If current state is WALK_RIGHT -> dir_mem = 1\n            // - If current state is FALLING -> dir_mem holds previous value (no change)\n            if (state == WALK_LEFT)\n                dir_mem <= 1'b0;\n            else if (state == WALK_RIGHT)\n                dir_mem <= 1'b1;\n            else if (state == FALLING)\n                dir_mem <= dir_mem; // hold previous value\n            else\n                dir_mem <= 1'b0;\n        end\n    end\n\n    // Output logic (Moore machine: outputs depend only on state)\n    assign walk_left = (state == WALK_LEFT);\n    assign walk_right = (state == WALK_RIGHT);\n    assign aaah = (state == FALLING);\n\nendmodule\n",
+        "official_pass": true
+      },
+      "explanation": {
+        "kind": "builder",
+        "round": 3,
+        "summary": "1 playbook change kept between version 0 and the latest",
+        "reasoning": "The run does not trace which change fixed this particular problem; these are every change the gatekeeper kept on the way from version 0 to the latest.",
+        "changes": [
+          {
+            "round": 3,
+            "summary": "Tool flags outputs assigned in always blocks that are not declared as logic/reg."
+          }
+        ],
+        "other_changes": 0
+      },
+      "trace": {
+        "signals": [
+          {
+            "name": "clk",
+            "kind": "clock"
+          },
+          {
+            "name": "areset",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "bump_left",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "bump_right",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "ground",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "walk_left",
+            "kind": "output",
+            "width": 1
+          },
+          {
+            "name": "walk_right",
+            "kind": "output",
+            "width": 1
+          },
+          {
+            "name": "aaah",
+            "kind": "output",
+            "width": 1
+          }
+        ],
+        "rows": [
+          {
+            "t": 0,
+            "inputs": {
+              "areset": "1",
+              "bump_left": "0",
+              "bump_right": "0",
+              "ground": "1"
+            },
+            "expected": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            },
+            "v0": {
+              "walk_left": "z",
+              "walk_right": "z",
+              "aaah": "z"
+            },
+            "vbest": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            }
+          },
+          {
+            "t": 1,
+            "inputs": {
+              "areset": "0",
+              "bump_left": "0",
+              "bump_right": "0",
+              "ground": "1"
+            },
+            "expected": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            },
+            "v0": {
+              "walk_left": "z",
+              "walk_right": "z",
+              "aaah": "z"
+            },
+            "vbest": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            }
+          },
+          {
+            "t": 2,
+            "inputs": {
+              "areset": "0",
+              "bump_left": "1",
+              "bump_right": "0",
+              "ground": "1"
+            },
+            "expected": {
+              "walk_left": "0",
+              "walk_right": "1",
+              "aaah": "0"
+            },
+            "v0": {
+              "walk_left": "z",
+              "walk_right": "z",
+              "aaah": "z"
+            },
+            "vbest": {
+              "walk_left": "0",
+              "walk_right": "1",
+              "aaah": "0"
+            }
+          },
+          {
+            "t": 3,
+            "inputs": {
+              "areset": "0",
+              "bump_left": "0",
+              "bump_right": "0",
+              "ground": "1"
+            },
+            "expected": {
+              "walk_left": "0",
+              "walk_right": "1",
+              "aaah": "0"
+            },
+            "v0": {
+              "walk_left": "z",
+              "walk_right": "z",
+              "aaah": "z"
+            },
+            "vbest": {
+              "walk_left": "0",
+              "walk_right": "1",
+              "aaah": "0"
+            }
+          },
+          {
+            "t": 4,
+            "inputs": {
+              "areset": "0",
+              "bump_left": "0",
+              "bump_right": "1",
+              "ground": "1"
+            },
+            "expected": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            },
+            "v0": {
+              "walk_left": "z",
+              "walk_right": "z",
+              "aaah": "z"
+            },
+            "vbest": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            }
+          },
+          {
+            "t": 5,
+            "inputs": {
+              "areset": "0",
+              "bump_left": "0",
+              "bump_right": "0",
+              "ground": "1"
+            },
+            "expected": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            },
+            "v0": {
+              "walk_left": "z",
+              "walk_right": "z",
+              "aaah": "z"
+            },
+            "vbest": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            }
+          },
+          {
+            "t": 6,
+            "inputs": {
+              "areset": "0",
+              "bump_left": "0",
+              "bump_right": "0",
+              "ground": "0"
+            },
+            "expected": {
+              "walk_left": "0",
+              "walk_right": "0",
+              "aaah": "1"
+            },
+            "v0": {
+              "walk_left": "z",
+              "walk_right": "z",
+              "aaah": "z"
+            },
+            "vbest": {
+              "walk_left": "0",
+              "walk_right": "0",
+              "aaah": "1"
+            }
+          },
+          {
+            "t": 7,
+            "inputs": {
+              "areset": "0",
+              "bump_left": "0",
+              "bump_right": "0",
+              "ground": "1"
+            },
+            "expected": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            },
+            "v0": {
+              "walk_left": "z",
+              "walk_right": "z",
+              "aaah": "z"
+            },
+            "vbest": {
+              "walk_left": "1",
+              "walk_right": "0",
+              "aaah": "0"
+            }
+          }
+        ],
+        "source": "breaker",
+        "first_mismatch_row": 0
+      }
+    }
+  ]
+}

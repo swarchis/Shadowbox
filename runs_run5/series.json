@@ -1,0 +1,83 @@
+{
+  "points": [
+    {
+      "round": 0,
+      "builder_val_pass": 0.4667,
+      "breaker_pool_catch": 0.8537,
+      "builder_train_pass": null,
+      "builder_hard_pass": null,
+      "builder_version": 0,
+      "breaker_version": 0
+    },
+    {
+      "round": 1,
+      "builder_val_pass": 0.6,
+      "breaker_pool_catch": 0.8537,
+      "builder_train_pass": 0.4,
+      "builder_hard_pass": 0.4,
+      "builder_version": 1,
+      "breaker_version": 0
+    }
+  ],
+  "changes": [
+    {
+      "round": 1,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Add rule to prevent missing assignments in combinational always blocks.",
+      "net_flips": -4,
+      "invalid": false
+    },
+    {
+      "round": 1,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Tool that flags combinational always blocks lacking a default assignment for any output.",
+      "net_flips": -1,
+      "invalid": false
+    },
+    {
+      "round": 1,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Increase allowed debug attempts from 2 to 3.",
+      "net_flips": -1,
+      "invalid": false
+    },
+    {
+      "round": 1,
+      "team": "builder",
+      "accepted": true,
+      "summary": "Settings sweep: try think = \"low\"",
+      "net_flips": 4,
+      "invalid": false
+    },
+    {
+      "round": 1,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Ensure the attacker never returns an invalid stimulus by requiring a JSON block even for zero cycles.",
+      "net_flips": -5,
+      "invalid": false
+    },
+    {
+      "round": 1,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "tool_add",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 1,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "param",
+      "net_flips": -6,
+      "invalid": false
+    }
+  ],
+  "gate_margin": 3,
+  "distinct_bugs": 9,
+  "distinct_subtle_bugs": 0
+}

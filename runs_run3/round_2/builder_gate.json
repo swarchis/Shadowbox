@@ -1,0 +1,95 @@
+{
+  "round": 2,
+  "team": "builder",
+  "from_version": 0,
+  "score_before": 0.43333333333333335,
+  "entries": [
+    {
+      "id": "r2-builder-c0",
+      "round": 2,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Add conditional rule to declare outputs driven by always blocks as logic/reg.",
+      "reasoning": "Several failures (Prob026_alwaysblock1, Prob054_edgedetect, Prob075_counter_2bc) involved compile errors because outputs assigned inside always blocks were not declared as reg/logic. The rule is conditional on the spec mentioning an always block, so it only affects designs that need it and avoids breaking purely combinational assign-only designs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob075_counter_2bc"
+      ],
+      "rule_text": "If the specification mentions an 'always block' (combinational or sequential) that assigns to an output, declare that output as logic (or reg) in the module port list.",
+      "tool_name": null,
+      "score_before": 0.4333,
+      "score_after": 0.3,
+      "gained": [],
+      "lost": [
+        "Prob036_ringer",
+        "Prob041_dff8r",
+        "Prob060_m2014_q4k",
+        "Prob131_mt2015_q4"
+      ],
+      "net_flips": -4,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0117,
+      "ts": "2026-10-17T18:54:46Z"
+    },
+    {
+      "id": "r2-builder-c1",
+      "round": 2,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "tool_add",
+      "reasoning": "",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": "unassigned_output_checker",
+      "score_before": 0.4333,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 0 valid)",
+      "cost_usd": 0.0019,
+      "ts": "2026-10-17T18:54:46Z"
+    },
+    {
+      "id": "r2-builder-c2",
+      "round": 2,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "Increase max debug attempts from 2 to 3 to allow more fixing iterations.",
+      "reasoning": "Many failing designs required multiple debug cycles to resolve subtle logic errors (e.g., Prob016_m2014_q4j, Prob057_kmap2, Prob063_review2015_shiftcount). Allowing one extra attempt gives the debugger more opportunity to correct mistakes without overburdening the system.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob057_kmap2",
+        "Prob063_review2015_shiftcount"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.4333,
+      "score_after": 0.4,
+      "gained": [],
+      "lost": [
+        "Prob060_m2014_q4k"
+      ],
+      "net_flips": -1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0085,
+      "ts": "2026-10-17T18:54:46Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 0,
+  "complete": true
+}

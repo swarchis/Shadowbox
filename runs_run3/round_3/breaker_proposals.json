@@ -1,0 +1,45 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "Include a reset hold period: drive the reset signal low for at least two consecutive cycles, then high for at least two cycles, within the first 10 cycles of the stimulus.",
+      "summary": "Add reset hold rule to test reset recovery and synchronous/asynchronous reset handling.",
+      "reasoning": "Several missed designs (Prob129_ece241_2013_q8, Prob148_2013_q2afsm) involve reset behavior where the design fails when reset is deasserted or when reset is not properly held. A reset hold period exercises both the assertion and deassertion edges, increasing the chance to trigger reset\u2011related bugs. The rule is limited to the first 10 cycles to keep stimulus short.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob148_2013_q2afsm",
+        "Prob016_m2014_q4j"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "reset_sensitivity_checker",
+      "summary": "Tool that flags designs where the reset signal is missing from the sensitivity list of any always_ff block.",
+      "reasoning": "The missed designs often have reset-related bugs (asynchronous reset in Prob129, synchronous reset mishandling in Prob148). Detecting missing reset sensitivity helps the attacker focus on designs that likely need reset stimulation. The tool works on any design and only uses standard library features.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob148_2013_q2afsm",
+        "Prob057_kmap2"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 30,
+      "summary": "Reduce max_cycles from 40 to 30 to encourage shorter, more focused stimulus sequences.",
+      "reasoning": "Previous attempts to increase max_cycles (to 80) resulted in more missed designs than fixes, suggesting longer sequences introduce noise. Shorter sequences force the attacker to concentrate on early behavior, where reset and initial state bugs are most likely to appear, improving the hit\u2011to\u2011miss ratio.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob129_ece241_2013_q8",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.004380899999999999
+}

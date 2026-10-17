@@ -1,0 +1,417 @@
+{
+  "points": [
+    {
+      "round": 0,
+      "builder_val_pass": 0.4333,
+      "breaker_pool_catch": 0.6829,
+      "builder_train_pass": null,
+      "builder_hard_pass": null,
+      "builder_version": 0,
+      "breaker_version": 0
+    },
+    {
+      "round": 1,
+      "builder_val_pass": 0.4333,
+      "breaker_pool_catch": 0.7561,
+      "builder_train_pass": 0.4,
+      "builder_hard_pass": 0.4,
+      "builder_version": 0,
+      "breaker_version": 1
+    },
+    {
+      "round": 2,
+      "builder_val_pass": 0.4333,
+      "breaker_pool_catch": 0.7561,
+      "builder_train_pass": 0.4,
+      "builder_hard_pass": 0.4,
+      "builder_version": 0,
+      "breaker_version": 1
+    },
+    {
+      "round": 3,
+      "builder_val_pass": 0.5,
+      "breaker_pool_catch": 0.7561,
+      "builder_train_pass": 0.4,
+      "builder_hard_pass": 0.4,
+      "builder_version": 1,
+      "breaker_version": 1
+    },
+    {
+      "round": 4,
+      "builder_val_pass": 0.5,
+      "breaker_pool_catch": 0.7561,
+      "builder_train_pass": 0.43333333333333335,
+      "builder_hard_pass": 0.43333333333333335,
+      "builder_version": 1,
+      "breaker_version": 1
+    },
+    {
+      "round": 5,
+      "builder_val_pass": 0.5,
+      "breaker_pool_catch": 0.7561,
+      "builder_train_pass": 0.43333333333333335,
+      "builder_hard_pass": 0.43333333333333335,
+      "builder_version": 1,
+      "breaker_version": 1
+    },
+    {
+      "round": 6,
+      "builder_val_pass": 0.5,
+      "breaker_pool_catch": 0.7561,
+      "builder_train_pass": 0.43333333333333335,
+      "builder_hard_pass": 0.43333333333333335,
+      "builder_version": 1,
+      "breaker_version": 1
+    },
+    {
+      "round": 7,
+      "builder_val_pass": 0.5,
+      "breaker_pool_catch": 0.8049,
+      "builder_train_pass": 0.43333333333333335,
+      "builder_hard_pass": 0.43333333333333335,
+      "builder_version": 1,
+      "breaker_version": 2
+    }
+  ],
+  "changes": [
+    {
+      "round": 1,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Ensure outputs driven by always blocks are declared as reg/logic to avoid latch inference and compilation errors.",
+      "net_flips": -5,
+      "invalid": false
+    },
+    {
+      "round": 1,
+      "team": "builder",
+      "accepted": false,
+      "summary": "tool_add",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 1,
+      "team": "builder",
+      "accepted": false,
+      "summary": "param",
+      "net_flips": 0,
+      "invalid": false
+    },
+    {
+      "round": 1,
+      "team": "breaker",
+      "accepted": true,
+      "summary": "Add reset pulse rule to improve FSM and reset-sensitive designs.",
+      "net_flips": 3,
+      "invalid": false
+    },
+    {
+      "round": 1,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "tool_add",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 1,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "param",
+      "net_flips": -4,
+      "invalid": false
+    },
+    {
+      "round": 2,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Add conditional rule to declare outputs driven by always blocks as logic/reg.",
+      "net_flips": -4,
+      "invalid": false
+    },
+    {
+      "round": 2,
+      "team": "builder",
+      "accepted": false,
+      "summary": "tool_add",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 2,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Increase max debug attempts from 2 to 3 to allow more fixing iterations.",
+      "net_flips": -1,
+      "invalid": false
+    },
+    {
+      "round": 2,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Add a second reset toggle to catch designs that mishandle asynchronous reset deassertion.",
+      "net_flips": -3,
+      "invalid": false
+    },
+    {
+      "round": 2,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Tool that flags designs with missing or incorrect reset sensitivity in always_ff blocks.",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 2,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs.",
+      "net_flips": -1,
+      "invalid": false
+    },
+    {
+      "round": 3,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Declare outputs driven by always blocks as logic to avoid implicit wire errors.",
+      "net_flips": -5,
+      "invalid": false
+    },
+    {
+      "round": 3,
+      "team": "builder",
+      "accepted": true,
+      "summary": "Tool flags outputs assigned in always blocks that are not declared as logic/reg.",
+      "net_flips": 2,
+      "invalid": false
+    },
+    {
+      "round": 3,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Increase max debug attempts from 2 to 3 to allow more fixing iterations.",
+      "net_flips": -1,
+      "invalid": false
+    },
+    {
+      "round": 3,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Add reset hold rule to test reset recovery and synchronous/asynchronous reset handling.",
+      "net_flips": 0,
+      "invalid": false
+    },
+    {
+      "round": 3,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Tool that flags designs where the reset signal is missing from the sensitivity list of any always_ff block.",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 3,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Reduce max_cycles from 40 to 30 to encourage shorter, more focused stimulus sequences.",
+      "net_flips": -3,
+      "invalid": false
+    },
+    {
+      "round": 4,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Declare outputs driven by always blocks as logic/reg when the spec explicitly references an always block.",
+      "net_flips": -5,
+      "invalid": false
+    },
+    {
+      "round": 4,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Flags any wire (including internal wires and output ports) that is never assigned a value.",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 4,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Increase the number of debugging iterations allowed per problem from 2 to 3.",
+      "net_flips": -3,
+      "invalid": false
+    },
+    {
+      "round": 4,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Add load\u2011pulse rule to expose timer and similar load\u2011controlled designs.",
+      "net_flips": 1,
+      "invalid": false
+    },
+    {
+      "round": 4,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 4,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs.",
+      "net_flips": -2,
+      "invalid": false
+    },
+    {
+      "round": 5,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Assign logic type to outputs driven by always blocks.",
+      "net_flips": -7,
+      "invalid": false
+    },
+    {
+      "round": 5,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Flags output ports that have no assignment anywhere in the module.",
+      "net_flips": -3,
+      "invalid": false
+    },
+    {
+      "round": 5,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Allow one extra debugging iteration per problem.",
+      "net_flips": -2,
+      "invalid": false
+    },
+    {
+      "round": 5,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Add load\u2011pulse rule to expose timer and similar load\u2011controlled designs.",
+      "net_flips": 1,
+      "invalid": false
+    },
+    {
+      "round": 5,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 5,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers.",
+      "net_flips": -3,
+      "invalid": false
+    },
+    {
+      "round": 6,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Require outputs driven by always blocks to be declared as logic/reg to avoid implicit wire errors.",
+      "net_flips": -5,
+      "invalid": false
+    },
+    {
+      "round": 6,
+      "team": "builder",
+      "accepted": false,
+      "summary": "tool_add",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 6,
+      "team": "builder",
+      "accepted": false,
+      "summary": "param",
+      "net_flips": -3,
+      "invalid": false
+    },
+    {
+      "round": 6,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Add a load\u2011pulse rule to trigger timer and load\u2011controlled bugs.",
+      "net_flips": -2,
+      "invalid": false
+    },
+    {
+      "round": 6,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Tool that flags designs where an output is driven purely by combinational assign with no clocked always block affecting it.",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 6,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers.",
+      "net_flips": -3,
+      "invalid": false
+    },
+    {
+      "round": 7,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Ensure outputs driven by always blocks have a proper reg/logic type to avoid implicit wire errors.",
+      "net_flips": -7,
+      "invalid": false
+    },
+    {
+      "round": 7,
+      "team": "builder",
+      "accepted": false,
+      "summary": "tool_add",
+      "net_flips": 0,
+      "invalid": true
+    },
+    {
+      "round": 7,
+      "team": "builder",
+      "accepted": false,
+      "summary": "param",
+      "net_flips": 0,
+      "invalid": false
+    },
+    {
+      "round": 7,
+      "team": "breaker",
+      "accepted": true,
+      "summary": "Add load\u2011pulse rule to expose timer and load\u2011controlled bugs.",
+      "net_flips": 2,
+      "invalid": false
+    },
+    {
+      "round": 7,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.",
+      "net_flips": -2,
+      "invalid": false
+    },
+    {
+      "round": 7,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs and timers.",
+      "net_flips": -1,
+      "invalid": false
+    }
+  ],
+  "gate_margin": 3,
+  "distinct_bugs": 16,
+  "distinct_subtle_bugs": 0
+}

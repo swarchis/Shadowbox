@@ -1,0 +1,117 @@
+{
+  "round": 3,
+  "team": "builder",
+  "from_version": 0,
+  "score_before": 0.43333333333333335,
+  "entries": [
+    {
+      "id": "r3-builder-c0",
+      "round": 3,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Declare outputs driven by always blocks as logic to avoid implicit wire errors.",
+      "reasoning": "Several failing designs (Prob026_alwaysblock1, Prob054_edgedetect, Prob075_counter_2bc, Prob097_mux9to1v) assign outputs within always @(*) or always @(posedge clk) blocks but leave the outputs as implicit wires, causing compilation errors. Adding a conditional rule that forces logic declaration for such outputs fixes this pattern without affecting combinational assign-only designs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob075_counter_2bc",
+        "Prob097_mux9to1v"
+      ],
+      "rule_text": "If an output port is assigned inside an always block, declare it as logic (or reg) rather than leaving it as an implicit wire.",
+      "tool_name": null,
+      "score_before": 0.4333,
+      "score_after": 0.2667,
+      "gained": [
+        "Prob009_popcount3"
+      ],
+      "lost": [
+        "Prob005_notgate",
+        "Prob010_mt2015_q4a",
+        "Prob041_dff8r",
+        "Prob060_m2014_q4k",
+        "Prob083_mt2015_q4b",
+        "Prob090_circuit1"
+      ],
+      "net_flips": -5,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0117,
+      "ts": "2026-10-17T18:57:10Z"
+    },
+    {
+      "id": "r3-builder-c1",
+      "round": 3,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "Tool flags outputs assigned in always blocks that are not declared as logic/reg.",
+      "reasoning": "The tool will detect the specific failure pattern seen in multiple problems: an output appears in the left-hand side of an assignment inside an always block but is not declared with logic or reg type. By flagging this, the debugger can correct the declaration before compilation, preventing the compile/interface mismatch errors.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob075_counter_2bc",
+        "Prob097_mux9to1v"
+      ],
+      "rule_text": null,
+      "tool_name": "always_output_logic_check",
+      "score_before": 0.4333,
+      "score_after": 0.5,
+      "gained": [
+        "Prob094_gatesv",
+        "Prob117_circuit9"
+      ],
+      "lost": [],
+      "net_flips": 2,
+      "errors": 0,
+      "accepted": true,
+      "from_version": 0,
+      "new_version": 1,
+      "invalid_reason": null,
+      "cost_usd": 0.0093,
+      "ts": "2026-10-17T18:57:10Z"
+    },
+    {
+      "id": "r3-builder-c2",
+      "round": 3,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "Increase max debug attempts from 2 to 3 to allow more fixing iterations.",
+      "reasoning": "Increasing the number of debug attempts gives the team additional chances to apply the new rule and tool feedback, which has been shown to resolve persistent issues in several failing designs. This is a low\u2011risk parameter change that does not alter the existing prompts or rules.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob057_kmap2",
+        "Prob062_bugs_mux2",
+        "Prob063_review2015_shiftcount",
+        "Prob070_ece241_2013_q2",
+        "Prob075_counter_2bc",
+        "Prob080_timer",
+        "Prob097_mux9to1v",
+        "Prob103_circuit2",
+        "Prob105_rotate100"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.4333,
+      "score_after": 0.4,
+      "gained": [],
+      "lost": [
+        "Prob131_mt2015_q4"
+      ],
+      "net_flips": -1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0099,
+      "ts": "2026-10-17T18:57:10Z"
+    }
+  ],
+  "accepted_id": "r3-builder-c1",
+  "new_version": 1,
+  "complete": true
+}

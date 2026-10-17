@@ -1,0 +1,127 @@
+{
+  "round": 1,
+  "team": "breaker",
+  "from_version": 0,
+  "score_before": 0.631578947368421,
+  "entries": [
+    {
+      "id": "r1-breaker-c0",
+      "round": 1,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add rule to test wrap\u2011around/index overflow for wide\u2011input selections.",
+      "reasoning": "The missed designs Prob021_mux256to1v and Prob080_timer both contain shift\u2011based index calculations where certain select values cause the index to point outside the intended range or wrap, leading to mismatches. Adding a rule that forces the attacker to exercise wrap\u2011around cases will expose these bugs.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob080_timer"
+      ],
+      "rule_text": "When the design uses a shift or index calculation on a wide input (e.g., `in[(sel << 2) +: 4]`), explicitly test values that cause the index to wrap around or exceed the input width.",
+      "tool_name": null,
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.6316,
+      "score_after": 0.6667,
+      "gained": [
+        "Prob102_circuit3#38548e0ff090",
+        "Prob117_circuit9#37431016d1ae",
+        "Prob149_ece241_2013_q4#623e8222dceb",
+        "Prob149_ece241_2013_q4#b75a36a1c1d0"
+      ],
+      "lost": [
+        "Prob068_countbcd#af1e5e7e0d42",
+        "Prob149_ece241_2013_q4#7db9f8ccddd4",
+        "Prob154_fsm_ps2data#e0920bf7e8f9"
+      ],
+      "net_flips": 1,
+      "errors": 2,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.006,
+      "ts": "2026-10-17T20:46:22Z"
+    },
+    {
+      "id": "r1-breaker-c1",
+      "round": 1,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Tool that flags designs with shift/index expressions that could exceed input width.",
+      "reasoning": "A static analysis tool can detect patterns like `(sel << k) +: w` where `sel` width * shift + w may exceed the input width, indicating potential out\u2011of\u2011bounds selection. Providing this hint to the attacker helps focus on corner\u2011case inputs that trigger the bug.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob080_timer",
+        "Prob054_edgedetect"
+      ],
+      "rule_text": null,
+      "tool_name": "index_wrap_check",
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.6316,
+      "score_after": 0.6486,
+      "gained": [
+        "Prob102_circuit3#38548e0ff090",
+        "Prob117_circuit9#37431016d1ae",
+        "Prob149_ece241_2013_q4#623e8222dceb",
+        "Prob154_fsm_ps2data#013553938edf",
+        "Prob155_lemmings4#5816a5fb12df"
+      ],
+      "lost": [
+        "Prob068_countbcd#af1e5e7e0d42",
+        "Prob116_m2014_q3#5c7caeff8032",
+        "Prob149_ece241_2013_q4#7db9f8ccddd4",
+        "Prob154_fsm_ps2data#e0920bf7e8f9"
+      ],
+      "net_flips": 1,
+      "errors": 1,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0057,
+      "ts": "2026-10-17T20:46:22Z"
+    },
+    {
+      "id": "r1-breaker-c2",
+      "round": 1,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Double the maximum cycles allowed for stimulus generation.",
+      "reasoning": "Several missed bugs (e.g., Prob140_fsm_hdlc needing 16 cycles, Prob148_2013_q2afsm needing 5 cycles but with reset timing issues) require longer sequences to reach the erroneous state. Raising max_cycles gives the attacker more time to drive the design into deep states where mismatches appear.",
+      "evidence_problems": [
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm",
+        "Prob057_kmap2"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "param": "max_cycles",
+      "value": 80,
+      "source": "coach",
+      "score_before": 0.6316,
+      "score_after": 0.6053,
+      "gained": [
+        "Prob102_circuit3#38548e0ff090",
+        "Prob117_circuit9#37431016d1ae"
+      ],
+      "lost": [
+        "Prob068_countbcd#af1e5e7e0d42",
+        "Prob149_ece241_2013_q4#7db9f8ccddd4",
+        "Prob154_fsm_ps2data#e0920bf7e8f9"
+      ],
+      "net_flips": -1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0072,
+      "ts": "2026-10-17T20:46:22Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 0,
+  "complete": true
+}

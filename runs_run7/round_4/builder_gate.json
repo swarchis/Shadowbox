@@ -1,0 +1,149 @@
+{
+  "round": 4,
+  "team": "builder",
+  "from_version": 0,
+  "score_before": 0.43333333333333335,
+  "entries": [
+    {
+      "id": "r4-builder-c0",
+      "round": 4,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Add rule to fix uninitialized carry\u2011in in adders.",
+      "reasoning": "Prob016_m2014_q4j failed because carry[0] was left undriven, causing an unknown bit in the sum output. Similar failures could occur in any adder\u2011style design where the carry\u2011in is not explicitly tied. This rule forces the writer to drive the LSB carry\u2011in, eliminating the undriven net issue without affecting already\u2011correct modules.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j"
+      ],
+      "rule_text": "If the specification describes a multi-bit adder with carry\u2011in, explicitly tie the least\u2011significant carry\u2011in to 1'b0.",
+      "tool_name": null,
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.4333,
+      "score_after": 0.25,
+      "gained": [
+        "Prob009_popcount3"
+      ],
+      "lost": [
+        "Prob036_ringer",
+        "Prob067_countslow",
+        "Prob083_mt2015_q4b"
+      ],
+      "net_flips": -2,
+      "errors": 10,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0077,
+      "ts": "2026-10-17T21:06:44Z"
+    },
+    {
+      "id": "r4-builder-c1",
+      "round": 4,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "Tool that flags any wire or reg (excluding ports) that is never assigned a value.",
+      "reasoning": "Many failures stem from undriven internal nets (e.g., carry[0] in Prob016). A lightweight static check can catch these before simulation, giving the debugger a concrete finding to fix. The tool only fires when a problem exists, so it cannot break designs that are already correct.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect"
+      ],
+      "rule_text": null,
+      "tool_name": "undriven_net_checker",
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.4333,
+      "score_after": 0.4286,
+      "gained": [],
+      "lost": [],
+      "net_flips": 0,
+      "errors": 2,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0101,
+      "ts": "2026-10-17T21:06:44Z"
+    },
+    {
+      "id": "r4-builder-c2",
+      "round": 4,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "Increase allowed debug attempts from 2 to 3.",
+      "reasoning": "Several problems required more than two iterations to converge (e.g., Prob057_kmap2, Prob070_ece241_2013_q2). Raising the limit gives the team an extra chance to fix subtle logic errors without changing the overall approach, and historically this change has yielded a net positive impact.",
+      "evidence_problems": [
+        "Prob057_kmap2",
+        "Prob070_ece241_2013_q2",
+        "Prob103_circuit2"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "param": "max_debug_attempts",
+      "value": 3,
+      "source": "coach",
+      "score_before": 0.4333,
+      "score_after": 0.4074,
+      "gained": [],
+      "lost": [],
+      "net_flips": 0,
+      "errors": 3,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0083,
+      "ts": "2026-10-17T21:06:44Z"
+    },
+    {
+      "id": "r4-builder-c3",
+      "round": 4,
+      "team": "builder",
+      "change_type": "memory_add",
+      "summary": "Memory: remember 12 verified solution(s) from this round (memory -> 12)",
+      "reasoning": "Training problems the team solved correctly this round (official test passed, no Breaker bug). Similar new problems get them as worked examples.",
+      "evidence_problems": [
+        "Prob001_zero",
+        "Prob004_vector2",
+        "Prob014_andgate",
+        "Prob037_review2015_count1k",
+        "Prob044_vectorgates",
+        "Prob055_conditional",
+        "Prob065_7420",
+        "Prob078_dualedge",
+        "Prob085_shift4",
+        "Prob097_mux9to1v",
+        "Prob107_fsm1s",
+        "Prob110_fsm2"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "param": null,
+      "value": null,
+      "source": "memory",
+      "score_before": 0.4333,
+      "score_after": 0.4286,
+      "gained": [
+        "Prob120_fsm3s"
+      ],
+      "lost": [
+        "Prob060_m2014_q4k",
+        "Prob131_mt2015_q4"
+      ],
+      "net_flips": -1,
+      "errors": 2,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0091,
+      "ts": "2026-10-17T21:06:44Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 0,
+  "complete": true
+}

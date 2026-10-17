@@ -1,0 +1,47 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "For designs that have a load input and a multi-bit data bus, apply a load pulse (assert load for one cycle with non-zero data, then deassert) within the first 10 cycles.",
+      "summary": "Add load\u2011pulse rule to expose timer and similar load\u2011controlled designs.",
+      "reasoning": "Prob080_timer missed because the attack never asserted the load signal; a load pulse would trigger the down\u2011counter and reveal the bug. Similar load\u2011controlled behavior appears in other designs (e.g., Prob016_m2014_q4j, Prob062_bugs_mux2) where a load pulse increased bug detection.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob016_m2014_q4j",
+        "Prob062_bugs_mux2"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "reset_sensitivity_checker",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Detects if a reset-like input (names containing 'reset' or 'rst') is present\n    but absent from the sensitivity list of every always_ff / always @(posedge clk) block.\n    Returns findings if any such missing sensitivity is found.\n    \"\"\"\n    # Find reset-like input names\n    reset_inputs = set()\n    for p in ports:\n        name = p.get(\"name\", \"\").lower()\n        if \"reset\" in name or \"rst\" in name:\n            reset_inputs.add(name)\n\n    if not reset_inputs:\n        return {\"fired\": False, \"findings\": []}\n\n    # Regular expression to capture always blocks with posedge clk sensitivity\n    # Matches: always @(posedge clk) ... or always @(posedge clk or ...)\n    # Also matches always_ff @(posedge clk) ...\n    always_pattern = re.compile(\n        r'always\\s*@\\s*\\(\\s*posedge\\s+clk\\s*(?:[^)]*)?\\s*\\)|always_ff\\s*@\\s*\\(\\s*posedge\\s+clk\\s*(?:[^)]*)?\\s*\\)',\n        re.IGNORECASE\n    )\n\n    # Find all always blocks\n    matches = list(always_pattern.finditer(verilog))\n    missing = []\n    for match in matches:\n        block_start = match.end()\n        # Find the end of the block (next 'always' or end of file)\n        next_always = verilog.find('always', block_start)\n        block_end = next_always if next_always != -1 else len(verilog)\n        block_text = verilog[block_start:block_end]\n\n        # Check if any reset input appears in the sensitivity list (inside the parentheses)\n        sens_match = re.search(r'@\\s*\\(\\s*([^)]*)\\s*\\)', match.group())\n        if sens_match:\n            sens_list = sens_match.group(1).lower()\n            # If any reset input is in the sensitivity list, consider it covered\n            if any(rst in sens_list for rst in reset_inputs):\n                continue  # this block is fine\n        # If we reach here, the block lacks reset sensitivity\n        missing.append(f\"Always block at line {verilog[:match.start()].count(chr(10))+1} missing reset sensitivity.\")\n\n    if missing:\n        return {\"fired\": True, \"findings\": missing}\n    else:\n        return {\"fired\": False, \"findings\": []}\n",
+      "summary": "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.",
+      "reasoning": "Prob148_2013_q2afsm and Prob080_timer both have reset-related bugs that were missed; the reset sensitivity checker would highlight missing reset sensitivity in always blocks, guiding the attacker to generate reset toggles. Evidence shows at least three problematic designs (Prob148, Prob080, Prob063_review2015_shiftcount) involve reset handling.",
+      "evidence_problems": [
+        "Prob148_2013_q2afsm",
+        "Prob080_timer",
+        "Prob063_review2015_shiftcount"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 60,
+      "summary": "Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers.",
+      "reasoning": "Prob080_timer required more than 40 cycles to observe the bug (first mismatch at time 50). Prob143_fsm_onehot and Prob125_kmap3 also showed mismatches after many cycles. Raising max_cycles gives the attacker more time to expose such delayed bugs, as seen in the accepted rule_add that increased net gain.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob143_fsm_onehot",
+        "Prob125_kmap3"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob080_timer",
+    "Prob125_kmap3",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.004728899999999999
+}

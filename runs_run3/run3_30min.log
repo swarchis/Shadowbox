@@ -1,0 +1,624 @@
+Shadowbox | mode: REAL (Crusoe Managed Inference)
+  runs: /Users/swarchisk./Downloads/Shadowbox_NVIDIA_RAH/runs
+  versions: /Users/swarchisk./Downloads/Shadowbox_NVIDIA_RAH/versions
+  spend cap: $45.00
+[2026-10-17T18:48:44Z] run_start: Run started (real mode): train 30, val 30, K=3
+[2026-10-17T18:48:44Z] final_step: Final exam: test_v0 (92 held-out problems)
+[2026-10-17T18:48:44Z] final_step: Final exam: test_ultra_v0 (92 held-out problems)
+[2026-10-17T18:48:44Z] final_step: Final exam: test_transfer_v0 (92 held-out problems)
+[2026-10-17T18:48:45Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:48:45Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:48:45Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:48:45Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:48:45Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:48:45Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:18Z] baseline: Builder v0 passes 43% of validation problems
+[2026-10-17T18:49:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:19Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:19Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:19Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:19Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:19Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:30Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:32Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:34Z] llm_retry: debugger call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:49:39Z] llm_retry: debugger call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:57Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:58Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:58Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:58Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:58Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:58Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:58Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:58Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:58Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:49:59Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:00Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:00Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:01Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:50:01Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:03Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:50:03Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:05Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:50:05Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:50:05Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:50:05Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:50:06Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:50:06Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:50:06Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:50:06Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:50:06Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:50:17Z] llm_retry: writer call failed (RateLimitError); retry 5 in 16s
+[2026-10-17T18:50:18Z] llm_retry: writer call failed (RateLimitError); retry 5 in 16s
+[2026-10-17T18:50:54Z] bug_pool: Frozen bug pool built: 41 buggy designs from 19 problems
+[2026-10-17T18:50:54Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:55Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:55Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:55Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:58Z] baseline: Breaker v0 catches 68% of the frozen bug pool
+[2026-10-17T18:50:58Z] match_start: Round 1 match: Builder v0 vs Breaker v0
+[2026-10-17T18:50:58Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:58Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:58Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:58Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:58Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:58Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:58Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:58Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:50:59Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:00Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:00Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:00Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:00Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:00Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:01Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:17Z] match_done: Round 1: Builder passes 40% of train; Breaker found 9 real bugs (0 missed by the official tests)
+[2026-10-17T18:51:33Z] proposal_invalid: Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:34Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:35Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:35Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:35Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:35Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:35Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:36Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:38Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:51:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:39Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:39Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:39Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:39Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:40Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:40Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:40Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:40Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:40Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:41Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:41Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:41Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:41Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:41Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:42Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:42Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:42Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:42Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:42Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:42Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:51:42Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:51:42Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:51:43Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:51:43Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:43Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:43Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:51:43Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:43Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:43Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:45Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:45Z] llm_retry: debugger call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:51:47Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:47Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:51:47Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:51:47Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:48Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:49Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:51:49Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:51:56Z] llm_retry: writer call failed (RateLimitError); retry 5 in 16s
+[2026-10-17T18:53:23Z] gate_result: Builder change rejected: "Ensure outputs driven by always blocks are declared as reg/logic to avoid latch inference and compilation errors." (fixed 1, broke 6; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:53:23Z] gate_result: Builder change rejected: "param" (fixed 0, broke 0; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:53:32Z] proposal_invalid: Breaker proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)
+[2026-10-17T18:53:33Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:33Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:33Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:33Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:33Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:33Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:33Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:33Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:33Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:35Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:53:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:53:36Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:53:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:53:38Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] gate_result: Breaker v1 accepted: "Add reset pulse rule to improve FSM and reset-sensitive designs." (+3 net on frozen buggy designs)
+[2026-10-17T18:54:17Z] gate_result: Breaker change rejected: "param" (fixed 1, broke 5; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:54:17Z] round_done: Round 1 complete in 199s
+[2026-10-17T18:54:17Z] match_start: Round 2 match: Builder v0 vs Breaker v1
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:19Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:19Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:19Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:19Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:19Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:19Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:19Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:19Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:19Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:21Z] llm_retry: attacker call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:22Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:28Z] match_done: Round 2: Builder passes 40% of train; Breaker found 10 real bugs (0 missed by the official tests)
+[2026-10-17T18:54:46Z] proposal_invalid: Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:47Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:48Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:48Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:48Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:48Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:48Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:48Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:48Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:49Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:50Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:51Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:51Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:51Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:52Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:52Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:52Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:53Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:54Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:54Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:54Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:55Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:54:55Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:54:55Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:55Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:55Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:54:56Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:54:56Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:56Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:54:56Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:56Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:54:57Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:54:57Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:54:58Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:55:34Z] gate_result: Builder change rejected: "Add conditional rule to declare outputs driven by always blocks as logic/reg." (fixed 0, broke 4; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:55:34Z] gate_result: Builder change rejected: "Increase max debug attempts from 2 to 3 to allow more fixing iterations." (fixed 0, broke 1; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:55:51Z] proposal_invalid: Breaker proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 2 valid)
+[2026-10-17T18:55:51Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:55:51Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:55:51Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:55:51Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:55:52Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:55:52Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:55:52Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:55:53Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:55:54Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:55:55Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:55:56Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:55:56Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:34Z] gate_result: Breaker change rejected: "Add a second reset toggle to catch designs that mishandle asynchronous reset deassertion." (fixed 1, broke 4; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:56:34Z] gate_result: Breaker change rejected: "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs." (fixed 2, broke 3; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:56:34Z] round_done: Round 2 complete in 137s
+[2026-10-17T18:56:34Z] match_start: Round 3 match: Builder v0 vs Breaker v1
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:35Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:56:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:56:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:56:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:56:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:56:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:56:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:56:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:56:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:56:36Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:56:39Z] llm_retry: attacker call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:56:47Z] match_done: Round 3: Builder passes 40% of train; Breaker found 10 real bugs (0 missed by the official tests)
+[2026-10-17T18:57:11Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:11Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:11Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:11Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:11Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:11Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:12Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:57:12Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:57:13Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:14Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:14Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:57:15Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:15Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:16Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:17Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:17Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:17Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:19Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:19Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:57:19Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:19Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:19Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:57:20Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:57:21Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:21Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:57:21Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:23Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T18:57:23Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:24Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:24Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:24Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:24Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:25Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:57:25Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:25Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:57:28Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:57:29Z] llm_retry: writer call failed (RateLimitError); retry 4 in 8s
+[2026-10-17T18:58:08Z] gate_result: Builder v1 accepted: "Tool flags outputs assigned in always blocks that are not declared as logic/reg." (+2 net on validation problems)
+[2026-10-17T18:58:08Z] gate_result: Builder change rejected: "Declare outputs driven by always blocks as logic to avoid implicit wire errors." (fixed 1, broke 6; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:58:08Z] gate_result: Builder change rejected: "Increase max debug attempts from 2 to 3 to allow more fixing iterations." (fixed 0, broke 1; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:58:25Z] proposal_invalid: Breaker proposal rejected before testing: tool code missing (put it in a ```python block starting with `# tool: <name>`)
+[2026-10-17T18:58:25Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:58:27Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:58:28Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:58:28Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:58:28Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:58:29Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:58:29Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:58:29Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:58:29Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T18:58:35Z] gate_result: Breaker change rejected: "Add reset hold rule to test reset recovery and synchronous/asynchronous reset handling." (fixed 2, broke 2; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:58:35Z] gate_result: Breaker change rejected: "Reduce max_cycles from 40 to 30 to encourage shorter, more focused stimulus sequences." (fixed 1, broke 4; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T18:58:35Z] round_done: Round 3 complete in 120s
+[2026-10-17T18:58:35Z] match_start: Round 4 match: Builder v1 vs Breaker v1
+[2026-10-17T18:58:35Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:58:36Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:58:36Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:59:33Z] match_done: Round 4: Builder passes 43% of train; Breaker found 9 real bugs (0 missed by the official tests)
+[2026-10-17T18:59:56Z] proposal_invalid: Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 1 valid)
+[2026-10-17T18:59:57Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:59:57Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:59:57Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:59:59Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T18:59:59Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:00:01Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:00:01Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:00:02Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:00:40Z] gate_result: Builder change rejected: "Declare outputs driven by always blocks as logic/reg when the spec explicitly references an always block." (fixed 1, broke 6; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:00:40Z] gate_result: Builder change rejected: "Increase the number of debugging iterations allowed per problem from 2 to 3." (fixed 0, broke 3; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:00:57Z] proposal_invalid: Breaker proposal rejected before testing: tool rejected by static screen: syntax error: unmatched '}' (<unknown>, line 39)
+[2026-10-17T19:00:58Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:00:58Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:00:59Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:00:59Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:01:00Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:01:00Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:01:01Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:01:28Z] gate_result: Breaker change rejected: "Add load‑pulse rule to expose timer and similar load‑controlled designs." (fixed 3, broke 2; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:01:28Z] gate_result: Breaker change rejected: "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs." (fixed 1, broke 3; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:01:28Z] round_done: Round 4 complete in 174s
+[2026-10-17T19:01:28Z] match_start: Round 5 match: Builder v1 vs Breaker v1
+[2026-10-17T19:01:29Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:01:29Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:01:31Z] match_done: Round 5: Builder passes 43% of train; Breaker found 8 real bugs (0 missed by the official tests)
+[2026-10-17T19:01:53Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:01:53Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:01:53Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:02:05Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:02:40Z] gate_result: Builder change rejected: "Assign logic type to outputs driven by always blocks." (fixed 1, broke 8; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:02:40Z] gate_result: Builder change rejected: "Flags output ports that have no assignment anywhere in the module." (fixed 1, broke 4; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:02:40Z] gate_result: Builder change rejected: "Allow one extra debugging iteration per problem." (fixed 0, broke 2; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:02:54Z] proposal_invalid: Breaker proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 2 valid)
+[2026-10-17T19:02:56Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:02:56Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:03:29Z] gate_result: Breaker change rejected: "Add load‑pulse rule to expose timer and similar load‑controlled designs." (fixed 2, broke 1; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:03:29Z] gate_result: Breaker change rejected: "Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers." (fixed 0, broke 3; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:03:29Z] round_done: Round 5 complete in 121s
+[2026-10-17T19:03:29Z] match_start: Round 6 match: Builder v1 vs Breaker v1
+[2026-10-17T19:03:32Z] match_done: Round 6: Builder passes 43% of train; Breaker found 8 real bugs (0 missed by the official tests)
+[2026-10-17T19:03:45Z] proposal_invalid: Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)
+[2026-10-17T19:03:50Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:04:39Z] gate_result: Builder change rejected: "Require outputs driven by always blocks to be declared as logic/reg to avoid implicit wire errors." (fixed 2, broke 7; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:04:39Z] gate_result: Builder change rejected: "param" (fixed 0, broke 3; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:05:13Z] proposal_invalid: Breaker proposal rejected before testing: tool rejected by static screen: syntax error: unmatched '}' (<unknown>, line 52)
+[2026-10-17T19:05:14Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:14Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:14Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:14Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:16Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:16Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:16Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:16Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:17Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:18Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:18Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:05:18Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:19Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:20Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:20Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:50Z] gate_result: Breaker change rejected: "Add a load‑pulse rule to trigger timer and load‑controlled bugs." (fixed 1, broke 3; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:05:50Z] gate_result: Breaker change rejected: "Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers." (fixed 0, broke 3; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:05:50Z] round_done: Round 6 complete in 140s
+[2026-10-17T19:05:50Z] match_start: Round 7 match: Builder v1 vs Breaker v1
+[2026-10-17T19:05:50Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:50Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:50Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:50Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:50Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:50Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:05:53Z] match_done: Round 7: Builder passes 43% of train; Breaker found 7 real bugs (0 missed by the official tests)
+[2026-10-17T19:06:12Z] coach_parse: Builder coach reply unusable (no JSON found in model output); asking for a corrected reply
+[2026-10-17T19:06:23Z] proposal_invalid: Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)
+[2026-10-17T19:06:32Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:06:35Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:06:35Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:07:09Z] gate_result: Builder change rejected: "Ensure outputs driven by always blocks have a proper reg/logic type to avoid implicit wire errors." (fixed 0, broke 7; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:07:09Z] gate_result: Builder change rejected: "param" (fixed 3, broke 3; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:07:30Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:07:30Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:07:30Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:07:32Z] llm_retry: attacker call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:07:32Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:07:32Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:07:37Z] llm_retry: attacker call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:08Z] gate_result: Breaker v2 accepted: "Add load‑pulse rule to expose timer and load‑controlled bugs." (+2 net on frozen buggy designs)
+[2026-10-17T19:08:08Z] gate_result: Breaker change rejected: "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block." (fixed 0, broke 2; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:08:08Z] gate_result: Breaker change rejected: "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs and timers." (fixed 2, broke 3; needs net +3 or 2+ fixed with none broken)
+[2026-10-17T19:08:08Z] round_done: Round 7 complete in 139s
+[2026-10-17T19:08:08Z] time_budget: Stopping before round 8: 10.6 min left; a round takes ~2.3 min and the final exam needs ~8.3 min
+[2026-10-17T19:08:08Z] final_start: Final exam started on the held-out split (time left: 10.6 min)
+[2026-10-17T19:08:08Z] final_step: Final exam: test_vbest (92 held-out problems)
+[2026-10-17T19:08:08Z] final_step: Final exam: draft 1 for 92 held-out problems (temperature 0.7)
+[2026-10-17T19:08:08Z] final_step: Final exam: draft 2 for 92 held-out problems (temperature 0.7)
+[2026-10-17T19:08:08Z] final_step: Final exam: draft 3 for 92 held-out problems (temperature 0.7)
+[2026-10-17T19:08:12Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:13Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:14Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:15Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:16Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:17Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:08:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:18Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:19Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:19Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:20Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T19:08:21Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:22Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:28Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:29Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:29Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:29Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:31Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:08:33Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:35Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:36Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:37Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:38Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:08:38Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:39Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:39Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:39Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:41Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T19:08:41Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:08:43Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:08:51Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:22Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:22Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:24Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:24Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:26Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:27Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:28Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:28Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:28Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:09:29Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:09:31Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:09:33Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:10:04Z] final_step: Final exam: draft 4 for 92 held-out problems (temperature 0.7)
+[2026-10-17T19:10:04Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:04Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:04Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:09Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:10Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:11Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:11Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:12Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:13Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:13Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:10:54Z] final_step: Final exam: draft 5 for 92 held-out problems (temperature 0.7)
+[2026-10-17T19:10:54Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:54Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:56Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:57Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:57Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:59Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:59Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:59Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:10:59Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:11:00Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:11:00Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:11:00Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:11:00Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:11:02Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:11:03Z] llm_retry: debugger call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:11:04Z] llm_retry: debugger call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:11:06Z] llm_retry: debugger call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T19:11:45Z] final_step: Final exam: test-time selection (breaker_vbest, 5 drafts per problem, 92 problem(s))
+[2026-10-17T19:12:37Z] final_step: Final exam: test-time selection (random_inputs, 5 drafts per problem, 92 problem(s))
+[2026-10-17T19:12:46Z] final_step: Final exam: test_transfer_vbest (92 held-out problems)
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:46Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:47Z] llm_retry: writer call failed (RateLimitError); retry 2 in 2s
+[2026-10-17T19:12:50Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T19:12:50Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T19:12:50Z] llm_retry: writer call failed (RateLimitError); retry 1 in 1s
+[2026-10-17T19:12:51Z] llm_retry: writer call failed (RateLimitError); retry 3 in 4s
+[2026-10-17T19:13:27Z] final_step: Final exam: test-time selection (breaker_v0, 5 drafts per problem, 92 problem(s))
+[2026-10-17T19:14:22Z] final_done: Held-out: v0 42% -> vBest 45% -> with Breaker 53% (random inputs 54%, ceiling 64%)

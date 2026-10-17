@@ -1,0 +1,113 @@
+{
+  "round": 5,
+  "team": "builder",
+  "from_version": 1,
+  "score_before": 0.5,
+  "entries": [
+    {
+      "id": "r5-builder-c0",
+      "round": 5,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Assign logic type to outputs driven by always blocks.",
+      "reasoning": "Several failing designs (e.g., Prob026_alwaysblock1, Prob078_dualedge, Prob118_history_shift) assign outputs in always blocks but leave them as implicit wires, causing undriven or latch-related mismatches. This conditional rule targets exactly that pattern without affecting combinational assign-driven outputs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob078_dualedge",
+        "Prob118_history_shift"
+      ],
+      "rule_text": "If an output port is assigned inside an always block, declare it as logic (or reg) to avoid undriven/wire mismatches.",
+      "tool_name": null,
+      "score_before": 0.5,
+      "score_after": 0.2667,
+      "gained": [
+        "Prob009_popcount3"
+      ],
+      "lost": [
+        "Prob005_notgate",
+        "Prob060_m2014_q4k",
+        "Prob067_countslow",
+        "Prob083_mt2015_q4b",
+        "Prob090_circuit1",
+        "Prob094_gatesv",
+        "Prob117_circuit9",
+        "Prob131_mt2015_q4"
+      ],
+      "net_flips": -7,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0098,
+      "ts": "2026-10-17T19:01:52Z"
+    },
+    {
+      "id": "r5-builder-c1",
+      "round": 5,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "Flags output ports that have no assignment anywhere in the module.",
+      "reasoning": "Failures such as Prob016_m2014_q4j (sum[4] undriven), Prob078_dualedge (q undriven due to missing reg), and Prob118_history_shift (predict_history undriven) show a pattern of outputs never driven. A tool that detects undriven outputs will fire on these cases, prompting the debugger to add a default drive or proper reg declaration.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob078_dualedge",
+        "Prob118_history_shift"
+      ],
+      "rule_text": null,
+      "tool_name": "undriven_output_check",
+      "score_before": 0.5,
+      "score_after": 0.4,
+      "gained": [
+        "Prob096_review2015_fsmseq"
+      ],
+      "lost": [
+        "Prob067_countslow",
+        "Prob094_gatesv",
+        "Prob117_circuit9",
+        "Prob131_mt2015_q4"
+      ],
+      "net_flips": -3,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0103,
+      "ts": "2026-10-17T19:01:52Z"
+    },
+    {
+      "id": "r5-builder-c2",
+      "round": 5,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "Allow one extra debugging iteration per problem.",
+      "reasoning": "Increasing max_debug_attempts from 2 to 3 gives the team an additional chance to apply fixes suggested by tools or rules, which has historically helped resolve stubborn mismatches without breaking already\u2011passing designs.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.5,
+      "score_after": 0.4333,
+      "gained": [],
+      "lost": [
+        "Prob094_gatesv",
+        "Prob117_circuit9"
+      ],
+      "net_flips": -2,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0109,
+      "ts": "2026-10-17T19:01:52Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 1,
+  "complete": true
+}

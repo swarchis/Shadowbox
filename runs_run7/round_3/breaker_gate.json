@@ -1,0 +1,130 @@
+{
+  "round": 3,
+  "team": "breaker",
+  "from_version": 0,
+  "score_before": 0.631578947368421,
+  "entries": [
+    {
+      "id": "r3-breaker-c0",
+      "round": 3,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add rule to stimulate edge\u2011case selector values for wide\u2011input multiplexers.",
+      "reasoning": "Many missed bugs involve wide\u2011input muxes where the selector indexes into a packed vector (e.g., Prob021_mux256to1v). Testing selector values that are powers of two and adjacent values exercises the boundary conditions where off\u2011by\u2011one errors in index calculation manifest.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob057_kmap2",
+        "Prob125_kmap3"
+      ],
+      "rule_text": "Always include test cases where wide-selector inputs (e.g., sel) are set to powers of two and to values just above and below each power\u2011of\u2011two boundary.",
+      "tool_name": null,
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.6316,
+      "score_after": 0.7027,
+      "gained": [
+        "Prob096_review2015_fsmseq#5f66f05d4449",
+        "Prob102_circuit3#38548e0ff090",
+        "Prob117_circuit9#37431016d1ae",
+        "Prob149_ece241_2013_q4#623e8222dceb",
+        "Prob149_ece241_2013_q4#b75a36a1c1d0",
+        "Prob150_review2015_fsmonehot#37bf7274ca05"
+      ],
+      "lost": [
+        "Prob120_fsm3s#2a297477cefc",
+        "Prob149_ece241_2013_q4#7db9f8ccddd4",
+        "Prob154_fsm_ps2data#e0920bf7e8f9"
+      ],
+      "net_flips": 3,
+      "errors": 1,
+      "accepted": true,
+      "from_version": 0,
+      "new_version": 1,
+      "invalid_reason": null,
+      "cost_usd": 0.0078,
+      "ts": "2026-10-17T21:03:25Z"
+    },
+    {
+      "id": "r3-breaker-c1",
+      "round": 3,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Add static analysis tool that flags designs where shift or index expressions could exceed the width of an input port.",
+      "reasoning": "Several missed bugs stem from shift/index calculations that can overflow the input width (e.g., Prob021_mux256to1v, Prob054_edgedetect). A tool that statically detects such potential overflows will give the attacker hints to generate targeted stimuli.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob063_review2015_shiftcount"
+      ],
+      "rule_text": null,
+      "tool_name": "width_overflow_check",
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.6316,
+      "score_after": 0.6053,
+      "gained": [
+        "Prob117_circuit9#37431016d1ae",
+        "Prob155_lemmings4#5816a5fb12df"
+      ],
+      "lost": [
+        "Prob068_countbcd#af1e5e7e0d42",
+        "Prob149_ece241_2013_q4#7db9f8ccddd4",
+        "Prob154_fsm_ps2data#e0920bf7e8f9"
+      ],
+      "net_flips": -1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.006,
+      "ts": "2026-10-17T21:03:25Z"
+    },
+    {
+      "id": "r3-breaker-c2",
+      "round": 3,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Double the maximum cycles allowed for stimulus generation from 40 to 80.",
+      "reasoning": "Increasing the cycle budget enables longer sequences needed to trigger bugs that require multiple clock cycles to manifest (e.g., Prob080_timer, Prob140_fsm_hdlc). Past attempts showed that more cycles can uncover additional mismatches without overly burdening the search.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "param": "max_cycles",
+      "value": 80,
+      "source": "coach",
+      "score_before": 0.6316,
+      "score_after": 0.5526,
+      "gained": [
+        "Prob102_circuit3#38548e0ff090",
+        "Prob117_circuit9#37431016d1ae",
+        "Prob155_lemmings4#5816a5fb12df"
+      ],
+      "lost": [
+        "Prob068_countbcd#af1e5e7e0d42",
+        "Prob116_m2014_q3#034546aa15c3",
+        "Prob117_circuit9#5509ed667416",
+        "Prob132_always_if2#840ae888e862",
+        "Prob149_ece241_2013_q4#7db9f8ccddd4",
+        "Prob154_fsm_ps2data#e0920bf7e8f9"
+      ],
+      "net_flips": -3,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0103,
+      "ts": "2026-10-17T21:03:25Z"
+    }
+  ],
+  "accepted_id": "r3-breaker-c0",
+  "new_version": 1,
+  "complete": true
+}

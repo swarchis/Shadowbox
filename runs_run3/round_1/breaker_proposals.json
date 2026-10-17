@@ -1,0 +1,32 @@
+{
+  "from_version": 0,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "Always include a reset pulse (assert then deassert) within the first 5 cycles for any design that has an active-low reset input (e.g., resetn, aresetn).",
+      "summary": "Add reset pulse rule to improve FSM and reset-sensitive designs.",
+      "reasoning": "Several missed buggy designs (Prob129_ece241_2013_q8, Prob148_2013_q2afsm) involve asynchronous or synchronous resets that were not exercised, causing the attacker to miss state mismatches. Adding a rule that forces an early reset pulse ensures the FSM starts from a known state and can reveal reset-related bugs.",
+      "evidence_problems": [
+        "Prob129_ece241_2013_q8",
+        "Prob148_2013_q2afsm"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "fsm_hint",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Simple heuristic to detect FSM-like designs.\n    Returns a hint suggesting to toggle inputs to cover state transitions.\n    \"\"\"\n    fired = False\n    findings = []\n\n    # Look for always_ff with posedge clk (common FSM clock)\n    if re.search(r'always_ff\\s*@\\s*\\(\\s*posedge\\s+clk', verilog, re.IGNORECASE):\n        fired = True\n        findings.append(\"Design appears to be a clocked FSM; try toggling inputs to exercise state transitions.\")\n    # Also detect async reset patterns\n    if re.search(r'negedge\\s+aresetn|negedge\\s+resetn', verilog, re.IGNORECASE):\n        fired = True\n        findings.append(\"Design uses asynchronous reset; consider applying a reset pulse early in the stimulus.\")\n    return {\"fired\": fired, \"findings\": findings}\n"
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 80
+    }
+  ],
+  "evidence": [
+    "Prob057_kmap2",
+    "Prob129_ece241_2013_q8",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0032303999999999996
+}

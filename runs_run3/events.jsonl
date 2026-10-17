@@ -1,0 +1,620 @@
+{"ts": "2026-10-17T18:48:44Z", "type": "run_start", "message": "Run started (real mode): train 30, val 30, K=3"}
+{"ts": "2026-10-17T18:48:44Z", "type": "final_step", "message": "Final exam: test_v0 (92 held-out problems)"}
+{"ts": "2026-10-17T18:48:44Z", "type": "final_step", "message": "Final exam: test_ultra_v0 (92 held-out problems)"}
+{"ts": "2026-10-17T18:48:44Z", "type": "final_step", "message": "Final exam: test_transfer_v0 (92 held-out problems)"}
+{"ts": "2026-10-17T18:48:45Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "val:builder_0:writer"}
+{"ts": "2026-10-17T18:48:45Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_v0:writer"}
+{"ts": "2026-10-17T18:48:45Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_v0:writer"}
+{"ts": "2026-10-17T18:48:45Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "val:builder_0:writer"}
+{"ts": "2026-10-17T18:48:45Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_v0:writer"}
+{"ts": "2026-10-17T18:48:45Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "val:builder_0:writer"}
+{"ts": "2026-10-17T18:49:18Z", "type": "baseline", "message": "Builder v0 passes 43% of validation problems"}
+{"ts": "2026-10-17T18:49:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra0:writer"}
+{"ts": "2026-10-17T18:49:30Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra0:debugger"}
+{"ts": "2026-10-17T18:49:32Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra0:debugger"}
+{"ts": "2026-10-17T18:49:34Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra0:debugger"}
+{"ts": "2026-10-17T18:49:39Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra0:debugger"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:49:59Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:debugger"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:01Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:01Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:debugger"}
+{"ts": "2026-10-17T18:50:03Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "bugpool_extra1:debugger"}
+{"ts": "2026-10-17T18:50:03Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "bugpool_extra1:debugger"}
+{"ts": "2026-10-17T18:50:05Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:05Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:05Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:05Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:06Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:06Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:06Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:06Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:06Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:17Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 5 in 16s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 5 in 16s", "tag": "bugpool_extra1:writer"}
+{"ts": "2026-10-17T18:50:54Z", "type": "bug_pool", "message": "Frozen bug pool built: 41 buggy designs from 19 problems"}
+{"ts": "2026-10-17T18:50:54Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "pool:breaker_0:attacker"}
+{"ts": "2026-10-17T18:50:55Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "pool:breaker_0:attacker"}
+{"ts": "2026-10-17T18:50:55Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "pool:breaker_0:attacker"}
+{"ts": "2026-10-17T18:50:55Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "pool:breaker_0:attacker"}
+{"ts": "2026-10-17T18:50:58Z", "type": "baseline", "message": "Breaker v0 catches 68% of the frozen bug pool"}
+{"ts": "2026-10-17T18:50:58Z", "type": "match_start", "message": "Round 1 match: Builder v0 vs Breaker v0", "round": 1}
+{"ts": "2026-10-17T18:50:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:50:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:50:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:50:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:50:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:50:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:50:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:50:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:50:59Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:51:00Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:debugger"}
+{"ts": "2026-10-17T18:51:00Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:attacker"}
+{"ts": "2026-10-17T18:51:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:51:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:match:writer"}
+{"ts": "2026-10-17T18:51:00Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:attacker"}
+{"ts": "2026-10-17T18:51:01Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:match:debugger"}
+{"ts": "2026-10-17T18:51:17Z", "type": "match_done", "message": "Round 1: Builder passes 40% of train; Breaker found 9 real bugs (0 missed by the official tests)", "round": 1}
+{"ts": "2026-10-17T18:51:33Z", "type": "proposal_invalid", "message": "Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)", "round": 1, "team": "builder"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:34Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:35Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:35Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:35Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:35Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:35Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:36Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:39Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:39Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:39Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:39Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:40Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:40Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:40Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:40Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:40Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:41Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:41Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:41Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:debugger"}
+{"ts": "2026-10-17T18:51:41Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:debugger"}
+{"ts": "2026-10-17T18:51:41Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:42Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:42Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:42Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:42Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:42Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:42Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:42Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:42Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "r1:gate:r1-builder-c0:writer"}
+{"ts": "2026-10-17T18:51:43Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:43Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:43Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:43Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:43Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:43Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c2:debugger"}
+{"ts": "2026-10-17T18:51:43Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:45Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:45Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 3 in 4s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:47Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:51:47Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:48Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:49Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-builder-c0:debugger"}
+{"ts": "2026-10-17T18:51:49Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-builder-c2:debugger"}
+{"ts": "2026-10-17T18:51:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 5 in 16s", "tag": "r1:gate:r1-builder-c2:writer"}
+{"ts": "2026-10-17T18:53:23Z", "type": "gate_result", "message": "Builder change rejected: \"Ensure outputs driven by always blocks are declared as reg/logic to avoid latch inference and compilation errors.\" (fixed 1, broke 6; needs net +3 or 2+ fixed with none broken)", "round": 1, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T18:53:23Z", "type": "gate_result", "message": "Builder change rejected: \"param\" (fixed 0, broke 0; needs net +3 or 2+ fixed with none broken)", "round": 1, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T18:53:32Z", "type": "proposal_invalid", "message": "Breaker proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)", "round": 1, "team": "breaker"}
+{"ts": "2026-10-17T18:53:33Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:33Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:33Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:33Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:33Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:33Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:33Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:33Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:33Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:53:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:53:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:53:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:53:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:53:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:53:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r1:gate:r1-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:53:38Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r1:gate:r1-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "gate_result", "message": "Breaker v1 accepted: \"Add reset pulse rule to improve FSM and reset-sensitive designs.\" (+3 net on frozen buggy designs)", "round": 1, "team": "breaker", "accepted": true}
+{"ts": "2026-10-17T18:54:17Z", "type": "gate_result", "message": "Breaker change rejected: \"param\" (fixed 1, broke 5; needs net +3 or 2+ fixed with none broken)", "round": 1, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T18:54:17Z", "type": "round_done", "message": "Round 1 complete in 199s", "round": 1}
+{"ts": "2026-10-17T18:54:17Z", "type": "match_start", "message": "Round 2 match: Builder v0 vs Breaker v1", "round": 2}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:21Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 3 in 4s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:22Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:match:attacker"}
+{"ts": "2026-10-17T18:54:28Z", "type": "match_done", "message": "Round 2: Builder passes 40% of train; Breaker found 10 real bugs (0 missed by the official tests)", "round": 2}
+{"ts": "2026-10-17T18:54:46Z", "type": "proposal_invalid", "message": "Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)", "round": 2, "team": "builder"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:48Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:48Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:48Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:48Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:48Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:48Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:48Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:49Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:51Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:51Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:51Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:52Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:52Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:52Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:53Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:54Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:54Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:54Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:debugger"}
+{"ts": "2026-10-17T18:54:55Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:55Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:55Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:54:55Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c0:debugger"}
+{"ts": "2026-10-17T18:54:55Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:56Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:debugger"}
+{"ts": "2026-10-17T18:54:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:56Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c0:debugger"}
+{"ts": "2026-10-17T18:54:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "r2:gate:r2-builder-c0:writer"}
+{"ts": "2026-10-17T18:54:57Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-builder-c2:debugger"}
+{"ts": "2026-10-17T18:54:57Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-builder-c2:debugger"}
+{"ts": "2026-10-17T18:54:58Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r2:gate:r2-builder-c2:writer"}
+{"ts": "2026-10-17T18:55:34Z", "type": "gate_result", "message": "Builder change rejected: \"Add conditional rule to declare outputs driven by always blocks as logic/reg.\" (fixed 0, broke 4; needs net +3 or 2+ fixed with none broken)", "round": 2, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T18:55:34Z", "type": "gate_result", "message": "Builder change rejected: \"Increase max debug attempts from 2 to 3 to allow more fixing iterations.\" (fixed 0, broke 1; needs net +3 or 2+ fixed with none broken)", "round": 2, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T18:55:51Z", "type": "proposal_invalid", "message": "Breaker proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 2 valid)", "round": 2, "team": "breaker"}
+{"ts": "2026-10-17T18:55:51Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:55:51Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:55:51Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:55:51Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:55:52Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:55:52Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:55:52Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r2:gate:r2-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:55:53Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:55:54Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:55:55Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:55:56Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:55:56Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r2:gate:r2-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:56:34Z", "type": "gate_result", "message": "Breaker change rejected: \"Add a second reset toggle to catch designs that mishandle asynchronous reset deassertion.\" (fixed 1, broke 4; needs net +3 or 2+ fixed with none broken)", "round": 2, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T18:56:34Z", "type": "gate_result", "message": "Breaker change rejected: \"Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs.\" (fixed 2, broke 3; needs net +3 or 2+ fixed with none broken)", "round": 2, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T18:56:34Z", "type": "round_done", "message": "Round 2 complete in 137s", "round": 2}
+{"ts": "2026-10-17T18:56:34Z", "type": "match_start", "message": "Round 3 match: Builder v0 vs Breaker v1", "round": 3}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:35Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:39Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 3 in 4s", "tag": "r3:match:attacker"}
+{"ts": "2026-10-17T18:56:47Z", "type": "match_done", "message": "Round 3: Builder passes 40% of train; Breaker found 10 real bugs (0 missed by the official tests)", "round": 3}
+{"ts": "2026-10-17T18:57:11Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:writer"}
+{"ts": "2026-10-17T18:57:11Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:writer"}
+{"ts": "2026-10-17T18:57:11Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:writer"}
+{"ts": "2026-10-17T18:57:11Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:writer"}
+{"ts": "2026-10-17T18:57:11Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:writer"}
+{"ts": "2026-10-17T18:57:11Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:writer"}
+{"ts": "2026-10-17T18:57:12Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-builder-c0:writer"}
+{"ts": "2026-10-17T18:57:12Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-builder-c0:writer"}
+{"ts": "2026-10-17T18:57:13Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c1:writer"}
+{"ts": "2026-10-17T18:57:14Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c1:writer"}
+{"ts": "2026-10-17T18:57:14Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-builder-c1:writer"}
+{"ts": "2026-10-17T18:57:15Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c1:writer"}
+{"ts": "2026-10-17T18:57:15Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c1:writer"}
+{"ts": "2026-10-17T18:57:16Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:17Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:17Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:17Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:20Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:21Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:debugger"}
+{"ts": "2026-10-17T18:57:21Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:21Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:debugger"}
+{"ts": "2026-10-17T18:57:23Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:57:23Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:debugger"}
+{"ts": "2026-10-17T18:57:24Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:debugger"}
+{"ts": "2026-10-17T18:57:24Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c1:debugger"}
+{"ts": "2026-10-17T18:57:24Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c1:debugger"}
+{"ts": "2026-10-17T18:57:24Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c2:debugger"}
+{"ts": "2026-10-17T18:57:25Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-builder-c2:debugger"}
+{"ts": "2026-10-17T18:57:25Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c0:debugger"}
+{"ts": "2026-10-17T18:57:25Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-builder-c2:debugger"}
+{"ts": "2026-10-17T18:57:28Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-builder-c1:debugger"}
+{"ts": "2026-10-17T18:57:29Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 4 in 8s", "tag": "r3:gate:r3-builder-c2:writer"}
+{"ts": "2026-10-17T18:58:08Z", "type": "gate_result", "message": "Builder v1 accepted: \"Tool flags outputs assigned in always blocks that are not declared as logic/reg.\" (+2 net on validation problems)", "round": 3, "team": "builder", "accepted": true}
+{"ts": "2026-10-17T18:58:08Z", "type": "gate_result", "message": "Builder change rejected: \"Declare outputs driven by always blocks as logic to avoid implicit wire errors.\" (fixed 1, broke 6; needs net +3 or 2+ fixed with none broken)", "round": 3, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T18:58:08Z", "type": "gate_result", "message": "Builder change rejected: \"Increase max debug attempts from 2 to 3 to allow more fixing iterations.\" (fixed 0, broke 1; needs net +3 or 2+ fixed with none broken)", "round": 3, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T18:58:25Z", "type": "proposal_invalid", "message": "Breaker proposal rejected before testing: tool code missing (put it in a ```python block starting with `# tool: <name>`)", "round": 3, "team": "breaker"}
+{"ts": "2026-10-17T18:58:25Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-breaker-c0:attacker"}
+{"ts": "2026-10-17T18:58:27Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:58:28Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:58:28Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:58:28Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:58:29Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:58:29Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r3:gate:r3-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:58:29Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:58:29Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r3:gate:r3-breaker-c2:attacker"}
+{"ts": "2026-10-17T18:58:35Z", "type": "gate_result", "message": "Breaker change rejected: \"Add reset hold rule to test reset recovery and synchronous/asynchronous reset handling.\" (fixed 2, broke 2; needs net +3 or 2+ fixed with none broken)", "round": 3, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T18:58:35Z", "type": "gate_result", "message": "Breaker change rejected: \"Reduce max_cycles from 40 to 30 to encourage shorter, more focused stimulus sequences.\" (fixed 1, broke 4; needs net +3 or 2+ fixed with none broken)", "round": 3, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T18:58:35Z", "type": "round_done", "message": "Round 3 complete in 120s", "round": 3}
+{"ts": "2026-10-17T18:58:35Z", "type": "match_start", "message": "Round 4 match: Builder v1 vs Breaker v1", "round": 4}
+{"ts": "2026-10-17T18:58:35Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r4:match:writer"}
+{"ts": "2026-10-17T18:58:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r4:match:attacker"}
+{"ts": "2026-10-17T18:58:36Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r4:match:attacker"}
+{"ts": "2026-10-17T18:59:33Z", "type": "match_done", "message": "Round 4: Builder passes 43% of train; Breaker found 9 real bugs (0 missed by the official tests)", "round": 4}
+{"ts": "2026-10-17T18:59:56Z", "type": "proposal_invalid", "message": "Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 1 valid)", "round": 4, "team": "builder"}
+{"ts": "2026-10-17T18:59:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-builder-c0:writer"}
+{"ts": "2026-10-17T18:59:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-builder-c0:writer"}
+{"ts": "2026-10-17T18:59:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-builder-c0:writer"}
+{"ts": "2026-10-17T18:59:59Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-builder-c2:writer"}
+{"ts": "2026-10-17T18:59:59Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-builder-c2:writer"}
+{"ts": "2026-10-17T19:00:01Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-builder-c2:writer"}
+{"ts": "2026-10-17T19:00:01Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-builder-c0:debugger"}
+{"ts": "2026-10-17T19:00:02Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "r4:gate:r4-builder-c2:writer"}
+{"ts": "2026-10-17T19:00:40Z", "type": "gate_result", "message": "Builder change rejected: \"Declare outputs driven by always blocks as logic/reg when the spec explicitly references an always block.\" (fixed 1, broke 6; needs net +3 or 2+ fixed with none broken)", "round": 4, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T19:00:40Z", "type": "gate_result", "message": "Builder change rejected: \"Increase the number of debugging iterations allowed per problem from 2 to 3.\" (fixed 0, broke 3; needs net +3 or 2+ fixed with none broken)", "round": 4, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T19:00:57Z", "type": "proposal_invalid", "message": "Breaker proposal rejected before testing: tool rejected by static screen: syntax error: unmatched '}' (<unknown>, line 39)", "round": 4, "team": "breaker"}
+{"ts": "2026-10-17T19:00:58Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:00:58Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:00:59Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:00:59Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:01:00Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:01:00Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r4:gate:r4-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:01:01Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_v0:debugger"}
+{"ts": "2026-10-17T19:01:28Z", "type": "gate_result", "message": "Breaker change rejected: \"Add load\u2011pulse rule to expose timer and similar load\u2011controlled designs.\" (fixed 3, broke 2; needs net +3 or 2+ fixed with none broken)", "round": 4, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T19:01:28Z", "type": "gate_result", "message": "Breaker change rejected: \"Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs.\" (fixed 1, broke 3; needs net +3 or 2+ fixed with none broken)", "round": 4, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T19:01:28Z", "type": "round_done", "message": "Round 4 complete in 174s", "round": 4}
+{"ts": "2026-10-17T19:01:28Z", "type": "match_start", "message": "Round 5 match: Builder v1 vs Breaker v1", "round": 5}
+{"ts": "2026-10-17T19:01:29Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r5:match:attacker"}
+{"ts": "2026-10-17T19:01:29Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r5:match:attacker"}
+{"ts": "2026-10-17T19:01:31Z", "type": "match_done", "message": "Round 5: Builder passes 43% of train; Breaker found 8 real bugs (0 missed by the official tests)", "round": 5}
+{"ts": "2026-10-17T19:01:53Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r5:gate:r5-builder-c1:writer"}
+{"ts": "2026-10-17T19:01:53Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r5:gate:r5-builder-c1:writer"}
+{"ts": "2026-10-17T19:01:53Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r5:gate:r5-builder-c1:writer"}
+{"ts": "2026-10-17T19:02:05Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r5:gate:r5-builder-c1:debugger"}
+{"ts": "2026-10-17T19:02:40Z", "type": "gate_result", "message": "Builder change rejected: \"Assign logic type to outputs driven by always blocks.\" (fixed 1, broke 8; needs net +3 or 2+ fixed with none broken)", "round": 5, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T19:02:40Z", "type": "gate_result", "message": "Builder change rejected: \"Flags output ports that have no assignment anywhere in the module.\" (fixed 1, broke 4; needs net +3 or 2+ fixed with none broken)", "round": 5, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T19:02:40Z", "type": "gate_result", "message": "Builder change rejected: \"Allow one extra debugging iteration per problem.\" (fixed 0, broke 2; needs net +3 or 2+ fixed with none broken)", "round": 5, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T19:02:54Z", "type": "proposal_invalid", "message": "Breaker proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 2 valid)", "round": 5, "team": "breaker"}
+{"ts": "2026-10-17T19:02:56Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r5:gate:r5-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:02:56Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r5:gate:r5-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:03:29Z", "type": "gate_result", "message": "Breaker change rejected: \"Add load\u2011pulse rule to expose timer and similar load\u2011controlled designs.\" (fixed 2, broke 1; needs net +3 or 2+ fixed with none broken)", "round": 5, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T19:03:29Z", "type": "gate_result", "message": "Breaker change rejected: \"Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers.\" (fixed 0, broke 3; needs net +3 or 2+ fixed with none broken)", "round": 5, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T19:03:29Z", "type": "round_done", "message": "Round 5 complete in 121s", "round": 5}
+{"ts": "2026-10-17T19:03:29Z", "type": "match_start", "message": "Round 6 match: Builder v1 vs Breaker v1", "round": 6}
+{"ts": "2026-10-17T19:03:32Z", "type": "match_done", "message": "Round 6: Builder passes 43% of train; Breaker found 8 real bugs (0 missed by the official tests)", "round": 6}
+{"ts": "2026-10-17T19:03:45Z", "type": "proposal_invalid", "message": "Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)", "round": 6, "team": "builder"}
+{"ts": "2026-10-17T19:03:50Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-builder-c0:debugger"}
+{"ts": "2026-10-17T19:04:39Z", "type": "gate_result", "message": "Builder change rejected: \"Require outputs driven by always blocks to be declared as logic/reg to avoid implicit wire errors.\" (fixed 2, broke 7; needs net +3 or 2+ fixed with none broken)", "round": 6, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T19:04:39Z", "type": "gate_result", "message": "Builder change rejected: \"param\" (fixed 0, broke 3; needs net +3 or 2+ fixed with none broken)", "round": 6, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T19:05:13Z", "type": "proposal_invalid", "message": "Breaker proposal rejected before testing: tool rejected by static screen: syntax error: unmatched '}' (<unknown>, line 52)", "round": 6, "team": "breaker"}
+{"ts": "2026-10-17T19:05:14Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:05:14Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:05:14Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:05:14Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:05:16Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:16Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:05:16Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:05:16Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:17Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:18Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:18Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:18Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:19Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:20Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:20Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r6:gate:r6-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:05:50Z", "type": "gate_result", "message": "Breaker change rejected: \"Add a load\u2011pulse rule to trigger timer and load\u2011controlled bugs.\" (fixed 1, broke 3; needs net +3 or 2+ fixed with none broken)", "round": 6, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T19:05:50Z", "type": "gate_result", "message": "Breaker change rejected: \"Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers.\" (fixed 0, broke 3; needs net +3 or 2+ fixed with none broken)", "round": 6, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T19:05:50Z", "type": "round_done", "message": "Round 6 complete in 140s", "round": 6}
+{"ts": "2026-10-17T19:05:50Z", "type": "match_start", "message": "Round 7 match: Builder v1 vs Breaker v1", "round": 7}
+{"ts": "2026-10-17T19:05:50Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:match:attacker"}
+{"ts": "2026-10-17T19:05:50Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:match:attacker"}
+{"ts": "2026-10-17T19:05:50Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:match:attacker"}
+{"ts": "2026-10-17T19:05:50Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:match:attacker"}
+{"ts": "2026-10-17T19:05:50Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:match:attacker"}
+{"ts": "2026-10-17T19:05:50Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:match:attacker"}
+{"ts": "2026-10-17T19:05:53Z", "type": "match_done", "message": "Round 7: Builder passes 43% of train; Breaker found 7 real bugs (0 missed by the official tests)", "round": 7}
+{"ts": "2026-10-17T19:06:12Z", "type": "coach_parse", "message": "Builder coach reply unusable (no JSON found in model output); asking for a corrected reply", "round": 7, "team": "builder"}
+{"ts": "2026-10-17T19:06:23Z", "type": "proposal_invalid", "message": "Builder proposal rejected before testing: tool needs evidence from 3+ failing problems (cited 0 valid)", "round": 7, "team": "builder"}
+{"ts": "2026-10-17T19:06:32Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r7:gate:r7-builder-c0:debugger"}
+{"ts": "2026-10-17T19:06:35Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "r7:gate:r7-builder-c2:debugger"}
+{"ts": "2026-10-17T19:06:35Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "r7:gate:r7-builder-c2:writer"}
+{"ts": "2026-10-17T19:07:09Z", "type": "gate_result", "message": "Builder change rejected: \"Ensure outputs driven by always blocks have a proper reg/logic type to avoid implicit wire errors.\" (fixed 0, broke 7; needs net +3 or 2+ fixed with none broken)", "round": 7, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T19:07:09Z", "type": "gate_result", "message": "Builder change rejected: \"param\" (fixed 3, broke 3; needs net +3 or 2+ fixed with none broken)", "round": 7, "team": "builder", "accepted": false}
+{"ts": "2026-10-17T19:07:30Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:gate:r7-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:07:30Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:gate:r7-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:07:30Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:gate:r7-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:07:32Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 2 in 2s", "tag": "r7:gate:r7-breaker-c0:attacker"}
+{"ts": "2026-10-17T19:07:32Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:gate:r7-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:07:32Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:gate:r7-breaker-c2:attacker"}
+{"ts": "2026-10-17T19:07:37Z", "type": "llm_retry", "message": "attacker call failed (RateLimitError); retry 1 in 1s", "tag": "r7:gate:r7-breaker-c1:attacker"}
+{"ts": "2026-10-17T19:08:08Z", "type": "gate_result", "message": "Breaker v2 accepted: \"Add load\u2011pulse rule to expose timer and load\u2011controlled bugs.\" (+2 net on frozen buggy designs)", "round": 7, "team": "breaker", "accepted": true}
+{"ts": "2026-10-17T19:08:08Z", "type": "gate_result", "message": "Breaker change rejected: \"Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.\" (fixed 0, broke 2; needs net +3 or 2+ fixed with none broken)", "round": 7, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T19:08:08Z", "type": "gate_result", "message": "Breaker change rejected: \"Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs and timers.\" (fixed 2, broke 3; needs net +3 or 2+ fixed with none broken)", "round": 7, "team": "breaker", "accepted": false}
+{"ts": "2026-10-17T19:08:08Z", "type": "round_done", "message": "Round 7 complete in 139s", "round": 7}
+{"ts": "2026-10-17T19:08:08Z", "type": "time_budget", "message": "Stopping before round 8: 10.6 min left; a round takes ~2.3 min and the final exam needs ~8.3 min"}
+{"ts": "2026-10-17T19:08:08Z", "type": "final_start", "message": "Final exam started on the held-out split (time left: 10.6 min)"}
+{"ts": "2026-10-17T19:08:08Z", "type": "final_step", "message": "Final exam: test_vbest (92 held-out problems)"}
+{"ts": "2026-10-17T19:08:08Z", "type": "final_step", "message": "Final exam: draft 1 for 92 held-out problems (temperature 0.7)"}
+{"ts": "2026-10-17T19:08:08Z", "type": "final_step", "message": "Final exam: draft 2 for 92 held-out problems (temperature 0.7)"}
+{"ts": "2026-10-17T19:08:08Z", "type": "final_step", "message": "Final exam: draft 3 for 92 held-out problems (temperature 0.7)"}
+{"ts": "2026-10-17T19:08:12Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_vbest:writer"}
+{"ts": "2026-10-17T19:08:13Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_vbest:writer"}
+{"ts": "2026-10-17T19:08:14Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_vbest:writer"}
+{"ts": "2026-10-17T19:08:15Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:16Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:17Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:18Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:19Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:20Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:21Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:22Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:28Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:29Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:29Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:29Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:31Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:33Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:35Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:36Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:37Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:38Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:39Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:39Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:39Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:41Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:41Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:43Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:08:51Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:09:22Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:09:22Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_vbest:debugger"}
+{"ts": "2026-10-17T19:09:24Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:09:24Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_vbest:debugger"}
+{"ts": "2026-10-17T19:09:26Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:09:27Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:09:28Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_vbest:debugger"}
+{"ts": "2026-10-17T19:09:28Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:09:28Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:09:29Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:09:31Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:09:33Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:10:04Z", "type": "final_step", "message": "Final exam: draft 4 for 92 held-out problems (temperature 0.7)"}
+{"ts": "2026-10-17T19:10:04Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:04Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:04Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:09Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:10Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:10:11Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:10:11Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:10:12Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:10:13Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:10:13Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:10:54Z", "type": "final_step", "message": "Final exam: draft 5 for 92 held-out problems (temperature 0.7)"}
+{"ts": "2026-10-17T19:10:54Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:54Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:56Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:57Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:59Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:59Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:59Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:10:59Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:11:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:11:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:11:00Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:writer"}
+{"ts": "2026-10-17T19:11:00Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:11:02Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:11:03Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 2 in 2s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:11:04Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 1 in 1s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:11:06Z", "type": "llm_retry", "message": "debugger call failed (RateLimitError); retry 3 in 4s", "tag": "final:draft:debugger"}
+{"ts": "2026-10-17T19:11:45Z", "type": "final_step", "message": "Final exam: test-time selection (breaker_vbest, 5 drafts per problem, 92 problem(s))"}
+{"ts": "2026-10-17T19:12:37Z", "type": "final_step", "message": "Final exam: test-time selection (random_inputs, 5 drafts per problem, 92 problem(s))"}
+{"ts": "2026-10-17T19:12:46Z", "type": "final_step", "message": "Final exam: test_transfer_vbest (92 held-out problems)"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:46Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:47Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 2 in 2s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:50Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 1 in 1s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:12:51Z", "type": "llm_retry", "message": "writer call failed (RateLimitError); retry 3 in 4s", "tag": "final:test_transfer_vbest:writer"}
+{"ts": "2026-10-17T19:13:27Z", "type": "final_step", "message": "Final exam: test-time selection (breaker_v0, 5 drafts per problem, 92 problem(s))"}
+{"ts": "2026-10-17T19:14:22Z", "type": "final_done", "message": "Held-out: v0 42% -> vBest 45% -> with Breaker 53% (random inputs 54%, ceiling 64%)"}

@@ -1,0 +1,107 @@
+{
+  "round": 6,
+  "team": "breaker",
+  "from_version": 2,
+  "score_before": 0.7631578947368421,
+  "entries": [
+    {
+      "id": "r6-breaker-c0",
+      "round": 6,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add rule to stress index\u2011calculation overflow for wide\u2011input muxes and similar structures.",
+      "reasoning": "Several missed buggy designs (Prob021_mux256to1v, Prob063_review2015_shiftcount, Prob118_history_shift) involve selector\u2011driven shifts or multiplications that can index beyond the target width. Testing selector values that produce the exact boundary and one\u2011step\u2011beyond exposes these off\u2011by\u2011one errors.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob063_review2015_shiftcount",
+        "Prob118_history_shift"
+      ],
+      "rule_text": "Always include test cases where a selector input is used in a shift or multiplication to compute an index, and try selector values that make the computed index equal to the width of the indexed input (out\u2011of\u2011bounds) as well as width\u20111.",
+      "tool_name": null,
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.7632,
+      "score_after": 0.7368,
+      "gained": [
+        "Prob149_ece241_2013_q4#7db9f8ccddd4"
+      ],
+      "lost": [
+        "Prob149_ece241_2013_q4#623e8222dceb",
+        "Prob150_review2015_fsmonehot#37bf7274ca05"
+      ],
+      "net_flips": -1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 2,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0093,
+      "ts": "2026-10-17T21:29:30Z"
+    },
+    {
+      "id": "r6-breaker-c1",
+      "round": 6,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Static analysis tool that flags designs where a shift or multiplication of an input could exceed the width of the port it indexes.",
+      "reasoning": "The tool would have caught the index\u2011overflow bugs in Prob021, Prob063, and Prob118 by detecting that (sel << k) or (sel * k) used as an index can exceed the width of the indexed bus when sel takes its maximum value. Adding this tool gives the attacker hints to generate boundary\u2011case selector values.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob063_review2015_shiftcount",
+        "Prob118_history_shift"
+      ],
+      "rule_text": null,
+      "tool_name": "ShiftIndexOverflow",
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.7632,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 2,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 1 valid)",
+      "cost_usd": 0.002,
+      "ts": "2026-10-17T21:29:30Z"
+    },
+    {
+      "id": "r6-breaker-c2",
+      "round": 6,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Double the maximum allowed cycles to enable longer sequential stimuli.",
+      "reasoning": "Designs like Prob080_timer require many cycles to observe the terminal\u2011count bug; the current limit of 40 cycles is insufficient. Raising max_cycles to 80 gives the attacker enough time to load, count down, and expose the timing error.",
+      "evidence_problems": [
+        "Prob080_timer"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "param": "max_cycles",
+      "value": 80,
+      "source": "coach",
+      "score_before": 0.7632,
+      "score_after": 0.7105,
+      "gained": [],
+      "lost": [
+        "Prob068_countbcd#af1e5e7e0d42",
+        "Prob117_circuit9#37431016d1ae"
+      ],
+      "net_flips": -2,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 2,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0107,
+      "ts": "2026-10-17T21:29:30Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 2,
+  "complete": true
+}

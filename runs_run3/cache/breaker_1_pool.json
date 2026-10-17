@@ -1,0 +1,690 @@
+{
+  "fingerprint": "cfc3a7fdc6",
+  "settings": "model=nvidia/Nemotron-3.5-Lightning-30B-A3B|t=0.0|think=off|mock=False",
+  "version": 1,
+  "results": {
+    "Prob009_popcount3#077b2ed491b7": {
+      "id": "Prob009_popcount3#077b2ed491b7",
+      "problem_id": "Prob009_popcount3",
+      "caught": true,
+      "cycles": 8,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "comb",
+        "inputs": {
+          "in": 4
+        },
+        "signal": "out",
+        "expected": "01",
+        "got": "11"
+      }
+    },
+    "Prob009_popcount3#900e7b08f2bd": {
+      "id": "Prob009_popcount3#900e7b08f2bd",
+      "problem_id": "Prob009_popcount3",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "comb",
+        "inputs": {
+          "in": 2
+        },
+        "signal": "out",
+        "expected": "01",
+        "got": "11"
+      }
+    },
+    "Prob041_dff8r#7f3bfdd2018f": {
+      "id": "Prob041_dff8r#7f3bfdd2018f",
+      "problem_id": "Prob041_dff8r",
+      "caught": false,
+      "cycles": 3,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob067_countslow#2599d28b05c4": {
+      "id": "Prob067_countslow#2599d28b05c4",
+      "problem_id": "Prob067_countslow",
+      "caught": false,
+      "cycles": 11,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob074_ece241_2014_q4#40eb40ee03c5": {
+      "id": "Prob074_ece241_2014_q4#40eb40ee03c5",
+      "problem_id": "Prob074_ece241_2014_q4",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "x"
+      }
+    },
+    "Prob074_ece241_2014_q4#4a6dfd1a6cd3": {
+      "id": "Prob074_ece241_2014_q4#4a6dfd1a6cd3",
+      "problem_id": "Prob074_ece241_2014_q4",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "x"
+      }
+    },
+    "Prob083_mt2015_q4b#2e00673988ca": {
+      "id": "Prob083_mt2015_q4b#2e00673988ca",
+      "problem_id": "Prob083_mt2015_q4b",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "comb",
+        "inputs": {
+          "x": 1,
+          "y": 0
+        },
+        "signal": "z",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob094_gatesv#8b43ba7819a8": {
+      "id": "Prob094_gatesv#8b43ba7819a8",
+      "problem_id": "Prob094_gatesv",
+      "caught": true,
+      "cycles": 10,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "signal": "out_different",
+        "expected": "1001",
+        "got": "0011"
+      }
+    },
+    "Prob094_gatesv#bae803b0390e": {
+      "id": "Prob094_gatesv#bae803b0390e",
+      "problem_id": "Prob094_gatesv",
+      "caught": true,
+      "cycles": 10,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "signal": "out_different",
+        "expected": "1001",
+        "got": "0011"
+      }
+    },
+    "Prob094_gatesv#f78ab7dce704": {
+      "id": "Prob094_gatesv#f78ab7dce704",
+      "problem_id": "Prob094_gatesv",
+      "caught": true,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "signal": "out_different",
+        "expected": "1001",
+        "got": "0011"
+      }
+    },
+    "Prob096_review2015_fsmseq#005b217d6307": {
+      "id": "Prob096_review2015_fsmseq#005b217d6307",
+      "problem_id": "Prob096_review2015_fsmseq",
+      "caught": false,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob096_review2015_fsmseq#c7ceb468576e": {
+      "id": "Prob096_review2015_fsmseq#c7ceb468576e",
+      "problem_id": "Prob096_review2015_fsmseq",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "post",
+        "inputs": {
+          "reset": 0,
+          "data": 0
+        },
+        "signal": "start_shifting",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob096_review2015_fsmseq#cb2eaeb167b9": {
+      "id": "Prob096_review2015_fsmseq#cb2eaeb167b9",
+      "problem_id": "Prob096_review2015_fsmseq",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 4,
+        "phase": "pre",
+        "inputs": {
+          "reset": 0,
+          "data": 1
+        },
+        "signal": "start_shifting",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob102_circuit3#936d5ce4f95e": {
+      "id": "Prob102_circuit3#936d5ce4f95e",
+      "problem_id": "Prob102_circuit3",
+      "caught": true,
+      "cycles": 16,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 5,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 1,
+          "c": 0,
+          "d": 1
+        },
+        "signal": "q",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob102_circuit3#97c368b93b68": {
+      "id": "Prob102_circuit3#97c368b93b68",
+      "problem_id": "Prob102_circuit3",
+      "caught": true,
+      "cycles": 17,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0
+        },
+        "signal": "q",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob102_circuit3#ab33cdab1999": {
+      "id": "Prob102_circuit3#ab33cdab1999",
+      "problem_id": "Prob102_circuit3",
+      "caught": true,
+      "cycles": 16,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 1
+        },
+        "signal": "q",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob104_mt2015_muxdff#0d11220983c7": {
+      "id": "Prob104_mt2015_muxdff#0d11220983c7",
+      "problem_id": "Prob104_mt2015_muxdff",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "L": 1,
+          "q_in": 0,
+          "r_in": 0
+        },
+        "signal": "Q",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob104_mt2015_muxdff#1a4e71c1d546": {
+      "id": "Prob104_mt2015_muxdff#1a4e71c1d546",
+      "problem_id": "Prob104_mt2015_muxdff",
+      "caught": true,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "L": 0,
+          "q_in": 0,
+          "r_in": 0
+        },
+        "signal": "Q",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob104_mt2015_muxdff#742b01255931": {
+      "id": "Prob104_mt2015_muxdff#742b01255931",
+      "problem_id": "Prob104_mt2015_muxdff",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "L": 1,
+          "q_in": 0,
+          "r_in": 1
+        },
+        "signal": "Q",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob116_m2014_q3#38c08dde0604": {
+      "id": "Prob116_m2014_q3#38c08dde0604",
+      "problem_id": "Prob116_m2014_q3",
+      "caught": true,
+      "cycles": 16,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 4,
+        "phase": "comb",
+        "inputs": {
+          "x": 4
+        },
+        "signal": "f",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob116_m2014_q3#a2ca4c7fd351": {
+      "id": "Prob116_m2014_q3#a2ca4c7fd351",
+      "problem_id": "Prob116_m2014_q3",
+      "caught": true,
+      "cycles": 16,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "comb",
+        "inputs": {
+          "x": 2
+        },
+        "signal": "f",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob116_m2014_q3#d722f1c050ac": {
+      "id": "Prob116_m2014_q3#d722f1c050ac",
+      "problem_id": "Prob116_m2014_q3",
+      "caught": true,
+      "cycles": 16,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "comb",
+        "inputs": {
+          "x": 2
+        },
+        "signal": "f",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob117_circuit9#458021347d61": {
+      "id": "Prob117_circuit9#458021347d61",
+      "problem_id": "Prob117_circuit9",
+      "caught": true,
+      "cycles": 38,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 5,
+        "phase": "post",
+        "inputs": {
+          "a": 0
+        },
+        "signal": "q",
+        "expected": "010",
+        "got": "001"
+      }
+    },
+    "Prob117_circuit9#a178c2076f2a": {
+      "id": "Prob117_circuit9#a178c2076f2a",
+      "problem_id": "Prob117_circuit9",
+      "caught": false,
+      "cycles": 20,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob117_circuit9#bdbe1b4cdb73": {
+      "id": "Prob117_circuit9#bdbe1b4cdb73",
+      "problem_id": "Prob117_circuit9",
+      "caught": true,
+      "cycles": 19,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "post",
+        "inputs": {
+          "a": 1
+        },
+        "signal": "q",
+        "expected": "100",
+        "got": "101"
+      }
+    },
+    "Prob120_fsm3s#8314659d6df3": {
+      "id": "Prob120_fsm3s#8314659d6df3",
+      "problem_id": "Prob120_fsm3s",
+      "caught": false,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob121_2014_q3bfsm#206dbb0c7c17": {
+      "id": "Prob121_2014_q3bfsm#206dbb0c7c17",
+      "problem_id": "Prob121_2014_q3bfsm",
+      "caught": true,
+      "cycles": 8,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "reset": 0,
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob121_2014_q3bfsm#5cd9c3f54994": {
+      "id": "Prob121_2014_q3bfsm#5cd9c3f54994",
+      "problem_id": "Prob121_2014_q3bfsm",
+      "caught": false,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob121_2014_q3bfsm#9cc3ff258341": {
+      "id": "Prob121_2014_q3bfsm#9cc3ff258341",
+      "problem_id": "Prob121_2014_q3bfsm",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "post",
+        "inputs": {
+          "reset": 0,
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob132_always_if2#840ae888e862": {
+      "id": "Prob132_always_if2#840ae888e862",
+      "problem_id": "Prob132_always_if2",
+      "caught": true,
+      "cycles": 2,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "cpu_overheated": 1,
+          "arrived": 1,
+          "gas_tank_empty": 0
+        },
+        "signal": "keep_driving",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob139_2013_q2bfsm#731ab28d4436": {
+      "id": "Prob139_2013_q2bfsm#731ab28d4436",
+      "problem_id": "Prob139_2013_q2bfsm",
+      "caught": false,
+      "cycles": 7,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob139_2013_q2bfsm#e399f8a74d9e": {
+      "id": "Prob139_2013_q2bfsm#e399f8a74d9e",
+      "problem_id": "Prob139_2013_q2bfsm",
+      "caught": true,
+      "cycles": 10,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 6,
+        "phase": "post",
+        "inputs": {
+          "resetn": 1,
+          "x": 1,
+          "y": 0
+        },
+        "signal": "g",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob149_ece241_2013_q4#01dd467d4afa": {
+      "id": "Prob149_ece241_2013_q4#01dd467d4afa",
+      "problem_id": "Prob149_ece241_2013_q4",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "post",
+        "inputs": {
+          "reset": 1,
+          "s": 0
+        },
+        "signal": "fr1",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob150_review2015_fsmonehot#5f6b97ec7dbd": {
+      "id": "Prob150_review2015_fsmonehot#5f6b97ec7dbd",
+      "problem_id": "Prob150_review2015_fsmonehot",
+      "caught": true,
+      "cycles": 8,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "comb",
+        "inputs": {
+          "d": 1,
+          "done_counting": 0,
+          "ack": 0,
+          "state": 1
+        },
+        "signal": "S_next",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob150_review2015_fsmonehot#c8c8dc587846": {
+      "id": "Prob150_review2015_fsmonehot#c8c8dc587846",
+      "problem_id": "Prob150_review2015_fsmonehot",
+      "caught": false,
+      "cycles": 1,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob154_fsm_ps2data#b4e925f512c3": {
+      "id": "Prob154_fsm_ps2data#b4e925f512c3",
+      "problem_id": "Prob154_fsm_ps2data",
+      "caught": true,
+      "cycles": 19,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 5,
+        "phase": "post",
+        "inputs": {
+          "in": 9,
+          "reset": 0
+        },
+        "signal": "out_bytes",
+        "expected": "001011001000000100001001",
+        "got": "000010010000000000000000"
+      }
+    },
+    "Prob154_fsm_ps2data#cc974d5a7c5a": {
+      "id": "Prob154_fsm_ps2data#cc974d5a7c5a",
+      "problem_id": "Prob154_fsm_ps2data",
+      "caught": true,
+      "cycles": 10,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 5,
+        "phase": "post",
+        "inputs": {
+          "in": 129,
+          "reset": 0
+        },
+        "signal": "out_bytes",
+        "expected": "001011000010110010000001",
+        "got": "000000000000000000000000"
+      }
+    },
+    "Prob154_fsm_ps2data#d1208853dbd8": {
+      "id": "Prob154_fsm_ps2data#d1208853dbd8",
+      "problem_id": "Prob154_fsm_ps2data",
+      "caught": true,
+      "cycles": 29,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 8,
+        "phase": "post",
+        "inputs": {
+          "in": 107,
+          "reset": 0
+        },
+        "signal": "out_bytes",
+        "expected": "000010010000000001101011",
+        "got": "000000000000000000000000"
+      }
+    },
+    "Prob155_lemmings4#0c8951c12d36": {
+      "id": "Prob155_lemmings4#0c8951c12d36",
+      "problem_id": "Prob155_lemmings4",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "areset": 0,
+          "bump_left": 1,
+          "bump_right": 0,
+          "ground": 1,
+          "dig": 0
+        },
+        "signal": "walk_left",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob155_lemmings4#29b753d50ab2": {
+      "id": "Prob155_lemmings4#29b753d50ab2",
+      "problem_id": "Prob155_lemmings4",
+      "caught": false,
+      "cycles": 35,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob155_lemmings4#667c41b64a1b": {
+      "id": "Prob155_lemmings4#667c41b64a1b",
+      "problem_id": "Prob155_lemmings4",
+      "caught": false,
+      "cycles": 16,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    }
+  }
+}

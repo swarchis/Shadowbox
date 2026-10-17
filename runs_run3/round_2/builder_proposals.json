@@ -1,0 +1,54 @@
+{
+  "from_version": 0,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "If the specification mentions an 'always block' (combinational or sequential) that assigns to an output, declare that output as logic (or reg) in the module port list.",
+      "summary": "Add conditional rule to declare outputs driven by always blocks as logic/reg.",
+      "reasoning": "Several failures (Prob026_alwaysblock1, Prob054_edgedetect, Prob075_counter_2bc) involved compile errors because outputs assigned inside always blocks were not declared as reg/logic. The rule is conditional on the spec mentioning an always block, so it only affects designs that need it and avoids breaking purely combinational assign-only designs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob075_counter_2bc"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "unassigned_output_checker",
+      "tool_code": "# tool: unassigned_output_checker\nimport re\n\ndef run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    # Find all output ports\n    output_names = {p['name'] for p in ports if p['direction'] == 'output'}\n    if not output_names:\n        return {'fired': False, 'findings': []}\n    # Simple check: look for procedural assignments to outputs inside always/initial blocks\n    # We'll approximate by searching for patterns like 'always @' or 'always_ff' or 'always_comb' \n    # followed by a block that contains a variable assignment to an output without being in an if/else that covers all cases.\n    # For simplicity, we flag if an output appears in the sensitivity list of an always block but never gets a blocking/nonblocking assignment.\n    # This is a heuristic; it will fire only when there is a clear missing assignment.\n    fired = False\n    findings = []\n    # Remove comments and strings to avoid false positives\n    def remove_comments_and_strings(text):\n        # remove /* ... */\n        text = re.sub(r'/\\*.*?\\*/', '', text, flags=re.DOTALL)\n        # remove // ...\n        text = re.sub(r'//.*', '', text)\n        # remove string literals\n        text = re.sub(r'\".*?\"', '', text)\n        text = re.sub(r\"'.*?'\", '', text)\n        return text\n    clean = remove_comments_and_strings(verilog)\n    # Find all always/initial blocks\n    block_pattern = r'(always\\s*@\\s*\\([^)]*\\)|always_ff|always_comb|always_latch|initial)\\s*([^{]*)\\{([^}]*)\\}'\n    for match in re.finditer(block_pattern, clean, flags=re.IGNORECASE | re.DOTALL):\n        block_inner = match.group(3)\n        # Find assignments in this block: variable = ... ; or variable <= ... ;\n        assigned = set(re.findall(r'\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=|<=)', block_inner))\n        assigned_vars = {v for v, _ in assigned}\n        # Check which outputs are in the block's sensitivity (approx: if output name appears in block header)\n        header = match.group(2)\n        for out in output_names:\n            if out in header and out not in assigned_vars:\n                fired = True\n                findings.append(f'Output {out} appears in always block header but may not be assigned in all paths.')\n    return {'fired': fired, 'findings': findings}\n"
+    },
+    {
+      "change_type": "param",
+      "param": "max_debug_attempts",
+      "value": 3,
+      "summary": "Increase max debug attempts from 2 to 3 to allow more fixing iterations.",
+      "reasoning": "Many failing designs required multiple debug cycles to resolve subtle logic errors (e.g., Prob016_m2014_q4j, Prob057_kmap2, Prob063_review2015_shiftcount). Allowing one extra attempt gives the debugger more opportunity to correct mistakes without overburdening the system.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob057_kmap2",
+        "Prob063_review2015_shiftcount"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob016_m2014_q4j",
+    "Prob026_alwaysblock1",
+    "Prob054_edgedetect",
+    "Prob057_kmap2",
+    "Prob062_bugs_mux2",
+    "Prob063_review2015_shiftcount",
+    "Prob070_ece241_2013_q2",
+    "Prob075_counter_2bc",
+    "Prob080_timer",
+    "Prob097_mux9to1v",
+    "Prob103_circuit2",
+    "Prob105_rotate100",
+    "Prob118_history_shift",
+    "Prob125_kmap3",
+    "Prob129_ece241_2013_q8",
+    "Prob140_fsm_hdlc",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0055752
+}

@@ -1,0 +1,96 @@
+{
+  "complete": false,
+  "test_problems": 92,
+  "metrics": {
+    "v0": {
+      "label": "Version 0",
+      "pass": 0.3951,
+      "ci": [
+        0.284,
+        0.5062
+      ],
+      "n": 81,
+      "errors": 0
+    },
+    "vbest": {
+      "label": "Latest version",
+      "pass": 0.7037,
+      "ci": [
+        0.6049,
+        0.8025
+      ],
+      "n": 81,
+      "errors": 0
+    },
+    "vbest_selection": {
+      "label": "Latest + Breaker",
+      "pass": 0.7901,
+      "ci": [
+        0.7037,
+        0.8765
+      ],
+      "n": 81,
+      "errors": 0
+    },
+    "random_pick": {
+      "label": "Random draft",
+      "pass": 0.7284,
+      "ci": null,
+      "n": 81
+    },
+    "random_input_sel": {
+      "label": "Random-input selection",
+      "pass": 0.7654,
+      "ci": null,
+      "n": 81,
+      "errors": 0
+    },
+    "breaker_v0_sel": null,
+    "ceiling": {
+      "label": "Best possible pick",
+      "pass": 0.8272,
+      "ci": null,
+      "n": 81,
+      "errors": 0
+    },
+    "ultra": {
+      "label": "NVIDIA-Nemotron-3-Super-120B-A12B (v0 playbook)",
+      "pass": 0.6957,
+      "ci": [
+        0.6087,
+        0.7935
+      ],
+      "n": 92,
+      "errors": 0
+    },
+    "transfer_v0": {
+      "label": "gemma-4-31b-it + v0 playbook",
+      "pass": 0.837,
+      "ci": [
+        0.7609,
+        0.913
+      ],
+      "n": 92,
+      "errors": 0
+    },
+    "transfer_vbest": null,
+    "ablation_nano_coach": null
+  },
+  "n_drafts": 4,
+  "builder_versions": {
+    "v0": 0,
+    "vbest": 1
+  },
+  "breaker_versions": {
+    "v0": 0,
+    "vbest": 0
+  },
+  "cost_usd": 1.6813,
+  "notes": [
+    "Stopped at the time limit; these are the results that finished. Rerun `python -m engine.cli final` to complete the rest from cache.",
+    "11 of 92 held-out problems excluded from the main comparison because a model call failed (API error); rerun `final` to retry them.",
+    "CIs are 95% bootstrap over held-out problems.",
+    "Selection uses 4 drafts per problem at temperature 0.7; other rows use temperature 0.0.",
+    "Random draft = expected pass rate of picking one draft uniformly at random."
+  ]
+}

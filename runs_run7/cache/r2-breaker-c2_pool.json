@@ -1,0 +1,592 @@
+{
+  "fingerprint": "4530e9b047",
+  "settings": "model=nvidia/Nemotron-3.5-Lightning-30B-A3B|t=0.0|think=off|mock=False",
+  "results": {
+    "Prob009_popcount3#698e74e7ef0f": {
+      "id": "Prob009_popcount3#698e74e7ef0f",
+      "problem_id": "Prob009_popcount3",
+      "caught": true,
+      "cycles": 8,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "comb",
+        "inputs": {
+          "in": 2
+        },
+        "signal": "out",
+        "expected": "01",
+        "got": "11"
+      }
+    },
+    "Prob009_popcount3#8cc68b813bcf": {
+      "id": "Prob009_popcount3#8cc68b813bcf",
+      "problem_id": "Prob009_popcount3",
+      "caught": true,
+      "cycles": 8,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "comb",
+        "inputs": {
+          "in": 3
+        },
+        "signal": "out",
+        "expected": "10",
+        "got": "00"
+      }
+    },
+    "Prob074_ece241_2014_q4#057697aee1e2": {
+      "id": "Prob074_ece241_2014_q4#057697aee1e2",
+      "problem_id": "Prob074_ece241_2014_q4",
+      "caught": true,
+      "cycles": 2,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "x"
+      }
+    },
+    "Prob104_mt2015_muxdff#b2b51ad058af": {
+      "id": "Prob104_mt2015_muxdff#b2b51ad058af",
+      "problem_id": "Prob104_mt2015_muxdff",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "L": 1,
+          "q_in": 0,
+          "r_in": 1
+        },
+        "signal": "Q",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob104_mt2015_muxdff#2c905f626685": {
+      "id": "Prob104_mt2015_muxdff#2c905f626685",
+      "problem_id": "Prob104_mt2015_muxdff",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "L": 1,
+          "q_in": 0,
+          "r_in": 1
+        },
+        "signal": "Q",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob104_mt2015_muxdff#b6058edd5f92": {
+      "id": "Prob104_mt2015_muxdff#b6058edd5f92",
+      "problem_id": "Prob104_mt2015_muxdff",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "pre",
+        "inputs": {
+          "L": 1,
+          "q_in": 0,
+          "r_in": 1
+        },
+        "signal": "Q",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob116_m2014_q3#034546aa15c3": {
+      "id": "Prob116_m2014_q3#034546aa15c3",
+      "problem_id": "Prob116_m2014_q3",
+      "caught": true,
+      "cycles": 15,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "comb",
+        "inputs": {
+          "x": 4
+        },
+        "signal": "f",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob116_m2014_q3#86cdff205c34": {
+      "id": "Prob116_m2014_q3#86cdff205c34",
+      "problem_id": "Prob116_m2014_q3",
+      "caught": true,
+      "cycles": 15,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "comb",
+        "inputs": {
+          "x": 2
+        },
+        "signal": "f",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob102_circuit3#38548e0ff090": {
+      "id": "Prob102_circuit3#38548e0ff090",
+      "problem_id": "Prob102_circuit3",
+      "caught": true,
+      "cycles": 16,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 1,
+          "d": 1
+        },
+        "signal": "q",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob117_circuit9#5509ed667416": {
+      "id": "Prob117_circuit9#5509ed667416",
+      "problem_id": "Prob117_circuit9",
+      "caught": true,
+      "cycles": 10,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "post",
+        "inputs": {
+          "a": 1
+        },
+        "signal": "q",
+        "expected": "100",
+        "got": "000"
+      }
+    },
+    "Prob102_circuit3#48ded425e323": {
+      "id": "Prob102_circuit3#48ded425e323",
+      "problem_id": "Prob102_circuit3",
+      "caught": true,
+      "cycles": 14,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "comb",
+        "inputs": {
+          "a": 0,
+          "b": 0,
+          "c": 1,
+          "d": 1
+        },
+        "signal": "q",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob120_fsm3s#2a297477cefc": {
+      "id": "Prob120_fsm3s#2a297477cefc",
+      "problem_id": "Prob120_fsm3s",
+      "caught": true,
+      "cycles": 8,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 4,
+        "phase": "post",
+        "inputs": {
+          "in": 1,
+          "reset": 0
+        },
+        "signal": "out",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob009_popcount3#eb29f29f99ef": {
+      "id": "Prob009_popcount3#eb29f29f99ef",
+      "problem_id": "Prob009_popcount3",
+      "caught": true,
+      "cycles": 7,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "comb",
+        "inputs": {
+          "in": 3
+        },
+        "signal": "out",
+        "expected": "10",
+        "got": "00"
+      }
+    },
+    "Prob096_review2015_fsmseq#5f66f05d4449": {
+      "id": "Prob096_review2015_fsmseq#5f66f05d4449",
+      "problem_id": "Prob096_review2015_fsmseq",
+      "caught": false,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob117_circuit9#1aed9095d960": {
+      "id": "Prob117_circuit9#1aed9095d960",
+      "problem_id": "Prob117_circuit9",
+      "caught": true,
+      "cycles": 19,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "post",
+        "inputs": {
+          "a": 1
+        },
+        "signal": "q",
+        "expected": "100",
+        "got": "000"
+      }
+    },
+    "Prob121_2014_q3bfsm#7445bb1ccd67": {
+      "id": "Prob121_2014_q3bfsm#7445bb1ccd67",
+      "problem_id": "Prob121_2014_q3bfsm",
+      "caught": true,
+      "cycles": 8,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "reset": 0,
+          "x": 1
+        },
+        "signal": "z",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob132_always_if2#840ae888e862": {
+      "id": "Prob132_always_if2#840ae888e862",
+      "problem_id": "Prob132_always_if2",
+      "caught": true,
+      "cycles": 2,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "comb",
+        "inputs": {
+          "cpu_overheated": 0,
+          "arrived": 0,
+          "gas_tank_empty": 1
+        },
+        "signal": "shut_off_computer",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob131_mt2015_q4#a98ed8714d49": {
+      "id": "Prob131_mt2015_q4#a98ed8714d49",
+      "problem_id": "Prob131_mt2015_q4",
+      "caught": true,
+      "cycles": 4,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "x": 0,
+          "y": 0
+        },
+        "signal": "z",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob116_m2014_q3#5c7caeff8032": {
+      "id": "Prob116_m2014_q3#5c7caeff8032",
+      "problem_id": "Prob116_m2014_q3",
+      "caught": true,
+      "cycles": 16,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "comb",
+        "inputs": {
+          "x": 2
+        },
+        "signal": "f",
+        "expected": "0",
+        "got": "x"
+      }
+    },
+    "Prob094_gatesv#f78ab7dce704": {
+      "id": "Prob094_gatesv#f78ab7dce704",
+      "problem_id": "Prob094_gatesv",
+      "caught": true,
+      "cycles": 1,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 0,
+        "phase": "comb",
+        "inputs": {
+          "in": 1
+        },
+        "signal": "out_different",
+        "expected": "1001",
+        "got": "0011"
+      }
+    },
+    "Prob139_2013_q2bfsm#eb73c16c36bb": {
+      "id": "Prob139_2013_q2bfsm#eb73c16c36bb",
+      "problem_id": "Prob139_2013_q2bfsm",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 3,
+        "phase": "post",
+        "inputs": {
+          "resetn": 1,
+          "x": 1,
+          "y": 0
+        },
+        "signal": "g",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob139_2013_q2bfsm#49f742149a89": {
+      "id": "Prob139_2013_q2bfsm#49f742149a89",
+      "problem_id": "Prob139_2013_q2bfsm",
+      "caught": true,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 2,
+        "phase": "post",
+        "inputs": {
+          "resetn": 1,
+          "x": 1,
+          "y": 0
+        },
+        "signal": "f",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob068_countbcd#af1e5e7e0d42": {
+      "id": "Prob068_countbcd#af1e5e7e0d42",
+      "problem_id": "Prob068_countbcd",
+      "caught": false,
+      "cycles": 2,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob155_lemmings4#d036b1671b46": {
+      "id": "Prob155_lemmings4#d036b1671b46",
+      "problem_id": "Prob155_lemmings4",
+      "caught": false,
+      "cycles": 1,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob154_fsm_ps2data#013553938edf": {
+      "id": "Prob154_fsm_ps2data#013553938edf",
+      "problem_id": "Prob154_fsm_ps2data",
+      "caught": false,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob121_2014_q3bfsm#c275e4b05d85": {
+      "id": "Prob121_2014_q3bfsm#c275e4b05d85",
+      "problem_id": "Prob121_2014_q3bfsm",
+      "caught": false,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob150_review2015_fsmonehot#37bf7274ca05": {
+      "id": "Prob150_review2015_fsmonehot#37bf7274ca05",
+      "problem_id": "Prob150_review2015_fsmonehot",
+      "caught": false,
+      "cycles": 1,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob155_lemmings4#5816a5fb12df": {
+      "id": "Prob155_lemmings4#5816a5fb12df",
+      "problem_id": "Prob155_lemmings4",
+      "caught": true,
+      "cycles": 23,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 21,
+        "phase": "post",
+        "inputs": {
+          "areset": 0,
+          "bump_left": 0,
+          "bump_right": 0,
+          "ground": 1,
+          "dig": 0
+        },
+        "signal": "walk_left",
+        "expected": "1",
+        "got": "0"
+      }
+    },
+    "Prob139_2013_q2bfsm#e182dae033e1": {
+      "id": "Prob139_2013_q2bfsm#e182dae033e1",
+      "problem_id": "Prob139_2013_q2bfsm",
+      "caught": true,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 1,
+        "phase": "pre",
+        "inputs": {
+          "resetn": 1,
+          "x": 1,
+          "y": 0
+        },
+        "signal": "f",
+        "expected": "0",
+        "got": "1"
+      }
+    },
+    "Prob150_review2015_fsmonehot#26eae0e0d343": {
+      "id": "Prob150_review2015_fsmonehot#26eae0e0d343",
+      "problem_id": "Prob150_review2015_fsmonehot",
+      "caught": false,
+      "cycles": 1,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob117_circuit9#37431016d1ae": {
+      "id": "Prob117_circuit9#37431016d1ae",
+      "problem_id": "Prob117_circuit9",
+      "caught": true,
+      "cycles": 6,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": {
+        "cycle": 5,
+        "phase": "post",
+        "inputs": {
+          "a": 0
+        },
+        "signal": "q",
+        "expected": "010",
+        "got": "000"
+      }
+    },
+    "Prob060_m2014_q4k#19e055366c4a": {
+      "id": "Prob060_m2014_q4k#19e055366c4a",
+      "problem_id": "Prob060_m2014_q4k",
+      "caught": false,
+      "cycles": 8,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob149_ece241_2013_q4#b75a36a1c1d0": {
+      "id": "Prob149_ece241_2013_q4#b75a36a1c1d0",
+      "problem_id": "Prob149_ece241_2013_q4",
+      "caught": false,
+      "cycles": 0,
+      "error": null,
+      "attack_error": "invalid stimulus: value '111' does not fit in 3-bit input s",
+      "first_mismatch": null
+    },
+    "Prob154_fsm_ps2data#e0920bf7e8f9": {
+      "id": "Prob154_fsm_ps2data#e0920bf7e8f9",
+      "problem_id": "Prob154_fsm_ps2data",
+      "caught": false,
+      "cycles": 0,
+      "error": null,
+      "attack_error": "invalid stimulus: bad value '6b' for input in",
+      "first_mismatch": null
+    },
+    "Prob121_2014_q3bfsm#2bbbb17c1493": {
+      "id": "Prob121_2014_q3bfsm#2bbbb17c1493",
+      "problem_id": "Prob121_2014_q3bfsm",
+      "caught": false,
+      "cycles": 5,
+      "error": null,
+      "attack_error": null,
+      "first_mismatch": null
+    },
+    "Prob154_fsm_ps2data#c8f3b69e52f4": {
+      "id": "Prob154_fsm_ps2data#c8f3b69e52f4",
+      "problem_id": "Prob154_fsm_ps2data",
+      "caught": false,
+      "cycles": 0,
+      "error": null,
+      "attack_error": "invalid stimulus: bad value '6b' for input in",
+      "first_mismatch": null
+    },
+    "Prob149_ece241_2013_q4#7db9f8ccddd4": {
+      "id": "Prob149_ece241_2013_q4#7db9f8ccddd4",
+      "problem_id": "Prob149_ece241_2013_q4",
+      "caught": false,
+      "cycles": 0,
+      "error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'code': None, 'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'param': None, 'type': 'rate_limit_error'}}",
+      "attack_error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'code': None, 'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'param': None, 'type': 'rate_limit_error'}}",
+      "first_mismatch": null
+    },
+    "Prob149_ece241_2013_q4#623e8222dceb": {
+      "id": "Prob149_ece241_2013_q4#623e8222dceb",
+      "problem_id": "Prob149_ece241_2013_q4",
+      "caught": false,
+      "cycles": 0,
+      "error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'code': None, 'param': None, 'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'type': 'rate_limit_error'}}",
+      "attack_error": "RuntimeError: LLM call failed after 6 retries: Error code: 429 - {'error': {'code': None, 'param': None, 'message': 'Too many requests. Reason: max_requests_limit (orchestrator)', 'type': 'rate_limit_error'}}",
+      "first_mismatch": null
+    }
+  },
+  "complete": true
+}

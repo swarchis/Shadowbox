@@ -1,0 +1,111 @@
+{
+  "round": 4,
+  "team": "breaker",
+  "from_version": 1,
+  "score_before": 0.7105263157894737,
+  "entries": [
+    {
+      "id": "r4-breaker-c0",
+      "round": 4,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Ensure the attacker always produces a JSON block with at least one fully\u2011specified cycle.",
+      "reasoning": "Several missed designs (Prob021_mux256to1v, Prob143_fsm_onehot) resulted in attacks that produced zero cycles or invalid JSON because the model omitted all inputs. By requiring at least one cycle with all inputs driven, we force the model to output a valid stimulus, increasing the chance to trigger bugs such as selector\u2011offset errors or state\u2011encoding mismatches.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob143_fsm_onehot"
+      ],
+      "rule_text": "Always include at least one cycle where every input port is explicitly driven (no omitted inputs) to guarantee a valid JSON stimulus.",
+      "tool_name": null,
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.7105,
+      "score_after": 0.7742,
+      "gained": [
+        "Prob120_fsm3s#2a297477cefc",
+        "Prob149_ece241_2013_q4#7db9f8ccddd4",
+        "Prob154_fsm_ps2data#e0920bf7e8f9",
+        "Prob155_lemmings4#5816a5fb12df"
+      ],
+      "lost": [
+        "Prob149_ece241_2013_q4#623e8222dceb"
+      ],
+      "net_flips": 3,
+      "errors": 7,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0078,
+      "ts": "2026-10-17T21:10:43Z"
+    },
+    {
+      "id": "r4-breaker-c1",
+      "round": 4,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Detect designs that use asynchronous reset (negedge resetn) when the spec expects a synchronous reset.",
+      "reasoning": "Prob148_2013_q2afsm was missed because the resetn was treated as asynchronous (negedge) while the spec requires a synchronous reset. A static analysis tool that flags any always block containing `negedge resetn` (or `posedge resetn` with async behavior) will give the attacker a hint to generate reset\u2011deassertion sequences that expose the mismatch.",
+      "evidence_problems": [
+        "Prob148_2013_q2afsm"
+      ],
+      "rule_text": null,
+      "tool_name": "reset_sync_checker",
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.7105,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 1 valid)",
+      "cost_usd": 0.0015,
+      "ts": "2026-10-17T21:10:43Z"
+    },
+    {
+      "id": "r4-breaker-c2",
+      "round": 4,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Double the maximum allowed cycles for stimulus generation from 40 to 80.",
+      "reasoning": "The missed timer design (Prob080_timer) required more than 40 cycles to observe the terminal\u2011count mismatch after a load deassertion. Increasing max_cycles gives the attacker more time to exercise long\u2011running counters and delayed\u2011effect bugs, thereby catching additional designs that need longer stimulus sequences.",
+      "evidence_problems": [
+        "Prob080_timer"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "param": "max_cycles",
+      "value": 80,
+      "source": "coach",
+      "score_before": 0.7105,
+      "score_after": 0.6286,
+      "gained": [
+        "Prob120_fsm3s#2a297477cefc"
+      ],
+      "lost": [
+        "Prob068_countbcd#af1e5e7e0d42",
+        "Prob096_review2015_fsmseq#5f66f05d4449",
+        "Prob117_circuit9#5509ed667416",
+        "Prob149_ece241_2013_q4#623e8222dceb",
+        "Prob150_review2015_fsmonehot#37bf7274ca05"
+      ],
+      "net_flips": -4,
+      "errors": 3,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0107,
+      "ts": "2026-10-17T21:10:43Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 1,
+  "complete": true
+}

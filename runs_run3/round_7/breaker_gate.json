@@ -1,0 +1,104 @@
+{
+  "round": 7,
+  "team": "breaker",
+  "from_version": 1,
+  "score_before": 0.7560975609756098,
+  "entries": [
+    {
+      "id": "r7-breaker-c0",
+      "round": 7,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add load\u2011pulse rule to expose timer and load\u2011controlled bugs.",
+      "reasoning": "The missed designs Prob080_timer and Prob118_history_shift both involve a load or reload mechanism that was never triggered by the current stimulus. Adding a load\u2011pulse rule will force the attacker to test the load path, which has been shown to reveal bugs in similar designs (e.g., Prob080_timer had 232 mismatches).",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob118_history_shift"
+      ],
+      "rule_text": "For designs with a load signal and a multi\u2011bit data input, apply a load pulse (set load=1 for one cycle with arbitrary data, then load=0) within the first 10 cycles to exercise loading while counting.",
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.8049,
+      "gained": [
+        "Prob117_circuit9#a178c2076f2a",
+        "Prob155_lemmings4#29b753d50ab2"
+      ],
+      "lost": [],
+      "net_flips": 2,
+      "errors": 0,
+      "accepted": true,
+      "from_version": 1,
+      "new_version": 2,
+      "invalid_reason": null,
+      "cost_usd": 0.0064,
+      "ts": "2026-10-17T19:07:30Z"
+    },
+    {
+      "id": "r7-breaker-c1",
+      "round": 7,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.",
+      "reasoning": "Several missed designs (Prob118_history_shift, Prob148_2013_q2afsm) have asynchronous or synchronous resets that are not properly sensed, causing the attacker's stimulus to miss reset\u2011related bugs. This tool will highlight such designs so the attacker can focus on reset behavior.",
+      "evidence_problems": [
+        "Prob118_history_shift",
+        "Prob148_2013_q2afsm",
+        "Prob143_fsm_onehot"
+      ],
+      "rule_text": null,
+      "tool_name": "reset_sensitivity_checker",
+      "score_before": 0.7561,
+      "score_after": 0.7073,
+      "gained": [],
+      "lost": [
+        "Prob139_2013_q2bfsm#e399f8a74d9e",
+        "Prob150_review2015_fsmonehot#5f6b97ec7dbd"
+      ],
+      "net_flips": -2,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0091,
+      "ts": "2026-10-17T19:07:30Z"
+    },
+    {
+      "id": "r7-breaker-c2",
+      "round": 7,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Increase max_cycles from 40 to 80 to allow longer stimulus sequences for deep FSMs and timers.",
+      "reasoning": "Designs like Prob143_fsm_onehot and Prob148_2013_q2afsm require longer sequences to reach erroneous states; the current limit of 40 cycles truncates useful stimulus. Raising the limit has previously shown net positive impact on similar FSM bugs.",
+      "evidence_problems": [
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm",
+        "Prob080_timer"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.7317,
+      "gained": [
+        "Prob117_circuit9#a178c2076f2a",
+        "Prob155_lemmings4#29b753d50ab2"
+      ],
+      "lost": [
+        "Prob139_2013_q2bfsm#e399f8a74d9e",
+        "Prob150_review2015_fsmonehot#5f6b97ec7dbd",
+        "Prob155_lemmings4#0c8951c12d36"
+      ],
+      "net_flips": -1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0078,
+      "ts": "2026-10-17T19:07:30Z"
+    }
+  ],
+  "accepted_id": "r7-breaker-c0",
+  "new_version": 2,
+  "complete": true
+}

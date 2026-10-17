@@ -1,0 +1,46 @@
+{
+  "from_version": 2,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "Always include test cases where a selector input is used in a shift or multiplication to compute an index, and try selector values that make the computed index equal to the width of the indexed input (out\u2011of\u2011bounds) as well as width\u20111.",
+      "summary": "Add rule to stress index\u2011calculation overflow for wide\u2011input muxes and similar structures.",
+      "reasoning": "Several missed buggy designs (Prob021_mux256to1v, Prob063_review2015_shiftcount, Prob118_history_shift) involve selector\u2011driven shifts or multiplications that can index beyond the target width. Testing selector values that produce the exact boundary and one\u2011step\u2011beyond exposes these off\u2011by\u2011one errors.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob063_review2015_shiftcount",
+        "Prob118_history_shift"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "ShiftIndexOverflow",
+      "tool_code": "import re\nfrom typing import List, Dict\n\ndef _extract_width(port: Dict) -> int:\n    \"\"\"Return bit width from port dict; default 1 if unspecified.\"\"\"\n    w = port.get(\"width\")\n    if isinstance(w, int) and w > 0:\n        return w\n    # sometimes port dict may have 'msb'/'lsb'\n    if \"msb\" in port and \"lsb\" in port:\n        return int(port[\"msb\"]) - int(port[\"lsb\"]) + 1\n    return 1\n\ndef run(spec: str, verilog: str, ports: List[Dict]) -> Dict:\n    \"\"\"\n    Simple heuristic: find expressions of the form (identifier << k) or (identifier * k)\n    used as an index inside [ ... ] and flag if the shift/mul could exceed the width\n    of the indexed port.\n    \"\"\"\n    fired = False\n    findings = []\n\n    # Map port name -> width\n    port_width = {p[\"name\"]: _extract_width(p) for p in ports}\n\n    # Find all bracketed index expressions\n    # Pattern: \\[[^]]+\\] (non\u2011greedy inside brackets)\n    for match in re.finditer(r'\\[([^]]+)\\]', verilog):\n        idx_expr = match.group(1).strip()\n        # Look for << or * with a literal number on the right\n        m_shift = re.search(r'(\\w+)\\s*<<\\s*(\\d+)', idx_expr)\n        m_mul   = re.search(r'(\\w+)\\s*\\*\\s*(\\d+)', idx_expr)\n        if m_shift:\n            base, k_str = m_shift.group(1), m_shift.group(2)\n            k = int(k_str)\n            if base in port_width:\n                max_shift = port_width[base]  # max value of base is 2^width-1, but shift adds k bits\n                # The result width needed = width(base) + k\n                needed = port_width[base] + k\n                # Find what port is being indexed: look left of '[' for identifier\n                # Simple: get token before '['\n                before = verilog[:match.start()].rstrip()\n                # extract last identifier\n                id_match = re.search(r'([\\w$]+)\\s*$', before)\n                if id_match:\n                    indexed = id_match.group(1)\n                    if indexed in port_width and needed > port_width[indexed]:\n                        fired = True\n                        findings.append(\n                            f\"Shift '{base} << {k}' used to index '{indexed}' may exceed its width \"\n                            f\"(needed {needed} bits, available {port_width[indexed]}).\"\n                        )\n        elif m_mul:\n            base, k_str = m_mul.group(1), m_mul.group(2)\n            k = int(k_str)\n            if base in port_width:\n                # max value of base is (2^width)-1, multiplied by k\n                max_val = (1 << port_width[base]) - 1\n                needed_bits = (max_val * k).bit_length()\n                before = verilog[:match.start()].rstrip()\n                id_match = re.search(r'([\\w$]+)\\s*$', before)\n                if id_match:\n                    indexed = id_match.group(1)\n                    if indexed in port_width and needed_bits > port_width[indexed]:\n                        fired = True\n                        findings.append(\n                            f\"Multiplication '{base} * {k}' used to index '{indexed}' may exceed its width \"\n                            f\"(needed {needed_bits} bits, available {port_width[indexed]}).\"\n                        )\n    return {\"fired\": fired, \"findings\": findings}\n",
+      "summary": "Static analysis tool that flags designs where a shift or multiplication of an input could exceed the width of the port it indexes.",
+      "reasoning": "The tool would have caught the index\u2011overflow bugs in Prob021, Prob063, and Prob118 by detecting that (sel << k) or (sel * k) used as an index can exceed the width of the indexed bus when sel takes its maximum value. Adding this tool gives the attacker hints to generate boundary\u2011case selector values.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob063_review2015_shiftcount",
+        "Prob118_history_shift"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 80,
+      "summary": "Double the maximum allowed cycles to enable longer sequential stimuli.",
+      "reasoning": "Designs like Prob080_timer require many cycles to observe the terminal\u2011count bug; the current limit of 40 cycles is insufficient. Raising max_cycles to 80 gives the attacker enough time to load, count down, and expose the timing error.",
+      "evidence_problems": [
+        "Prob080_timer"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob021_mux256to1v",
+    "Prob054_edgedetect",
+    "Prob080_timer",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.006072599999999999
+}

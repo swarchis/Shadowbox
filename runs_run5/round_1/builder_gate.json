@@ -1,0 +1,149 @@
+{
+  "round": 1,
+  "team": "builder",
+  "from_version": 0,
+  "score_before": 0.4666666666666667,
+  "entries": [
+    {
+      "id": "r1-builder-c0",
+      "round": 1,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Add rule to prevent missing assignments in combinational always blocks.",
+      "reasoning": "Several failures (Prob026_alwaysblock1, Prob070_ece241_2013_q2, Prob103_circuit2) stemmed from combinational always blocks that did not assign outputs for all input combinations, leading to X/Z values and mismatches. This rule forces the writer to cover all cases, eliminating latch inference and undefined outputs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob070_ece241_2013_q2",
+        "Prob103_circuit2"
+      ],
+      "rule_text": "If an always block is combinational (using @(*) or always_comb), every output signal driven inside the block must be assigned in all possible branches (including else/default).",
+      "tool_name": null,
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.4667,
+      "score_after": 0.3333,
+      "gained": [
+        "Prob132_always_if2"
+      ],
+      "lost": [
+        "Prob041_dff8r",
+        "Prob060_m2014_q4k",
+        "Prob067_countslow",
+        "Prob083_mt2015_q4b",
+        "Prob094_gatesv"
+      ],
+      "net_flips": -4,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0117,
+      "ts": "2026-10-17T19:46:04Z"
+    },
+    {
+      "id": "r1-builder-c1",
+      "round": 1,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "Tool that flags combinational always blocks lacking a default assignment for any output.",
+      "reasoning": "The tool will catch the same class of errors targeted by the new rule, providing immediate feedback to the debugger before simulation. It is mechanical, based on parsing the Verilog for always_comb/@(*) blocks and verifying each output variable appears in every branch.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob070_ece241_2013_q2",
+        "Prob103_circuit2"
+      ],
+      "rule_text": null,
+      "tool_name": "check_combinational_defaults",
+      "param": null,
+      "value": null,
+      "source": "coach",
+      "score_before": 0.4667,
+      "score_after": 0.4333,
+      "gained": [],
+      "lost": [
+        "Prob094_gatesv"
+      ],
+      "net_flips": -1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0107,
+      "ts": "2026-10-17T19:46:04Z"
+    },
+    {
+      "id": "r1-builder-c2",
+      "round": 1,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "Increase allowed debug attempts from 2 to 3.",
+      "reasoning": "Many designs failed after the first or second debug iteration because the initial fix was incomplete (e.g., Prob016_m2014_q4j, Prob054_edgedetect). Giving the team one extra attempt increases the chance to converge on a correct solution without overburdening the runtime.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob054_edgedetect",
+        "Prob080_timer"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "param": "max_debug_attempts",
+      "value": 3,
+      "source": "coach",
+      "score_before": 0.4667,
+      "score_after": 0.4333,
+      "gained": [],
+      "lost": [
+        "Prob094_gatesv"
+      ],
+      "net_flips": -1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0094,
+      "ts": "2026-10-17T19:46:04Z"
+    },
+    {
+      "id": "r1-builder-c3",
+      "round": 1,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "Settings sweep: try think = \"low\"",
+      "reasoning": "Systematic sweep of the team's own settings (not proposed by the coach): each untried setting is tested once on validation and kept only if it measurably helps.",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": null,
+      "param": "think",
+      "value": "low",
+      "source": "sweep",
+      "score_before": 0.4667,
+      "score_after": 0.6,
+      "gained": [
+        "Prob009_popcount3",
+        "Prob074_ece241_2014_q4",
+        "Prob096_review2015_fsmseq",
+        "Prob120_fsm3s",
+        "Prob121_2014_q3bfsm",
+        "Prob132_always_if2"
+      ],
+      "lost": [
+        "Prob041_dff8r",
+        "Prob094_gatesv"
+      ],
+      "net_flips": 4,
+      "errors": 0,
+      "accepted": true,
+      "from_version": 0,
+      "new_version": 1,
+      "invalid_reason": null,
+      "cost_usd": 0.071,
+      "ts": "2026-10-17T19:46:04Z"
+    }
+  ],
+  "accepted_id": "r1-builder-c3",
+  "new_version": 1,
+  "complete": true
+}

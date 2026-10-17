@@ -1,0 +1,50 @@
+{
+  "from_version": 0,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "Always include test cases where wide-selector inputs (e.g., sel) are set to powers of two and to values just above and below each power\u2011of\u2011two boundary.",
+      "summary": "Add rule to stimulate edge\u2011case selector values for wide\u2011input multiplexers.",
+      "reasoning": "Many missed bugs involve wide\u2011input muxes where the selector indexes into a packed vector (e.g., Prob021_mux256to1v). Testing selector values that are powers of two and adjacent values exercises the boundary conditions where off\u2011by\u2011one errors in index calculation manifest.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob057_kmap2",
+        "Prob125_kmap3"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "width_overflow_check",
+      "tool_code": "import re\nfrom typing import List, Dict, Any\n\ndef run(spec: str, verilog: str, ports: List[Dict[str, Any]]) -> Dict[str, Any]:\n    \"\"\"\n    Detect shift or index expressions that could exceed the width of an input port.\n    Returns {\"fired\": bool, \"findings\": [str]}.\n    \"\"\"\n    # Map port name -> width (default 1 if not specified)\n    port_widths = {}\n    for p in ports:\n        name = p.get(\"name\")\n        width = p.get(\"width\")\n        if width is None:\n            width = 1\n        else:\n            # support expressions like \"[7:0]\" -> width = 8\n            if isinstance(width, str):\n                m = re.match(r'\\$?\\s*(\\d+)\\s*:\\s*(\\d+)\\s*\\$?', width)\n                if m:\n                    hi, lo = int(m.group(1)), int(m.group(2))\n                    width = hi - lo + 1\n                else:\n                    try:\n                        width = int(width)\n                    except:\n                        width = 1\n        port_widths[name] = width\n\n    # Patterns to catch: <<, >>, +, -, [ ... ] indexing\n    # We'll look for expressions like (sel << 2) or (index + offset) used as an index.\n    # Simple heuristic: find all occurrences of <identifier> << <num> or >> <num>\n    # and check if shift amount could make result exceed any port width.\n    findings = []\n\n    # Find all identifiers (potential port names)\n    id_pattern = re.compile(r'\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b')\n    for match in id_pattern.finditer(verilog):\n        identifier = match.group(1)\n        if identifier not in port_widths:\n            continue\n        width = port_widths[identifier]\n        # Look left and right for shift operators within a small window\n        start, end = match.span()\n        window = verilog[max(0, start-20):min(len(verilog), end+20)]\n        # Check for left shift\n        ls_shift = re.search(r'<<\\s*(\\d+)', window)\n        if ls_shift:\n            shift_amt = int(ls_shift.group(1))\n            if shift_amt >= width:  # shifting left by >= width can overflow\n                findings.append(\n                    f\"Potential width overflow: '{identifier}' << {shift_amt} may exceed width {width}.\"\n                )\n        # Check for right shift (less likely to overflow but flag large shifts)\n        rs_shift = re.search(r'>>\\s*(\\d+)', window)\n        if rs_shift:\n            shift_amt = int(rs_shift.group(1))\n            if shift_amt >= width:\n                findings.append(\n                    f\"Potential excessive right shift: '{identifier}' >> {shift_amt} (width {width}).\"\n                )\n        # Check for addition/subtraction with constants that could exceed width\n        add_sub = re.search(r'[+\\-]\\s*(\\d+)', window)\n        if add_sub:\n            const = int(add_sub.group(1))\n            # If identifier already at max width, adding positive constant may overflow\n            if const > 0:\n                findings.append(\n                    f\"Potential overflow: '{identifier}' {add_sub.group(0)} {const} may exceed width {width}.\"\n                )\n\n    fired = len(findings) > 0\n    # Deduplicate findings\n    findings = list(dict.fromkeys(findings))\n    return {\"fired\": fired, \"findings\": findings}\n",
+      "summary": "Add static analysis tool that flags designs where shift or index expressions could exceed the width of an input port.",
+      "reasoning": "Several missed bugs stem from shift/index calculations that can overflow the input width (e.g., Prob021_mux256to1v, Prob054_edgedetect). A tool that statically detects such potential overflows will give the attacker hints to generate targeted stimuli.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob054_edgedetect",
+        "Prob063_review2015_shiftcount"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 80,
+      "summary": "Double the maximum cycles allowed for stimulus generation from 40 to 80.",
+      "reasoning": "Increasing the cycle budget enables longer sequences needed to trigger bugs that require multiple clock cycles to manifest (e.g., Prob080_timer, Prob140_fsm_hdlc). Past attempts showed that more cycles can uncover additional mismatches without overly burdening the search.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob021_mux256to1v",
+    "Prob054_edgedetect",
+    "Prob063_review2015_shiftcount",
+    "Prob070_ece241_2013_q2",
+    "Prob080_timer",
+    "Prob140_fsm_hdlc",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.005334
+}

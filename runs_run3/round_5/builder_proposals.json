@@ -1,0 +1,60 @@
+{
+  "from_version": 1,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "If an output port is assigned inside an always block, declare it as logic (or reg) to avoid undriven/wire mismatches.",
+      "summary": "Assign logic type to outputs driven by always blocks.",
+      "reasoning": "Several failing designs (e.g., Prob026_alwaysblock1, Prob078_dualedge, Prob118_history_shift) assign outputs in always blocks but leave them as implicit wires, causing undriven or latch-related mismatches. This conditional rule targets exactly that pattern without affecting combinational assign-driven outputs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob078_dualedge",
+        "Prob118_history_shift"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "undriven_output_check",
+      "tool_code": "import re\n\ndef run(spec: str, verilog: str, ports: list[dict]):\n    \"\"\"\n    Returns {'fired': True, 'findings': [...]} if any output port\n    has no assignment (neither blocking/nonblocking nor continuous assign)\n    in the Verilog module.\n    \"\"\"\n    # Extract output port names\n    output_names = {p['name'] for p in ports if p.get('direction') == 'output'}\n    if not output_names:\n        return {\"fired\": False, \"findings\": []}\n\n    # Remove comments to avoid false positives\n    code = re.sub(r'//.*', '', verilog)\n    code = re.sub(r'/\\\\*.*?\\\\*/', '', code, flags=re.DOTALL)\n\n    # Find all left-hand sides of assignments\n    # Continuous assign: assign <lhs> = ...\n    # Procedural assignments: <lhs> = ... ; or <lhs> <= ... ;\n    lhs_pattern = r'\\b(assign\\s+)?([\\w\\[\\]]+)\\s*[=<=]'\n    assigned = set()\n    for m in re.finditer(lhs_pattern, code):\n        # m.group(2) is the lhs token (may include indices like sum[4])\n        lhs = m.group(2)\n        # Strip any array indices to get base name\n        base = lhs.split('[')[0]\n        assigned.add(base)\n\n    undriven = output_names - assigned\n    if undriven:\n        findings = [f\"Output port '{name}' never assigned\" for name in sorted(undriven)]\n        return {\"fired\": True, \"findings\": findings}\n    return {\"fired\": False, \"findings\": []}\n",
+      "summary": "Flags output ports that have no assignment anywhere in the module.",
+      "reasoning": "Failures such as Prob016_m2014_q4j (sum[4] undriven), Prob078_dualedge (q undriven due to missing reg), and Prob118_history_shift (predict_history undriven) show a pattern of outputs never driven. A tool that detects undriven outputs will fire on these cases, prompting the debugger to add a default drive or proper reg declaration.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob078_dualedge",
+        "Prob118_history_shift"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_debug_attempts",
+      "value": 3,
+      "summary": "Allow one extra debugging iteration per problem.",
+      "reasoning": "Increasing max_debug_attempts from 2 to 3 gives the team an additional chance to apply fixes suggested by tools or rules, which has historically helped resolve stubborn mismatches without breaking already\u2011passing designs.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j",
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob016_m2014_q4j",
+    "Prob026_alwaysblock1",
+    "Prob054_edgedetect",
+    "Prob057_kmap2",
+    "Prob062_bugs_mux2",
+    "Prob063_review2015_shiftcount",
+    "Prob070_ece241_2013_q2",
+    "Prob078_dualedge",
+    "Prob080_timer",
+    "Prob103_circuit2",
+    "Prob105_rotate100",
+    "Prob118_history_shift",
+    "Prob125_kmap3",
+    "Prob129_ece241_2013_q8",
+    "Prob140_fsm_hdlc",
+    "Prob143_fsm_onehot",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0066129
+}

@@ -1,0 +1,101 @@
+{
+  "round": 5,
+  "team": "breaker",
+  "from_version": 1,
+  "score_before": 0.7560975609756098,
+  "entries": [
+    {
+      "id": "r5-breaker-c0",
+      "round": 5,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Add load\u2011pulse rule to expose timer and similar load\u2011controlled designs.",
+      "reasoning": "Prob080_timer missed because the attack never asserted the load signal; a load pulse would trigger the down\u2011counter and reveal the bug. Similar load\u2011controlled behavior appears in other designs (e.g., Prob016_m2014_q4j, Prob062_bugs_mux2) where a load pulse increased bug detection.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob016_m2014_q4j",
+        "Prob062_bugs_mux2"
+      ],
+      "rule_text": "For designs that have a load input and a multi-bit data bus, apply a load pulse (assert load for one cycle with non-zero data, then deassert) within the first 10 cycles.",
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.7805,
+      "gained": [
+        "Prob117_circuit9#a178c2076f2a",
+        "Prob155_lemmings4#29b753d50ab2"
+      ],
+      "lost": [
+        "Prob139_2013_q2bfsm#e399f8a74d9e"
+      ],
+      "net_flips": 1,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.006,
+      "ts": "2026-10-17T19:02:54Z"
+    },
+    {
+      "id": "r5-breaker-c1",
+      "round": 5,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "Tool that flags designs where a reset input is present but missing from the sensitivity list of any always_ff or always @(posedge clk) block.",
+      "reasoning": "Prob148_2013_q2afsm and Prob080_timer both have reset-related bugs that were missed; the reset sensitivity checker would highlight missing reset sensitivity in always blocks, guiding the attacker to generate reset toggles. Evidence shows at least three problematic designs (Prob148, Prob080, Prob063_review2015_shiftcount) involve reset handling.",
+      "evidence_problems": [
+        "Prob148_2013_q2afsm",
+        "Prob080_timer",
+        "Prob063_review2015_shiftcount"
+      ],
+      "rule_text": null,
+      "tool_name": "reset_sensitivity_checker",
+      "score_before": 0.7561,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 2 valid)",
+      "cost_usd": 0.0016,
+      "ts": "2026-10-17T19:02:54Z"
+    },
+    {
+      "id": "r5-breaker-c2",
+      "round": 5,
+      "team": "breaker",
+      "change_type": "param",
+      "summary": "Increase max_cycles from 40 to 60 to allow longer stimulus sequences for deep FSMs and timers.",
+      "reasoning": "Prob080_timer required more than 40 cycles to observe the bug (first mismatch at time 50). Prob143_fsm_onehot and Prob125_kmap3 also showed mismatches after many cycles. Raising max_cycles gives the attacker more time to expose such delayed bugs, as seen in the accepted rule_add that increased net gain.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob143_fsm_onehot",
+        "Prob125_kmap3"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.7561,
+      "score_after": 0.6829,
+      "gained": [],
+      "lost": [
+        "Prob117_circuit9#458021347d61",
+        "Prob117_circuit9#bdbe1b4cdb73",
+        "Prob150_review2015_fsmonehot#5f6b97ec7dbd"
+      ],
+      "net_flips": -3,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0118,
+      "ts": "2026-10-17T19:02:54Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 1,
+  "complete": true
+}

@@ -1,0 +1,103 @@
+{
+  "round": 4,
+  "team": "builder",
+  "from_version": 1,
+  "score_before": 0.5,
+  "entries": [
+    {
+      "id": "r4-builder-c0",
+      "round": 4,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Declare outputs driven by always blocks as logic/reg when the spec explicitly references an always block.",
+      "reasoning": "Failures in Prob026_alwaysblock1, Prob054_edgedetect, and Prob078_dualedge all stem from outputs assigned in always blocks being left as implicit wires, causing compilation or mismatch errors. The rule is conditional on the spec mentioning an always block, so it only affects designs where this pattern is relevant, avoiding over\u2011application to combinational assign\u2011only modules.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob078_dualedge"
+      ],
+      "rule_text": "If the specification mentions an 'always block' (combinational or clocked) and assigns a value to an output inside that block, declare the output as logic or reg.",
+      "tool_name": null,
+      "score_before": 0.5,
+      "score_after": 0.3333,
+      "gained": [
+        "Prob009_popcount3"
+      ],
+      "lost": [
+        "Prob041_dff8r",
+        "Prob060_m2014_q4k",
+        "Prob083_mt2015_q4b",
+        "Prob094_gatesv",
+        "Prob117_circuit9",
+        "Prob131_mt2015_q4"
+      ],
+      "net_flips": -5,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0086,
+      "ts": "2026-10-17T18:59:56Z"
+    },
+    {
+      "id": "r4-builder-c1",
+      "round": 4,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "Flags any wire (including internal wires and output ports) that is never assigned a value.",
+      "reasoning": "Prob016_m2014_q4j failed because carry[0] was undriven, causing unknown bits in the sum. Similar undriven wire issues likely appear in other failing designs (e.g., missing default cases in combinational logic). A tool that statically detects undriven wires will catch these errors without affecting already\u2011correct designs.",
+      "evidence_problems": [
+        "Prob016_m2014_q4j"
+      ],
+      "rule_text": null,
+      "tool_name": "undriven_wire_check",
+      "score_before": 0.5,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 1 valid)",
+      "cost_usd": 0.0026,
+      "ts": "2026-10-17T18:59:56Z"
+    },
+    {
+      "id": "r4-builder-c2",
+      "round": 4,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "Increase the number of debugging iterations allowed per problem from 2 to 3.",
+      "reasoning": "Several failing designs (e.g., Prob063_review2015_shiftcount, Prob103_circuit2) required multiple fix attempts to resolve subtle logic mismatches. Allowing one extra debugging round gives the team additional opportunities to correct mistakes without changing the core architecture.",
+      "evidence_problems": [
+        "Prob063_review2015_shiftcount",
+        "Prob103_circuit2",
+        "Prob057_kmap2"
+      ],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.5,
+      "score_after": 0.4,
+      "gained": [],
+      "lost": [
+        "Prob060_m2014_q4k",
+        "Prob094_gatesv",
+        "Prob117_circuit9"
+      ],
+      "net_flips": -3,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0108,
+      "ts": "2026-10-17T18:59:56Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 1,
+  "complete": true
+}

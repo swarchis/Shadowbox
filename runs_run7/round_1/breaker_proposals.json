@@ -1,0 +1,47 @@
+{
+  "from_version": 0,
+  "proposals": [
+    {
+      "change_type": "rule_add",
+      "rule": "When the design uses a shift or index calculation on a wide input (e.g., `in[(sel << 2) +: 4]`), explicitly test values that cause the index to wrap around or exceed the input width.",
+      "summary": "Add rule to test wrap\u2011around/index overflow for wide\u2011input selections.",
+      "reasoning": "The missed designs Prob021_mux256to1v and Prob080_timer both contain shift\u2011based index calculations where certain select values cause the index to point outside the intended range or wrap, leading to mismatches. Adding a rule that forces the attacker to exercise wrap\u2011around cases will expose these bugs.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob080_timer"
+      ]
+    },
+    {
+      "change_type": "tool_add",
+      "tool_name": "index_wrap_check",
+      "tool_code": "def run(spec: str, verilog: str, ports: list[dict]) -> dict:\n    \"\"\"\n    Simple heuristic: look for assignments of the form\n        assign out = in[ (sel << k) +: w ];\n    and flag if (sel_width * k + w) > in_width.\n    Returns findings if any such pattern appears.\n    \"\"\"\n    import re\n    findings = []\n    # Extract port widths\n    width_map = {}\n    for p in ports:\n        name = p.get(\"name\")\n        w = p.get(\"width\")\n        if isinstance(w, int):\n            width_map[name] = w\n        elif isinstance(w, str) and w.isdigit():\n            width_map[name] = int(w)\n    # Pattern: assign out = in[ (sel << shift) +: width ];\n    pattern = re.compile(\n        r'assign\\s+\\w+\\s*=\\s*(\\w+)\\s*\\[\\s*\\(\\s*(\\w+)\\s*<<\\s*(\\d+)\\s*\\)\\s*\\+\\:\\s*(\\d+)\\s*\\]',\n        re.IGNORECASE,\n    )\n    for m in pattern.finditer(verilog):\n        in_name, sel_name, shift_str, width_str = m.groups()\n        shift = int(shift_str)\n        w = int(width_str)\n        in_w = width_map.get(in_name, 0)\n        sel_w = width_map.get(sel_name, 0)\n        if in_w and sel_w:\n            max_index = ( (1 << sel_w) - 1 ) << shift\n            if max_index + w > in_w:\n                findings.append(\n                    f\"Potential out-of-bounds select: {in_name}[({sel_name} << {shift}) +: {w}] \"\n                    f\"may exceed width {in_w} (max index {max_index}).\"\n                )\n    return {\"fired\": bool(findings), \"findings\": findings}\n",
+      "summary": "Tool that flags designs with shift/index expressions that could exceed input width.",
+      "reasoning": "A static analysis tool can detect patterns like `(sel << k) +: w` where `sel` width * shift + w may exceed the input width, indicating potential out\u2011of\u2011bounds selection. Providing this hint to the attacker helps focus on corner\u2011case inputs that trigger the bug.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob080_timer",
+        "Prob054_edgedetect"
+      ]
+    },
+    {
+      "change_type": "param",
+      "param": "max_cycles",
+      "value": 80,
+      "summary": "Double the maximum cycles allowed for stimulus generation.",
+      "reasoning": "Several missed bugs (e.g., Prob140_fsm_hdlc needing 16 cycles, Prob148_2013_q2afsm needing 5 cycles but with reset timing issues) require longer sequences to reach the erroneous state. Raising max_cycles gives the attacker more time to drive the design into deep states where mismatches appear.",
+      "evidence_problems": [
+        "Prob140_fsm_hdlc",
+        "Prob148_2013_q2afsm",
+        "Prob057_kmap2"
+      ]
+    }
+  ],
+  "evidence": [
+    "Prob021_mux256to1v",
+    "Prob054_edgedetect",
+    "Prob080_timer",
+    "Prob140_fsm_hdlc",
+    "Prob148_2013_q2afsm"
+  ],
+  "cost_usd": 0.0040899
+}

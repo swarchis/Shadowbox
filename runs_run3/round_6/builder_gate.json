@@ -1,0 +1,99 @@
+{
+  "round": 6,
+  "team": "builder",
+  "from_version": 1,
+  "score_before": 0.5,
+  "entries": [
+    {
+      "id": "r6-builder-c0",
+      "round": 6,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Require outputs driven by always blocks to be declared as logic/reg to avoid implicit wire errors.",
+      "reasoning": "Several failing designs (Prob026_alwaysblock1, Prob054_edgedetect, Prob078_dualedge) assigned outputs within always blocks but left them as implicit wires, causing compilation or functional mismatches. This rule targets exactly that pattern without affecting already\u2011correct designs.",
+      "evidence_problems": [
+        "Prob026_alwaysblock1",
+        "Prob054_edgedetect",
+        "Prob078_dualedge"
+      ],
+      "rule_text": "If an output port is assigned inside an always block, declare it as logic or reg.",
+      "tool_name": null,
+      "score_before": 0.5,
+      "score_after": 0.3333,
+      "gained": [
+        "Prob009_popcount3",
+        "Prob096_review2015_fsmseq"
+      ],
+      "lost": [
+        "Prob036_ringer",
+        "Prob041_dff8r",
+        "Prob060_m2014_q4k",
+        "Prob067_countslow",
+        "Prob083_mt2015_q4b",
+        "Prob094_gatesv",
+        "Prob117_circuit9"
+      ],
+      "net_flips": -5,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0093,
+      "ts": "2026-10-17T19:03:45Z"
+    },
+    {
+      "id": "r6-builder-c1",
+      "round": 6,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "tool_add",
+      "reasoning": "",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": "output_always_block_check",
+      "score_before": 0.5,
+      "score_after": null,
+      "gained": [],
+      "lost": [],
+      "net_flips": null,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": "tool needs evidence from 3+ failing problems (cited 0 valid)",
+      "cost_usd": 0.0018,
+      "ts": "2026-10-17T19:03:45Z"
+    },
+    {
+      "id": "r6-builder-c2",
+      "round": 6,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "param",
+      "reasoning": "",
+      "evidence_problems": [],
+      "rule_text": null,
+      "tool_name": null,
+      "score_before": 0.5,
+      "score_after": 0.4,
+      "gained": [],
+      "lost": [
+        "Prob094_gatesv",
+        "Prob117_circuit9",
+        "Prob131_mt2015_q4"
+      ],
+      "net_flips": -3,
+      "errors": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "invalid_reason": null,
+      "cost_usd": 0.0128,
+      "ts": "2026-10-17T19:03:45Z"
+    }
+  ],
+  "accepted_id": null,
+  "new_version": 1,
+  "complete": true
+}
