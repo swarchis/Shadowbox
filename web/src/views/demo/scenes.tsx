@@ -159,11 +159,8 @@ export function SceneIntro({ t, data }: SceneProps) {
 
 /* ---------- 2. The problem ---------- */
 
-const PROBLEM_LINE = 'Verification is the bottleneck in chip design.'
 
 export function SceneProblem({ t }: SceneProps) {
-  const typed = Math.max(0, Math.min(PROBLEM_LINE.length, Math.floor((t - 3.0) * 26)))
-  const typing = t >= 3.0
   return (
     <div className="flex h-full w-full flex-col items-center justify-center px-[6vw]">
       <div className="eyebrow mb-[4vh]" style={{ fontSize: 'clamp(11px, 0.9vw, 18px)' }}>
@@ -183,7 +180,7 @@ export function SceneProblem({ t }: SceneProps) {
         <motion.div
           className="flex shrink-0 items-center"
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={at(t, 1.3) ? { opacity: 1, scale: [1.4, 1] } : { opacity: 0, scale: 0.5 }}
+          animate={at(t, 1.0) ? { opacity: 1, scale: [1.4, 1] } : { opacity: 0, scale: 0.5 }}
           transition={{ duration: 0.5 }}
         >
           <span
@@ -200,45 +197,16 @@ export function SceneProblem({ t }: SceneProps) {
         </motion.div>
         <TeamCard
           side="right"
-          visible={at(t, 0.8)}
+          visible={at(t, 0.5)}
           color="#fb7185"
           icon={<Bug className="h-[1em] w-[1em]" />}
           title="Verification engineers"
           verb="break"
           line="try to make it fail"
-          t={t - 0.8}
+          t={t - 0.5}
         />
       </div>
-      <div className="mt-[7vh] min-h-[1.4em] text-center font-semibold tracking-tight text-white" style={{ fontSize: 'clamp(24px, 3.4vw, 68px)' }}>
-        {typing && (
-          <>
-            <TypedWithHighlight text={PROBLEM_LINE.slice(0, typed)} />
-            <span className={cx('ml-1 inline-block w-[0.08em] translate-y-[0.1em] bg-white', typed >= PROBLEM_LINE.length && 'animate-pulse')} style={{ height: '0.95em' }} />
-          </>
-        )}
-      </div>
-      <motion.p
-        className="mt-[2.5vh] text-center text-slate-400"
-        style={{ fontSize: 'clamp(16px, 1.6vw, 32px)' }}
-        initial={{ opacity: 0, y: 10 }}
-        animate={at(t, 6.2) ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-        transition={{ duration: 0.7, ease }}
-      >
-        AI can write chip code now. It doesn't get better on its own.
-      </motion.p>
     </div>
-  )
-}
-
-function TypedWithHighlight({ text }: { text: string }) {
-  const i = text.indexOf('bottleneck')
-  if (i < 0) return <>{text}</>
-  return (
-    <>
-      {text.slice(0, i)}
-      <span className="text-breaker text-glow-breaker">bottleneck</span>
-      {text.slice(i + 'bottleneck'.length)}
-    </>
   )
 }
 
@@ -297,11 +265,11 @@ function TeamCard({ side, visible, color, icon, title, verb, line, t }: { side: 
               stroke={color}
               strokeWidth="3.5"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: t > 1.5 ? 1 : 0, opacity: t > 1.5 ? 1 : 0 }}
+              animate={{ pathLength: t > 1.1 ? 1 : 0, opacity: t > 1.1 ? 1 : 0 }}
               transition={{ duration: 0.5 }}
               style={{ filter: `drop-shadow(0 0 6px ${color})` }}
             />
-            {t > 1.8 && <motion.rect x="165" y="2" width="56" height="56" rx="6" fill={`${color}22`} stroke={color} initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0.6] }} transition={{ duration: 0.8 }} />}
+            {t > 1.3 && <motion.rect x="165" y="2" width="56" height="56" rx="6" fill={`${color}22`} stroke={color} initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0.6] }} transition={{ duration: 0.8 }} />}
           </svg>
         )}
       </div>

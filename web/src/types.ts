@@ -34,6 +34,20 @@ export interface RunState {
   builder_version: number
   breaker_version: number
   splits: { train: number; val: number; test: number }
+  /** Present only when the server replays a recorded run (SHADOWBOX_REPLAY). */
+  replay?: ReplayInfo | null
+}
+
+export interface ReplayInfo {
+  active: boolean
+  speed: number
+  run: string
+  progress: number
+  recorded_started_at: string
+  recorded_ended_at: string
+  playing?: boolean
+  elapsed_s?: number
+  total_s?: number
 }
 
 // ---------- GET /api/series ----------

@@ -14,14 +14,17 @@ interface SceneDef {
 }
 
 /** The six scenes of DEMO_SCRIPT.md: 8 + 10 + 14 + 14 + 10 + 4 = 60 seconds (TOTAL below). */
-export const SCENES: SceneDef[] = [
+// The recorded demo uses only "The problem"; the rest of the story is shown on the live dashboard (replay).
+// To bring a scene back, move it from ALL_SCENES into SCENES.
+export const ALL_SCENES: SceneDef[] = [
   { id: 'intro', label: 'Intro', dur: 8, C: SceneIntro },
-  { id: 'problem', label: 'The problem', dur: 10, C: SceneProblem },
+  { id: 'problem', label: 'The problem', dur: 3, C: SceneProblem },
   { id: 'arms', label: 'Arms race', dur: 14, C: SceneArmsRace },
   { id: 'select', label: 'Breaker at test time', dur: 14, C: SceneSelection },
   { id: 'final', label: 'Final exam', dur: 10, C: SceneFinal },
   { id: 'closer', label: 'Closer', dur: 4, C: SceneCloser },
 ]
+export const SCENES: SceneDef[] = ALL_SCENES.filter((s) => s.id === 'problem')
 
 export const TOTAL = SCENES.reduce((a, s) => a + s.dur, 0)
 const START_OF = SCENES.map((_, i) => SCENES.slice(0, i).reduce((a, s) => a + s.dur, 0))

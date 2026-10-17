@@ -6,6 +6,7 @@ import { Card, CardHeader, fadeUp, stagger } from '../components/Card'
 import { EventFeed } from '../components/EventFeed'
 import { LiveRunPanel } from '../components/LiveRunPanel'
 import { LiveWorkbench } from '../components/LiveWorkbench'
+import { ReplayBar } from '../components/ReplayBar'
 import { MatchGrid } from '../components/MatchGrid'
 import { StatTile } from '../components/StatTile'
 import { useData } from '../lib/DataContext'
@@ -128,6 +129,8 @@ export function OverviewView() {
         </Card>
         <LiveRunPanel />
       </div>
+
+      <ReplayBar />
 
       <LiveWorkbench />
 

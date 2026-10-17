@@ -1,7 +1,7 @@
 import { Check, X } from 'lucide-react'
-import type { ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { cx } from '../lib/format'
-import type { Team } from '../types'
+import type { ReplayInfo, Team } from '../types'
 
 const BADGES = {
   mock: { style: 'border-amber-400/30 bg-amber-400/10 text-amber-300', dot: 'bg-amber-300', short: 'Mock', long: 'Mock data',
@@ -94,6 +94,62 @@ export function Verdict({ pass, size = 'md', children }: { pass: boolean; size?:
     >
       {pass ? <Check className="h-3.5 w-3.5" /> : <X className="h-3.5 w-3.5" />}
       {children ?? (pass ? 'Pass' : 'Fail')}
+    </span>
+  )
+}
+
+/** Always visible while a recorded run is being replayed, so a replay is never mistaken for a live run. */
+export function ReplayBadge({ replay, compact = false }: { replay: ReplayInfo; compact?: boolean }) {
+  const restart = async () => {
+    try {
+      await fetch('/api/replay/restart', { method: 'POST' })
+    } catch {
+      /* the reload below shows the offline badge if the API is down */
+    }
+    window.location.reload()
+  }
+  const [runs, setRuns] = useState<{ run: string; label: string; rounds: number }[]>([])
+  useEffect(() => {
+    fetch('/api/replay/runs')
+      .then((r) => r.json())
+      .then((d) => setRuns(Array.isArray(d?.runs) ? d.runs : []))
+      .catch(() => setRuns([]))
+  }, [])
+  const pick = async (run: string) => {
+    try {
+      await fetch(`/api/replay/select?run=${encodeURIComponent(run)}`, { method: 'POST' })
+    } catch {
+      /* the reload below shows the offline badge if the API is down */
+    }
+    window.location.reload()
+  }
+  const started = replay.recorded_started_at.slice(11, 16)
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-md border border-sky-400/30 bg-sky-400/10 px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-sky-300"
+      title={`Replaying the recorded run ${replay.run} (started ${started} UTC) at ${replay.speed}x speed. Every number shown is from that run.`}
+    >
+      <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
+      {compact ? `Replay ${replay.speed}x` : `Replay · recorded run · ${replay.speed}x`}
+      <span className="num text-sky-400/80">{Math.round(replay.progress * 100)}%</span>
+      {runs.length > 1 && (
+        <select
+          value={replay.run}
+          onChange={(e) => pick(e.target.value)}
+          className="ml-0.5 rounded border border-sky-400/30 bg-[#07080c] px-0.5 font-mono text-[10px] uppercase text-sky-200 focus:outline-none"
+          title="Choose which recorded run to replay"
+          aria-label="Recorded run to replay"
+        >
+          {runs.map((r) => (
+            <option key={r.run} value={r.run}>
+              {r.label} · {r.rounds} rounds
+            </option>
+          ))}
+        </select>
+      )}
+      <button onClick={restart} className="ml-0.5 rounded border border-sky-400/30 px-1 text-sky-200 hover:bg-sky-400/20" title="Restart the replay from the beginning">
+        restart
+      </button>
     </span>
   )
 }

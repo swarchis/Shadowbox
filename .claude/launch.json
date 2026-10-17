@@ -4,14 +4,40 @@
     {
       "name": "shadowbox",
       "runtimeExecutable": "/Users/swarchisk./Downloads/Shadowbox_NVIDIA_RAH/.venv/bin/python",
-      "runtimeArgs": ["-m", "server.api"],
+      "runtimeArgs": [
+        "-m",
+        "server.api"
+      ],
       "port": 8000
     },
     {
       "name": "web-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "web", "run", "dev", "--", "--port", "5173", "--strictPort"],
+      "runtimeArgs": [
+        "--prefix",
+        "web",
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "5173",
+        "--strictPort"
+      ],
       "port": 5173
+    },
+    {
+      "name": "replay-run3",
+      "runtimeExecutable": "/Users/swarchisk./Downloads/Shadowbox_NVIDIA_RAH/.venv/bin/python",
+      "runtimeArgs": [
+        "-m",
+        "server.api"
+      ],
+      "env": {
+        "SHADOWBOX_REPLAY": "runs_run3",
+        "SHADOWBOX_REPLAY_SPEED": "20",
+        "SHADOWBOX_PORT": "8001"
+      },
+      "port": 8001
     }
   ]
 }

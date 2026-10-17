@@ -98,7 +98,7 @@ DEFAULT_PRICE = (1.00, 3.20)  # unknown models are billed at the worst case
 
 SPEND_CAP_USD = float(os.environ.get("SHADOWBOX_SPEND_CAP", "45"))
 LLM_CONCURRENCY = int(os.environ.get("SHADOWBOX_CONCURRENCY", "8"))
-LLM_MAX_RETRIES = 6
+LLM_MAX_RETRIES = int(os.environ.get("SHADOWBOX_LLM_RETRIES", "9"))  # backoff 1,2,4..60 s: ~4 min before an item counts as an API error
 # Crusoe limits each model to 600 requests/min with a payment method on file (30 without one).
 # Requests are throttled client-side below this so bursts don't turn into 429s.
 RPM_PER_MODEL = int(os.environ.get("SHADOWBOX_RPM", "500"))

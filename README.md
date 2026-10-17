@@ -29,7 +29,7 @@ Built at the Recursive Agents Hackathon (Cerebral Valley x Crusoe), Version N+1 
 4. [Architecture in depth](#architecture-in-depth)
 5. [Configuration reference](#configuration-reference)
 6. [Output layout](#output-layout)
-7. [Results from earlier runs](#results-from-earlier-runs)
+7. [Results (run 3)](#results-run-3)
 8. [Repository layout](#repository-layout)
 
 ---
@@ -598,9 +598,9 @@ Real results in `runs/` and `versions/` are meant to be committed as evidence. M
 
 ---
 
-## Results from earlier runs
+## Results (run 3)
 
-Earlier real runs were archived by renaming their folders (`runs_run1/` with `versions_run1/`, and so on; the `runs_pre*/` folders are aborted warm-ups). The current run always lives in `runs/` and `versions/`. Run 3 (30-minute budget, 7 rounds, about $0.96 in total) is the most complete so far. Its held-out results on 92 problems:
+Run 3 is the run we present. It lives in `runs_run3/` with `versions_run3/` (a run is archived by renaming its folders; a new run always writes to `runs/` and `versions/`). It used a 30-minute budget and ran 7 rounds in about 26 minutes, with 0 human interventions and $0.96 in total spend (3,466 LLM calls). On validation, the Builder went from 43.3% to 50.0% and the Breaker's catch rate on the frozen bug pool from 68.3% to 80.5%. Its held-out results on 92 problems:
 
 | | Pass rate |
 |---|---|
@@ -650,3 +650,22 @@ docs/CONTRACT.md   engine / API / UI data contract
 demo.json          presenter settings for demo mode
 PRD.md, DEMO_SCRIPT.md
 ```
+
+## Replaying a finished run (for recording the demo)
+
+Replays a recorded run at speed, so the dashboard fills in exactly as it did live: baselines, rounds,
+gate decisions, the arms-race chart and finally the held-out exam. Every number is from that run.
+
+```bash
+SHADOWBOX_REPLAY=runs_run3 SHADOWBOX_REPLAY_SPEED=20 SHADOWBOX_PORT=8001 .venv/bin/python -m server.api
+```
+
+Then open http://localhost:8001. The replay starts **paused at 0:00**. The replay bar under the
+arms-race chart shows **REPLAY · 20× SPEED**, a progress bar and the recorded run time (e.g. 3:48 / 25:38):
+
+- **Play / Pause / Resume** controls playback; **↺** goes back to the start (paused); **Replay again** appears at the end.
+- `SHADOWBOX_REPLAY`: any run folder (`runs_run3`, `runs_run5`, `runs` ...); its `versions_*` folder is used automatically.
+- `SHADOWBOX_REPLAY_SPEED`: 20 plays run 3 (25.6 min) in about 77 s; 30 in about 51 s.
+- Final-exam results appear only once the replay reaches them.
+- API: `POST /api/replay/play|pause|restart`, `GET /api/replay/runs`, `POST /api/replay/select?run=runs_run5`.
+- In the Claude desktop app, `.claude/launch.json` has a `replay-run3` preview config that does all of this.

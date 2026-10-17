@@ -2,8 +2,18 @@
   "project": "Shadowbox",
   "tagline": "AI teams that get better by fighting themselves",
   "team": [
-    {"name": "Your Name", "photo": null},
-    {"name": "Teammate", "photo": null}
+    {
+      "name": "Swarchis Kulkarni",
+      "photo": null
+    },
+    {
+      "name": "Aditya Singampalli",
+      "photo": null
+    },
+    {
+      "name": "Bhargav Nemani",
+      "photo": null
+    }
   ],
-  "repo_url": "https://github.com/your-org/shadowbox"
+  "repo_url": "https://github.com/swarchis/Shadowbox"
 }

@@ -61,7 +61,7 @@ export function normState(v: unknown): RunState {
   // A "running" state with no update for 5 minutes means the engine was killed without saying so:
   // never show a dead run as live.
   const updated = st.updated_at ? Date.parse(st.updated_at) : NaN
-  if (st.status === 'running' && Number.isFinite(updated) && Date.now() - updated > STALE_MS) {
+  if (st.status === 'running' && !st.replay && Number.isFinite(updated) && Date.now() - updated > STALE_MS) {
     const mins = Math.round((Date.now() - updated) / 60000)
     return { ...st, status: 'stopped', message: `No activity from the engine for ${mins} min; it may have been stopped. Rerun the same command to resume.` }
   }

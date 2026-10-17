@@ -27,6 +27,9 @@ from fastapi.middleware.cors import CORSMiddleware  # noqa: E402
 from fastapi.responses import FileResponse, JSONResponse  # noqa: E402
 
 from engine import config  # noqa: E402
+from server import replay as _replay_mod  # noqa: E402
+
+REPLAY: "_replay_mod.Replay | None" = None  # set by choose_data_dirs when SHADOWBOX_REPLAY is set
 
 TEAMS = ("builder", "breaker")
 _ROUND_DIR_RE = re.compile(r"^round_(\d+)$")
@@ -141,7 +144,7 @@ app = FastAPI(title="Shadowbox API", version="1.0.0", docs_url="/api/docs", open
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_methods=["GET", "HEAD", "OPTIONS"],
+    allow_methods=["GET", "HEAD", "OPTIONS", "POST"],
     allow_headers=["*"],
 )
 
@@ -191,7 +194,74 @@ def get_state() -> dict:
     out = _fill(state, defaults)
     if not isinstance(out.get("splits"), dict) or not out["splits"]:
         out["splits"] = _default_splits()
+    if REPLAY:
+        out = REPLAY.state(out)
     return out
+
+
+_REPLAY_NAME_RE = re.compile(r"^runs(_[A-Za-z0-9]+)?$")
+
+
+def _replayable_runs() -> list[dict]:
+    """Finished or running real runs that have a timeline and a chart (mock and aborted folders are left out)."""
+    out = []
+    for d in sorted(_root_dir().glob("runs*")):
+        if not d.is_dir() or not _REPLAY_NAME_RE.match(d.name) or "mock" in d.name:
+            continue
+        if not ((d / "events.jsonl").is_file() and (d / "series.json").is_file()):
+            continue
+        series = _read_obj(d / "series.json")
+        pts = _dict_items(series.get("points"))
+        if len(pts) < 2 or (len(pts) < 4 and d.name != "runs" and not (d / "final" / "final.json").is_file()):
+            continue  # aborted attempts: too short to be worth replaying
+        first, last = pts[0], pts[-1]
+        out.append({"run": d.name, "label": "latest run" if d.name == "runs" else d.name.replace("runs_", "").replace("run", "run "),
+                    "rounds": len(pts) - 1, "builder": [first.get("builder_val_pass"), last.get("builder_val_pass")],
+                    "breaker": [first.get("breaker_pool_catch"), last.get("breaker_pool_catch")]})
+    return out
+
+
+@app.get("/api/replay/runs")
+def list_replay_runs() -> dict:
+    return {"current": REPLAY.runs.name if REPLAY else None, "runs": _replayable_runs() if REPLAY else []}
+
+
+@app.post("/api/replay/select")
+def select_replay_run(run: str = Query(...)) -> dict:
+    global REPLAY
+    if not REPLAY:
+        raise HTTPException(status_code=404, detail="Not in replay mode")
+    if run not in {r["run"] for r in _replayable_runs()}:
+        raise HTTPException(status_code=400, detail="Unknown run")
+    runs = _root_dir() / run
+    config.RUNS_DIR = runs
+    config.VERSIONS_DIR = runs.parent / runs.name.replace("runs", "versions", 1)
+    REPLAY = _replay_mod.Replay(runs, REPLAY.speed)
+    return REPLAY.info()
+
+
+@app.post("/api/replay/play")
+def play_replay() -> dict:
+    if not REPLAY:
+        raise HTTPException(status_code=404, detail="Not in replay mode")
+    REPLAY.play()
+    return REPLAY.info()
+
+
+@app.post("/api/replay/pause")
+def pause_replay() -> dict:
+    if not REPLAY:
+        raise HTTPException(status_code=404, detail="Not in replay mode")
+    REPLAY.pause()
+    return REPLAY.info()
+
+
+@app.post("/api/replay/restart")
+def restart_replay() -> dict:
+    if not REPLAY:
+        raise HTTPException(status_code=404, detail="Not in replay mode")
+    REPLAY.restart()
+    return REPLAY.info()
 
 
 # ------------------------------------------------------------------ simple file-backed endpoints
@@ -200,13 +270,15 @@ def get_state() -> dict:
 @app.get("/api/series")
 def get_series() -> dict:
     data = _read_obj(_runs_dir() / "series.json")
-    return {**data, "points": _dict_items(data.get("points")), "changes": _dict_items(data.get("changes"))}
+    out = {**data, "points": _dict_items(data.get("points")), "changes": _dict_items(data.get("changes"))}
+    return REPLAY.series(out) if REPLAY else out
 
 
 @app.get("/api/lineage")
 def get_lineage() -> dict:
     data = _read_obj(_versions_dir() / "lineage.json")
-    return {**data, "entries": _dict_items(data.get("entries"))}
+    out = {**data, "entries": _dict_items(data.get("entries"))}
+    return REPLAY.lineage(out) if REPLAY else out
 
 
 def _version_pair(value: Any) -> dict:
@@ -216,7 +288,7 @@ def _version_pair(value: Any) -> dict:
 
 @app.get("/api/final")
 def get_final() -> dict:
-    data = _read_obj(_runs_dir() / "final" / "final.json")
+    data = _read_obj(_runs_dir() / "final" / "final.json") if not REPLAY or REPLAY.final_visible() else {}
     metrics = {key: (value if isinstance(value, dict) else None) for key, value in _as_dict(data.get("metrics")).items()}
     metrics = {**{key: None for key in FINAL_METRIC_KEYS}, **metrics}
     out = _fill(data, {
@@ -235,13 +307,13 @@ def get_final() -> dict:
 
 @app.get("/api/selection-examples")
 def get_selection_examples() -> dict:
-    data = _read_obj(_runs_dir() / "final" / "selection_examples.json")
+    data = _read_obj(_runs_dir() / "final" / "selection_examples.json") if not REPLAY or REPLAY.final_visible() else {}
     return {**data, "examples": _dict_items(data.get("examples"))}
 
 
 @app.get("/api/demo-cases")
 def get_demo_cases() -> dict:
-    data = _read_obj(_runs_dir() / "final" / "demo_cases.json")
+    data = _read_obj(_runs_dir() / "final" / "demo_cases.json") if not REPLAY or REPLAY.final_visible() else {}
     return {**data, "cases": _dict_items(data.get("cases"))}
 
 
@@ -285,12 +357,14 @@ def get_rounds() -> dict:
             "breaker_version": match.get("breaker_version"),
             **{key: summary[key] for key in SUMMARY_KEYS},
         })
-    return {"rounds": rounds}
+    return REPLAY.rounds({"rounds": rounds}) if REPLAY else {"rounds": rounds}
 
 
 @app.get("/api/rounds/{n}/match")
 def get_round_match(n: int) -> dict:
     match = _read_obj(_runs_dir() / f"round_{n}" / "match.json") if n >= 0 else {}
+    if REPLAY and n not in REPLAY.rounds_done():
+        match = {}
     out = _fill(match, {"round": n, "builder_version": None, "breaker_version": None})
     out["summary"] = _summary(match)
     out["problems"] = [p for p in _as_list(match.get("problems")) if isinstance(p, dict)]
@@ -413,6 +487,11 @@ def _read_events(path: Path, since: int) -> tuple[list[dict], int]:
 @app.get("/api/events")
 def get_events(since: int = Query(0)) -> dict:
     events, count = _read_events(_runs_dir() / "events.jsonl", max(0, since))
+    if REPLAY:  # only what had happened by the replay clock; seq stays the file line index
+        t = REPLAY.now()
+        upto = next((e["seq"] for e in events if (_replay_mod._ts(e.get("ts")) or 0) > t), count)
+        events = [e for e in events if e["seq"] < upto]
+        count = max(since, upto)
     return {"events": events, "next": count}
 
 
@@ -490,6 +569,11 @@ def get_live(limit: int = Query(12, ge=1, le=40)) -> dict:
     if not files:
         return {"source": None, "label": None, "team": None, "updated_at": None, "items": []}
     newest = max(files, key=lambda f: f.stat().st_mtime)
+    if REPLAY:
+        src, _ = REPLAY.live_source()
+        if src is None:
+            return {"source": None, "label": None, "team": None, "updated_at": None, "items": []}
+        newest = src
     stem = newest.stem
     label, kind = None, "builder"
     for rx, fn, k in _LIVE_LABELS:
@@ -513,6 +597,14 @@ def get_live(limit: int = Query(12, ge=1, le=40)) -> dict:
             if isinstance(r, dict):
                 items.append(_live_item(r.get("problem_id") or key.split("#")[0], r, kind, pool))
     items.reverse()  # newest first (rows are saved in completion order)
+    if REPLAY:  # keep the feed moving through the recorded rows
+        allrows = [r for r in (rows or []) if isinstance(r, dict)] if kind == "match" else \
+            [(k, r) for k, r in (rows or []) if isinstance(r, dict)]
+        picked = REPLAY.window(allrows, limit)
+        items = [_live_item(r.get("problem_id", "?"), r, kind, pool) if kind == "match"
+                 else _live_item(r[1].get("problem_id") or r[0].split("#")[0], r[1], kind, pool) for r in picked]
+        return {"source": stem, "label": label, "team": "builder" if kind == "match" else kind,
+                "updated_at": _replay_mod._iso(__import__("time").time()) if REPLAY.playing else None, "items": items}
     import datetime as _dt
 
     return {"source": stem, "label": label, "team": "builder" if kind == "match" else kind,
@@ -545,6 +637,14 @@ def choose_data_dirs() -> str:
     """Which run to show; see engine.store.select_run_dirs (real run if present, else mock)."""
     from engine.store import select_run_dirs
 
+    global REPLAY
+    name = os.environ.get("SHADOWBOX_REPLAY")
+    if name:
+        runs = Path(name) if os.path.isabs(name) else _root_dir() / name
+        config.RUNS_DIR = runs
+        config.VERSIONS_DIR = runs.parent / runs.name.replace("runs", "versions", 1)
+        REPLAY = _replay_mod.from_env(_root_dir())
+        return f"replay ({REPLAY.speed:g}x)"
     return select_run_dirs()
 
 

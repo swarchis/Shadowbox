@@ -168,8 +168,13 @@ SWEEP = {"builder": [("reference", True), ("drafts", 3), ("use_planner", True), 
 
 
 def next_sweep(team: str, cur, round_no: int | None = None) -> dict | None:
-    tried = {(e.get("param"), json.dumps(e.get("value"))) for e in playbook.read_lineage() if e["team"] == team and e.get("param")}
-    for name, value in SWEEP.get(team, []):
+    # a test thrown out for API errors never measured anything, so that setting is still untried
+    tried = {(e.get("param"), json.dumps(e.get("value"))) for e in playbook.read_lineage()
+             if e["team"] == team and e.get("param") and (e.get("errors") or 0) <= gatekeeper.MAX_GATE_ERRORS}
+    order = SWEEP.get(team, [])
+    if config.think_allowed(round_no):  # the round reasoning is unlocked, test it first
+        order = sorted(order, key=lambda nv: nv[0] != "think")
+    for name, value in order:
         if name == "think" and not config.think_allowed(round_no):
             continue  # exploration runs: improvements must come from learned tools, memory and rules
         if cur.params.get(name) != value and (name, json.dumps(value)) not in tried:
