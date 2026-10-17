@@ -18,6 +18,7 @@
 import type {
   DemoCases,
   DemoConfig,
+  LiveFeed,
   EventsPage,
   FinalExam,
   Lineage,
@@ -159,4 +160,14 @@ export const fetchEvents = (since = 0) =>
       return { events: all.events.filter((e) => e.seq >= since), next: all.next }
     },
     normEvents,
+  )
+
+export const fetchLive = () =>
+  getJson<LiveFeed>(
+    '/api/live?limit=12',
+    () => ({ source: null, label: null, team: null, updated_at: null, items: [] }),
+    (raw) => {
+      const d = (raw ?? {}) as Partial<LiveFeed>
+      return { source: d.source ?? null, label: d.label ?? null, team: d.team ?? null, updated_at: d.updated_at ?? null, items: Array.isArray(d.items) ? d.items : [] }
+    },
   )

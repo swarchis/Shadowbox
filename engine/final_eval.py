@@ -413,7 +413,7 @@ async def run_final(llm: LLMClient | None = None, *, limit: int | None = None, n
             assemble(limit=limit)
         else:
             store.event("time_budget", f"Skipping transfer-after (needs ~{fmt(need)}, {fmt(BUDGET.left())} left)")
-    if _flag("SHADOWBOX_FINAL_BREAKER_V0") and kbest.version != 0:
+    if _flag("SHADOWBOX_FINAL_BREAKER_V0", default=False) and kbest.version != 0:  # optional extra, off by default
         if BUDGET.fits(sel_s):
             await selection("breaker_v0", drafts, n, "breaker", k0, llm)
         else:

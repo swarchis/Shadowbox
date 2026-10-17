@@ -5,6 +5,7 @@ import { ArmsRaceChart, ArmsRaceLegend } from '../components/ArmsRaceChart'
 import { Card, CardHeader, fadeUp, stagger } from '../components/Card'
 import { EventFeed } from '../components/EventFeed'
 import { LiveRunPanel } from '../components/LiveRunPanel'
+import { LiveWorkbench } from '../components/LiveWorkbench'
 import { MatchGrid } from '../components/MatchGrid'
 import { StatTile } from '../components/StatTile'
 import { useData } from '../lib/DataContext'
@@ -127,6 +128,8 @@ export function OverviewView() {
         </Card>
         <LiveRunPanel />
       </div>
+
+      <LiveWorkbench />
 
       <div className="grid gap-4 lg:grid-cols-3">
         <div className="lg:col-span-2">

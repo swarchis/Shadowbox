@@ -420,6 +420,106 @@ def get_events(since: int = Query(0)) -> dict:
 # Registered last so every /api route above wins.
 
 
+# ------------------------------------------------------------------ live view
+_LIVE_LABELS = [
+    (re.compile(r"^r(\d+)-builder-c(\d+)_val$"), lambda m: f"Round {m[1]} · gate · Builder candidate {int(m[2]) + 1}", "builder"),
+    (re.compile(r"^builder_(\d+)_val$"), lambda m: f"Builder v{m[1]} · validation", "builder"),
+    (re.compile(r"^bugpool_extra(\d+)$"), lambda m: "Setup · Builder v0 drafts for the bug pool", "builder"),
+    (re.compile(r"^r(\d+)-breaker-c(\d+)_pool$"), lambda m: f"Round {m[1]} · gate · Breaker candidate {int(m[2]) + 1}", "breaker"),
+    (re.compile(r"^breaker_(\d+)_pool$"), lambda m: f"Breaker v{m[1]} · frozen bug pool", "breaker"),
+    (re.compile(r"^test_(.+)$"), lambda m: f"Final exam · {m[1].replace('_', ' ')}", "builder"),
+    (re.compile(r"^drafts_d(\d+)$"), lambda m: f"Final exam · draft {int(m[1]) + 1}", "builder"),
+    (re.compile(r"^match$"), None, "match"),
+]
+
+
+def _ports(pid: str) -> tuple[list[dict], str]:
+    try:
+        from engine.dataset import load_problems
+
+        p = load_problems().get(pid)
+        if p:
+            return [x.to_dict() for x in p.ports], p.spec
+    except Exception:
+        pass
+    return [], ""
+
+
+def _bits(v: Any, w: int) -> str:
+    try:
+        return format(int(v), f"0{max(1, int(w))}b")
+    except (TypeError, ValueError):
+        return str(v)
+
+
+def _live_item(pid: str, row: dict, kind: str, pool_code: dict) -> dict:
+    ports, spec = _ports(pid)
+    widths = {p["name"]: p["width"] for p in ports}
+    item = {"problem_id": pid, "spec": spec[:600], "ports": ports, "code": None, "compiled": None, "attempts": None,
+            "official": None, "attack": None, "tools": [], "error": None}
+    if kind == "breaker":  # an attack on a frozen buggy design
+        item["code"] = pool_code.get(row.get("id"))
+        item["compiled"] = True
+        item["attack"] = {"cycles": row.get("cycles"), "found_bug": bool(row.get("caught")),
+                          "first_mismatch": row.get("first_mismatch"), "stimulus": None}
+        item["official"] = {"passed": False, "kind": "known buggy design"}
+        return item
+    build = row.get("build") if kind == "match" else row
+    item.update(code=(build or {}).get("code"), compiled=(build or {}).get("compiled"), attempts=(build or {}).get("attempts"),
+                error=(build or {}).get("error"), tools=(build or {}).get("tool_reports") or [])
+    # builder result rows use "passed"; final-exam draft rows use "official_pass"
+    off = row.get("official") if kind == "match" else {"passed": row.get("passed", row.get("official_pass")), "kind": row.get("kind")}
+    if isinstance(off, dict):
+        item["official"] = {"passed": bool(off.get("passed")), "kind": off.get("kind")}
+    a = row.get("attack") if kind == "match" else None
+    if isinstance(a, dict):
+        stim = a.get("stimulus") or []
+        item["attack"] = {"cycles": a.get("stimulus_cycles"), "found_bug": bool(a.get("valid_bug")),
+                          "first_mismatch": a.get("first_mismatch"),
+                          "stimulus": [{k: _bits(v, widths.get(k, 1)) for k, v in c.items()} for c in stim[:8]]}
+    return item
+
+
+@app.get("/api/live")
+def get_live(limit: int = Query(12, ge=1, le=40)) -> dict:
+    """What the agents are working on right now, read from the engine's progress files (newest first)."""
+    runs = _runs_dir()
+    files = [*runs.glob("cache/*.json"), *runs.glob("final/test_*.json"), *runs.glob("final/drafts_d*.json"),
+             *runs.glob("round_*/match.json")]
+    files = [f for f in files if f.is_file()]
+    if not files:
+        return {"source": None, "label": None, "team": None, "updated_at": None, "items": []}
+    newest = max(files, key=lambda f: f.stat().st_mtime)
+    stem = newest.stem
+    label, kind = None, "builder"
+    for rx, fn, k in _LIVE_LABELS:
+        m = rx.match(stem)
+        if m:
+            kind = k
+            label = fn(m) if fn else f"Round {newest.parent.name.split('_')[-1]} · training match"
+            break
+    data = _read_json(newest)
+    if not isinstance(data, dict):
+        return {"source": stem, "label": label, "team": kind, "updated_at": None, "items": []}
+    rows = data.get("problems") if kind == "match" else list((data.get("results") or {}).items())
+    pool = {e.get("id"): e.get("code") for e in (_read_json(runs / "bug_pool.json") or {}).get("entries", [])} if kind == "breaker" else {}
+    items = []
+    if kind == "match":
+        for r in (rows or [])[-limit:]:
+            if isinstance(r, dict):
+                items.append(_live_item(r.get("problem_id", "?"), r, kind, pool))
+    else:
+        for key, r in (rows or [])[-limit:]:
+            if isinstance(r, dict):
+                items.append(_live_item(r.get("problem_id") or key.split("#")[0], r, kind, pool))
+    items.reverse()  # newest first (rows are saved in completion order)
+    import datetime as _dt
+
+    return {"source": stem, "label": label, "team": "builder" if kind == "match" else kind,
+            "updated_at": _dt.datetime.fromtimestamp(newest.stat().st_mtime, _dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "items": items}
+
+
 @app.get("/{full_path:path}", include_in_schema=False)
 def serve_frontend(full_path: str):
     if full_path == "api" or full_path.startswith("api/"):

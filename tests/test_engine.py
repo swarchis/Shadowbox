@@ -805,13 +805,14 @@ def test_mini_mock_loop_completes_and_rerun_is_noop(isolated):
         assert {"code", "compiled", "attempts", "steps", "tool_reports"} <= set(row["build"])
 
     gate = store.read_json(r1 / "builder_gate.json")
-    assert gate["complete"] is True and gate["team"] == "builder" and len(gate["entries"]) == 2  # k=1 coach proposal + 1 settings-sweep proposal
-    assert gate["entries"][-1]["source"] == "sweep"
+    # k=1 coach proposal + 1 settings-sweep proposal (+ 1 memory proposal when the round had verified solutions)
+    assert gate["complete"] is True and gate["team"] == "builder" and len(gate["entries"]) in (2, 3)
+    assert [e["source"] for e in gate["entries"]][:2] == ["coach", "sweep"]
 
     series = store.read_json(runs / "series.json")
     assert [p["round"] for p in series["points"]] == [0, 1]
     lineage = store.read_json(versions / "lineage.json")["entries"]
-    assert sorted(e["id"] for e in lineage) == ["r1-breaker-c0", "r1-builder-c0", "r1-builder-c1"]
+    assert {"r1-breaker-c0", "r1-builder-c0", "r1-builder-c1"} <= {e["id"] for e in lineage}
     assert all(e["accepted"] == (e["new_version"] is not None) for e in lineage)
     assert store.read_state()["mode"] == "mock"
 

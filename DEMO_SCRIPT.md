@@ -13,6 +13,8 @@
 4. Read the real numbers off the Final Exam tab and put them in place of [X]/[Y]/[Z] below.
 5. Press **D** to start Demo mode, and **R** to restart it from the top. Keep the webcam bubble bottom-right; scene 1 leaves room for it.
 
+**Optional live opener (only if a run is going while you present or record):** before pressing **D**, spend about 5 seconds on the Overview tab's **Live** section (under the Arms Race chart). It shows what the agents are building right now: the circuit as a block diagram, the Builder's Verilog, and the checks it just went through, ending with the official grade (hidden from the agents). Say: *"This is running live right now: the Builder just wrote this circuit, and the official grade on the right is hidden from it."* Then press **D**. If you use it, trim Scene 2 by 5 seconds to stay inside one minute.
+
 ---
 
 ### Scene 1: Intro (0:00–0:08)
@@ -72,6 +74,15 @@
 ---
 
 ## Q&A backup (not in the minute)
+- **Live view (Overview tab, under the Arms Race chart):** watch any run in real time.
+  - **Feed:** the newest designs on the left, with ✓ pass, ✗ fail, or a bug icon when the Breaker caught one. Click a design to pin it; "Following live" jumps back to the newest.
+  - **Circuit:** the module's block diagram (inputs, outputs, bit widths, a clock marker) next to the Builder's Verilog.
+  - **Checks:** the tiles show only what actually happened to that design:
+    - **Builder:** wrote it, compiled with Icarus Verilog, number of tries.
+    - **Team tool checks:** only once the coaches have added tools.
+    - **Breaker attack:** in each round's training match, with the input table and the cycle where the output went wrong, confirmed against the reference.
+    - **Official grade:** always last, labelled hidden from the agents.
+  - **Good answer to "how do you know the agents can't see the answers?":** point at that last tile.
 These are the full app tabs to click into when judges ask:
 - **Evolution:** every change the coaches proposed, with reasoning, accepted or rejected, and agent-written tools with their code.
 - **Live Match:** red-to-green waveform on one problem, v0 vs latest.

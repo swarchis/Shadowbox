@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Check, ChevronDown, FileText, ListPlus, ListX, MessageSquareText, SlidersHorizontal, Wrench, X } from 'lucide-react'
+import { BookMarked, Check, ChevronDown, FileText, ListPlus, ListX, MessageSquareText, SlidersHorizontal, Wrench, X } from 'lucide-react'
 import { useState, type ReactNode } from 'react'
 import { CHANGE_TYPE_LABEL, cx, money, pct, teamColor } from '../lib/format'
 import type { ChangeType, LineageEntry } from '../types'
@@ -12,6 +12,7 @@ const TYPE_ICON: Record<ChangeType, ReactNode> = {
   tool_add: <Wrench className="h-3 w-3" />,
   tool_remove: <Wrench className="h-3 w-3" />,
   param: <SlidersHorizontal className="h-3 w-3" />,
+  memory_add: <BookMarked className="h-3 w-3" />,
 }
 
 export function LineageCard({ e, onTool, index = 0 }: { e: LineageEntry; onTool?: (name: string) => void; index?: number }) {

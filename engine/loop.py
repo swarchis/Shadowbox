@@ -164,7 +164,7 @@ def _find_version(team: str, fingerprint: str, round_no: int) -> int | None:
 
 
 # Settings the team sweeps through on its own, one per round, in this order (the coach rarely explores them).
-SWEEP = {"builder": [("think", "low"), ("reference", True), ("drafts", 3), ("use_planner", True), ("think", "on")], "breaker": []}
+SWEEP = {"builder": [("reference", True), ("drafts", 3), ("use_planner", True), ("think", "on")], "breaker": []}
 
 
 def next_sweep(team: str, cur) -> dict | None:
@@ -205,6 +205,17 @@ async def run_gate(team: str, n: int, ctx: Ctx, match: dict, llm: LLMClient) -> 
         sweep = next_sweep(team, cur)
         if sweep:  # one untried setting of the team's own playbook per round, gated like any other change
             proposals = list(proposals) + [sweep]
+        if team == "builder":  # learning from history: remember this round's verified solutions (gated too)
+            from .memory import verified_from_match
+
+            fresh = verified_from_match(match, {m["problem_id"] for m in cur.memory})
+            if fresh:
+                proposals = list(proposals) + [{
+                    "change_type": "memory_add", "entries": fresh, "source": "memory",
+                    "summary": f"Memory: remember {len(fresh)} verified solution(s) from this round (memory -> {len(cur.memory) + len(fresh)})",
+                    "reasoning": "Training problems the team solved correctly this round (official test passed, no Breaker bug). "
+                                 "Similar new problems get them as worked examples.",
+                    "evidence_problems": [e["problem_id"] for e in fresh][:12]}]
         saved = {"from_version": cur.version, "proposals": proposals, "evidence": evidence, "cost_usd": cost}
         store.write_json(prop_path, saved)
     # Always gate against the version the proposals were written for, even if a crash happened after

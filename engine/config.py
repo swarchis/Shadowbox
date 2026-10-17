@@ -145,5 +145,5 @@ BUG_POOL_MAX = 50
 STIMULUS_MAX_CYCLES = 200
 RANDOM_STIMULUS_CYCLES = 120
 
-TEST_TIME_DRAFTS = int(os.environ.get("SHADOWBOX_DRAFTS", "5"))
+TEST_TIME_DRAFTS = int(os.environ.get("SHADOWBOX_DRAFTS", "3"))  # 3 keeps the (thinking) final exam short
 FINAL_RUNS = 3

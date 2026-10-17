@@ -104,6 +104,11 @@ async def _build_one(
     res = BuildResult(problem.id, None, False, 0)
     ports = [p.to_dict() for p in problem.ports]
     user = f"Specification:\n{problem.spec}\n"
+    k = int(pb.params.get("memory_k", 0) or 0)
+    if k and pb.memory:
+        from .memory import memory_block
+
+        user += memory_block(problem.spec, [m for m in pb.memory if m["problem_id"] != problem.id], k)
 
     think = str(pb.params.get("think", "off"))
 

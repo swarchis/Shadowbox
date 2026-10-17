@@ -43,6 +43,7 @@ export const CHANGE_TYPE_LABEL: Record<ChangeType, string> = {
   tool_add: 'New tool',
   tool_remove: 'Tool removed',
   param: 'Parameter',
+  memory_add: 'Memory',
 }
 
 export const STEP_LABEL: Record<Step, string> = {

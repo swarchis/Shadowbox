@@ -11,7 +11,7 @@ export type Step = 'match' | 'builder_coach' | 'builder_gate' | 'breaker_coach' 
  */
 export type AnyStep = Step | (string & {})
 export type Team = 'builder' | 'breaker'
-export type ChangeType = 'prompt_edit' | 'rule_add' | 'rule_remove' | 'tool_add' | 'tool_remove' | 'param'
+export type ChangeType = 'prompt_edit' | 'rule_add' | 'rule_remove' | 'tool_add' | 'tool_remove' | 'param' | 'memory_add'
 
 /** Verilog bit string, e.g. "0101"; may contain x / z. */
 export type Bits = string
@@ -367,4 +367,38 @@ export interface RunEvent {
 export interface EventsPage {
   events: RunEvent[]
   next: number
+}
+
+// ---------- GET /api/live ----------
+export interface LivePort {
+  name: string
+  direction: 'input' | 'output' | string
+  width: number
+}
+
+export interface LiveItem {
+  problem_id: string
+  spec: string
+  ports: LivePort[]
+  code: string | null
+  compiled: boolean | null
+  attempts: number | null
+  /** grade from the official testbench: the agents never see it */
+  official: { passed: boolean; kind: string | null } | null
+  attack: {
+    cycles: number | null
+    found_bug: boolean
+    first_mismatch: { cycle?: number; phase?: string; signal?: string; expected?: string; got?: string; inputs?: Record<string, number> } | null
+    stimulus: Record<string, string>[] | null
+  } | null
+  tools: { tool: string; fired?: boolean; findings?: string[] }[]
+  error: string | null
+}
+
+export interface LiveFeed {
+  source: string | null
+  label: string | null
+  team: Team | null
+  updated_at: string | null
+  items: LiveItem[]
 }

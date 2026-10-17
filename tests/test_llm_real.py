@@ -187,13 +187,13 @@ def test_extract_code_prefers_the_design_over_a_testbench():
 def test_builder_think_setting_reaches_the_api():
     playbook.ensure_v0()
     pb = playbook.load("builder", 0).clone()
-    assert pb.params["think"] == "off"  # v0 is the cheap baseline
-    pb.params["think"] = "low"
+    assert pb.params["think"] == "low"  # thinking is part of the v0 baseline
+    pb.params["think"] = "on"
     code = "```verilog\nmodule TopModule(output zero);\n  assign zero = 1'b0;\nendmodule\n```"
     c, fake = client_with([_resp(code)])
     asyncio.run(build(load_problems()["Prob001_zero"], pb, c))
     kw = fake.calls[0]["extra_body"]["chat_template_kwargs"]
-    assert kw["enable_thinking"] is True and kw["low_effort"] is True
+    assert kw["enable_thinking"] is True and "low_effort" not in kw
     assert fake.calls[0]["max_tokens"] == config.THINKING_MAX_TOKENS
 
 
@@ -202,7 +202,7 @@ def test_coach_can_set_think_but_not_garbage():
 
     playbook.ensure_v0()
     pb = playbook.load("builder", 0)
-    cand, err = coach.apply(pb, {"change_type": "param", "param": "think", "value": "low"}, [], "c")
-    assert err is None and cand.params["think"] == "low"
+    cand, err = coach.apply(pb, {"change_type": "param", "param": "think", "value": "on"}, [], "c")
+    assert err is None and cand.params["think"] == "on"
     _, err = coach.apply(pb, {"change_type": "param", "param": "think", "value": "max"}, [], "c")
     assert err and "one of" in err

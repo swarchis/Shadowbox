@@ -32,6 +32,9 @@ class Playbook:
     rules: list[str] = field(default_factory=list)
     tools: list[str] = field(default_factory=list)
     params: dict = field(default_factory=dict)
+    # Verified solutions the team has collected: [{"problem_id", "spec", "code", "round"}]. Part of the playbook,
+    # so it is versioned, gated and travels with it (transfer to another model included).
+    memory: list[dict] = field(default_factory=list, repr=False)
     tool_sources: dict[str, str] = field(default_factory=dict, repr=False)  # not stored in playbook.json
 
     def to_json(self) -> dict:

@@ -9,10 +9,10 @@ from .llm import FatalLLMError, LLMClient, SpendCapExceeded, extract_json, fence
 from .playbook import Playbook, history_for_coach, read_lineage
 from .tools_runner import run_tool, screen_tool_code
 
-CHANGE_TYPES = {"rule_add", "rule_remove", "prompt_edit", "tool_add", "tool_remove", "param"}
+CHANGE_TYPES = {"rule_add", "rule_remove", "prompt_edit", "tool_add", "tool_remove", "param", "memory_add"}
 PARAMS = {
     "builder": {"max_debug_attempts": (int, 1, 3), "use_planner": (bool, None, None), "drafts": (int, 1, 5),
-                "think": (str, ("off", "low", "on"), None), "reference": (bool, None, None)},
+                "think": (str, ("off", "low", "on"), None), "reference": (bool, None, None), "memory_k": (int, 0, 4)},
     "breaker": {"max_cycles": (int, 8, config.STIMULUS_MAX_CYCLES)},
 }
 ROLES = {"builder": ["planner", "writer", "debugger"], "breaker": ["attacker", "multi_attacker"]}
@@ -220,6 +220,17 @@ def apply(pb: Playbook, prop: dict, evidence_ids: list[str], cand_id: str) -> tu
             return None, "no such tool"
         cand.tools.remove(name)
         cand.tool_sources.pop(name, None)
+    elif ct == "memory_add":  # system-generated from this round's verified solutions (never from the coach)
+        from .memory import MEMORY_CAP
+
+        entries = [e for e in (prop.get("entries") or []) if isinstance(e, dict) and e.get("code") and e.get("problem_id")]
+        known = {m["problem_id"] for m in cand.memory}
+        new_entries = [e for e in entries if e["problem_id"] not in known]
+        if not new_entries:
+            return None, "no new verified solutions to remember"
+        cand.memory = (cand.memory + new_entries)[-MEMORY_CAP:]
+        if not cand.params.get("memory_k"):
+            cand.params["memory_k"] = 2
     elif ct == "param":
         pname = prop.get("param")
         spec = PARAMS[team].get(pname) if isinstance(pname, str) else None
