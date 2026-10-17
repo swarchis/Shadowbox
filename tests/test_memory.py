@@ -35,7 +35,7 @@ def test_retrieval_finds_the_same_family():
 def test_memory_reaches_the_builder_prompt():
     playbook.ensure_v0()
     pb = playbook.load("builder", 0).clone()
-    assert pb.params["think"] == "low" and pb.params["memory_k"] == 0  # thinking is part of the baseline now
+    assert pb.params["think"] == "off" and pb.params["memory_k"] == 0
     pb.memory = [_entry("Prob050_kmap1")]
     pb.params["memory_k"] = 2
     seen = []

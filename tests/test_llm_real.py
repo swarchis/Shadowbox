@@ -187,7 +187,7 @@ def test_extract_code_prefers_the_design_over_a_testbench():
 def test_builder_think_setting_reaches_the_api():
     playbook.ensure_v0()
     pb = playbook.load("builder", 0).clone()
-    assert pb.params["think"] == "low"  # thinking is part of the v0 baseline
+    assert pb.params["think"] == "off"  # exploration baseline: no reasoning
     pb.params["think"] = "on"
     code = "```verilog\nmodule TopModule(output zero);\n  assign zero = 1'b0;\nendmodule\n```"
     c, fake = client_with([_resp(code)])
@@ -202,7 +202,22 @@ def test_coach_can_set_think_but_not_garbage():
 
     playbook.ensure_v0()
     pb = playbook.load("builder", 0)
-    cand, err = coach.apply(pb, {"change_type": "param", "param": "think", "value": "on"}, [], "c")
-    assert err is None and cand.params["think"] == "on"
-    _, err = coach.apply(pb, {"change_type": "param", "param": "think", "value": "max"}, [], "c")
-    assert err and "one of" in err
+    _, err = coach.apply(pb, {"change_type": "param", "param": "think", "value": "on"}, [], "c", round_no=1)
+    assert err and "disabled" in err  # exploration rounds: reasoning changes are off
+    import engine.config as cfg
+
+    old_after = cfg.THINK_AFTER_ROUND
+    cfg.THINK_AFTER_ROUND = 5
+    try:
+        _, err = coach.apply(pb, {"change_type": "param", "param": "think", "value": "on"}, [], "c", round_no=4)
+        assert err and "disabled" in err
+        cand, err = coach.apply(pb, {"change_type": "param", "param": "think", "value": "on"}, [], "c", round_no=5)
+        assert err is None and cand.params["think"] == "on"
+    finally:
+        cfg.THINK_AFTER_ROUND = old_after
+    cfg.ALLOW_THINK = True
+    try:
+        _, err = coach.apply(pb, {"change_type": "param", "param": "think", "value": "max"}, [], "c")
+        assert err and "one of" in err
+    finally:
+        cfg.ALLOW_THINK = False

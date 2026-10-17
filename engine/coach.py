@@ -106,7 +106,7 @@ async def propose(team: str, pb: Playbook, match: dict, llm: LLMClient, *, k: in
     if k >= 3:  # force exploration across change types, so structural ideas actually get measured
         system += ("\n\nDIVERSITY REQUIREMENT: your proposals must be of different kinds. Include exactly one rule change "
                    "(rule_add, rule_remove or prompt_edit), exactly one tool change (tool_add or tool_remove), and exactly one "
-                   "\"param\" change" + (" (for example \"think\", \"drafts\" for a team-structure change, or \"use_planner\")" if team == "builder" else "")
+                   "\"param\" change" + (" (for example \"drafts\" for a team-structure change, \"reference\", or \"use_planner\")" if team == "builder" else "")
                    + ". Any further proposals may be of any kind.")
     current = (f"Current playbook (version {pb.version}):\nRules:\n" + ("\n".join(f"{i}. {r}" for i, r in enumerate(pb.rules)) or "(none)") +
                f"\nTools: {', '.join(pb.tools) or '(none)'}\nParams: {pb.params}\n"
@@ -162,7 +162,7 @@ def parse_proposals(text: str, k: int) -> list[dict]:
     return props
 
 
-def apply(pb: Playbook, prop: dict, evidence_ids: list[str], cand_id: str) -> tuple[Playbook | None, str | None]:
+def apply(pb: Playbook, prop: dict, evidence_ids: list[str], cand_id: str, round_no: int | None = None) -> tuple[Playbook | None, str | None]:
     """Validate a proposal and produce the candidate playbook. Returns (candidate, None) or (None, reason)."""
     team = pb.team
     ct = prop.get("change_type")
@@ -233,6 +233,8 @@ def apply(pb: Playbook, prop: dict, evidence_ids: list[str], cand_id: str) -> tu
             cand.params["memory_k"] = 2
     elif ct == "param":
         pname = prop.get("param")
+        if pname == "think" and not config.think_allowed(round_no):
+            return None, "reasoning changes are disabled in this run (exploring tools, memory and rules)"
         spec = PARAMS[team].get(pname) if isinstance(pname, str) else None
         if not spec:
             return None, f"unknown param {prop.get('param')!r}"

@@ -164,12 +164,14 @@ def _find_version(team: str, fingerprint: str, round_no: int) -> int | None:
 
 
 # Settings the team sweeps through on its own, one per round, in this order (the coach rarely explores them).
-SWEEP = {"builder": [("reference", True), ("drafts", 3), ("use_planner", True), ("think", "on")], "breaker": []}
+SWEEP = {"builder": [("reference", True), ("drafts", 3), ("use_planner", True), ("think", "low")], "breaker": []}
 
 
-def next_sweep(team: str, cur) -> dict | None:
+def next_sweep(team: str, cur, round_no: int | None = None) -> dict | None:
     tried = {(e.get("param"), json.dumps(e.get("value"))) for e in playbook.read_lineage() if e["team"] == team and e.get("param")}
     for name, value in SWEEP.get(team, []):
+        if name == "think" and not config.think_allowed(round_no):
+            continue  # exploration runs: improvements must come from learned tools, memory and rules
         if cur.params.get(name) != value and (name, json.dumps(value)) not in tried:
             return {"change_type": "param", "param": name, "value": value, "source": "sweep",
                     "summary": f"Settings sweep: try {name} = {json.dumps(value)}",
@@ -202,7 +204,7 @@ async def run_gate(team: str, n: int, ctx: Ctx, match: dict, llm: LLMClient) -> 
         cur = playbook.load_current(team)
         _state(phase="round", round=n, step=f"{team}_coach", message=f"Round {n}: {team.title()} coach is reviewing the match")
         proposals, evidence, cost = await coach.propose(team, cur, match, llm, k=ctx.k, round_no=n, model_key=ctx.coach_model)
-        sweep = next_sweep(team, cur)
+        sweep = next_sweep(team, cur, n)
         if sweep:  # one untried setting of the team's own playbook per round, gated like any other change
             proposals = list(proposals) + [sweep]
         if team == "builder":  # learning from history: remember this round's verified solutions (gated too)
@@ -233,7 +235,7 @@ async def run_gate(team: str, n: int, ctx: Ctx, match: dict, llm: LLMClient) -> 
     entries, cands = [], []
     for i, prop in enumerate(proposals):
         cid = f"r{n}-{team}-c{i}"
-        cand, err = coach.apply(cur, prop, evidence, cid)
+        cand, err = coach.apply(cur, prop, evidence, cid, round_no=n)
         ct = prop.get("change_type")
         summary = prop.get("summary") if isinstance(prop.get("summary"), str) else None
         rule = prop.get("rule") if isinstance(prop.get("rule"), str) else None
@@ -398,6 +400,8 @@ async def run_loop(*, rounds: int | None, minutes: float | None, k: int, reserve
 
                     v0_pending = not (store.runs_dir() / "final" / "test_v0.json").exists()
                     est_final = budget.seconds_for_work(budget.final_work(n_test, DRAFT_MIN, v0_pending=v0_pending)) * 1.15
+                    if playbook.load_current("builder").params.get("think", "off") != "off":
+                        est_final *= 1.6  # throughput was measured partly before reasoning was turned on
                 if not B.fits(est_round + est_final):
                     store.event("time_budget", f"Stopping before round {n}: {budget.fmt(B.left())} left; a round takes ~{budget.fmt(est_round)} "
                                 f"and the final exam needs ~{budget.fmt(est_final)}")

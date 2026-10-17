@@ -119,7 +119,16 @@ MAX_TOKENS = {
 MAX_TOKENS_CEILING = 32768
 # With reasoning on, thinking shares the reply budget (measured ~4.4k tokens per Builder call), so allow more.
 THINKING_MAX_TOKENS = 16384
-BREAKER_THINKING = os.environ.get("SHADOWBOX_BREAKER_THINKING", "low")
+BREAKER_THINKING = os.environ.get("SHADOWBOX_BREAKER_THINKING", "off")  # fast exploration runs; set "low" for the final run
+# Exploration runs keep the Builder's reasoning off so improvements must come from learned tools, memory and rules.
+# The final demo run sets SHADOWBOX_ALLOW_THINK=1 so the team may also learn to turn reasoning on, on top of that.
+ALLOW_THINK = os.environ.get("SHADOWBOX_ALLOW_THINK", "0") == "1"
+# Staged runs: reasoning becomes an allowed change only from this round on (0 = never, unless ALLOW_THINK).
+THINK_AFTER_ROUND = int(os.environ.get("SHADOWBOX_THINK_AFTER_ROUND", "0"))
+
+
+def think_allowed(round_no: int | None) -> bool:
+    return ALLOW_THINK or (THINK_AFTER_ROUND > 0 and round_no is not None and round_no >= THINK_AFTER_ROUND)
 # Only long-form roles get the bigger-budget retry. A cut-off Breaker or Judge reply is a runaway
 # (e.g. a wide value spelled out bit by bit), not a budget problem: their parsers handle it instead.
 TRUNCATION_RETRY_ROLES = ("planner", "coach")  # a Builder reply past its limit is a ramble: the debugger fixes it

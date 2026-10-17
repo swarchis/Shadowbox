@@ -128,7 +128,7 @@ For "tool_add", do NOT put code inside the JSON. Set "tool_code" to "see block",
 
 BUILDER_V0 = {
     "prompts": {"planner": BUILDER_PLANNER_V0, "writer": BUILDER_WRITER_V0, "debugger": BUILDER_DEBUGGER_V0},
-    "params": {"max_debug_attempts": 2, "use_planner": False, "think": "low", "reference": False, "memory_k": 0},
+    "params": {"max_debug_attempts": 2, "use_planner": False, "think": "off", "reference": False, "memory_k": 0},
 }
 
 BREAKER_V0 = {
