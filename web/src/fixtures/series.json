@@ -1,0 +1,160 @@
+{
+  "points": [
+    {
+      "round": 0,
+      "builder_val_pass": 0.4,
+      "breaker_pool_catch": 0.52,
+      "builder_train_pass": 0.4,
+      "builder_hard_pass": 0.3667,
+      "builder_version": 0,
+      "breaker_version": 0
+    },
+    {
+      "round": 1,
+      "builder_val_pass": 0.5,
+      "breaker_pool_catch": 0.52,
+      "builder_train_pass": 0.4,
+      "builder_hard_pass": 0.3667,
+      "builder_version": 1,
+      "breaker_version": 0
+    },
+    {
+      "round": 2,
+      "builder_val_pass": 0.5,
+      "breaker_pool_catch": 0.6,
+      "builder_train_pass": 0.4667,
+      "builder_hard_pass": 0.4333,
+      "builder_version": 1,
+      "breaker_version": 1
+    },
+    {
+      "round": 3,
+      "builder_val_pass": 0.5667,
+      "breaker_pool_catch": 0.6,
+      "builder_train_pass": 0.5,
+      "builder_hard_pass": 0.4333,
+      "builder_version": 2,
+      "breaker_version": 1
+    },
+    {
+      "round": 4,
+      "builder_val_pass": 0.6333,
+      "breaker_pool_catch": 0.68,
+      "builder_train_pass": 0.5333,
+      "builder_hard_pass": 0.4667,
+      "builder_version": 3,
+      "breaker_version": 2
+    },
+    {
+      "round": 5,
+      "builder_val_pass": 0.6333,
+      "breaker_pool_catch": 0.76,
+      "builder_train_pass": 0.6,
+      "builder_hard_pass": 0.5,
+      "builder_version": 3,
+      "breaker_version": 3
+    },
+    {
+      "round": 6,
+      "builder_val_pass": 0.7,
+      "breaker_pool_catch": 0.76,
+      "builder_train_pass": 0.6333,
+      "builder_hard_pass": 0.5333,
+      "builder_version": 4,
+      "breaker_version": 3
+    }
+  ],
+  "changes": [
+    {
+      "round": 1,
+      "team": "builder",
+      "accepted": true,
+      "summary": "Use non-blocking assignments (<=) inside clocked always blocks",
+      "net_flips": 3
+    },
+    {
+      "round": 1,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Hold reset high for 3 cycles before releasing it",
+      "net_flips": 1
+    },
+    {
+      "round": 2,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Ask the writer to restate every port and its width before coding",
+      "net_flips": 0
+    },
+    {
+      "round": 2,
+      "team": "breaker",
+      "accepted": true,
+      "summary": "New tool edge_sweep: toggle every control input right at clock edges",
+      "net_flips": 2
+    },
+    {
+      "round": 3,
+      "team": "builder",
+      "accepted": true,
+      "summary": "New tool lint_check: flag blocking assigns, SystemVerilog-only keywords and missing ports",
+      "net_flips": 2
+    },
+    {
+      "round": 3,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Prefer continuous assign statements for purely combinational outputs",
+      "net_flips": -1
+    },
+    {
+      "round": 3,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "Drive the widest bus with all-ones and all-zeros vectors first",
+      "net_flips": 0
+    },
+    {
+      "round": 4,
+      "team": "builder",
+      "accepted": true,
+      "summary": "Put asynchronous resets in the sensitivity list: always @(posedge clk, posedge areset)",
+      "net_flips": 2
+    },
+    {
+      "round": 4,
+      "team": "breaker",
+      "accepted": true,
+      "summary": "Walk every FSM state at least once, then force each illegal transition",
+      "net_flips": 2
+    },
+    {
+      "round": 5,
+      "team": "builder",
+      "accepted": false,
+      "summary": "Raise max_debug_attempts from 2 to 3",
+      "net_flips": -1
+    },
+    {
+      "round": 5,
+      "team": "breaker",
+      "accepted": true,
+      "summary": "Read the design's case statements and aim inputs at the branches it is missing",
+      "net_flips": 2
+    },
+    {
+      "round": 6,
+      "team": "builder",
+      "accepted": true,
+      "summary": "Every case statement gets a default branch that assigns every output",
+      "net_flips": 2
+    },
+    {
+      "round": 6,
+      "team": "breaker",
+      "accepted": false,
+      "summary": "New tool x_probe: drive x and z values onto inputs to expose missing resets",
+      "net_flips": -1
+    }
+  ]
+}

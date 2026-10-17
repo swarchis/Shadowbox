@@ -1,0 +1,34 @@
+{
+  "team": "breaker",
+  "current": 3,
+  "versions": [
+    {
+      "version": 0,
+      "parent": null,
+      "rules": 0,
+      "tools": 0,
+      "created_round": null
+    },
+    {
+      "version": 1,
+      "parent": 0,
+      "rules": 0,
+      "tools": 1,
+      "created_round": 2
+    },
+    {
+      "version": 2,
+      "parent": 1,
+      "rules": 1,
+      "tools": 1,
+      "created_round": 4
+    },
+    {
+      "version": 3,
+      "parent": 2,
+      "rules": 1,
+      "tools": 1,
+      "created_round": 5
+    }
+  ]
+}

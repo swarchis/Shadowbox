@@ -1,0 +1,381 @@
+{
+  "events": [
+    {
+      "seq": 0,
+      "ts": "2026-10-16T22:00:00Z",
+      "type": "run_start",
+      "round": null,
+      "team": null,
+      "message": "Run started in mock mode: 30 train / 30 val / 92 test problems, $45 cap"
+    },
+    {
+      "seq": 1,
+      "ts": "2026-10-16T22:01:30Z",
+      "type": "baseline",
+      "round": 0,
+      "team": "builder",
+      "message": "Builder v0 baseline: 12/30 on validation (40%)"
+    },
+    {
+      "seq": 2,
+      "ts": "2026-10-16T22:05:30Z",
+      "type": "bug_pool",
+      "round": 0,
+      "team": "breaker",
+      "message": "Froze bug pool: 25 validated bugs from v0 designs. Breaker v0 catches 13 (52%)"
+    },
+    {
+      "seq": 3,
+      "ts": "2026-10-16T22:06:00Z",
+      "type": "round_start",
+      "round": 1,
+      "team": null,
+      "message": "Round 1 started: Builder v0 vs Breaker v0"
+    },
+    {
+      "seq": 4,
+      "ts": "2026-10-16T22:10:00Z",
+      "type": "match_done",
+      "round": 1,
+      "team": null,
+      "message": "Match: 12/30 passed, Breaker found 9 bugs (1 the official tests missed)"
+    },
+    {
+      "seq": 5,
+      "ts": "2026-10-16T22:12:48Z",
+      "type": "proposal",
+      "round": 1,
+      "team": "builder",
+      "message": "Builder coach proposed: Use non-blocking assignments (<=) inside clocked always blocks"
+    },
+    {
+      "seq": 6,
+      "ts": "2026-10-16T22:14:00Z",
+      "type": "gate_result",
+      "round": 1,
+      "team": "builder",
+      "message": "Accepted: +3 net problems → Builder v1"
+    },
+    {
+      "seq": 7,
+      "ts": "2026-10-16T22:14:48Z",
+      "type": "proposal",
+      "round": 1,
+      "team": "breaker",
+      "message": "Breaker coach proposed: Hold reset high for 3 cycles before releasing it"
+    },
+    {
+      "seq": 8,
+      "ts": "2026-10-16T22:16:00Z",
+      "type": "gate_result",
+      "round": 1,
+      "team": "breaker",
+      "message": "Rejected: +1 net bugs caught"
+    },
+    {
+      "seq": 9,
+      "ts": "2026-10-16T22:17:00Z",
+      "type": "round_start",
+      "round": 2,
+      "team": null,
+      "message": "Round 2 started: Builder v1 vs Breaker v0"
+    },
+    {
+      "seq": 10,
+      "ts": "2026-10-16T22:21:00Z",
+      "type": "match_done",
+      "round": 2,
+      "team": null,
+      "message": "Match: 14/30 passed, Breaker found 8 bugs (1 the official tests missed)"
+    },
+    {
+      "seq": 11,
+      "ts": "2026-10-16T22:21:48Z",
+      "type": "proposal",
+      "round": 2,
+      "team": "builder",
+      "message": "Builder coach proposed: Ask the writer to restate every port and its width before coding"
+    },
+    {
+      "seq": 12,
+      "ts": "2026-10-16T22:23:00Z",
+      "type": "gate_result",
+      "round": 2,
+      "team": "builder",
+      "message": "Rejected: 0 net problems"
+    },
+    {
+      "seq": 13,
+      "ts": "2026-10-16T22:24:48Z",
+      "type": "proposal",
+      "round": 2,
+      "team": "breaker",
+      "message": "Breaker coach proposed: New tool edge_sweep: toggle every control input right at clock edges"
+    },
+    {
+      "seq": 14,
+      "ts": "2026-10-16T22:26:00Z",
+      "type": "gate_result",
+      "round": 2,
+      "team": "breaker",
+      "message": "Accepted: +2 net bugs caught → Breaker v1"
+    },
+    {
+      "seq": 15,
+      "ts": "2026-10-16T22:26:06Z",
+      "type": "tool_born",
+      "round": 2,
+      "team": "breaker",
+      "message": "New tool in the breaker toolbox: edge_sweep"
+    },
+    {
+      "seq": 16,
+      "ts": "2026-10-16T22:28:00Z",
+      "type": "round_start",
+      "round": 3,
+      "team": null,
+      "message": "Round 3 started: Builder v1 vs Breaker v1"
+    },
+    {
+      "seq": 17,
+      "ts": "2026-10-16T22:31:48Z",
+      "type": "proposal",
+      "round": 3,
+      "team": "builder",
+      "message": "Builder coach proposed: New tool lint_check: flag blocking assigns, SystemVerilog-only keywords and missing ports"
+    },
+    {
+      "seq": 18,
+      "ts": "2026-10-16T22:32:00Z",
+      "type": "match_done",
+      "round": 3,
+      "team": null,
+      "message": "Match: 15/30 passed, Breaker found 11 bugs (2 the official tests missed)"
+    },
+    {
+      "seq": 19,
+      "ts": "2026-10-16T22:33:00Z",
+      "type": "gate_result",
+      "round": 3,
+      "team": "builder",
+      "message": "Accepted: +2 net problems → Builder v2"
+    },
+    {
+      "seq": 20,
+      "ts": "2026-10-16T22:33:06Z",
+      "type": "tool_born",
+      "round": 3,
+      "team": "builder",
+      "message": "New tool in the builder toolbox: lint_check"
+    },
+    {
+      "seq": 21,
+      "ts": "2026-10-16T22:33:48Z",
+      "type": "proposal",
+      "round": 3,
+      "team": "builder",
+      "message": "Builder coach proposed: Prefer continuous assign statements for purely combinational outputs"
+    },
+    {
+      "seq": 22,
+      "ts": "2026-10-16T22:35:00Z",
+      "type": "gate_result",
+      "round": 3,
+      "team": "builder",
+      "message": "Rejected: -1 net problems"
+    },
+    {
+      "seq": 23,
+      "ts": "2026-10-16T22:35:48Z",
+      "type": "proposal",
+      "round": 3,
+      "team": "breaker",
+      "message": "Breaker coach proposed: Drive the widest bus with all-ones and all-zeros vectors first"
+    },
+    {
+      "seq": 24,
+      "ts": "2026-10-16T22:37:00Z",
+      "type": "gate_result",
+      "round": 3,
+      "team": "breaker",
+      "message": "Rejected: 0 net bugs caught"
+    },
+    {
+      "seq": 25,
+      "ts": "2026-10-16T22:39:00Z",
+      "type": "round_start",
+      "round": 4,
+      "team": null,
+      "message": "Round 4 started: Builder v2 vs Breaker v1"
+    },
+    {
+      "seq": 26,
+      "ts": "2026-10-16T22:42:48Z",
+      "type": "proposal",
+      "round": 4,
+      "team": "builder",
+      "message": "Builder coach proposed: Put asynchronous resets in the sensitivity list: always @(posedge clk, posedge areset)"
+    },
+    {
+      "seq": 27,
+      "ts": "2026-10-16T22:43:00Z",
+      "type": "match_done",
+      "round": 4,
+      "team": null,
+      "message": "Match: 16/30 passed, Breaker found 10 bugs (2 the official tests missed)"
+    },
+    {
+      "seq": 28,
+      "ts": "2026-10-16T22:44:00Z",
+      "type": "gate_result",
+      "round": 4,
+      "team": "builder",
+      "message": "Accepted: +2 net problems → Builder v3"
+    },
+    {
+      "seq": 29,
+      "ts": "2026-10-16T22:45:48Z",
+      "type": "proposal",
+      "round": 4,
+      "team": "breaker",
+      "message": "Breaker coach proposed: Walk every FSM state at least once, then force each illegal transition"
+    },
+    {
+      "seq": 30,
+      "ts": "2026-10-16T22:47:00Z",
+      "type": "gate_result",
+      "round": 4,
+      "team": "breaker",
+      "message": "Accepted: +2 net bugs caught → Breaker v2"
+    },
+    {
+      "seq": 31,
+      "ts": "2026-10-16T22:50:00Z",
+      "type": "round_start",
+      "round": 5,
+      "team": null,
+      "message": "Round 5 started: Builder v3 vs Breaker v2"
+    },
+    {
+      "seq": 32,
+      "ts": "2026-10-16T22:52:48Z",
+      "type": "proposal",
+      "round": 5,
+      "team": "builder",
+      "message": "Builder coach proposed: Raise max_debug_attempts from 2 to 3"
+    },
+    {
+      "seq": 33,
+      "ts": "2026-10-16T22:54:00Z",
+      "type": "match_done",
+      "round": 5,
+      "team": null,
+      "message": "Match: 18/30 passed, Breaker found 12 bugs (3 the official tests missed)"
+    },
+    {
+      "seq": 34,
+      "ts": "2026-10-16T22:54:00Z",
+      "type": "gate_result",
+      "round": 5,
+      "team": "builder",
+      "message": "Rejected: -1 net problems"
+    },
+    {
+      "seq": 35,
+      "ts": "2026-10-16T22:55:48Z",
+      "type": "proposal",
+      "round": 5,
+      "team": "breaker",
+      "message": "Breaker coach proposed: Read the design's case statements and aim inputs at the branches it is missing"
+    },
+    {
+      "seq": 36,
+      "ts": "2026-10-16T22:57:00Z",
+      "type": "gate_result",
+      "round": 5,
+      "team": "breaker",
+      "message": "Accepted: +2 net bugs caught → Breaker v3"
+    },
+    {
+      "seq": 37,
+      "ts": "2026-10-16T23:00:00Z",
+      "type": "round_start",
+      "round": 6,
+      "team": null,
+      "message": "Round 6 started: Builder v3 vs Breaker v3"
+    },
+    {
+      "seq": 38,
+      "ts": "2026-10-16T23:02:48Z",
+      "type": "proposal",
+      "round": 6,
+      "team": "builder",
+      "message": "Builder coach proposed: Every case statement gets a default branch that assigns every output"
+    },
+    {
+      "seq": 39,
+      "ts": "2026-10-16T23:04:00Z",
+      "type": "match_done",
+      "round": 6,
+      "team": null,
+      "message": "Match: 19/30 passed, Breaker found 13 bugs (3 the official tests missed)"
+    },
+    {
+      "seq": 40,
+      "ts": "2026-10-16T23:04:00Z",
+      "type": "gate_result",
+      "round": 6,
+      "team": "builder",
+      "message": "Accepted: +2 net problems → Builder v4"
+    },
+    {
+      "seq": 41,
+      "ts": "2026-10-16T23:05:48Z",
+      "type": "proposal",
+      "round": 6,
+      "team": "breaker",
+      "message": "Breaker coach proposed: New tool x_probe: drive x and z values onto inputs to expose missing resets"
+    },
+    {
+      "seq": 42,
+      "ts": "2026-10-16T23:07:00Z",
+      "type": "gate_result",
+      "round": 6,
+      "team": "breaker",
+      "message": "Rejected: -1 net bugs caught"
+    },
+    {
+      "seq": 43,
+      "ts": "2026-10-16T23:11:00Z",
+      "type": "final_start",
+      "round": null,
+      "team": null,
+      "message": "Final exam started on 92 held-out problems (3 runs each)"
+    },
+    {
+      "seq": 44,
+      "ts": "2026-10-16T23:18:00Z",
+      "type": "final_result",
+      "round": null,
+      "team": "builder",
+      "message": "Held-out: v0 41.3% → v4 55.4% → v4 + Breaker selection 62.0%"
+    },
+    {
+      "seq": 45,
+      "ts": "2026-10-16T23:21:00Z",
+      "type": "final_result",
+      "round": null,
+      "team": null,
+      "message": "Transfer: Gemma 38.0% with v0 playbook → 46.7% with the learned playbook"
+    },
+    {
+      "seq": 46,
+      "ts": "2026-10-16T23:22:42Z",
+      "type": "run_done",
+      "round": null,
+      "team": null,
+      "message": "Run complete. 0 human interventions."
+    }
+  ],
+  "next": 47
+}

@@ -1,0 +1,932 @@
+{
+  "cases": [
+    {
+      "problem_id": "Prob047_dff8ar",
+      "spec": "Create 8 D flip-flops with an active-high asynchronous reset. Reset sets the output to 0. All flip-flops are triggered by the positive edge of clk.",
+      "v0": {
+        "version": 0,
+        "official_pass": false,
+        "code": "module TopModule (\n  input clk,\n  input [7:0] d,\n  input areset,\n  output reg [7:0] q\n);\n\n  // reset is sampled on the clock edge\n  always @(posedge clk) begin\n    if (areset)\n      q <= 8'b0;\n    else\n      q <= d;\n  end\n\nendmodule\n"
+      },
+      "vbest": {
+        "version": 4,
+        "official_pass": true,
+        "code": "module TopModule (\n  input clk,\n  input [7:0] d,\n  input areset,\n  output reg [7:0] q\n);\n\n  // asynchronous reset: areset is in the sensitivity list\n  always @(posedge clk, posedge areset) begin\n    if (areset)\n      q <= 8'b0;\n    else\n      q <= d;\n  end\n\nendmodule\n"
+      },
+      "explanation": {
+        "round": 4,
+        "summary": "Put asynchronous resets in the sensitivity list: always @(posedge clk, posedge areset)",
+        "reasoning": "Version 0 only looked at areset on a rising clock edge, so whenever reset rose between edges q kept its old value for half a cycle. In round 4 the Builder coach saw the Breaker exploit this on 4 designs and added the rule: \"asynchronous\" in the spec means the reset goes in the sensitivity list."
+      },
+      "trace": {
+        "signals": [
+          {
+            "name": "clk",
+            "kind": "clock"
+          },
+          {
+            "name": "areset",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "d",
+            "kind": "input",
+            "width": 8
+          },
+          {
+            "name": "q",
+            "kind": "output",
+            "width": 8
+          }
+        ],
+        "rows": [
+          {
+            "t": 0,
+            "inputs": {
+              "clk": "1",
+              "areset": "1",
+              "d": "00000000"
+            },
+            "expected": {
+              "q": "00000000"
+            },
+            "v0": {
+              "q": "00000000"
+            },
+            "vbest": {
+              "q": "00000000"
+            }
+          },
+          {
+            "t": 5,
+            "inputs": {
+              "clk": "0",
+              "areset": "0",
+              "d": "10100101"
+            },
+            "expected": {
+              "q": "00000000"
+            },
+            "v0": {
+              "q": "00000000"
+            },
+            "vbest": {
+              "q": "00000000"
+            }
+          },
+          {
+            "t": 10,
+            "inputs": {
+              "clk": "1",
+              "areset": "0",
+              "d": "10100101"
+            },
+            "expected": {
+              "q": "10100101"
+            },
+            "v0": {
+              "q": "10100101"
+            },
+            "vbest": {
+              "q": "10100101"
+            }
+          },
+          {
+            "t": 15,
+            "inputs": {
+              "clk": "0",
+              "areset": "0",
+              "d": "00111100"
+            },
+            "expected": {
+              "q": "10100101"
+            },
+            "v0": {
+              "q": "10100101"
+            },
+            "vbest": {
+              "q": "10100101"
+            }
+          },
+          {
+            "t": 20,
+            "inputs": {
+              "clk": "1",
+              "areset": "0",
+              "d": "00111100"
+            },
+            "expected": {
+              "q": "00111100"
+            },
+            "v0": {
+              "q": "00111100"
+            },
+            "vbest": {
+              "q": "00111100"
+            }
+          },
+          {
+            "t": 25,
+            "inputs": {
+              "clk": "0",
+              "areset": "1",
+              "d": "00111100"
+            },
+            "expected": {
+              "q": "00000000"
+            },
+            "v0": {
+              "q": "00111100"
+            },
+            "vbest": {
+              "q": "00000000"
+            }
+          },
+          {
+            "t": 30,
+            "inputs": {
+              "clk": "1",
+              "areset": "1",
+              "d": "11111111"
+            },
+            "expected": {
+              "q": "00000000"
+            },
+            "v0": {
+              "q": "00000000"
+            },
+            "vbest": {
+              "q": "00000000"
+            }
+          },
+          {
+            "t": 35,
+            "inputs": {
+              "clk": "0",
+              "areset": "0",
+              "d": "11111111"
+            },
+            "expected": {
+              "q": "00000000"
+            },
+            "v0": {
+              "q": "00000000"
+            },
+            "vbest": {
+              "q": "00000000"
+            }
+          },
+          {
+            "t": 40,
+            "inputs": {
+              "clk": "1",
+              "areset": "0",
+              "d": "11111111"
+            },
+            "expected": {
+              "q": "11111111"
+            },
+            "v0": {
+              "q": "11111111"
+            },
+            "vbest": {
+              "q": "11111111"
+            }
+          },
+          {
+            "t": 45,
+            "inputs": {
+              "clk": "0",
+              "areset": "0",
+              "d": "10000001"
+            },
+            "expected": {
+              "q": "11111111"
+            },
+            "v0": {
+              "q": "11111111"
+            },
+            "vbest": {
+              "q": "11111111"
+            }
+          },
+          {
+            "t": 50,
+            "inputs": {
+              "clk": "1",
+              "areset": "0",
+              "d": "10000001"
+            },
+            "expected": {
+              "q": "10000001"
+            },
+            "v0": {
+              "q": "10000001"
+            },
+            "vbest": {
+              "q": "10000001"
+            }
+          },
+          {
+            "t": 55,
+            "inputs": {
+              "clk": "0",
+              "areset": "1",
+              "d": "10000001"
+            },
+            "expected": {
+              "q": "00000000"
+            },
+            "v0": {
+              "q": "10000001"
+            },
+            "vbest": {
+              "q": "00000000"
+            }
+          },
+          {
+            "t": 60,
+            "inputs": {
+              "clk": "1",
+              "areset": "1",
+              "d": "01000010"
+            },
+            "expected": {
+              "q": "00000000"
+            },
+            "v0": {
+              "q": "00000000"
+            },
+            "vbest": {
+              "q": "00000000"
+            }
+          },
+          {
+            "t": 65,
+            "inputs": {
+              "clk": "0",
+              "areset": "0",
+              "d": "01000010"
+            },
+            "expected": {
+              "q": "00000000"
+            },
+            "v0": {
+              "q": "00000000"
+            },
+            "vbest": {
+              "q": "00000000"
+            }
+          },
+          {
+            "t": 70,
+            "inputs": {
+              "clk": "1",
+              "areset": "0",
+              "d": "01000010"
+            },
+            "expected": {
+              "q": "01000010"
+            },
+            "v0": {
+              "q": "01000010"
+            },
+            "vbest": {
+              "q": "01000010"
+            }
+          },
+          {
+            "t": 75,
+            "inputs": {
+              "clk": "0",
+              "areset": "0",
+              "d": "00010111"
+            },
+            "expected": {
+              "q": "01000010"
+            },
+            "v0": {
+              "q": "01000010"
+            },
+            "vbest": {
+              "q": "01000010"
+            }
+          },
+          {
+            "t": 80,
+            "inputs": {
+              "clk": "1",
+              "areset": "0",
+              "d": "00010111"
+            },
+            "expected": {
+              "q": "00010111"
+            },
+            "v0": {
+              "q": "00010111"
+            },
+            "vbest": {
+              "q": "00010111"
+            }
+          },
+          {
+            "t": 85,
+            "inputs": {
+              "clk": "0",
+              "areset": "0",
+              "d": "00010111"
+            },
+            "expected": {
+              "q": "00010111"
+            },
+            "v0": {
+              "q": "00010111"
+            },
+            "vbest": {
+              "q": "00010111"
+            }
+          }
+        ],
+        "first_mismatch_row": 5
+      }
+    },
+    {
+      "problem_id": "Prob060_m2014_q4k",
+      "spec": "Implement a shift register with four D flip-flops in series. resetn is an active-low synchronous reset. out is the output of the last flip-flop.",
+      "v0": {
+        "version": 0,
+        "official_pass": false,
+        "code": "module TopModule (\n  input clk,\n  input resetn,\n  input in,\n  output out\n);\n\n  reg q1, q2, q3, q4;\n\n  always @(posedge clk) begin\n    if (!resetn) begin\n      q1 = 1'b0;\n      q2 = 1'b0;\n      q3 = 1'b0;\n      q4 = 1'b0;\n    end else begin\n      q1 = in;\n      q2 = q1;\n      q3 = q2;\n      q4 = q3;\n    end\n  end\n\n  assign out = q4;\n\nendmodule\n"
+      },
+      "vbest": {
+        "version": 4,
+        "official_pass": true,
+        "code": "module TopModule (\n  input clk,\n  input resetn,\n  input in,\n  output out\n);\n\n  reg [3:0] sr;\n\n  always @(posedge clk) begin\n    if (!resetn)\n      sr <= 4'b0;\n    else\n      sr <= {sr[2:0], in};\n  end\n\n  assign out = sr[3];\n\nendmodule\n"
+      },
+      "explanation": {
+        "round": 1,
+        "summary": "Use non-blocking assignments (<=) inside clocked always blocks",
+        "reasoning": "Version 0 used blocking \"=\" in the clocked block, so q1..q4 all took the new input in the same cycle and the 4-cycle delay collapsed to 1. The very first rule the Builder coach learned, in round 1, is to use non-blocking \"<=\" in clocked blocks."
+      },
+      "trace": {
+        "signals": [
+          {
+            "name": "clk",
+            "kind": "clock"
+          },
+          {
+            "name": "resetn",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "in",
+            "kind": "input",
+            "width": 1
+          },
+          {
+            "name": "out",
+            "kind": "output",
+            "width": 1
+          }
+        ],
+        "rows": [
+          {
+            "t": 0,
+            "inputs": {
+              "resetn": "0",
+              "in": "0"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "0"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 10,
+            "inputs": {
+              "resetn": "1",
+              "in": "0"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "0"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 20,
+            "inputs": {
+              "resetn": "1",
+              "in": "1"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "1"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 30,
+            "inputs": {
+              "resetn": "1",
+              "in": "0"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "0"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 40,
+            "inputs": {
+              "resetn": "1",
+              "in": "1"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "1"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 50,
+            "inputs": {
+              "resetn": "1",
+              "in": "1"
+            },
+            "expected": {
+              "out": "1"
+            },
+            "v0": {
+              "out": "1"
+            },
+            "vbest": {
+              "out": "1"
+            }
+          },
+          {
+            "t": 60,
+            "inputs": {
+              "resetn": "1",
+              "in": "0"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "0"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 70,
+            "inputs": {
+              "resetn": "1",
+              "in": "0"
+            },
+            "expected": {
+              "out": "1"
+            },
+            "v0": {
+              "out": "0"
+            },
+            "vbest": {
+              "out": "1"
+            }
+          },
+          {
+            "t": 80,
+            "inputs": {
+              "resetn": "1",
+              "in": "0"
+            },
+            "expected": {
+              "out": "1"
+            },
+            "v0": {
+              "out": "0"
+            },
+            "vbest": {
+              "out": "1"
+            }
+          },
+          {
+            "t": 90,
+            "inputs": {
+              "resetn": "1",
+              "in": "1"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "1"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 100,
+            "inputs": {
+              "resetn": "1",
+              "in": "1"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "1"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 110,
+            "inputs": {
+              "resetn": "1",
+              "in": "1"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "1"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 120,
+            "inputs": {
+              "resetn": "1",
+              "in": "1"
+            },
+            "expected": {
+              "out": "1"
+            },
+            "v0": {
+              "out": "1"
+            },
+            "vbest": {
+              "out": "1"
+            }
+          },
+          {
+            "t": 130,
+            "inputs": {
+              "resetn": "1",
+              "in": "0"
+            },
+            "expected": {
+              "out": "1"
+            },
+            "v0": {
+              "out": "0"
+            },
+            "vbest": {
+              "out": "1"
+            }
+          },
+          {
+            "t": 140,
+            "inputs": {
+              "resetn": "0",
+              "in": "0"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "0"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          },
+          {
+            "t": 150,
+            "inputs": {
+              "resetn": "1",
+              "in": "0"
+            },
+            "expected": {
+              "out": "0"
+            },
+            "v0": {
+              "out": "0"
+            },
+            "vbest": {
+              "out": "0"
+            }
+          }
+        ],
+        "first_mismatch_row": 2
+      }
+    },
+    {
+      "problem_id": "Prob116_m2014_q3",
+      "spec": "Implement the function f shown in the Karnaugh map, with input x[4:1]. Cells marked d are don't-care; you may choose any output value for them.",
+      "v0": {
+        "version": 0,
+        "official_pass": false,
+        "code": "module TopModule (\n  input [4:1] x,\n  output reg f\n);\n\n  always @(*) begin\n    case (x)\n      4'h0, 4'h1, 4'h2, 4'h3: f = 1'b0;\n      4'h4: f = 1'b1;\n      4'h5: f = 1'b0;\n      4'h6: f = 1'b1;\n      4'h7: f = 1'b0;\n      4'hc, 4'hd, 4'he: f = 1'b1;\n      4'hf: f = 1'b0;\n      // 8..b are don't-care: left out\n    endcase\n  end\n\nendmodule\n"
+      },
+      "vbest": {
+        "version": 4,
+        "official_pass": true,
+        "code": "module TopModule (\n  input [4:1] x,\n  output reg f\n);\n\n  always @(*) begin\n    f = 1'b0;  // every output assigned on every path\n    case (x)\n      4'h4, 4'h6, 4'hc, 4'hd, 4'he: f = 1'b1;\n      default: f = 1'b0;\n    endcase\n  end\n\nendmodule\n"
+      },
+      "explanation": {
+        "round": 6,
+        "summary": "Every case statement gets a default branch that assigns every output",
+        "reasoning": "Version 0 left the don't-care inputs out of the case statement, so f silently latched whatever it held before. On those inputs it sometimes kept a stale 1. Round 6's rule, every case gets a default and every output is assigned, removes the latch."
+      },
+      "trace": {
+        "signals": [
+          {
+            "name": "x",
+            "kind": "input",
+            "width": 4
+          },
+          {
+            "name": "f",
+            "kind": "output",
+            "width": 1
+          }
+        ],
+        "rows": [
+          {
+            "t": 0,
+            "inputs": {
+              "x": "0000"
+            },
+            "expected": {
+              "f": "0"
+            },
+            "v0": {
+              "f": "0"
+            },
+            "vbest": {
+              "f": "0"
+            }
+          },
+          {
+            "t": 10,
+            "inputs": {
+              "x": "0100"
+            },
+            "expected": {
+              "f": "1"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "1"
+            }
+          },
+          {
+            "t": 20,
+            "inputs": {
+              "x": "0101"
+            },
+            "expected": {
+              "f": "0"
+            },
+            "v0": {
+              "f": "0"
+            },
+            "vbest": {
+              "f": "0"
+            }
+          },
+          {
+            "t": 30,
+            "inputs": {
+              "x": "0110"
+            },
+            "expected": {
+              "f": "1"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "1"
+            }
+          },
+          {
+            "t": 40,
+            "inputs": {
+              "x": "1001"
+            },
+            "expected": {
+              "f": "0"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "0"
+            }
+          },
+          {
+            "t": 50,
+            "inputs": {
+              "x": "1100"
+            },
+            "expected": {
+              "f": "1"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "1"
+            }
+          },
+          {
+            "t": 60,
+            "inputs": {
+              "x": "1010"
+            },
+            "expected": {
+              "f": "0"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "0"
+            }
+          },
+          {
+            "t": 70,
+            "inputs": {
+              "x": "1110"
+            },
+            "expected": {
+              "f": "1"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "1"
+            }
+          },
+          {
+            "t": 80,
+            "inputs": {
+              "x": "1111"
+            },
+            "expected": {
+              "f": "0"
+            },
+            "v0": {
+              "f": "0"
+            },
+            "vbest": {
+              "f": "0"
+            }
+          },
+          {
+            "t": 90,
+            "inputs": {
+              "x": "1011"
+            },
+            "expected": {
+              "f": "0"
+            },
+            "v0": {
+              "f": "0"
+            },
+            "vbest": {
+              "f": "0"
+            }
+          },
+          {
+            "t": 100,
+            "inputs": {
+              "x": "1101"
+            },
+            "expected": {
+              "f": "1"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "1"
+            }
+          },
+          {
+            "t": 110,
+            "inputs": {
+              "x": "1000"
+            },
+            "expected": {
+              "f": "0"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "0"
+            }
+          },
+          {
+            "t": 120,
+            "inputs": {
+              "x": "0011"
+            },
+            "expected": {
+              "f": "0"
+            },
+            "v0": {
+              "f": "0"
+            },
+            "vbest": {
+              "f": "0"
+            }
+          },
+          {
+            "t": 130,
+            "inputs": {
+              "x": "0110"
+            },
+            "expected": {
+              "f": "1"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "1"
+            }
+          },
+          {
+            "t": 140,
+            "inputs": {
+              "x": "0001"
+            },
+            "expected": {
+              "f": "0"
+            },
+            "v0": {
+              "f": "0"
+            },
+            "vbest": {
+              "f": "0"
+            }
+          },
+          {
+            "t": 150,
+            "inputs": {
+              "x": "1100"
+            },
+            "expected": {
+              "f": "1"
+            },
+            "v0": {
+              "f": "1"
+            },
+            "vbest": {
+              "f": "1"
+            }
+          }
+        ],
+        "first_mismatch_row": 4
+      }
+    }
+  ]
+}

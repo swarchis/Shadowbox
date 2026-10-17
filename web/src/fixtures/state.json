@@ -1,0 +1,22 @@
+{
+  "mode": "mock",
+  "status": "finished",
+  "phase": "done",
+  "round": 6,
+  "step": "done",
+  "message": "Run complete: 6 rounds, 13 proposed changes, 7 kept. Final exam scored on 92 held-out problems.",
+  "started_at": "2026-10-16T22:00:00Z",
+  "updated_at": "2026-10-16T23:22:42Z",
+  "deadline_at": "2026-10-16T23:30:00Z",
+  "spend_usd": 31.42,
+  "spend_cap_usd": 45,
+  "llm_calls": 2147,
+  "human_interventions": 0,
+  "builder_version": 4,
+  "breaker_version": 3,
+  "splits": {
+    "train": 30,
+    "val": 30,
+    "test": 92
+  }
+}

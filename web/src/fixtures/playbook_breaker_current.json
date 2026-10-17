@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "parent": 2,
+  "team": "breaker",
+  "prompts": {
+    "attacker": "You are a verification engineer. Read the spec and the design. List the cases the design's case statements cover, then write input vectors that hit the cases it is missing, and the states it might never leave."
+  },
+  "rules": [
+    "Walk every FSM state at least once, then force each illegal transition."
+  ],
+  "tools": [
+    "edge_sweep"
+  ],
+  "params": {
+    "stimulus_cycles": 24,
+    "max_attack_attempts": 2
+  },
+  "tool_sources": {
+    "edge_sweep": "\"\"\"edge_sweep: stimulus that toggles control inputs right at clock edges.\n\nWritten by the Breaker coach in round 2: 7 of the 9 missed bugs only\nshowed up when reset or enable changed in the same cycle as a clock edge.\n\"\"\"\n\nCONTROL = (\"reset\", \"areset\", \"resetn\", \"rst\", \"en\", \"ena\", \"load\")\n\n\ndef run(spec, verilog, ports, cycles=24):\n    inputs = [p for p in ports if p[\"dir\"] == \"input\" and p[\"name\"] != \"clk\"]\n    stimulus = []\n    for c in range(cycles):\n        row = {}\n        for i, p in enumerate(inputs):\n            width = p.get(\"width\", 1)\n            mask = (1 << width) - 1\n            if p[\"name\"] in CONTROL:\n                # assert on a short, irregular schedule so edges line up\n                row[p[\"name\"]] = 1 if c in (0, 5, 6, 11, 17) else 0\n            elif width == 1:\n                row[p[\"name\"]] = (c >> i) & 1\n            else:\n                patterns = (0, mask, 0xAA & mask, 1 << (c % width))\n                row[p[\"name\"]] = patterns[(c + i) % len(patterns)]\n        stimulus.append(row)\n    return {\n        \"fired\": True,\n        \"stimulus\": stimulus,\n        \"findings\": [f\"{cycles} edge-aligned cycles over {len(inputs)} inputs\"],\n    }\n"
+  },
+  "tool_stats": {
+    "edge_sweep": {
+      "runs": 120,
+      "fired": 77,
+      "born_round": 2
+    }
+  }
+}

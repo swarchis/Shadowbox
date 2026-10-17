@@ -1,0 +1,33 @@
+{
+  "version": 4,
+  "parent": 3,
+  "team": "builder",
+  "prompts": {
+    "writer": "You are a senior RTL designer. Read the spec and write one synthesizable Verilog-2005 module named TopModule with exactly the ports given. Think about clocking and reset before writing code.",
+    "debugger": "You are fixing a Verilog module that failed to compile or simulate. Read the error and the lint findings, change as little as possible, and return the whole module."
+  },
+  "rules": [
+    "Use non-blocking assignments (<=) inside clocked always blocks; blocking (=) only in combinational blocks.",
+    "If the spec says \"asynchronous reset\", put it in the sensitivity list: always @(posedge clk, posedge areset).",
+    "Every case statement gets a default branch, and every output is assigned on every path."
+  ],
+  "tools": [
+    "lint_check"
+  ],
+  "params": {
+    "max_debug_attempts": 2,
+    "temperature": 0.2,
+    "test_time_drafts": 5,
+    "draft_temperature": 0.7
+  },
+  "tool_sources": {
+    "lint_check": "\"\"\"lint_check: flag iverilog-hostile patterns before simulation.\n\nWritten by the Builder coach in round 3, after 6 train failures traced\nback to the same three mistakes.\n\"\"\"\nimport re\n\nCLOCKED = re.compile(r\"always\\s*@\\s*\\(\\s*(?:posedge|negedge)[^)]*\\)(.*?)\\bend\\b\", re.S)\nSV_ONLY = (\"always_ff\", \"always_comb\", \"unique case\", \"priority case\")\n\n\ndef run(spec, verilog, ports):\n    findings = []\n    if \"module TopModule\" not in verilog:\n        findings.append(\"module must be named TopModule\")\n\n    # blocking '=' inside a clocked block collapses register chains\n    for block in CLOCKED.finditer(verilog):\n        if re.search(r\"[^<>=!]=[^=]\", block.group(1)):\n            findings.append(\"blocking '=' in clocked always block; use '<='\")\n\n    for kw in SV_ONLY:\n        if kw in verilog:\n            findings.append(f\"'{kw}' is SystemVerilog; iverilog may reject it\")\n\n    for port in ports:\n        if not re.search(rf\"\\b{port['name']}\\b\", verilog):\n            findings.append(f\"port '{port['name']}' from the spec is not declared\")\n\n    return {\"fired\": bool(findings), \"findings\": findings}\n"
+  },
+  "tool_stats": {
+    "lint_check": {
+      "runs": 186,
+      "fired": 41,
+      "born_round": 3
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "complete": true,
+      "builder_version": 0,
+      "breaker_version": 0,
+      "train_pass": 0.4,
+      "hard_pass": 0.3667,
+      "bugs_found": 9,
+      "subtle_bugs": 1,
+      "problems": 30
+    },
+    {
+      "round": 2,
+      "complete": true,
+      "builder_version": 1,
+      "breaker_version": 0,
+      "train_pass": 0.4667,
+      "hard_pass": 0.4333,
+      "bugs_found": 8,
+      "subtle_bugs": 1,
+      "problems": 30
+    },
+    {
+      "round": 3,
+      "complete": true,
+      "builder_version": 1,
+      "breaker_version": 1,
+      "train_pass": 0.5,
+      "hard_pass": 0.4333,
+      "bugs_found": 11,
+      "subtle_bugs": 2,
+      "problems": 30
+    },
+    {
+      "round": 4,
+      "complete": true,
+      "builder_version": 2,
+      "breaker_version": 1,
+      "train_pass": 0.5333,
+      "hard_pass": 0.4667,
+      "bugs_found": 10,
+      "subtle_bugs": 2,
+      "problems": 30
+    },
+    {
+      "round": 5,
+      "complete": true,
+      "builder_version": 3,
+      "breaker_version": 2,
+      "train_pass": 0.6,
+      "hard_pass": 0.5,
+      "bugs_found": 12,
+      "subtle_bugs": 3,
+      "problems": 30
+    },
+    {
+      "round": 6,
+      "complete": true,
+      "builder_version": 3,
+      "breaker_version": 3,
+      "train_pass": 0.6333,
+      "hard_pass": 0.5333,
+      "bugs_found": 13,
+      "subtle_bugs": 3,
+      "problems": 30
+    }
+  ]
+}

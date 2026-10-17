@@ -1,0 +1,103 @@
+{
+  "complete": true,
+  "test_problems": 92,
+  "metrics": {
+    "v0": {
+      "label": "Version 0",
+      "pass": 0.413,
+      "ci": [
+        0.315,
+        0.511
+      ],
+      "n": 92
+    },
+    "vbest": {
+      "label": "Latest version",
+      "pass": 0.554,
+      "ci": [
+        0.452,
+        0.652
+      ],
+      "n": 92
+    },
+    "vbest_selection": {
+      "label": "Latest + Breaker",
+      "pass": 0.62,
+      "ci": [
+        0.522,
+        0.717
+      ],
+      "n": 92
+    },
+    "random_pick": {
+      "label": "Random draft",
+      "pass": 0.5,
+      "ci": null,
+      "n": 92
+    },
+    "random_input_sel": {
+      "label": "Random-input selection",
+      "pass": 0.565,
+      "ci": null,
+      "n": 92
+    },
+    "breaker_v0_sel": {
+      "label": "Selection with Breaker v0",
+      "pass": 0.587,
+      "ci": null,
+      "n": 92
+    },
+    "ceiling": {
+      "label": "Best possible pick",
+      "pass": 0.696,
+      "ci": null,
+      "n": 92
+    },
+    "ultra": {
+      "label": "Nemotron Ultra (v0 playbook)",
+      "pass": 0.598,
+      "ci": [
+        0.5,
+        0.696
+      ],
+      "n": 92
+    },
+    "transfer_v0": {
+      "label": "Gemma + v0 playbook",
+      "pass": 0.38,
+      "ci": null,
+      "n": 92
+    },
+    "transfer_vbest": {
+      "label": "Gemma + learned playbook",
+      "pass": 0.467,
+      "ci": null,
+      "n": 92
+    },
+    "ablation_nano_coach": {
+      "label": "Gain with Nano coach",
+      "pass": 0.06,
+      "ci": null,
+      "n": 20
+    },
+    "ablation_main_coach": {
+      "label": "Gain with main coach",
+      "pass": 0.1,
+      "ci": null,
+      "n": 20
+    }
+  },
+  "builder_versions": {
+    "v0": 0,
+    "vbest": 4
+  },
+  "breaker_versions": {
+    "v0": 0,
+    "vbest": 3
+  },
+  "cost_usd": 9.8,
+  "notes": [
+    "CIs are 95% bootstrap over problems.",
+    "Scored with the official VerilogEval testbenches only; 3 runs averaged."
+  ]
+}

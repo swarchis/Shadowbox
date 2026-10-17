@@ -1,0 +1,21 @@
+# Local toolchain and dependencies (rebuild with the README's setup steps)
+.venv/
+.tools/
+web/node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# VerilogEval is downloaded, not vendored (MIT, NVIDIA): see README setup
+data/raw/
+
+# Mock-mode output is fake and only tests the pipeline. Real results in runs/ and versions/ ARE meant to be
+# committed: they are the evidence (lineage, scores, final exam) for the judges.
+runs_mock/
+versions_mock/
+
+# Secrets: never commit (the repo is public)
+.env
+.env.*
+!.env.example

@@ -1,0 +1,41 @@
+{
+  "team": "builder",
+  "current": 4,
+  "versions": [
+    {
+      "version": 0,
+      "parent": null,
+      "rules": 0,
+      "tools": 0,
+      "created_round": null
+    },
+    {
+      "version": 1,
+      "parent": 0,
+      "rules": 1,
+      "tools": 0,
+      "created_round": 1
+    },
+    {
+      "version": 2,
+      "parent": 1,
+      "rules": 1,
+      "tools": 1,
+      "created_round": 3
+    },
+    {
+      "version": 3,
+      "parent": 2,
+      "rules": 2,
+      "tools": 1,
+      "created_round": 4
+    },
+    {
+      "version": 4,
+      "parent": 3,
+      "rules": 3,
+      "tools": 1,
+      "created_round": 6
+    }
+  ]
+}

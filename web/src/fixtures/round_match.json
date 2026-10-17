@@ -1,0 +1,1306 @@
+{
+  "round": 6,
+  "builder_version": 3,
+  "breaker_version": 3,
+  "summary": {
+    "train_pass": 0.6333,
+    "hard_pass": 0.5333,
+    "bugs_found": 13,
+    "subtle_bugs": 3,
+    "problems": 30
+  },
+  "problems": [
+    {
+      "problem_id": "Prob001_zero",
+      "spec": "zero: implement the circuit described in the VerilogEval spec for Prob001_zero.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // zero\nendmodule\n",
+        "compiled": true,
+        "attempts": 1,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": true,
+            "findings": [
+              "blocking assignment in clocked block"
+            ]
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob004_vector2",
+      "spec": "vector2: implement the circuit described in the VerilogEval spec for Prob004_vector2.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // vector2\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob014_andgate",
+      "spec": "andgate: implement the circuit described in the VerilogEval spec for Prob014_andgate.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // andgate\nendmodule\n",
+        "compiled": true,
+        "attempts": 1,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob016_m2014_q4j",
+      "spec": "m2014_q4j: implement the circuit described in the VerilogEval spec for Prob016_m2014_q4j.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // m2014_q4j\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob021_mux256to1v",
+      "spec": "mux256to1v: implement the circuit described in the VerilogEval spec for Prob021_mux256to1v.",
+      "is_sequential": false,
+      "official": {
+        "passed": false,
+        "kind": "compile_error",
+        "mismatches": 0,
+        "samples": 0
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // mux256to1v\nendmodule\n",
+        "compiled": false,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Could not resolve part-select width"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": null
+    },
+    {
+      "problem_id": "Prob026_alwaysblock1",
+      "spec": "alwaysblock1: implement the circuit described in the VerilogEval spec for Prob026_alwaysblock1.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // alwaysblock1\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": true,
+            "findings": [
+              "blocking assignment in clocked block"
+            ]
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob037_review2015_count1k",
+      "spec": "review2015_count1k: implement the circuit described in the VerilogEval spec for Prob037_review2015_count1k.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 41,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // review2015_count1k\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 8,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 14
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob044_vectorgates",
+      "spec": "vectorgates: implement the circuit described in the VerilogEval spec for Prob044_vectorgates.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // vectorgates\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob054_edgedetect",
+      "spec": "edgedetect: implement the circuit described in the VerilogEval spec for Prob054_edgedetect.",
+      "is_sequential": true,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // edgedetect\nendmodule\n",
+        "compiled": true,
+        "attempts": 1,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": false,
+        "first_mismatch": {
+          "cycle": 10,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 8
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob055_conditional",
+      "spec": "conditional: implement the circuit described in the VerilogEval spec for Prob055_conditional.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // conditional\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob057_kmap2",
+      "spec": "kmap2: implement the circuit described in the VerilogEval spec for Prob057_kmap2.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // kmap2\nendmodule\n",
+        "compiled": true,
+        "attempts": 1,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": true,
+            "findings": [
+              "blocking assignment in clocked block"
+            ]
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob062_bugs_mux2",
+      "spec": "bugs_mux2: implement the circuit described in the VerilogEval spec for Prob062_bugs_mux2.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // bugs_mux2\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob063_review2015_shiftcount",
+      "spec": "review2015_shiftcount: implement the circuit described in the VerilogEval spec for Prob063_review2015_shiftcount.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 39,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // review2015_shiftcount\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 5,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 12
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob065_7420",
+      "spec": "7420: implement the circuit described in the VerilogEval spec for Prob065_7420.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // 7420\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob070_ece241_2013_q2",
+      "spec": "ece241_2013_q2: implement the circuit described in the VerilogEval spec for Prob070_ece241_2013_q2.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // ece241_2013_q2\nendmodule\n",
+        "compiled": true,
+        "attempts": 1,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob075_counter_2bc",
+      "spec": "counter_2bc: implement the circuit described in the VerilogEval spec for Prob075_counter_2bc.",
+      "is_sequential": true,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // counter_2bc\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": true,
+            "findings": [
+              "blocking assignment in clocked block"
+            ]
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": false,
+        "first_mismatch": {
+          "cycle": 8,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 11
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob078_dualedge",
+      "spec": "dualedge: implement the circuit described in the VerilogEval spec for Prob078_dualedge.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 11,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // dualedge\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 9,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 0
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob080_timer",
+      "spec": "timer: implement the circuit described in the VerilogEval spec for Prob080_timer.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 24,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // timer\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 10,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 5
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob085_shift4",
+      "spec": "shift4: implement the circuit described in the VerilogEval spec for Prob085_shift4.",
+      "is_sequential": true,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // shift4\nendmodule\n",
+        "compiled": true,
+        "attempts": 1,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob097_mux9to1v",
+      "spec": "mux9to1v: implement the circuit described in the VerilogEval spec for Prob097_mux9to1v.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // mux9to1v\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob103_circuit2",
+      "spec": "circuit2: implement the circuit described in the VerilogEval spec for Prob103_circuit2.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // circuit2\nendmodule\n",
+        "compiled": true,
+        "attempts": 1,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": true,
+            "findings": [
+              "blocking assignment in clocked block"
+            ]
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob105_rotate100",
+      "spec": "rotate100: implement the circuit described in the VerilogEval spec for Prob105_rotate100.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 36,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // rotate100\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 5,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 9
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob107_fsm1s",
+      "spec": "fsm1s: implement the circuit described in the VerilogEval spec for Prob107_fsm1s.",
+      "is_sequential": true,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // fsm1s\nendmodule\n",
+        "compiled": true,
+        "attempts": 1,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": false,
+        "first_mismatch": {
+          "cycle": 6,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 14
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob110_fsm2",
+      "spec": "fsm2: implement the circuit described in the VerilogEval spec for Prob110_fsm2.",
+      "is_sequential": true,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // fsm2\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob118_history_shift",
+      "spec": "history_shift: implement the circuit described in the VerilogEval spec for Prob118_history_shift.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 35,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // history_shift\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 8,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 8
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob125_kmap3",
+      "spec": "kmap3: implement the circuit described in the VerilogEval spec for Prob125_kmap3.",
+      "is_sequential": false,
+      "official": {
+        "passed": true,
+        "kind": "pass",
+        "mismatches": 0,
+        "samples": 200
+      },
+      "hard_pass": true,
+      "build": {
+        "code": "module TopModule (\n  input [3:0] in,\n  output [3:0] out\n);\n  // kmap3\nendmodule\n",
+        "compiled": true,
+        "attempts": 2,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": true,
+            "findings": [
+              "blocking assignment in clocked block"
+            ]
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": false,
+        "caught_by_official": false,
+        "first_mismatch": null
+      }
+    },
+    {
+      "problem_id": "Prob129_ece241_2013_q8",
+      "spec": "ece241_2013_q8: implement the circuit described in the VerilogEval spec for Prob129_ece241_2013_q8.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 21,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // ece241_2013_q8\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 10,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 2
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob140_fsm_hdlc",
+      "spec": "fsm_hdlc: implement the circuit described in the VerilogEval spec for Prob140_fsm_hdlc.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 34,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // fsm_hdlc\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 2,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 7
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob143_fsm_onehot",
+      "spec": "fsm_onehot: implement the circuit described in the VerilogEval spec for Prob143_fsm_onehot.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 7,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // fsm_onehot\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 3,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 12
+          }
+        }
+      }
+    },
+    {
+      "problem_id": "Prob148_2013_q2afsm",
+      "spec": "2013_q2afsm: implement the circuit described in the VerilogEval spec for Prob148_2013_q2afsm.",
+      "is_sequential": true,
+      "official": {
+        "passed": false,
+        "kind": "mismatch",
+        "mismatches": 20,
+        "samples": 200
+      },
+      "hard_pass": false,
+      "build": {
+        "code": "module TopModule (\n  input clk,\n  input reset,\n  input [3:0] in,\n  output reg [3:0] out\n);\n  // 2013_q2afsm\nendmodule\n",
+        "compiled": true,
+        "attempts": 3,
+        "steps": [
+          {
+            "agent": "writer",
+            "summary": "Wrote first draft"
+          },
+          {
+            "agent": "debugger",
+            "summary": "Fixed port width after lint warning"
+          }
+        ],
+        "tool_reports": [
+          {
+            "tool": "lint_check",
+            "fired": false,
+            "findings": []
+          }
+        ]
+      },
+      "attack": {
+        "stimulus_cycles": 24,
+        "valid_bug": true,
+        "caught_by_official": true,
+        "first_mismatch": {
+          "cycle": 4,
+          "phase": "post",
+          "signal": "out",
+          "expected": "0110",
+          "got": "0100",
+          "inputs": {
+            "in": 1
+          }
+        }
+      }
+    }
+  ]
+}

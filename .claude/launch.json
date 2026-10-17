@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "shadowbox",
+      "runtimeExecutable": "/Users/swarchisk./Downloads/Shadowbox_NVIDIA_RAH/.venv/bin/python",
+      "runtimeArgs": ["-m", "server.api"],
+      "port": 8000
+    },
+    {
+      "name": "web-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "web", "run", "dev", "--", "--port", "5173", "--strictPort"],
+      "port": 5173
+    }
+  ]
+}

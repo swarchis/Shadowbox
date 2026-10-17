@@ -1,0 +1,365 @@
+{
+  "entries": [
+    {
+      "id": "r1-builder-c0",
+      "round": 1,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Use non-blocking assignments (<=) inside clocked always blocks",
+      "reasoning": "5 of the 18 train failures (Prob085_shift4, Prob118_history_shift, Prob063_review2015_shiftcount, ...) used blocking \"=\" inside always @(posedge clk). Every register in the chain then updates from the new value in the same cycle, so shift registers collapse to a single flop. One rule should fix the whole family.",
+      "evidence_problems": [
+        "Prob085_shift4",
+        "Prob118_history_shift",
+        "Prob063_review2015_shiftcount",
+        "Prob105_rotate100"
+      ],
+      "score_before": 0.4,
+      "score_after": 0.5,
+      "gained": [
+        "Prob060_m2014_q4k",
+        "Prob068_countbcd",
+        "Prob104_mt2015_muxdff"
+      ],
+      "lost": [],
+      "net_flips": 3,
+      "accepted": true,
+      "from_version": 0,
+      "new_version": 1,
+      "tool_name": null,
+      "cost_usd": 0.92,
+      "ts": "2026-10-16T22:14:00Z"
+    },
+    {
+      "id": "r1-breaker-c0",
+      "round": 1,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Hold reset high for 3 cycles before releasing it",
+      "reasoning": "Two missed bugs involved designs that came out of reset in a bad state. Holding reset longer should expose them. Gate: only +1 on the frozen pool, below the +2 margin, so it is not worth the extra stimulus budget.",
+      "evidence_problems": [
+        "Prob075_counter_2bc",
+        "Prob080_timer"
+      ],
+      "score_before": 0.52,
+      "score_after": 0.56,
+      "gained": [
+        "bug_017"
+      ],
+      "lost": [],
+      "net_flips": 1,
+      "accepted": false,
+      "from_version": 0,
+      "new_version": null,
+      "tool_name": null,
+      "cost_usd": 0.61,
+      "ts": "2026-10-16T22:16:00Z"
+    },
+    {
+      "id": "r2-builder-c0",
+      "round": 2,
+      "team": "builder",
+      "change_type": "prompt_edit",
+      "summary": "Ask the writer to restate every port and its width before coding",
+      "reasoning": "Three failures had port-width mismatches (Prob021_mux256to1v, Prob097_mux9to1v). Restating ports first might catch them. Gate: fixed 2 width bugs but the longer prompt broke 2 FSMs that had passed. Net 0, rejected.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob097_mux9to1v",
+        "Prob044_vectorgates"
+      ],
+      "score_before": 0.5,
+      "score_after": 0.5,
+      "gained": [
+        "Prob077_wire_decl",
+        "Prob094_gatesv"
+      ],
+      "lost": [
+        "Prob120_fsm3s",
+        "Prob139_2013_q2bfsm"
+      ],
+      "net_flips": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "tool_name": null,
+      "cost_usd": 1.04,
+      "ts": "2026-10-16T22:23:00Z"
+    },
+    {
+      "id": "r2-breaker-c0",
+      "round": 2,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "New tool edge_sweep: toggle every control input right at clock edges",
+      "reasoning": "7 of the 9 bugs we missed only showed up when reset or enable changed in the same cycle as a clock edge. Random stimulus almost never lines those up. A small generator that sweeps each control input across the edge should catch the whole class.",
+      "evidence_problems": [
+        "Prob075_counter_2bc",
+        "Prob078_dualedge",
+        "Prob080_timer",
+        "Prob107_fsm1s"
+      ],
+      "score_before": 0.52,
+      "score_after": 0.6,
+      "gained": [
+        "bug_004",
+        "bug_011",
+        "bug_019"
+      ],
+      "lost": [
+        "bug_022"
+      ],
+      "net_flips": 2,
+      "accepted": true,
+      "from_version": 0,
+      "new_version": 1,
+      "tool_name": "edge_sweep",
+      "cost_usd": 1.37,
+      "ts": "2026-10-16T22:26:00Z"
+    },
+    {
+      "id": "r3-builder-c0",
+      "round": 3,
+      "team": "builder",
+      "change_type": "tool_add",
+      "summary": "New tool lint_check: flag blocking assigns, SystemVerilog-only keywords and missing ports",
+      "reasoning": "Even with the round-1 rule, 4 drafts still slipped a blocking assign into a clocked block, and 2 used always_ff, which iverilog rejects. A static check before simulation lets the debugger fix these without burning an attempt.",
+      "evidence_problems": [
+        "Prob140_fsm_hdlc",
+        "Prob143_fsm_onehot",
+        "Prob129_ece241_2013_q8"
+      ],
+      "score_before": 0.5,
+      "score_after": 0.5667,
+      "gained": [
+        "Prob096_review2015_fsmseq",
+        "Prob150_review2015_fsmonehot",
+        "Prob121_2014_q3bfsm"
+      ],
+      "lost": [
+        "Prob024_hadd"
+      ],
+      "net_flips": 2,
+      "accepted": true,
+      "from_version": 1,
+      "new_version": 2,
+      "tool_name": "lint_check",
+      "cost_usd": 1.58,
+      "ts": "2026-10-16T22:33:00Z"
+    },
+    {
+      "id": "r3-builder-c1",
+      "round": 3,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Prefer continuous assign statements for purely combinational outputs",
+      "reasoning": "Combinational always blocks produced two latches. Pushing everything to assign should remove them. Gate: lost 2 mux problems where the assign got too long and the model mis-parenthesised it. Net -1, rejected.",
+      "evidence_problems": [
+        "Prob055_conditional",
+        "Prob057_kmap2"
+      ],
+      "score_before": 0.5667,
+      "score_after": 0.5333,
+      "gained": [
+        "Prob132_always_if2"
+      ],
+      "lost": [
+        "Prob104_mt2015_muxdff",
+        "Prob002_m2014_q4i"
+      ],
+      "net_flips": -1,
+      "accepted": false,
+      "from_version": 2,
+      "new_version": null,
+      "tool_name": null,
+      "cost_usd": 0.88,
+      "ts": "2026-10-16T22:35:00Z"
+    },
+    {
+      "id": "r3-breaker-c0",
+      "round": 3,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Drive the widest bus with all-ones and all-zeros vectors first",
+      "reasoning": "Thought width bugs would show on the extremes. Gate: the pool bugs are mostly timing, not width; no change in catch rate. Rejected.",
+      "evidence_problems": [
+        "Prob021_mux256to1v",
+        "Prob105_rotate100"
+      ],
+      "score_before": 0.6,
+      "score_after": 0.6,
+      "gained": [],
+      "lost": [],
+      "net_flips": 0,
+      "accepted": false,
+      "from_version": 1,
+      "new_version": null,
+      "tool_name": null,
+      "cost_usd": 0.55,
+      "ts": "2026-10-16T22:37:00Z"
+    },
+    {
+      "id": "r4-builder-c0",
+      "round": 4,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Put asynchronous resets in the sensitivity list: always @(posedge clk, posedge areset)",
+      "reasoning": "The Breaker's new edge_sweep tool exposed 4 designs that treated an \"asynchronous\" reset as synchronous. They pass most cycles, then hold a stale value for half a cycle whenever reset rises between edges. The spec wording \"asynchronous\" should map to the sensitivity list.",
+      "evidence_problems": [
+        "Prob080_timer",
+        "Prob078_dualedge",
+        "Prob129_ece241_2013_q8"
+      ],
+      "score_before": 0.5667,
+      "score_after": 0.6333,
+      "gained": [
+        "Prob036_ringer",
+        "Prob067_countslow"
+      ],
+      "lost": [],
+      "net_flips": 2,
+      "accepted": true,
+      "from_version": 2,
+      "new_version": 3,
+      "tool_name": null,
+      "cost_usd": 0.97,
+      "ts": "2026-10-16T22:44:00Z"
+    },
+    {
+      "id": "r4-breaker-c0",
+      "round": 4,
+      "team": "breaker",
+      "change_type": "rule_add",
+      "summary": "Walk every FSM state at least once, then force each illegal transition",
+      "reasoning": "Builder FSMs now pass basic sequences, so random inputs rarely reach the broken states. Reading the case statement, enumerating states and steering into each one found 3 bugs the pool had flagged but we had missed.",
+      "evidence_problems": [
+        "Prob140_fsm_hdlc",
+        "Prob143_fsm_onehot",
+        "Prob148_2013_q2afsm"
+      ],
+      "score_before": 0.6,
+      "score_after": 0.68,
+      "gained": [
+        "bug_002",
+        "bug_014"
+      ],
+      "lost": [],
+      "net_flips": 2,
+      "accepted": true,
+      "from_version": 1,
+      "new_version": 2,
+      "tool_name": null,
+      "cost_usd": 1.12,
+      "ts": "2026-10-16T22:47:00Z"
+    },
+    {
+      "id": "r5-builder-c0",
+      "round": 5,
+      "team": "builder",
+      "change_type": "param",
+      "summary": "Raise max_debug_attempts from 2 to 3",
+      "reasoning": "Six failures were one debug step away from compiling. A third attempt should rescue them. Gate: rescued 1, but the extra attempt rewrote a working counter into a broken one twice. Net -1, rejected, and it cost 30% more.",
+      "evidence_problems": [
+        "Prob037_review2015_count1k",
+        "Prob063_review2015_shiftcount"
+      ],
+      "score_before": 0.6333,
+      "score_after": 0.6,
+      "gained": [
+        "Prob155_lemmings4"
+      ],
+      "lost": [
+        "Prob068_countbcd",
+        "Prob009_popcount3"
+      ],
+      "net_flips": -1,
+      "accepted": false,
+      "from_version": 3,
+      "new_version": null,
+      "tool_name": null,
+      "cost_usd": 1.46,
+      "ts": "2026-10-16T22:54:00Z"
+    },
+    {
+      "id": "r5-breaker-c0",
+      "round": 5,
+      "team": "breaker",
+      "change_type": "prompt_edit",
+      "summary": "Read the design's case statements and aim inputs at the branches it is missing",
+      "reasoning": "The remaining misses are designs with incomplete case statements: they only fail on input values that hit a missing branch. Telling the attacker to list the covered cases and target the gaps is cheap and very specific.",
+      "evidence_problems": [
+        "Prob125_kmap3",
+        "Prob057_kmap2",
+        "Prob129_ece241_2013_q8"
+      ],
+      "score_before": 0.68,
+      "score_after": 0.76,
+      "gained": [
+        "bug_006",
+        "bug_009",
+        "bug_023"
+      ],
+      "lost": [
+        "bug_014"
+      ],
+      "net_flips": 2,
+      "accepted": true,
+      "from_version": 2,
+      "new_version": 3,
+      "tool_name": null,
+      "cost_usd": 0.83,
+      "ts": "2026-10-16T22:57:00Z"
+    },
+    {
+      "id": "r6-builder-c0",
+      "round": 6,
+      "team": "builder",
+      "change_type": "rule_add",
+      "summary": "Every case statement gets a default branch that assigns every output",
+      "reasoning": "The Breaker's new case-gap attacks caught 5 of our designs with incomplete case statements. Without a default, the output silently latches its previous value. Always assigning a default value removes the latch.",
+      "evidence_problems": [
+        "Prob125_kmap3",
+        "Prob057_kmap2",
+        "Prob129_ece241_2013_q8",
+        "Prob148_2013_q2afsm"
+      ],
+      "score_before": 0.6333,
+      "score_after": 0.7,
+      "gained": [
+        "Prob116_m2014_q3",
+        "Prob074_ece241_2014_q4"
+      ],
+      "lost": [],
+      "net_flips": 2,
+      "accepted": true,
+      "from_version": 3,
+      "new_version": 4,
+      "tool_name": null,
+      "cost_usd": 0.94,
+      "ts": "2026-10-16T23:04:00Z"
+    },
+    {
+      "id": "r6-breaker-c0",
+      "round": 6,
+      "team": "breaker",
+      "change_type": "tool_add",
+      "summary": "New tool x_probe: drive x and z values onto inputs to expose missing resets",
+      "reasoning": "Hoped unknown inputs would flush out designs that never initialise a register. Gate: x inputs propagate into the reference too, so 2 \"bugs\" were not reproducible and one real catch was lost. Net -1, rejected.",
+      "evidence_problems": [
+        "Prob107_fsm1s",
+        "Prob110_fsm2"
+      ],
+      "score_before": 0.76,
+      "score_after": 0.72,
+      "gained": [],
+      "lost": [
+        "bug_009"
+      ],
+      "net_flips": -1,
+      "accepted": false,
+      "from_version": 3,
+      "new_version": null,
+      "tool_name": "x_probe",
+      "cost_usd": 1.21,
+      "ts": "2026-10-16T23:07:00Z"
+    }
+  ]
+}

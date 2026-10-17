@@ -1,0 +1,19 @@
+{
+  "project": "Shadowbox",
+  "tagline": "AI teams that get better by fighting themselves",
+  "team": [
+    {
+      "name": "Your Name",
+      "photo": null
+    },
+    {
+      "name": "Teammate Two",
+      "photo": null
+    },
+    {
+      "name": "Teammate Three",
+      "photo": null
+    }
+  ],
+  "repo_url": "https://github.com/your-team/shadowbox"
+}
